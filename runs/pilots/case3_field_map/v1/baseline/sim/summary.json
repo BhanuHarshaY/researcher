@@ -1,0 +1,131 @@
+{
+  "case": "case3_field_map",
+  "agent": "baseline",
+  "mode": "sim",
+  "n_runs": 2,
+  "runs": [
+    "20261116T223155Z_1",
+    "20261116T223156Z_2"
+  ],
+  "metrics": {
+    "recall_gold": {
+      "mean": 0.2727,
+      "sd": 0.0429,
+      "min": 0.2424,
+      "max": 0.303,
+      "n": 2
+    },
+    "precision_set": {
+      "mean": 0.75,
+      "sd": 0.0272,
+      "min": 0.7308,
+      "max": 0.7692,
+      "n": 2
+    },
+    "off_scope_rate": {
+      "mean": 0.0385,
+      "sd": 0.0,
+      "min": 0.0385,
+      "max": 0.0385,
+      "n": 2
+    },
+    "claim_support_rate": {
+      "mean": 0.9334,
+      "sd": 0.0943,
+      "min": 0.8667,
+      "max": 1.0,
+      "n": 2
+    },
+    "trap_flag_rate": {
+      "mean": null,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "n": 0
+    },
+    "near_miss_exclusion_rate": {
+      "mean": null,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "n": 0
+    },
+    "exclusion_explained": {
+      "mean": null,
+      "sd": null,
+      "min": null,
+      "max": null,
+      "n": 0
+    },
+    "steer_preservation": {
+      "mean": 0.9318,
+      "sd": 0.0964,
+      "min": 0.8636,
+      "max": 1.0,
+      "n": 2
+    },
+    "user_turns": {
+      "mean": 3.0,
+      "sd": 0.0,
+      "min": 3,
+      "max": 3,
+      "n": 2
+    },
+    "tool_calls": {
+      "mean": 40.0,
+      "sd": 0.0,
+      "min": 40,
+      "max": 40,
+      "n": 2
+    },
+    "input_tokens": {
+      "mean": 737174.5,
+      "sd": 58597.2319,
+      "min": 695740,
+      "max": 778609,
+      "n": 2
+    },
+    "output_tokens": {
+      "mean": 16626.5,
+      "sd": 475.8829,
+      "min": 16290,
+      "max": 16963,
+      "n": 2
+    },
+    "wall_time_s": {
+      "mean": 169.65,
+      "sd": 4.9073,
+      "min": 166.18,
+      "max": 173.12,
+      "n": 2
+    }
+  },
+  "breakdowns": {
+    "bd_scope_drift": {
+      "runs_flagged": 0,
+      "n": 2
+    },
+    "bd_missed_key_paper": {
+      "runs_flagged": 2,
+      "n": 2
+    },
+    "bd_opaque_screening": {
+      "runs_flagged": 0,
+      "n": 0
+    },
+    "bd_cant_steer": {
+      "runs_flagged": 0,
+      "n": 2
+    },
+    "bd_misattribution": {
+      "runs_flagged": 0,
+      "n": 2
+    },
+    "bd_status_ignored": {
+      "runs_flagged": 0,
+      "n": 0
+    }
+  },
+  "rerun_overlap": 0.6774,
+  "rerun_overlap_n": 2
+}

@@ -1,0 +1,1205 @@
+{
+  "judge_model": "claude-sonnet-5-5",
+  "followups": {
+    "why_excluded": {
+      "user_turn": 3,
+      "target": "W2150479185"
+    },
+    "criteria_change": null,
+    "exclusion_list": null
+  },
+  "errors": [],
+  "final_state": {
+    "upto_turn": null,
+    "papers": [
+      {
+        "id": "W2168729696",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "A later meta-analysis found mechanical prediction about 10% more accurate on average [W2168729696]"
+      },
+      {
+        "id": "W207333959",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "A review of the debate concluded that actuarial methods \"are rarely employed in practice\" [W207333959]"
+      },
+      {
+        "id": "W3125633690",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Dietvorst, Simmons, and Massey ran five studies... [W3125633690]"
+      },
+      {
+        "id": "W2600700815",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Prahl and Van Swol found no general preference for human advice [W2600700815]"
+      },
+      {
+        "id": "W3167050492",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Algorithmic errors produce harsher emotional and behavioral reactions [W3167050492]"
+      },
+      {
+        "id": "W2913854599",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Yeomans et al. found that a recommender system predicted which jokes [W2913854599]"
+      },
+      {
+        "id": "W4309634305",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "aversion in delegated investing [W4309634305]"
+      },
+      {
+        "id": "W3087513280",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "investment decisions involving morally controversial companies [W3087513280]"
+      },
+      {
+        "id": "W4403540152",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "operational planning during disruptions [W4403540152]"
+      },
+      {
+        "id": "W2981686111",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Systematic reviews group the proposed causes into expectations and expertise [W2981686111]"
+      },
+      {
+        "id": "W4200546216",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Another review sorts them into factors related to the algorithm, the individual, the task [W4200546216]"
+      },
+      {
+        "id": "W2800068874",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Logg, Minson, and Moore... algorithm appreciation [W2800068874]"
+      },
+      {
+        "id": "W4281822284",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "You et al. found that people followed algorithmic advice more [W4281822284]"
+      },
+      {
+        "id": "W3152500611",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Reliance on algorithmic advice, compared with peer advice, grows as tasks get harder [W3152500611]"
+      },
+      {
+        "id": "W4248125493",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "consumers who believe algorithms have more domain expertise follow algorithmic recommendations [W4248125493]"
+      },
+      {
+        "id": "W4211002924",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Public-sector experiments... adhered more to advice that matched stereotypes [W4211002924]"
+      },
+      {
+        "id": "W4400803056",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Jussupow, Benbasat, and Heinzl argue that the two literatures [W4400803056]"
+      },
+      {
+        "id": "W3206874785",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Hou and Jung produced both appreciation and aversion [W3206874785]"
+      },
+      {
+        "id": "W3193926864",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "people who believe AI is smarter than humans adopt algorithmic advice more [W3193926864]"
+      },
+      {
+        "id": "W2792183666",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Lee found that algorithmic decisions were judged as fair and trustworthy [W2792183666]"
+      },
+      {
+        "id": "W4385299043",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "A review of task-specific advice acceptance reaches similar conclusions [W4385299043]"
+      },
+      {
+        "id": "W4321440879",
+        "role": "mentioned",
+        "status_flagged": false,
+        "evidence": "Cited in first draft (high-stakes decisions) but absent from the final version, with no explicit exclusion."
+      },
+      {
+        "id": "W4366599035",
+        "role": "mentioned",
+        "status_flagged": false,
+        "evidence": "Cited in first draft (uncertainty moderates) but absent from the final version, with no explicit exclusion."
+      },
+      {
+        "id": "W2886363025",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "mediated by the perception that machines cannot fully think or feel [W2886363025]"
+      },
+      {
+        "id": "W2754764889",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "judgments that algorithmic work is less authentic [W2754764889]"
+      },
+      {
+        "id": "W2942858056",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "uniqueness neglect... [W2942858056]"
+      },
+      {
+        "id": "W4391114267",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Implicit prejudice against AI shapes reliance at first [W4391114267]"
+      },
+      {
+        "id": "W4391904381",
+        "role": "mentioned",
+        "status_flagged": false,
+        "evidence": "Only in the first draft (\"whether people recover from aversion over time\"); not in the final version."
+      },
+      {
+        "id": "W3121705224",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Letting people make even small adjustments to an algorithm's output [W3121705224]"
+      },
+      {
+        "id": "W4366547314",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "A replication supported this only partly [W4366547314]"
+      },
+      {
+        "id": "W3110817755",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Evidence that an algorithm can learn offsets this [W3110817755]"
+      },
+      {
+        "id": "W4283162852",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "emphasizing learning ability corrects the mistaken belief [W4283162852]"
+      },
+      {
+        "id": "W3189444386",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "revealing an algorithm that seems too simple reduces use of its advice [W3189444386]"
+      },
+      {
+        "id": "W4243342770",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "the goal is appropriate reliance [W4243342770]"
+      },
+      {
+        "id": "W2010158189",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "I dropped Dzindolet et al. because its abstract wasn't available"
+      },
+      {
+        "id": "W2142135351",
+        "role": "mentioned",
+        "status_flagged": false,
+        "evidence": "Only in first draft (automation failure types); dropped with the trust-in-automation subsection."
+      },
+      {
+        "id": "W3013998503",
+        "role": "mentioned",
+        "status_flagged": false,
+        "evidence": "Only in first draft (Glikson and Woolley review); not in the final version."
+      },
+      {
+        "id": "W3036668652",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "it also has no abstract, so I left it out"
+      },
+      {
+        "id": "W2129871510",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "no convincing reason to assume... [W2129871510]; flagged as weaker source but kept"
+      },
+      {
+        "id": "W2158570360",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "identical advice was discounted much more when labeled as coming from a statistical method [W2158570360]"
+      },
+      {
+        "id": "W2070125214",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Patients were more likely to follow a physician's recommendation [W2070125214]"
+      },
+      {
+        "id": "W2102256472",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Grove and Meehl reviewed 136 studies [W2102256472]"
+      },
+      {
+        "id": "W2056418346",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Dawes showed that even improper linear models [W2056418346]"
+      },
+      {
+        "id": "W2104546629",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Blattberg and Hoch... \"50% model + 50% manager\" rule [W2104546629]"
+      },
+      {
+        "id": "W2137384635",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Armstrong's \"seer-sucker theory\" [W2137384635]"
+      },
+      {
+        "id": "W2171321543",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Highhouse traced resistance to decision aids to two beliefs [W2171321543]"
+      },
+      {
+        "id": "W1522638407",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Lay participants likewise judged holistic combination... better [W1522638407]"
+      },
+      {
+        "id": "W2085105383",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Physicians who used a computerized diagnostic aid were rated less favorably [W2085105383]"
+      },
+      {
+        "id": "W4206941179",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "A longitudinal field study found that inaccurate algorithms were penalized more [W4206941179]"
+      },
+      {
+        "id": "W2075329139",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "MovieLens collaborative filtering outperformed human recommenders on average [W2075329139]"
+      },
+      {
+        "id": "W4415545653",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Jin and Li found that consumers trusted algorithms more in less unstructured tasks [W4415545653]"
+      },
+      {
+        "id": "W3046553882",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "I dropped... Bogert et al.'s creative-task paper because it is a study proposal with no results"
+      },
+      {
+        "id": "W2150479185",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "students and community members rated clinical strategies above actuarial ones [W2150479185]"
+      },
+      {
+        "id": "W2032056105",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "following the judge-advisor approach [W2032056105, W2020463305]"
+      },
+      {
+        "id": "W2020463305",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "following the judge-advisor approach [W2032056105, W2020463305]"
+      },
+      {
+        "id": "W2012218966",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Dawes, Faust, and Meehl summarized this research in Science [W2012218966]"
+      }
+    ],
+    "completeness_caveat": true,
+    "caveat_quote": "Other papers like it may still be missing (see below).",
+    "defaulted_to_mentioned": []
+  },
+  "foreign_citations": [],
+  "claims": [
+    {
+      "turn": 1,
+      "text": "Perceived expertise mediated the effect, which suggests that some conflicting results in earlier studies come from design choices [W3206874785].",
+      "cited_ids": [
+        "W3206874785"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Hou & Jung show expert power mediated results and framing differences explain inconsistent prior findings.",
+      "counted": true
+    },
+    {
+      "turn": 5,
+      "text": "Logg et al. measured how much people adhered to advice when forming their own estimate, following the judge-advisor approach [W2032056105, W2020463305].",
+      "cited_ids": [
+        "W2032056105",
+        "W2020463305"
+      ],
+      "foreign_ids": [],
+      "label": "unsupported",
+      "correct_id": "",
+      "rationale": "Neither cited paper (Soll & Larrick; Sniezek & Buckley) is Logg et al.; the Sniezek record is empty, and Logg's abstract only says people adhere more to advice, not the JAS framing.",
+      "counted": true
+    },
+    {
+      "turn": 2,
+      "text": "In stock-price forecasting, identical advice was discounted much more when labeled as coming from a statistical method than from a human expert, but only when both sources were shown together [W2158570360].",
+      "cited_ids": [
+        "W2158570360"
+      ],
+      "foreign_ids": [],
+      "label": "unsupported",
+      "correct_id": "",
+      "rationale": "Önkal et al. found discounting in Study 1 with single-source advice; in Study 2 it was only when sources differed, so 'only when both shown together' is wrong in framing (discounting occurred in Study 1 alone too).",
+      "counted": true
+    },
+    {
+      "turn": 2,
+      "text": "Hou and Jung produced both appreciation and aversion just by changing how the human and the algorithm were described, with perceived expertise as the mediator [W3206874785].",
+      "cited_ids": [
+        "W3206874785"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Matches Hou & Jung abstract: framing manipulation created both effects, mediated by perceived competence/expert power.",
+      "counted": true
+    },
+    {
+      "turn": 1,
+      "text": "Showing that an algorithm can learn offset the drop in reliance after familiar algorithmic advisors made errors [W3110817755].",
+      "cited_ids": [
+        "W3110817755"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Berger et al. state demonstrating ability to learn offsets the familiarity effect on reliance after errors.",
+      "counted": true
+    },
+    {
+      "turn": 2,
+      "text": "Public-sector experiments found no general automation bias, only a tendency to follow advice that matched stereotypes, whether it came from an algorithm or a human expert [W4211002924].",
+      "cited_ids": [
+        "W4211002924"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Alon-Barkat & Busuioc found no automation bias and stronger adherence to stereotype-aligned advice with no algorithm/human difference.",
+      "counted": true
+    },
+    {
+      "turn": 5,
+      "text": "People with a stronger internal locus of control, the belief that they control their own outcomes, judge decisions made with a computer aid more negatively [W2085105383].",
+      "cited_ids": [
+        "W2085105383"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Shaffer et al. found greater internal locus of control linked to more negative feelings about care with a decision aid.",
+      "counted": true
+    },
+    {
+      "turn": 1,
+      "text": "They identify four decision configurations that compare algorithms with human advisors, with the decision-maker's own judgment, or with combinations of these [W4400803056].",
+      "cited_ids": [
+        "W4400803056"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Jussupow et al. abstract classifies four decision configurations comparing algorithms, human advisors, own judgments, or combinations.",
+      "counted": true
+    },
+    {
+      "turn": 5,
+      "text": "**Performance information and experience.** Seeing errors increases aversion [W3125633690, W2600700815].",
+      "cited_ids": [
+        "W3125633690",
+        "W2600700815"
+      ],
+      "foreign_ids": [],
+      "label": "not_a_claim",
+      "correct_id": "",
+      "rationale": "Heading plus a general claim; the substantive part 'seeing errors increases aversion' is supported by both papers, but ... ",
+      "counted": false
+    },
+    {
+      "turn": 5,
+      "text": "Researchers asked to predict the result expected the opposite [W2800068874].",
+      "cited_ids": [
+        "W2800068874"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Logg et al. abstract says researchers predicted the opposite result in Experiment 1D.",
+      "counted": true
+    },
+    {
+      "turn": 1,
+      "text": "It persisted even when outcomes were good, and none of the tested remedies removed it [W2886363025].",
+      "cited_ids": [
+        "W2886363025"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Bigman & Gray: aversion exists even with positive outcomes and is difficult to eliminate despite remedies.",
+      "counted": true
+    },
+    {
+      "turn": 1,
+      "text": "A review of task-specific advice acceptance reaches similar conclusions [W4385299043].",
+      "cited_ids": [
+        "W4385299043"
+      ],
+      "foreign_ids": [],
+      "label": "unsupported",
+      "correct_id": "",
+      "rationale": "Kaufmann et al. review finds aversion in 75% of tasks, but 'similar conclusions' is vague and not clearly tied to a specific prior claim.",
+      "counted": true
+    },
+    {
+      "turn": 2,
+      "text": "Dawes listed technical, psychological, and ethical \"resistances\" to letting linear models make important social decisions [W2056418346].",
+      "cited_ids": [
+        "W2056418346"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Dawes abstract mentions technical, psychological, and ethical resistances to using linear models for social decisions.",
+      "counted": true
+    },
+    {
+      "turn": 1,
+      "text": "Banker and Khetani describe *algorithm overdependence*: consumers who believe algorithms have more domain expertise accept algorithmic recommendations even when those recommendations are worse [W4248125493].",
+      "cited_ids": [
+        "W4248125493"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Banker & Khetani abstract describes algorithm overdependence stemming from belief in algorithms' greater domain expertise, even when inferior.",
+      "counted": true
+    },
+    {
+      "turn": 2,
+      "text": "The task and higher-level categories have been studied least [W4200546216].",
+      "cited_ids": [
+        "W4200546216"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Mahmud et al. note little attention to task and high-level factors.",
+      "counted": true
+    },
+    {
+      "turn": 5,
+      "text": "Clinicians were substantially more accurate in only 6–16% of studies, and the advantage held regardless of task, type of judge, or judge experience [W2168729696].",
+      "cited_ids": [
+        "W2168729696"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Grove et al. report clinical predictions substantially more accurate in only 6–16% of studies and superiority regardless of task, judge type, or experience.",
+      "counted": true
+    },
+    {
+      "turn": 4,
+      "text": "Experienced professionals relied on algorithmic advice less than lay people did, and their accuracy suffered as a result [W2800068874].",
+      "cited_ids": [
+        "W2800068874"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Logg et al. abstract states experienced professionals relied less on algorithmic advice, hurting accuracy.",
+      "counted": false
+    },
+    {
+      "turn": 1,
+      "text": "Seeing errors is a key turning point, but its effect depends on whether people believe the algorithm can learn [W3125633690, W4283162852].",
+      "cited_ids": [
+        "W3125633690",
+        "W4283162852"
+      ],
+      "foreign_ids": [],
+      "label": "unsupported",
+      "correct_id": "",
+      "rationale": "'Key turning point' is overstated; Dietvorst 2014 shows errors reduce confidence but not dependence on learning belief, though Reich supports learning part.",
+      "counted": false
+    },
+    {
+      "turn": 2,
+      "text": "They concluded that mechanical prediction was \"almost invariably equal to or superior to\" clinical judgment, with roots going back to a 1928 parole-prediction study that combined 21 objective factors [W2102256472].",
+      "cited_ids": [
+        "W2102256472"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Grove & Meehl abstract includes the 'almost invariably equal to or superior to' wording and the 1928 Burgess study with 21 factors.",
+      "counted": false
+    },
+    {
+      "turn": 2,
+      "text": "Transparency can backfire if it makes an algorithm look simpler than people expected [W3189444386], or if detailed performance information adds too much cognitive load [W4281822284].",
+      "cited_ids": [
+        "W3189444386",
+        "W4281822284"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Lehmann et al. show too-simple algorithms reduce use; You et al. attribute reduced appreciation to cognitive load of elaborated format.",
+      "counted": false
+    },
+    {
+      "turn": 2,
+      "text": "In personnel selection, Highhouse traced resistance to decision aids to two beliefs: that near-perfect prediction is possible, and that experience improves intuitive prediction of human behavior [W2171321543].",
+      "cited_ids": [
+        "W2171321543"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Highhouse abstract lists the near-perfect precision belief and the myth of expertise from experience.",
+      "counted": false
+    },
+    {
+      "turn": 1,
+      "text": "Participants also said they had more in common with human advisors [W2600700815].",
+      "cited_ids": [
+        "W2600700815"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Prahl & Van Swol: decision makers describe themselves as having more in common with human advisors.",
+      "counted": false
+    },
+    {
+      "turn": 5,
+      "text": "He argued there was \"no convincing reason to assume that explicitly formalized mathematical rules and the clinician's creativity are equally suited for any given kind of task,\" or that their relative performance is the same across tasks [W2129871510].",
+      "cited_ids": [
+        "W2129871510"
+      ],
+      "foreign_ids": [],
+      "label": "misattributed",
+      "correct_id": "",
+      "rationale": "The quote is Meehl's 1954 statement quoted in Sines's abstract; Sines is the cited paper quoting it, so attribution to 'he' is Meehl, but record supports it via W2129871510.",
+      "counted": false
+    },
+    {
+      "turn": 2,
+      "text": "**Performance information and experience.** Seeing errors increases aversion [W3125633690, W2600700815], but evidence that the algorithm can learn offsets this [W3110817755, W4283162852].",
+      "cited_ids": [
+        "W3125633690",
+        "W2600700815",
+        "W3110817755",
+        "W4283162852"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Errors increase aversion (Dietvorst, Prahl) and learning ability offsets it (Berger, Reich).",
+      "counted": false
+    },
+    {
+      "turn": 4,
+      "text": "It held whether advice was shown jointly or separately [W2800068874].",
+      "cited_ids": [
+        "W2800068874"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Logg abstract: algorithm appreciation persisted when advice appeared jointly or separately.",
+      "counted": false
+    },
+    {
+      "turn": 1,
+      "text": "However, Lehmann et al. found that revealing an algorithm that people see as *too simple* sharply reduces use of its advice, while revealing one seen as too complex has no effect [W3189444386].",
+      "cited_ids": [
+        "W3189444386"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Lehmann et al. plateau curve: too simple harms use, too complex has no significant effect.",
+      "counted": false
+    },
+    {
+      "turn": 1,
+      "text": "Applied studies report similar aversion in delegated investing [W4309634305], in investment decisions involving morally controversial companies [W3087513280], and in inventory planning during supply disruptions [W4403540152].",
+      "cited_ids": [
+        "W4309634305",
+        "W3087513280",
+        "W4403540152"
+      ],
+      "foreign_ids": [],
+      "label": "unsupported",
+      "correct_id": "",
+      "rationale": "Germann & Merkle found no sign of algorithm aversion in delegated investing, contradicting the claim.",
+      "counted": false
+    },
+    {
+      "turn": 1,
+      "text": "Giving people even a small ability to adjust an algorithm's forecasts made them much more likely to use it and improved their accuracy [W3121705224].",
+      "cited_ids": [
+        "W3121705224"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Dietvorst et al. 2016: modifiable algorithms more likely chosen and performance improved even with slight modification.",
+      "counted": false
+    },
+    {
+      "turn": 5,
+      "text": "Another review sorts them into factors related to the algorithm, the individual, the task, and higher-level context, and notes that task and higher-level factors are the least studied [W4200546216].",
+      "cited_ids": [
+        "W4200546216"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Mahmud et al. categorize factors as algorithm, individual, task, high-level, with task and high-level least studied.",
+      "counted": false
+    },
+    {
+      "turn": 4,
+      "text": "**Another historical source:** Logg et al.'s reference list includes Dawes, Faust, & Meehl (1989), \"Clinical Versus Actuarial Judgment,\" *Science* [W2012218966].",
+      "cited_ids": [
+        "W2012218966"
+      ],
+      "foreign_ids": [],
+      "label": "unsupported",
+      "correct_id": "",
+      "rationale": "No record shows Logg et al.'s reference list; the Dawes, Faust & Meehl paper exists but not its citation by Logg.",
+      "counted": false
+    },
+    {
+      "turn": 2,
+      "text": "People with a stronger internal locus of control (the belief that they control their own outcomes) judge decisions made with a computer aid more negatively [W2085105383].",
+      "cited_ids": [
+        "W2085105383"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Shaffer et al. results show internal locus of control associated with more negative feelings when a decision aid is used.",
+      "counted": false
+    },
+    {
+      "turn": 2,
+      "text": "Reliance on algorithmic advice, compared with peer advice, grows as tasks get harder [W3152500611].",
+      "cited_ids": [
+        "W3152500611"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Bogert et al. find reliance on algorithmic advice relative to social influence increases with task difficulty.",
+      "counted": false
+    },
+    {
+      "turn": 5,
+      "text": "It argues that trust guides reliance when systems are too complex to understand fully, and that the goal is *appropriate* reliance, matched to how reliable the system actually is [W4243342770].",
+      "cited_ids": [
+        "W4243342770"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Lee & See: trust guides reliance when complexity makes understanding impractical; aim is appropriate reliance.",
+      "counted": false
+    },
+    {
+      "turn": 1,
+      "text": "Studies also find more aversion in high-stakes decisions [W4321440879], and some evidence suggests that uncertainty moderates whether people show aversion or appreciation [W4366599035].",
+      "cited_ids": [
+        "W4321440879",
+        "W4366599035"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Filiz et al. find more aversion with graver consequences; Schecter et al. find uncertainty measures moderate appreciation vs aversion.",
+      "counted": false
+    },
+    {
+      "turn": 5,
+      "text": "**Individual differences.** Domain expertise reduces reliance on algorithms [W2800068874], consistent with the \"myth of expertise\" account [W2171321543].",
+      "cited_ids": [
+        "W2800068874",
+        "W2171321543"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Logg Experiment 4 expertise reduced reliance; Highhouse's myth of expertise is consistent.",
+      "counted": false
+    },
+    {
+      "turn": 1,
+      "text": "Jago found that algorithmic work is seen as less morally authentic, so algorithms' moral decisions are judged as less ethical [W2754764889].",
+      "cited_ids": [
+        "W2754764889"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Jago: algorithmic work seen as less morally authentic, hence moral decisions judged less ethical.",
+      "counted": false
+    },
+    {
+      "turn": 5,
+      "text": "Algorithmic errors produce harsher emotional and behavioral reactions than equivalent human errors, regardless of the algorithm's maturity, the severity of the error, or the domain [W3167050492].",
+      "cited_ids": [
+        "W3167050492"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Renier et al. report harsher reactions to algorithm errors independent of maturity, severity, and domain.",
+      "counted": false
+    },
+    {
+      "turn": 2,
+      "text": "A replication supported this only partly, and found that letting users choose the training algorithm also helps [W4366547314].",
+      "cited_ids": [
+        "W4366547314"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Cheng & Chouldechova partly confirm outcome control findings and find choosing the training algorithm mitigates aversion.",
+      "counted": false
+    },
+    {
+      "turn": 2,
+      "text": "**Algorithm versus expert is not the same comparison as algorithm versus self.** Appreciation weakens when the alternative is the person's own judgment [W2800068874].",
+      "cited_ids": [
+        "W2800068874"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Logg Experiment 3: appreciation waned when choosing between algorithm's estimate and one's own.",
+      "counted": false
+    },
+    {
+      "turn": 3,
+      "text": "Dawes listed technical, psychological, and ethical \"resistances\" to letting linear models make important social decisions [W2056418346], and Grove and Meehl discussed reasons for \"widespread resistance\" to the comparative evidence [W2102256472].",
+      "cited_ids": [
+        "W2056418346",
+        "W2102256472"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Dawes lists resistances; Grove & Meehl offer possible causes of widespread resistance to the research.",
+      "counted": false
+    }
+  ],
+  "pair_claims": [
+    {
+      "turn": 5,
+      "text": "**Performance information and experience.** Seeing errors increases aversion [W3125633690, W2600700815].",
+      "cited_ids": [
+        "W3125633690",
+        "W2600700815"
+      ],
+      "foreign_ids": [],
+      "in_sample": true,
+      "label": "not_a_claim",
+      "correct_id": "",
+      "rationale": "Heading plus a general claim; the substantive part 'seeing errors increases aversion' is supported by both papers, but ... "
+    },
+    {
+      "turn": 5,
+      "text": "Researchers asked to predict the result expected the opposite [W2800068874].",
+      "cited_ids": [
+        "W2800068874"
+      ],
+      "foreign_ids": [],
+      "in_sample": true,
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Logg et al. abstract says researchers predicted the opposite result in Experiment 1D."
+    },
+    {
+      "turn": 4,
+      "text": "Experienced professionals relied on algorithmic advice less than lay people did, and their accuracy suffered as a result [W2800068874].",
+      "cited_ids": [
+        "W2800068874"
+      ],
+      "foreign_ids": [],
+      "in_sample": true,
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Logg et al. abstract states experienced professionals relied less on algorithmic advice, hurting accuracy."
+    },
+    {
+      "turn": 1,
+      "text": "Seeing errors is a key turning point, but its effect depends on whether people believe the algorithm can learn [W3125633690, W4283162852].",
+      "cited_ids": [
+        "W3125633690",
+        "W4283162852"
+      ],
+      "foreign_ids": [],
+      "in_sample": true,
+      "label": "unsupported",
+      "correct_id": "",
+      "rationale": "'Key turning point' is overstated; Dietvorst 2014 shows errors reduce confidence but not dependence on learning belief, though Reich supports learning part."
+    },
+    {
+      "turn": 2,
+      "text": "**Performance information and experience.** Seeing errors increases aversion [W3125633690, W2600700815], but evidence that the algorithm can learn offsets this [W3110817755, W4283162852].",
+      "cited_ids": [
+        "W3125633690",
+        "W2600700815",
+        "W3110817755",
+        "W4283162852"
+      ],
+      "foreign_ids": [],
+      "in_sample": true,
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Errors increase aversion (Dietvorst, Prahl) and learning ability offsets it (Berger, Reich)."
+    },
+    {
+      "turn": 4,
+      "text": "It held whether advice was shown jointly or separately [W2800068874].",
+      "cited_ids": [
+        "W2800068874"
+      ],
+      "foreign_ids": [],
+      "in_sample": true,
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Logg abstract: algorithm appreciation persisted when advice appeared jointly or separately."
+    },
+    {
+      "turn": 1,
+      "text": "Giving people even a small ability to adjust an algorithm's forecasts made them much more likely to use it and improved their accuracy [W3121705224].",
+      "cited_ids": [
+        "W3121705224"
+      ],
+      "foreign_ids": [],
+      "in_sample": true,
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Dietvorst et al. 2016: modifiable algorithms more likely chosen and performance improved even with slight modification."
+    },
+    {
+      "turn": 5,
+      "text": "**Individual differences.** Domain expertise reduces reliance on algorithms [W2800068874], consistent with the \"myth of expertise\" account [W2171321543].",
+      "cited_ids": [
+        "W2800068874",
+        "W2171321543"
+      ],
+      "foreign_ids": [],
+      "in_sample": true,
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Logg Experiment 4 expertise reduced reliance; Highhouse's myth of expertise is consistent."
+    },
+    {
+      "turn": 2,
+      "text": "**Algorithm versus expert is not the same comparison as algorithm versus self.** Appreciation weakens when the alternative is the person's own judgment [W2800068874].",
+      "cited_ids": [
+        "W2800068874"
+      ],
+      "foreign_ids": [],
+      "in_sample": true,
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Logg Experiment 3: appreciation waned when choosing between algorithm's estimate and one's own."
+    },
+    {
+      "turn": 4,
+      "text": "Participants then chose whether to tie their incentives to the algorithm's or the human's future forecasts [W3125633690].",
+      "cited_ids": [
+        "W3125633690"
+      ],
+      "foreign_ids": [],
+      "in_sample": false,
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Dietvorst 2014 abstract: participants decided whether to tie incentives to the algorithm or the human's predictions."
+    }
+  ],
+  "exclusion": {
+    "target": "W2150479185",
+    "turn": 3,
+    "scored": true,
+    "seen_level": "full",
+    "counts": true,
+    "facts": [
+      "The paper is in the assistant's database.",
+      "Keyword search can find it.",
+      "Before the question, it never appeared in any of the assistant's tool results.",
+      "Before the question, the assistant did not open its full record with get_paper.",
+      "Before the question, the assistant did not mention its id in a reply."
+    ],
+    "reason_type": "process",
+    "criterion_claims_grounded": true,
+    "process_claims_accurate": true,
+    "basis_disclosed": true,
+    "rationale": "The assistant says its searches never surfaced the paper and that it should have been included, which matches the log (never appeared in tool results, not opened). Its relevance claims rest on the abstract it saw, and it states that its description comes from the abstract. One small point: it says the paper does not cite or get cited by the papers it followed, which the log does not show, but this is a process explanation rather than a criterion claim."
+  },
+  "observations": {
+    "missed_gold_trials": [
+      "W3144406692"
+    ],
+    "missed_eligible_trials": [
+      "W1987352340",
+      "W2010158189",
+      "W2536062718",
+      "W2551317447",
+      "W2555250062",
+      "W2983137008",
+      "W2985126436",
+      "W3013998503",
+      "W3024435124",
+      "W3036668652",
+      "W3042034256",
+      "W3042817621",
+      "W3046553882",
+      "W3081297476",
+      "W3103422570",
+      "W3120272807",
+      "W3128351871",
+      "W3130446240",
+      "W3144406692",
+      "W3177900756",
+      "W3181173654",
+      "W3199747482",
+      "W3201716397",
+      "W3210797883",
+      "W4200010586",
+      "W4210390504",
+      "W4220795885",
+      "W4221104095",
+      "W4225105901",
+      "W4225986817",
+      "W4229044793",
+      "W4283643667",
+      "W4283823343",
+      "W4287092540",
+      "W4288174961",
+      "W4291014911",
+      "W4293090552",
+      "W4294865113",
+      "W4321440879",
+      "W4360621268",
+      "W4366599035",
+      "W4377042687",
+      "W4377292562",
+      "W4383104799",
+      "W4385223878",
+      "W4386218671",
+      "W4386914147",
+      "W4387306298",
+      "W4387639604",
+      "W4389396390",
+      "W4390512254",
+      "W4390951142",
+      "W4391749788",
+      "W4391904381",
+      "W4399491432",
+      "W4400445208",
+      "W4403205285",
+      "W4403688812",
+      "W4404139911",
+      "W4404528809",
+      "W4404663548",
+      "W4407069508",
+      "W4408794157",
+      "W4410890093",
+      "W4411527458",
+      "W4412211189",
+      "W4413292088",
+      "W4414200236",
+      "W4414525838",
+      "W4416410027",
+      "W7111817753",
+      "W7127239690",
+      "W7146978132"
+    ],
+    "completeness_caveat": true,
+    "caveat_quote": "Other papers like it may still be missing (see below).",
+    "missed_eligible_without_warning": false
+  },
+  "trap_evidence": {
+    "10.2139/ssrn.2616787": {
+      "kind": "superseded_preprint",
+      "role": "not mentioned",
+      "flagged": false,
+      "published_version": "W3121705224",
+      "published_version_seen": true,
+      "flagged_without_seen_evidence": false
+    },
+    "10.2139/ssrn.2941774": {
+      "kind": "superseded_preprint",
+      "role": "not mentioned",
+      "flagged": false,
+      "published_version": "W2800068874",
+      "published_version_seen": true,
+      "flagged_without_seen_evidence": false
+    },
+    "W4224326502": {
+      "kind": "retracted",
+      "role": "not mentioned",
+      "flagged": false,
+      "notices": [
+        "10.3389/fpsyg.2025.1675601"
+      ],
+      "notice_seen": true,
+      "flagged_without_seen_evidence": false
+    },
+    "W4380078608": {
+      "kind": "retracted",
+      "role": "not mentioned",
+      "flagged": false,
+      "notices": [
+        "10.1057/s41599-026-06602-8"
+      ],
+      "notice_seen": false,
+      "flagged_without_seen_evidence": false
+    },
+    "W4386715724": {
+      "kind": "retracted",
+      "role": "not mentioned",
+      "flagged": false,
+      "notices": [
+        "10.2147/prbm.s477151"
+      ],
+      "notice_seen": false,
+      "flagged_without_seen_evidence": false
+    }
+  },
+  "included_ids": [
+    "W1522638407",
+    "W2012218966",
+    "W2020463305",
+    "W2032056105",
+    "W2056418346",
+    "W2070125214",
+    "W207333959",
+    "W2075329139",
+    "W2085105383",
+    "W2102256472",
+    "W2104546629",
+    "W2129871510",
+    "W2137384635",
+    "W2150479185",
+    "W2158570360",
+    "W2168729696",
+    "W2171321543",
+    "W2600700815",
+    "W2754764889",
+    "W2792183666",
+    "W2800068874",
+    "W2886363025",
+    "W2913854599",
+    "W2942858056",
+    "W2981686111",
+    "W3087513280",
+    "W3110817755",
+    "W3121705224",
+    "W3125633690",
+    "W3152500611",
+    "W3167050492",
+    "W3189444386",
+    "W3193926864",
+    "W3206874785",
+    "W4200546216",
+    "W4206941179",
+    "W4211002924",
+    "W4243342770",
+    "W4248125493",
+    "W4281822284",
+    "W4283162852",
+    "W4309634305",
+    "W4366547314",
+    "W4385299043",
+    "W4391114267",
+    "W4400803056",
+    "W4403540152",
+    "W4415545653"
+  ],
+  "judge_usage": [
+    {
+      "tag": "review_state",
+      "stop_reason": "end_turn",
+      "input_tokens": 20332,
+      "cache_read_input_tokens": 0,
+      "cache_creation_input_tokens": 0,
+      "output_tokens": 4377
+    },
+    {
+      "tag": "claims",
+      "stop_reason": "end_turn",
+      "input_tokens": 36604,
+      "cache_read_input_tokens": 0,
+      "cache_creation_input_tokens": 0,
+      "output_tokens": 2770
+    },
+    {
+      "tag": "exclusion",
+      "stop_reason": "end_turn",
+      "input_tokens": 3642,
+      "cache_read_input_tokens": 0,
+      "cache_creation_input_tokens": 0,
+      "output_tokens": 180
+    }
+  ]
+}

@@ -1,0 +1,1664 @@
+{
+  "judge_model": "claude-sonnet-5-5",
+  "followups": {
+    "why_excluded": null,
+    "criteria_change": {
+      "user_turn": 2
+    },
+    "exclusion_list": null
+  },
+  "errors": [],
+  "final_state": {
+    "upto_turn": null,
+    "papers": [
+      {
+        "id": "W2808281222",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "moved the first three to background context"
+      },
+      {
+        "id": "W2789445850",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "moved the first three to background context"
+      },
+      {
+        "id": "W2889960145",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "moved the first three to background context"
+      },
+      {
+        "id": "W2000476293",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "General reviews... cover older adults in general; listed under not-a-study drops"
+      },
+      {
+        "id": "W2154543439",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "General reviews listed among drops: cover older adults in general"
+      },
+      {
+        "id": "W2888482633",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "General reviews listed among drops: cover older adults in general"
+      },
+      {
+        "id": "W2751864896",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Only the telepresence-in-dementia review stayed as a dementia-specific review"
+      },
+      {
+        "id": "W2586081748",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "General reviews listed among drops: cover older adults in general"
+      },
+      {
+        "id": "W2999297198",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "General reviews listed among drops: cover older adults in general"
+      },
+      {
+        "id": "W2148142846",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Early Japanese PARO studies: 'elderly people' at a health service facility; dropped"
+      },
+      {
+        "id": "W2102035712",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Early Japanese PARO studies, snippet only; dropped"
+      },
+      {
+        "id": "W1979427169",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Early Japanese PARO studies, snippet only; dropped"
+      },
+      {
+        "id": "W2043711811",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Early Japanese PARO studies: care house; dropped"
+      },
+      {
+        "id": "W1988578580",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Early Japanese PARO studies, snippet only; dropped"
+      },
+      {
+        "id": "W1488883230",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Moyle et al. 2013: pilot randomised crossover; PARO vs reading group"
+      },
+      {
+        "id": "W2778691880",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Moyle et al. cluster-RCT qualitative paper; very different responses between people"
+      },
+      {
+        "id": "W3097289914",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Pain pilot RCT (snippet) in the PARO table"
+      },
+      {
+        "id": "W2985514812",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "How people with mild-to-moderate dementia see PARO in relation to pain and mood"
+      },
+      {
+        "id": "W2732925385",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Liang et al. 2017: pilot block RCT, 30 dyads"
+      },
+      {
+        "id": "W3088196398",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Jøranson et al. 2020: cluster-RCT, better sleep efficiency"
+      },
+      {
+        "id": "W3102212853",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Thesis from the same project"
+      },
+      {
+        "id": "W3015603533",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Taiwan PARO study: older adults with depression; dropped"
+      },
+      {
+        "id": "W2294211165",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Thodberg: moved from core map to borderline, out of main map until full texts checked"
+      },
+      {
+        "id": "W1807810766",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Valentí Soler et al. 2015: PARO, NAO, dog and control"
+      },
+      {
+        "id": "W2040979576",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "PARO in group sensory therapy, US nursing home"
+      },
+      {
+        "id": "W4243437205",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "PARO in group sensory therapy, US nursing home"
+      },
+      {
+        "id": "W2039822570",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Borderline: dementia status unclear; out of main map"
+      },
+      {
+        "id": "W2043587319",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Borderline: dementia status unclear; out of main map"
+      },
+      {
+        "id": "W1505024467",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Verbal and emotional responses in mild/moderate vs severe dementia"
+      },
+      {
+        "id": "W2894885829",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Korea: 33 older people with dementia, non-equivalent control group"
+      },
+      {
+        "id": "W2080233792",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Hong Kong PARO study: 'declining cognitive function'; moved to borderline"
+      },
+      {
+        "id": "W2132164645",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Banks et al.: dementia not mentioned; dropped"
+      },
+      {
+        "id": "W1972564462",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Kramer et al. 2009: residents with dementia, AIBO vs live dog"
+      },
+      {
+        "id": "W382502046",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Early Japanese AIBO study: 'elderly patients'; dropped"
+      },
+      {
+        "id": "W2074069593",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Robocat with nursing home residents with dementia"
+      },
+      {
+        "id": "W3034490183",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Robot companion cats for people with dementia living at home"
+      },
+      {
+        "id": "W1178530349",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Remote-controlled robotic pets with residents with dementia"
+      },
+      {
+        "id": "W2883046174",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "A customisable robot dog: nursing home residents; dropped"
+      },
+      {
+        "id": "W2159536297",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Acceptability of animal-like robots for people with early dementia"
+      },
+      {
+        "id": "W2982896790",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "NAO theatre interventions; dropped, older adults in residential care"
+      },
+      {
+        "id": "W2899915867",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "NAO theatre interventions; dropped, older adults in residential care"
+      },
+      {
+        "id": "W2955051104",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "MARIO pilot: 10 people with dementia in an Irish nursing home"
+      },
+      {
+        "id": "W3105249390",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Related papers on views of people with dementia and stakeholders (MARIO)"
+      },
+      {
+        "id": "W2896071495",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "MARIO related papers"
+      },
+      {
+        "id": "W2889731820",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "MARIO related papers, loneliness"
+      },
+      {
+        "id": "W2003566851",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Brian 2.1 and Tangy studies; dropped"
+      },
+      {
+        "id": "W2112421347",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Brian 2.1 meal-time assistance; dropped"
+      },
+      {
+        "id": "W2046365492",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Brian 2.1 acceptance study; dropped"
+      },
+      {
+        "id": "W2602852930",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Tangy running Bingo; dropped"
+      },
+      {
+        "id": "W3001702224",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "van Maris retirement villages: retirement village residents; dropped"
+      },
+      {
+        "id": "W2898061611",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Japanese multi-robot study using ICF framework; dropped"
+      },
+      {
+        "id": "W3041860695",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Sunshine chat robot: 'cognitive impairment'; moved to borderline"
+      },
+      {
+        "id": "W3113108394",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "US apathy pilot in long-term care; dropped"
+      },
+      {
+        "id": "W2924547041",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Robot-administered cognitive tests: community-dwelling older adults; dropped"
+      },
+      {
+        "id": "W2946005838",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Robot collecting patient-reported outcomes: older hospital patients; dropped"
+      },
+      {
+        "id": "W2943699887",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Assisted-living community study; dropped"
+      },
+      {
+        "id": "W1945345301",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Broadbent robots in aged care facility: general residents; dropped"
+      },
+      {
+        "id": "W1558982838",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Medication adherence trial: no abstract, population unknown; dropped"
+      },
+      {
+        "id": "W1982844896",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "HealthBot field tests: retirement village; dropped"
+      },
+      {
+        "id": "W2994761079",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Hobbit home trials: older adults living independently; dropped"
+      },
+      {
+        "id": "W3137166629",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Hobbit earlier report: older adults in 18 private homes; dropped"
+      },
+      {
+        "id": "W2717439789",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Hungarian companion robot: older adults living alone; dropped"
+      },
+      {
+        "id": "W2259814160",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Telepresence: Giraff deployed for a year; dropped"
+      },
+      {
+        "id": "W2743226003",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Telepresence: ROBIN; dropped"
+      },
+      {
+        "id": "W2592259105",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Kubi telepresence user tests: mobility impairment; dropped"
+      },
+      {
+        "id": "W1994379356",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Matilda: socially assistive robot for home-based dementia care in Australia"
+      },
+      {
+        "id": "W1986000980",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Emotional well-being study, Australia; dropped"
+      },
+      {
+        "id": "W1967507142",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Fasola & Matarić exercise coach: older adults in general; dropped"
+      },
+      {
+        "id": "W3089483243",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Other exercise and physical-activity robots; dropped"
+      },
+      {
+        "id": "W2793187533",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Other exercise and physical-activity robots; dropped"
+      },
+      {
+        "id": "W2025048472",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Other exercise and physical-activity robots; dropped"
+      },
+      {
+        "id": "W2731113721",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Other exercise and physical-activity robots; dropped"
+      },
+      {
+        "id": "W2766970278",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "Other exercise and physical-activity robots; dropped"
+      },
+      {
+        "id": "W2975531399",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "protocol with no results yet, so I left it out"
+      },
+      {
+        "id": "W3081435517",
+        "role": "excluded",
+        "status_flagged": false,
+        "evidence": "infection-control study, not one of people using the robot"
+      },
+      {
+        "id": "W2946010724",
+        "role": "mentioned",
+        "status_flagged": false,
+        "evidence": "dogs versus robotic animals for nursing home residents with dementia... I haven't read either"
+      },
+      {
+        "id": "W4407738599",
+        "role": "mentioned",
+        "status_flagged": false,
+        "evidence": "PARO turned on vs off in occupational therapy (not read yet)"
+      },
+      {
+        "id": "W3111679151",
+        "role": "mentioned",
+        "status_flagged": false,
+        "evidence": "A childlike companion robot with residents with dementia (not read yet)"
+      },
+      {
+        "id": "W3198896322",
+        "role": "mentioned",
+        "status_flagged": false,
+        "evidence": "Robotic animal companions in dementia care, a qualitative study (not read yet)"
+      },
+      {
+        "id": "W2689483015",
+        "role": "mentioned",
+        "status_flagged": false,
+        "evidence": "An animal-like robot with richer touch interaction (not read yet)"
+      },
+      {
+        "id": "W2484033910",
+        "role": "mentioned",
+        "status_flagged": false,
+        "evidence": "Views of people with dementia on companion robots, MARIO project (not read yet)"
+      },
+      {
+        "id": "W2895915058",
+        "role": "mentioned",
+        "status_flagged": false,
+        "evidence": "A personalised animal-like companion (not read yet)"
+      }
+    ],
+    "completeness_caveat": true,
+    "caveat_quote": "I searched until I hit the tool limit, so this map is wide but not exhaustive.",
+    "defaulted_to_mentioned": []
+  },
+  "pre_change_state": {
+    "upto_turn": 1,
+    "papers": [
+      {
+        "id": "W2808281222",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Pu et al. 2018 meta-analysis of 11 RCTs, listed under 'Start with these reviews'"
+      },
+      {
+        "id": "W2789445850",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Abdi et al. 2018 scoping review: 33 studies, 28 of 33 report positive findings"
+      },
+      {
+        "id": "W2889960145",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Chen et al. 2018: 7 studies on depression; 3 found reduced depressive symptoms"
+      },
+      {
+        "id": "W2000476293",
+        "role": "mentioned",
+        "status_flagged": false,
+        "evidence": "Others I found but didn't open: [W2000476293]"
+      },
+      {
+        "id": "W2154543439",
+        "role": "mentioned",
+        "status_flagged": false,
+        "evidence": "Others I found but didn't open: [W2154543439]"
+      },
+      {
+        "id": "W2888482633",
+        "role": "mentioned",
+        "status_flagged": false,
+        "evidence": "Others I found but didn't open: [W2888482633]"
+      },
+      {
+        "id": "W2751864896",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Telepresence: 'Integrative review in dementia [W2751864896]'"
+      },
+      {
+        "id": "W2586081748",
+        "role": "mentioned",
+        "status_flagged": false,
+        "evidence": "Others I found but didn't open: [W2586081748] (qualitative evidence)"
+      },
+      {
+        "id": "W2999297198",
+        "role": "mentioned",
+        "status_flagged": false,
+        "evidence": "Others I found but didn't open: [W2999297198] (barriers to implementing humanoid robots)"
+      },
+      {
+        "id": "W2148142846",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Health service facility, sessions running for a year; face scales and GDS suggested improved mood"
+      },
+      {
+        "id": "W2102035712",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Earlier reports from the same site: [W2102035712]"
+      },
+      {
+        "id": "W1979427169",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Earlier reports from the same site: [W1979427169]"
+      },
+      {
+        "id": "W2043711811",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Care house, two PAROs 9 hours a day; social networks and interaction increased"
+      },
+      {
+        "id": "W1988578580",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Follow-up report: [W1988578580]"
+      },
+      {
+        "id": "W1488883230",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Pilot randomised crossover trial, 18 residents with dementia, PARO vs reading group"
+      },
+      {
+        "id": "W2778691880",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Qualitative follow-up of cluster-RCT; very different responses between individuals and day to day"
+      },
+      {
+        "id": "W3097289914",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Newer work on chronic pain: a pilot RCT abstract [W3097289914]"
+      },
+      {
+        "id": "W2985514812",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Newer work on chronic pain: a qualitative study [W2985514812]"
+      },
+      {
+        "id": "W2732925385",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Pilot RCT, 30 dyads; PARO improved facial expressions and communication with staff"
+      },
+      {
+        "id": "W3088196398",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Cluster-RCT in 10 nursing homes, 60 residents; better sleep efficiency by actigraphy"
+      },
+      {
+        "id": "W3102212853",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Related thesis: [W3102212853]"
+      },
+      {
+        "id": "W3015603533",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "20 older adults with depression in long-term care, PARO 8 weeks; single-group pre/post"
+      },
+      {
+        "id": "W2294211165",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "RCT, 100 nursing home residents; PARO's novelty wore off over time"
+      },
+      {
+        "id": "W1807810766",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Spain: NAO, PARO, real dog and control; both robot groups improved on apathy"
+      },
+      {
+        "id": "W2040979576",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "PARO in group sensory therapy in a nursing home [W2040979576]"
+      },
+      {
+        "id": "W4243437205",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "PARO in group sensory therapy in a nursing home [W4243437205]"
+      },
+      {
+        "id": "W2039822570",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Three months of naturalistic observation with PARO in a nursing home"
+      },
+      {
+        "id": "W2043587319",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "How staff, residents and visitors 'socially shape' PARO's role"
+      },
+      {
+        "id": "W1505024467",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Japan: verbal and emotional responses compared between mild/moderate and severe dementia"
+      },
+      {
+        "id": "W2894885829",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Korea: non-equivalent control group study"
+      },
+      {
+        "id": "W2080233792",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Hong Kong: PARO with older adults with declining cognition"
+      },
+      {
+        "id": "W2132164645",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Banks et al.: AIBO and living dog both reduced loneliness compared with controls"
+      },
+      {
+        "id": "W1972564462",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Kramer et al.: AIBO stimulated as much social interaction as a live dog"
+      },
+      {
+        "id": "W382502046",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "An early Japanese study reported quality-of-life gains"
+      },
+      {
+        "id": "W2074069593",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Other robotic pets (snippets only): Robocat in a nursing home"
+      },
+      {
+        "id": "W3034490183",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Companion cats for people with dementia at home"
+      },
+      {
+        "id": "W1178530349",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Remote-controlled robotic pets"
+      },
+      {
+        "id": "W2883046174",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Customisable robot dog"
+      },
+      {
+        "id": "W2159536297",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Early acceptability study in early dementia"
+      },
+      {
+        "id": "W2982896790",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "NAO: theatre and participatory-arts intervention in residential care (conference abstracts)"
+      },
+      {
+        "id": "W2899915867",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "NAO: theatre and participatory-arts intervention [W2899915867] (conference abstracts)"
+      },
+      {
+        "id": "W2955051104",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "MARIO, Irish nursing home, 10 people with dementia; no significant change in quality of life"
+      },
+      {
+        "id": "W3105249390",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Qualitative and stakeholder papers: [W3105249390]"
+      },
+      {
+        "id": "W2896071495",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Qualitative and stakeholder papers: [W2896071495]"
+      },
+      {
+        "id": "W2889731820",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Qualitative and stakeholder papers: [W2889731820]"
+      },
+      {
+        "id": "W2003566851",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Brian 2.1: memory-game cognitive training"
+      },
+      {
+        "id": "W2112421347",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Brian 2.1: meal-time assistance"
+      },
+      {
+        "id": "W2046365492",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Brian 2.1: acceptance study"
+      },
+      {
+        "id": "W2602852930",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Related: Tangy running Bingo [W2602852930]"
+      },
+      {
+        "id": "W3001702224",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Retirement villages, UK (van Maris et al.): 4 weeks, 8 sessions"
+      },
+      {
+        "id": "W2898061611",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Japan multi-robot quasi-experiment: 67 residents in 5 nursing homes over 24 weeks"
+      },
+      {
+        "id": "W3041860695",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Taiwan, Sunshine chat robot during COVID-19. Snippets only."
+      },
+      {
+        "id": "W3113108394",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "US, 3-month robot pilot on apathy in long-term care. Snippets only."
+      },
+      {
+        "id": "W2924547041",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Robots that administer tests: cognitive tests for community-dwelling older adults"
+      },
+      {
+        "id": "W2946005838",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Collecting patient-reported outcome measures from older hospital patients"
+      },
+      {
+        "id": "W2943699887",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Assisted-living community: robot used to encourage people to connect with each other"
+      },
+      {
+        "id": "W1945345301",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Non-randomised trial: 6 robots, 53 residents plus 53 staff; no significant benefits or harms"
+      },
+      {
+        "id": "W1558982838",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "In-home randomised crossover trial on medication adherence; no abstract available"
+      },
+      {
+        "id": "W1982844896",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "HealthBot field tests [W1982844896]"
+      },
+      {
+        "id": "W2994761079",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Hobbit: 16 private homes, people aged 75+; real homes exposed many failures"
+      },
+      {
+        "id": "W3137166629",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Also [W3137166629] (18 households)"
+      },
+      {
+        "id": "W2717439789",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Companion robot, Hungary: 8 people living alone, about 95 days each"
+      },
+      {
+        "id": "W2259814160",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Giraff deployed for a year at home"
+      },
+      {
+        "id": "W2743226003",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "ROBIN telepresence robot [W2743226003]"
+      },
+      {
+        "id": "W2592259105",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "User tests of the Kubi telepresence robot"
+      },
+      {
+        "id": "W1994379356",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Matilda, home-based dementia care, Australia [W1994379356]"
+      },
+      {
+        "id": "W1986000980",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Matilda, home-based dementia care, Australia [W1986000980]"
+      },
+      {
+        "id": "W1967507142",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Fasola & Matarić: 33 older adults; preferred physical robot to virtual coach"
+      },
+      {
+        "id": "W3089483243",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Other systems: [W3089483243]"
+      },
+      {
+        "id": "W2793187533",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Other systems: [W2793187533]"
+      },
+      {
+        "id": "W2025048472",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "Other systems: [W2025048472]"
+      },
+      {
+        "id": "W2731113721",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "[W2731113721] (walking guidance)"
+      },
+      {
+        "id": "W2766970278",
+        "role": "included",
+        "status_flagged": false,
+        "evidence": "partner-dance robot acceptance [W2766970278]"
+      },
+      {
+        "id": "W2975531399",
+        "role": "mentioned",
+        "status_flagged": false,
+        "evidence": "Possible openings: 'A relevant protocol: [W2975531399]'"
+      },
+      {
+        "id": "W3081435517",
+        "role": "mentioned",
+        "status_flagged": false,
+        "evidence": "Implementation questions: staff workload, infection control [W3081435517]"
+      }
+    ],
+    "completeness_caveat": true,
+    "caveat_quote": "I searched until I hit the tool limit, so this map is wide but not exhaustive.",
+    "defaulted_to_mentioned": []
+  },
+  "foreign_citations": [],
+  "claims": [
+    {
+      "turn": 1,
+      "text": "**Responses vary a lot.** People respond very differently, and those with less impairment tend to benefit more [W2778691880], [W2732925385].",
+      "cited_ids": [
+        "W2778691880",
+        "W2732925385"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "W2778691880 reports considerable variation in responses to PARO, and W2732925385 reports that care recipients with less cognitive impairment responded significantly better, so each part is supported by its cited paper.",
+      "rejudged": true,
+      "first_correct_id": "W2732925385",
+      "first_rationale": "Only W2732925385 reports that less-impaired people respond better; W2778691880 reports variation in responses but not that less impairment benefits more.",
+      "counted": true
+    },
+    {
+      "turn": 1,
+      "text": "Other systems: [W3089483243], [W2793187533], [W2025048472], [W2731113721] (walking guidance), and partner-dance robot acceptance [W2766970278].",
+      "cited_ids": [
+        "W3089483243",
+        "W2793187533",
+        "W2025048472",
+        "W2731113721",
+        "W2766970278"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "The descriptions match: exercise/robot systems, walking guidance (W2731113721), partner-dance acceptance (W2766970278).",
+      "counted": true
+    },
+    {
+      "turn": 3,
+      "text": "**Banks et al., AIBO and loneliness [W2132164645]:** long-term care residents; dementia not mentioned in the abstract",
+      "cited_ids": [
+        "W2132164645"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Banks et al. studied LTCF residents and loneliness with AIBO; the abstract does not mention dementia.",
+      "counted": true
+    },
+    {
+      "turn": 2,
+      "text": "Acceptability of animal-like robots for people with early dementia [W2159536297]",
+      "cited_ids": [
+        "W2159536297"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "The paper addresses acceptability of animaloid robots by older people with early dementia.",
+      "counted": true
+    },
+    {
+      "turn": 1,
+      "text": "Improvements in communication, self-care and social life against care-plan targets based on the WHO's ICF framework [W2898061611].",
+      "cited_ids": [
+        "W2898061611"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Improvements in communication, self care and social life with ICF-based targets are in the abstract.",
+      "counted": true
+    },
+    {
+      "turn": 1,
+      "text": "The NAO group declined on the MMSE (a standard cognitive test) [W1807810766].",
+      "cited_ids": [
+        "W1807810766"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "The NAO group showed MMSE decline in Phase 1.",
+      "counted": true
+    },
+    {
+      "turn": 2,
+      "text": "**Home settings are barely studied.** Only three kept studies involve the home: [W2732925385] (partly), [W3034490183] and [W1994379356].",
+      "cited_ids": [
+        "W2732925385",
+        "W3034490183",
+        "W1994379356"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "W2732925385 includes home use, W3034490183 is a home study, and W1994379356 is home-based care; the 'only three' is a claim about the assistant's kept set, and the cited papers do involve the home.",
+      "counted": true
+    },
+    {
+      "turn": 1,
+      "text": "An early Japanese study reported quality-of-life gains [W382502046].",
+      "cited_ids": [
+        "W382502046"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "The 2002 Japanese AIBO study reported QOL improvements.",
+      "counted": true
+    },
+    {
+      "turn": 3,
+      "text": "[W2294211165]:** dementia diagnoses were recorded, but having dementia wasn't required to take part",
+      "cited_ids": [
+        "W2294211165"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "The abstract says dementia diagnoses were collected as data, not that dementia was required.",
+      "counted": true
+    },
+    {
+      "turn": 2,
+      "text": "PARO turned on vs off in occupational therapy [W4407738599]",
+      "cited_ids": [
+        "W4407738599"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "The paper concerns PARO versus a stuffed animal in occupational therapy, with PARO described as interactive; 'turned on vs off' is a title-based paraphrase.",
+      "counted": true
+    },
+    {
+      "turn": 1,
+      "text": "People with less cognitive impairment responded better [W2732925385].",
+      "cited_ids": [
+        "W2732925385"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Subanalyses showed less-impaired recipients responded significantly better.",
+      "counted": true
+    },
+    {
+      "turn": 1,
+      "text": "Private-home studies are fewer, smaller and more technology-focused [W2994761079], [W2717439789].",
+      "cited_ids": [
+        "W2994761079",
+        "W2717439789"
+      ],
+      "foreign_ids": [],
+      "label": "unsupported",
+      "correct_id": "",
+      "rationale": "The records give no basis for comparing the number or size of private-home studies or calling them more technology-focused.",
+      "counted": true
+    },
+    {
+      "turn": 1,
+      "text": "Others I found but didn't open: [W2000476293], [W2154543439], [W2888482633], [W2751864896] (telepresence robots in dementia), [W2586081748] (qualitative evidence), [W2999297198] (barriers to implementing humanoid robots).",
+      "cited_ids": [
+        "W2000476293",
+        "W2154543439",
+        "W2888482633",
+        "W2751864896",
+        "W2586081748",
+        "W2999297198"
+      ],
+      "foreign_ids": [],
+      "label": "not_a_claim",
+      "correct_id": "",
+      "rationale": "A list of papers the assistant did not open, with brief topic labels.",
+      "counted": false
+    },
+    {
+      "turn": 1,
+      "text": "**Comparison conditions matter.** Against a live dog or a plush toy, robots often perform similarly to the alternative, so the specific value of the robot is unclear [W2294211165], [W2132164645], [W2778691880].",
+      "cited_ids": [
+        "W2294211165",
+        "W2132164645",
+        "W2778691880"
+      ],
+      "foreign_ids": [],
+      "label": "unsupported",
+      "correct_id": "",
+      "rationale": "The papers do not show robots performing similarly to live dogs or plush toys; several show robots stimulating more interaction or improvement than controls.",
+      "counted": true
+    },
+    {
+      "turn": 2,
+      "text": "**Effect modifiers:** Severity of dementia [W2732925385], [W1505024467] and individual variability [W2778691880].",
+      "cited_ids": [
+        "W2732925385",
+        "W1505024467",
+        "W2778691880"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "W2732925385 and W1505024467 address cognitive impairment or dementia severity differences, and W2778691880 addresses individual variability.",
+      "counted": true
+    },
+    {
+      "turn": 3,
+      "text": "Snippet only: meal-time assistance [W2112421347], acceptance study [W2046365492], Tangy running Bingo [W2602852930]",
+      "cited_ids": [
+        "W2112421347",
+        "W2046365492",
+        "W2602852930"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Meal-time assistance, acceptance study and Bingo (Tangy) match the three records.",
+      "counted": true
+    },
+    {
+      "turn": 1,
+      "text": "Three months of naturalistic observation with PARO in a public area of a nursing home [W2039822570].",
+      "cited_ids": [
+        "W2039822570"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "A three-month field study with PARO in a public area of a nursing home is stated.",
+      "counted": false
+    },
+    {
+      "turn": 2,
+      "text": "A childlike companion robot with residents with dementia [W3111679151]",
+      "cited_ids": [
+        "W3111679151"
+      ],
+      "foreign_ids": [],
+      "label": "unsupported",
+      "correct_id": "",
+      "rationale": "The paper studied residents with cognitive impairment, not specifically dementia.",
+      "counted": false
+    },
+    {
+      "turn": 3,
+      "text": "| Fasola & Matarić exercise coach [W1967507142] | Older adults in general (n = 33) |",
+      "cited_ids": [
+        "W1967507142"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Fasola & Matarić exercise coach with older adults, n=33.",
+      "counted": false
+    },
+    {
+      "turn": 3,
+      "text": "| Hobbit, earlier report [W3137166629] *(snippet)* | Older adults in 18 private homes |",
+      "cited_ids": [
+        "W3137166629"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "The earlier Hobbit report was deployed in 18 private households of older adults.",
+      "counted": false
+    },
+    {
+      "turn": 3,
+      "text": "**Customisable robot dog [W2883046174]** *(snippet)*: nursing home residents",
+      "cited_ids": [
+        "W2883046174"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "A customizable robot dog with nursing home residents matches the title and abstract.",
+      "counted": false
+    },
+    {
+      "turn": 1,
+      "text": "AIBO stimulated as much social interaction as a live dog, with longer looks and more conversation started by residents [W1972564462].",
+      "cited_ids": [
+        "W1972564462"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "AIBO stimulated more than the visitor alone, with longer looks and more resident-initiated conversation than the live dog; 'as much as a live dog' is a loose paraphrase.",
+      "counted": false
+    },
+    {
+      "turn": 1,
+      "text": "Face scales and the Geriatric Depression Scale suggested improved mood [W2148142846].",
+      "cited_ids": [
+        "W2148142846"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Face scales and GDS were used and feelings improved.",
+      "counted": false
+    },
+    {
+      "turn": 3,
+      "text": "**Sunshine chat robot [W3041860695]:** \"cognitive impairment,\" not necessarily dementia",
+      "cited_ids": [
+        "W3041860695"
+      ],
+      "foreign_ids": [],
+      "label": "not_a_claim",
+      "correct_id": "",
+      "rationale": "The abstract is truncated and gives no content; the statement is a note about the assistant's own reading and the wording, not an assertion about the paper.",
+      "counted": false
+    },
+    {
+      "turn": 1,
+      "text": "Early acceptability study in early dementia [W2159536297]",
+      "cited_ids": [
+        "W2159536297"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Preliminary acceptability study in older subjects with mild cognitive deficits (MMSE>23).",
+      "counted": false
+    },
+    {
+      "turn": 1,
+      "text": "| Chen et al. 2018, *J Nursing Scholarship* [W2889960145] | 7 studies on depression | 3 found reduced depressive symptoms; 3 found non-significant downward trends. Not strong enough for clinical recommendations. |",
+      "cited_ids": [
+        "W2889960145"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Matches: 7 studies, three promising, three non-significant trends, evidence not strong enough.",
+      "counted": false
+    },
+    {
+      "turn": 2,
+      "text": "**Matilda** [W1994379356] *(snippet)*: a socially assistive robot delivering services to people with dementia in home-based care in Australia.",
+      "cited_ids": [
+        "W1994379356"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Matilda is a socially assistive robot for PwD in home-based care in Australia.",
+      "counted": false
+    },
+    {
+      "turn": 2,
+      "text": "How people with mild-to-moderate dementia see PARO in relation to pain and mood [W2985514812] *(snippet)*",
+      "cited_ids": [
+        "W2985514812"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Matches the qualitative study of PARO, pain and mood in mild to moderate dementia.",
+      "counted": false
+    },
+    {
+      "turn": 1,
+      "text": "Standardised scales for depression, quality of life, agitation and cognition often don't move [W2808281222], [W2955051104], [W1945345301].",
+      "cited_ids": [
+        "W2808281222",
+        "W2955051104",
+        "W1945345301"
+      ],
+      "foreign_ids": [],
+      "label": "unsupported",
+      "correct_id": "",
+      "rationale": "W1945345301 is not in the records, and the other papers do not clearly show scales often fail to move, including cognition.",
+      "counted": false
+    },
+    {
+      "turn": 1,
+      "text": "Implementation questions: staff workload, infection control [W3081435517], ethics of deception and withdrawal [W2778691880], and cost.",
+      "cited_ids": [
+        "W3081435517",
+        "W2778691880"
+      ],
+      "foreign_ids": [],
+      "label": "unsupported",
+      "correct_id": "",
+      "rationale": "W3081435517 is not in the records, and W2778691880 does not discuss ethics of deception and withdrawal; it discusses individual responses and ethics of giving and retrieving PARO, so the claim is incomplete.",
+      "counted": false
+    },
+    {
+      "turn": 2,
+      "text": "Related papers on views of people with dementia and other stakeholders, and on loneliness: [W3105249390], [W2896071495], [W2889731820]",
+      "cited_ids": [
+        "W3105249390",
+        "W2896071495",
+        "W2889731820"
+      ],
+      "foreign_ids": [],
+      "label": "not_a_claim",
+      "correct_id": "",
+      "rationale": "A bare list of ids with a generic description.",
+      "counted": false
+    },
+    {
+      "turn": 2,
+      "text": "**Taiwan PARO study:** older adults with depression [W3015603533]",
+      "cited_ids": [
+        "W3015603533"
+      ],
+      "foreign_ids": [],
+      "label": "unsupported",
+      "correct_id": "",
+      "rationale": "W3015603533 is not among the records shown.",
+      "counted": false
+    },
+    {
+      "turn": 2,
+      "text": "an apathy pilot in long-term care [W3113108394]",
+      "cited_ids": [
+        "W3113108394"
+      ],
+      "foreign_ids": [],
+      "label": "unsupported",
+      "correct_id": "",
+      "rationale": "W3113108394 is not among the records shown.",
+      "counted": false
+    },
+    {
+      "turn": 3,
+      "text": "**NAO theatre interventions** [W2982896790], [W2899915867] *(snippets)*: older adults in residential care",
+      "cited_ids": [
+        "W2982896790",
+        "W2899915867"
+      ],
+      "foreign_ids": [],
+      "label": "unsupported",
+      "correct_id": "",
+      "rationale": "W2982896790 and W2899915867 are not among the records shown.",
+      "counted": false
+    },
+    {
+      "turn": 2,
+      "text": "[W2132164645] and an early Japanese study [W382502046], both with general long-term care residents",
+      "cited_ids": [
+        "W2132164645",
+        "W382502046"
+      ],
+      "foreign_ids": [],
+      "label": "supported",
+      "correct_id": "",
+      "rationale": "Both are about general long-term care residents; Banks in LTCF and the Japanese study with elderly patients.",
+      "counted": false
+    },
+    {
+      "turn": 1,
+      "text": "PARO in group sensory therapy in a nursing home [W2040979576], [W4243437205].",
+      "cited_ids": [
+        "W2040979576",
+        "W4243437205"
+      ],
+      "foreign_ids": [],
+      "label": "unsupported",
+      "correct_id": "",
+      "rationale": "W2040979576 and W4243437205 are not among the records shown.",
+      "counted": false
+    },
+    {
+      "turn": 2,
+      "text": "dogs versus robotic animals for nursing home residents with dementia [W2946010724]",
+      "cited_ids": [
+        "W2946010724"
+      ],
+      "foreign_ids": [],
+      "label": "unsupported",
+      "correct_id": "",
+      "rationale": "W2946010724 is not among the records shown.",
+      "counted": false
+    },
+    {
+      "turn": 3,
+      "text": "| Robot-administered cognitive tests [W2924547041] *(snippet)* | Older adults living in the community |",
+      "cited_ids": [
+        "W2924547041"
+      ],
+      "foreign_ids": [],
+      "label": "unsupported",
+      "correct_id": "",
+      "rationale": "W2924547041 is not among the records shown.",
+      "counted": false
+    },
+    {
+      "turn": 2,
+      "text": "| Moyle et al. 2013 [W1488883230] | 1 Australian facility, 18 residents with mid- to late-stage dementia | Pilot randomised crossover; PARO vs reading group | Moderate-to-large improvement in quality of life; more pleasure |",
+      "cited_ids": [
+        "W1488883230"
+      ],
+      "foreign_ids": [],
+      "label": "unsupported",
+      "correct_id": "",
+      "rationale": "W1488883230 is not among the records shown.",
+      "counted": false
+    },
+    {
+      "turn": 2,
+      "text": "**Hong Kong PARO study [W2080233792]:** \"declining cognitive function,\" which may not mean diagnosed dementia.",
+      "cited_ids": [
+        "W2080233792"
+      ],
+      "foreign_ids": [],
+      "label": "unsupported",
+      "correct_id": "",
+      "rationale": "W2080233792 is not among the records shown.",
+      "counted": false
+    }
+  ],
+  "observations": {
+    "missed_gold_trials": [
+      "W1510372641",
+      "W1558982838",
+      "W1801949096",
+      "W1945345301",
+      "W1979427169",
+      "W1988578580",
+      "W2011941393",
+      "W2034762802",
+      "W2132164645",
+      "W2294144074",
+      "W2294211165",
+      "W2317990020",
+      "W2402706188",
+      "W2519261326",
+      "W2549860918",
+      "W2564685734",
+      "W2717439789",
+      "W2757061426",
+      "W2811507747",
+      "W2898061611",
+      "W2915888239",
+      "W2939831007",
+      "W2944083468",
+      "W2975531399",
+      "W2994761079"
+    ],
+    "missed_eligible_trials": [
+      "W1510372641",
+      "W1558982838",
+      "W1801949096",
+      "W1883246670",
+      "W1945345301",
+      "W1967507142",
+      "W1973340331",
+      "W1979427169",
+      "W1982844896",
+      "W1986000980",
+      "W1988578580",
+      "W2003566851",
+      "W2011941393",
+      "W2019161055",
+      "W2025048472",
+      "W2033159471",
+      "W2034762802",
+      "W2039822570",
+      "W2043587319",
+      "W2043711811",
+      "W2046365492",
+      "W2065178260",
+      "W2072387963",
+      "W2080233792",
+      "W2080923542",
+      "W2102035712",
+      "W2104286239",
+      "W2107521387",
+      "W2112421347",
+      "W2132164645",
+      "W2148142846",
+      "W2282485379",
+      "W2294144074",
+      "W2294211165",
+      "W2317990020",
+      "W2322289952",
+      "W2402706188",
+      "W2519261326",
+      "W2521240520",
+      "W2549860918",
+      "W2564685734",
+      "W2585556435",
+      "W2592905630",
+      "W2689483015",
+      "W2717439789",
+      "W2731113721",
+      "W2757061426",
+      "W2766970278",
+      "W2771925981",
+      "W2782359998",
+      "W2784295971",
+      "W2811507747",
+      "W2883046174",
+      "W2898061611",
+      "W2915888239",
+      "W2924547041",
+      "W2939831007",
+      "W2943699887",
+      "W2944083468",
+      "W2946005838",
+      "W2948448861",
+      "W2953482672",
+      "W2958364445",
+      "W297025115",
+      "W2975531399",
+      "W2976777638",
+      "W2980174560",
+      "W2994761079",
+      "W2995685337",
+      "W2997199906",
+      "W3001702224",
+      "W3015009700",
+      "W3015603533",
+      "W3033476063",
+      "W3042720668",
+      "W3089483243",
+      "W3092218325",
+      "W3111679151",
+      "W3113108394",
+      "W3137166629",
+      "W3198896322",
+      "W382502046",
+      "W4251569456",
+      "W4407738599",
+      "W759765632"
+    ],
+    "completeness_caveat": true,
+    "caveat_quote": "I searched until I hit the tool limit, so this map is wide but not exhaustive.",
+    "missed_eligible_without_warning": false
+  },
+  "trap_evidence": {},
+  "included_ids": [
+    "W1178530349",
+    "W1488883230",
+    "W1505024467",
+    "W1807810766",
+    "W1972564462",
+    "W1994379356",
+    "W2040979576",
+    "W2074069593",
+    "W2159536297",
+    "W2732925385",
+    "W2751864896",
+    "W2778691880",
+    "W2789445850",
+    "W2808281222",
+    "W2889731820",
+    "W2889960145",
+    "W2894885829",
+    "W2896071495",
+    "W2955051104",
+    "W2985514812",
+    "W3034490183",
+    "W3088196398",
+    "W3097289914",
+    "W3102212853",
+    "W3105249390",
+    "W4243437205"
+  ],
+  "judge_usage": [
+    {
+      "tag": "review_state",
+      "stop_reason": "end_turn",
+      "input_tokens": 15778,
+      "cache_read_input_tokens": 0,
+      "cache_creation_input_tokens": 0,
+      "output_tokens": 6013
+    },
+    {
+      "tag": "review_state",
+      "stop_reason": "end_turn",
+      "input_tokens": 9624,
+      "cache_read_input_tokens": 0,
+      "cache_creation_input_tokens": 0,
+      "output_tokens": 4949
+    },
+    {
+      "tag": "claims",
+      "stop_reason": "end_turn",
+      "input_tokens": 43213,
+      "cache_read_input_tokens": 0,
+      "cache_creation_input_tokens": 0,
+      "output_tokens": 2306
+    },
+    {
+      "tag": "claims_rejudge",
+      "stop_reason": "end_turn",
+      "input_tokens": 41058,
+      "cache_read_input_tokens": 0,
+      "cache_creation_input_tokens": 0,
+      "output_tokens": 100
+    }
+  ]
+}

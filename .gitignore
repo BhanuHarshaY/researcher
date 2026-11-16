@@ -7,7 +7,6 @@ venv/
 *.tar.gz
 .DS_Store
 .pytest_cache/
-CLAUDE.md
 AGENTS.md
 runs/_pilots/
 corpus_tools/.cache/
