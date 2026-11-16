@@ -1,0 +1,11 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.tar
+*.tar.gz
+.DS_Store
+.pytest_cache/
+CLAUDE.md
+AGENTS.md

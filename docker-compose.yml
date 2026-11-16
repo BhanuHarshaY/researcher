@@ -1,0 +1,14 @@
+services:
+  harness:
+    build: .
+    image: litreview-harness:latest
+    env_file:
+      - path: .env
+        required: false
+    stdin_open: true   # human mode reads typed input
+    tty: true
+    working_dir: /app
+    volumes:
+      - .:/app                     # code + runs/ output persist on the host
+      - ./cases:/app/cases:ro      # frozen corpora: read-only inside the container
+      - ./config:/app/config:ro    # pinned models: read-only inside the container

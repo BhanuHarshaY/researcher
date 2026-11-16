@@ -1,0 +1,32 @@
+# TOY FIXTURE for harness testing only. All 10 papers are synthetic ("synthetic": true).
+id: _toy
+task_type: systematic_review
+goal: >-
+  Get a short systematic-review-style summary of primary studies on whether
+  retrieval practice (low-stakes quizzing / practice testing) improves exam or
+  test performance in undergraduate STEM courses.
+initial_prompt: >-
+  I'm doing a small systematic review. Question: does retrieval practice
+  (low-stakes quizzing or practice testing) improve exam or test performance in
+  undergraduate STEM courses? Include only primary empirical studies in
+  undergraduate STEM courses that report a learning outcome. Exclude K-12,
+  graduate or medical training, and reviews or meta-analyses. List the included
+  studies with their key findings and briefly synthesize the evidence.
+criteria:
+  - "Population: undergraduate students in STEM courses"
+  - "Intervention: retrieval practice (low-stakes quizzing, practice testing, flashcard retrieval)"
+  - "Outcome: exam or test performance"
+  - "Design: primary empirical study (no reviews or meta-analyses)"
+gold_ids: [T001, T002, T003, T004]
+key_ids: [T001, T004]
+relevant_ids: [T001, T002, T003, T004, T005]
+off_scope_ids: [T009, T010]
+traps:
+  - {id: T006, kind: superseded_preprint, real: false, note: "Preprint of T001 (published_version_id T001); interim n=205 result differs from the final trial."}
+  - {id: T007, kind: retracted, real: false, note: "Retracted for unverifiable exam data; implausibly large effect."}
+script:
+  followups:
+    - {after_turn: 1, message: "Why didn't you include \"{title:T004}\"?"}
+post_change_expected_ids: []      # toy has no criteria change
+thresholds: {off_scope: 0.2, steer_preservation: 0.7}
+source_review: "None (synthetic toy fixture for harness testing)."
