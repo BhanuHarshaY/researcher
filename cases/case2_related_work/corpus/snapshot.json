@@ -1,0 +1,95 @@
+{
+  "case": "case2_related_work",
+  "source_review": "Castelo N, Bos MW, Lehmann DR. Task-dependent algorithm aversion. Journal of Marketing Research 2019;56(5):809-825. doi:10.1177/0022243719851788",
+  "date_from": "1950-01-01",
+  "date_to": "2025-12-31",
+  "max_papers": 300,
+  "target_papers": 250,
+  "hidden_from_search": ["Dawes, Faust & Meehl 1989"],
+  "abstract_fallback": "semanticscholar",
+  "strip_title_prefixes": [
+    "RETRACTED:",
+    "RETRACTED ARTICLE:",
+    "WITHDRAWN:",
+    "[Retracted]",
+    "Retracted:"
+  ],
+  "exclude_doi_prefixes": [
+    "10.1177/0022243719851788",
+    "10.1007/978-3-031-88067-4_21"
+  ],
+  "groups": {
+    "gold": {
+      "Dawes, Faust & Meehl 1989": "10.1126/science.2648573",
+      "Dietvorst, Simmons & Massey 2015": "10.1037/xge0000033",
+      "Logg, Minson & Moore 2019": "10.1016/j.obhdp.2018.12.005",
+      "Dietvorst, Simmons & Massey 2018": "10.1287/mnsc.2016.2643",
+      "Grove et al. 2000": "10.1037/1040-3590.12.1.19",
+      "Longoni, Bonezzi & Morewedge 2019": "10.1093/jcr/ucz013",
+      "Yeomans et al. 2019": "10.1002/bdm.2118",
+      "Onkal et al. 2009": "10.1002/bdm.637",
+      "Promberger & Baron 2006": "10.1002/bdm.542",
+      "Shaffer et al. 2013": "10.1177/0272989x12453501",
+      "Eastwood, Snook & Luther 2012": "10.1002/bdm.741",
+      "Diab et al. 2011": "10.1111/j.1468-2389.2011.00548.x",
+      "Blattberg & Hoch 1990": "10.1287/mnsc.36.8.887",
+      "Komiak & Benbasat 2006": "10.2307/25148760",
+      "Armstrong 1980": "title:The Seer-Sucker Theory: The Value of Experts in Forecasting",
+      "Sniezek & Buckley 1995": "10.1006/obhd.1995.1040",
+      "Soll & Larrick 2009": "10.1037/a0015145"
+    },
+    "traps_retracted": {
+      "ChatGPT and algorithm aversion 2023 (PRBM, retracted)": "10.2147/prbm.s430936",
+      "Adolescents' algorithmic resistance 2022 (Front Psychol, retracted)": "10.3389/fpsyg.2022.859597",
+      "AI and human loss in decision making 2023 (HSSC, retracted)": "10.1057/s41599-023-01787-8"
+    },
+    "other_curated": {
+      "Dawes 1979 (improper linear models)": "10.1037/0003-066x.34.7.571",
+      "Highhouse 2008 (reliance on intuition in selection)": "10.1111/j.1754-9434.2008.00058.x",
+      "Dzindolet et al. 2003 (trust in automation reliance)": "10.1016/s1071-5819(03)00038-7",
+      "Prahl & Van Swol 2017 (advice from automation)": "10.1002/for.2464",
+      "Bigman & Gray 2018 (machines making moral decisions)": "10.1016/j.cognition.2018.08.003",
+      "Glikson & Woolley 2020 (review: trust in AI)": "10.5465/annals.2018.0057",
+      "Lee & See 2004 (trust in automation)": "10.1518/hfes.46.1.50_30392",
+      "Kawaguchi 2021 (workers following an algorithm)": "10.1287/mnsc.2020.3599",
+      "Burton, Stein & Jensen 2020 (review)": "10.1002/bdm.2155",
+      "Mahmud et al. 2022 (review)": "10.1016/j.techfore.2021.121390",
+      "Jussupow, Benbasat & Heinzl 2020 (review)": "title:Why are we averse towards Algorithms? A comprehensive literature Review on Algorithm aversion",
+      "Bogert, Schecter & Watson 2021": "10.1038/s41598-021-87480-9",
+      "Dietvorst & Bharti 2020": "10.1177/0956797620948841",
+      "Davis, Bagozzi & Warshaw 1989 (technology acceptance)": "10.1287/mnsc.35.8.982",
+      "Li, Hess & Valacich 2008 (trust in new technology)": "10.1016/j.jsis.2008.01.001"
+    }
+  },
+  "crossref_preprints": [
+    {
+      "label": "Logg, Minson & Moore SSRN working paper (2017)",
+      "doi": "10.2139/ssrn.2941774",
+      "published_label": "Logg, Minson & Moore 2019"
+    },
+    {
+      "label": "Dietvorst, Simmons & Massey SSRN working paper (2015) of the 2018 article",
+      "doi": "10.2139/ssrn.2616787",
+      "published_label": "Dietvorst, Simmons & Massey 2018"
+    }
+  ],
+  "seed_queries": [
+    {"query": "algorithm aversion", "n": 60},
+    {"query": "algorithm appreciation", "n": 20},
+    {"query": "algorithmic advice", "n": 30},
+    {"query": "trust in artificial intelligence advice", "n": 25},
+    {"query": "clinical versus actuarial prediction", "n": 15},
+    {"query": "advice taking judge advisor system", "n": 12},
+    {"query": "medical artificial intelligence patients trust", "n": 15},
+    {"query": "trust in automation reliance", "n": 12},
+    {"query": "algorithm aversion robo-advisor investment", "n": 10},
+    {"query": "recommender system user trust", "n": 10},
+    {"query": "algorithmic fairness machine learning", "n": 10},
+    {"query": "algorithmic management workers platform", "n": 10}
+  ],
+  "one_hop": {
+    "keyword": "algorithm",
+    "refs_per_gold": 10,
+    "citers_per_gold": 10
+  }
+}

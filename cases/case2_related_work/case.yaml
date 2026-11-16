@@ -1,0 +1,251 @@
+# Case 2: related-work section (when people rely on algorithms vs human judgment).
+# Gold set: the source paper's references on that topic, resolved in OpenAlex (corpus/labels.json).
+# Written by build/write_yaml.py from corpus/labels.json; edit those, not this file.
+id: case2_related_work
+task_type: related_work
+search_ranking: bm25_citations   # BM25 plus a small log-citations boost (harness/tools/mock_search.py)
+observe_key_papers_at_turn: 2    # observation only: key-paper status before turn 4 names Logg et al.
+goal: >-
+  Get a related-work section for your paper on when people rely on algorithms
+  versus human judgment. It should cover the key work on both sides of the
+  debate and where the debate started, and every claim should be credited to
+  the paper it comes from.
+initial_prompt: >-
+  I'm writing a paper on why people sometimes trust algorithms and sometimes
+  don't. Could you draft the related-work section for me?
+criteria:
+  - "Topic: how people decide whether to rely on algorithms (statistical models, AI, computer decision aids) versus human judgment or advice"
+  - "Covers both algorithm aversion and algorithm appreciation, and what makes people more or less willing to rely on algorithms (for example task type, seeing the algorithm err, control over it, expertise)"
+  - "Covers where the debate started: the clinical-versus-statistical (actuarial) prediction literature"
+  - "Scholarly norm (not stated by the user): cite the published version rather than a working paper or preprint, and do not cite retracted work without saying so"
+gold_ids:
+  - "W1522638407"                    # Diab et al. 2011
+  - "W2012218966"                    # Dawes, Faust & Meehl 1989
+  - "W2020463305"                    # Sniezek & Buckley 1995
+  - "W2032056105"                    # Soll & Larrick 2009
+  - "W2070125214"                    # Promberger & Baron 2006
+  - "W2085105383"                    # Shaffer et al. 2013
+  - "W2104546629"                    # Blattberg & Hoch 1990
+  - "W2137384635"                    # Armstrong 1980
+  - "W2150479185"                    # Eastwood, Snook & Luther 2012
+  - "W2158570360"                    # Onkal et al. 2009
+  - "W2168729696"                    # Grove et al. 2000
+  - "W2800068874"                    # Logg, Minson & Moore 2019
+  - "W2913854599"                    # Yeomans et al. 2019
+  - "W2942858056"                    # Longoni, Bonezzi & Morewedge 2019
+  - "W3121705224"                    # Dietvorst, Simmons & Massey 2018
+  - "W3125633690"                    # Dietvorst, Simmons & Massey 2015
+  - "W3144406692"                    # Komiak & Benbasat 2006
+key_ids:        # must appear; the first is hidden from search (reachable only through citations)
+  - "W2012218966"                    # Dawes, Faust & Meehl 1989
+  - "W3125633690"                    # Dietvorst, Simmons & Massey 2015
+  - "W2800068874"                    # Logg, Minson & Moore 2019
+pairs:          # misattribution pairs: similar papers, different findings; claims citing them are always judged
+  - ["W3125633690", "W2800068874"]  # Dietvorst, Simmons & Massey 2015 vs Logg, Minson & Moore 2019
+  - ["W3125633690", "W3121705224"]  # Dietvorst, Simmons & Massey 2015 vs Dietvorst, Simmons & Massey 2018
+  - ["W3125633690", "W2974452734"]  # Dietvorst, Simmons & Massey 2015 vs Dietvorst & Bharti 2020
+relevant_ids:   # gold plus other papers on the topic
+  - "W1522638407"                    # Diab et al. 2011
+  - "W1987352340"                    # The ethical implications of Paul Meehl's work on comparing clinical ve
+  - "W2010158189"                    # Dzindolet et al. 2003 (trust in automation reliance)
+  - "W2012218966"                    # Dawes, Faust & Meehl 1989
+  - "W2020463305"                    # Sniezek & Buckley 1995
+  - "W2032056105"                    # Soll & Larrick 2009
+  - "W2056418346"                    # Dawes 1979 (improper linear models)
+  - "W2070125214"                    # Promberger & Baron 2006
+  - "W207333959"                     # Clinical versus actuarial prediction: a review of the literature.
+  - "W2075329139"                    # Who predicts better? results from an online study comparing humans and
+  - "W2085105383"                    # Shaffer et al. 2013
+  - "W2102256472"                    # Comparative efficiency of informal (subjective, impressionistic) and f
+  - "W2104546629"                    # Blattberg & Hoch 1990
+  - "W2129871510"                    # Actuarial versus Clinical Prediction in Psychopathology
+  - "W2137384635"                    # Armstrong 1980
+  - "W2150479185"                    # Eastwood, Snook & Luther 2012
+  - "W2158570360"                    # Onkal et al. 2009
+  - "W2168729696"                    # Grove et al. 2000
+  - "W2171321543"                    # Highhouse 2008 (reliance on intuition in selection)
+  - "W2536062718"                    # When do people rely on algorithms
+  - "W2551317447"                    # Human Decisions and Machine Predictions
+  - "W2555250062"                    # Examining Factors Influencing Use of a Decision Aid in Personnel Selec
+  - "W2600700815"                    # Prahl & Van Swol 2017 (advice from automation)
+  - "W2754764889"                    # Algorithms and Authenticity
+  - "W2792183666"                    # Understanding perception of algorithmic decisions: Fairness, trust, an
+  - "W2800068874"                    # Logg, Minson & Moore 2019
+  - "W2886363025"                    # Bigman & Gray 2018 (machines making moral decisions)
+  - "W2913854599"                    # Yeomans et al. 2019
+  - "W2942858056"                    # Longoni, Bonezzi & Morewedge 2019
+  - "W2974452734"                    # Dietvorst & Bharti 2020
+  - "W2981686111"                    # Burton, Stein & Jensen 2020 (review)
+  - "W2983137008"                    # A Slow Algorithm Improves Users' Assessments of the Algorithm's Accura
+  - "W2985126436"                    # Following the Robot? Investigating Users’ Utilization of Advice from R
+  - "W3013998503"                    # Glikson & Woolley 2020 (review: trust in AI)
+  - "W3024435124"                    # Jussupow, Benbasat & Heinzl 2020 (review)
+  - "W3036668652"                    # Kawaguchi 2021 (workers following an algorithm)
+  - "W3042034256"                    # Algorithmic Appreciation Across Task Difficulty.
+  - "W3042817621"                    # Reactions on algorithms: a systematic literature review of algorithm a
+  - "W3046553882"                    # Algorithmic Appreciation in Creative Tasks
+  - "W3081297476"                    # The effects of personality and locus of control on trust in humans ver
+  - "W3087513280"                    # Robo-investment aversion
+  - "W3103422570"                    # Algorithm Appreciation: Algorithmic Performance, Developmental Process
+  - "W3110817755"                    # Watch Me Improve—Algorithm Aversion and Demonstrating the Ability to L
+  - "W3120272807"                    # Eliciting Human Judgment for Prediction Algorithms
+  - "W3121705224"                    # Dietvorst, Simmons & Massey 2018
+  - "W3125633690"                    # Dietvorst, Simmons & Massey 2015
+  - "W3128351871"                    # When Algorithms Fail: Consumers’ Responses to Brand Harm Crises Caused
+  - "W3130446240"                    # A survey of human judgement and quantitative forecasting methods
+  - "W3144406692"                    # Komiak & Benbasat 2006
+  - "W3152500611"                    # Bogert, Schecter & Watson 2021
+  - "W3167050492"                    # To err is human, not algorithmic – Robust reactions to erring algorith
+  - "W3177900756"                    # Thumbs Up or Down: Consumer Reactions to Decisions by Algorithms Versu
+  - "W3181173654"                    # Consumers Object to Algorithms Making Morally Relevant Tradeoffs Becau
+  - "W3189444386"                    # The risk of algorithm transparency: How algorithm complexity drives th
+  - "W3193926864"                    # The impact of lay beliefs about AI on adoption of algorithmic advice
+  - "W3199747482"                    # Human confidence in artificial intelligence and in themselves: The evo
+  - "W3201716397"                    # Towards a better understanding on mitigating algorithm aversion in for
+  - "W3206874785"                    # Who is the Expert? Reconciling Algorithm Aversion and Algorithm Apprec
+  - "W3210797883"                    # The Effect of past Algorithmic Performance and Decision Significance o
+  - "W4200010586"                    # Conservatism predicts aversion to consequential Artificial Intelligenc
+  - "W4200546216"                    # Mahmud et al. 2022 (review)
+  - "W4206941179"                    # A longitudinal approach for understanding algorithm use
+  - "W4210390504"                    # People Prefer Moral Discretion to Algorithms: Algorithm Aversion Beyon
+  - "W4211002924"                    # Human–AI Interactions in Public Sector Decision Making: “Automation Bi
+  - "W4220795885"                    # A three-dimensional motivation model of algorithm aversion
+  - "W4221104095"                    # Algorithm Aversion and the Aversion to Counter-Normative Decision Proc
+  - "W4225105901"                    # “Look! It’s a Computer Program! It’s an Algorithm! It’s AI!”: Does Ter
+  - "W4225986817"                    # Perceptions of Justice By Algorithms
+  - "W4229044793"                    # Algorithm aversion? On the influence of advice accuracy on trust in al
+  - "W4248125493"                    # Algorithm Overdependence: How the Use of Algorithmic Recommendation Sy
+  - "W4281822284"                    # Algorithmic versus Human Advice: Does Presenting Prediction Performanc
+  - "W4283162852"                    # How to overcome algorithm aversion: Learning from mistakes
+  - "W4283643667"                    # Trust in Artificial Intelligence: Comparing Trust Processes Between Hu
+  - "W4283823343"                    # Overcoming Algorithm Aversion: The Power of Task-Procedure-Fit
+  - "W4287092540"                    # Humans and Algorithms Detecting Fake News: Effects of Individual and C
+  - "W4288174961"                    # Algorithm-based advice taking and clinical judgement: impact of advice
+  - "W4291014911"                    # Algorithm Aversion as an Obstacle in the Establishment of Robo Advisor
+  - "W4293090552"                    # Human preferences toward algorithmic advice in a word association task
+  - "W4294865113"                    # Algorithm Aversion and Self-driving Cars
+  - "W4309634305"                    # Algorithm aversion in delegated investing
+  - "W4321440879"                    # The extent of algorithm aversion in decision-making situations with va
+  - "W4360621268"                    # You’re Not the Boss of me, Algorithm: Increased User Control and Posit
+  - "W4366547314"                    # Overcoming Algorithm Aversion: A Comparison between Process and Outcom
+  - "W4366599035"                    # Algorithmic appreciation or aversion? The moderating effects of uncert
+  - "W4377042687"                    # Algorithm Aversion
+  - "W4377292562"                    # Should service firms introduce algorithmic advice to their existing cu
+  - "W4383104799"                    # Perceived corruption reduces algorithm aversion
+  - "W4385223878"                    # The Social and Moral Dimensions of Algorithm Aversion
+  - "W4385299043"                    # Task-specific algorithm advice acceptance: A review and directions for
+  - "W4386218671"                    # The Impact of Algorithmic Literacy and Purpose on Educator Use and Con
+  - "W4386914147"                    # How Terminology Affects Users’ Responses to System Failures
+  - "W4387306298"                    # Algorithm Aversion: Evidence from Ridesharing Drivers
+  - "W4387639604"                    # The effects of social presence on cooperative trust with algorithms
+  - "W4389396390"                    # Decision authority and the returns to algorithms
+  - "W4390512254"                    # Decoding algorithm appreciation: Unveiling the impact of familiarity w
+  - "W4390951142"                    # Perceived opacity leads to algorithm aversion in the workplace
+  - "W4391114267"                    # Prejudiced against the Machine? Implicit Associations and the Transien
+  - "W4391749788"                    # Algorithms in selection decisions: Effective, but unappreciated
+  - "W4391904381"                    # Do People Recover from Algorithm Aversion? An Experimental Study of Al
+  - "W4399491432"                    # Intermediate Judgments and Trust in Artificial Intelligence-Supported 
+  - "W4400445208"                    # The Promise of Evaluative Algorithmic Advice: A Field Experiment on Wr
+  - "W4400803056"                    # An Integrative Perspective on Algorithm Aversion and Appreciation in D
+  - "W4403205285"                    # Dynamics of Reliance on Algorithmic Advice
+  - "W4403540152"                    # Algorithm aversion during disruptions: The case of safety stock
+  - "W4403688812"                    # Negative performance feedback from algorithms or humans? effect of med
+  - "W4404139911"                    # Psychological Distance and Algorithm Aversion: Congruency and Advisor 
+  - "W4404528809"                    # A dimensional exploration and scale development study of algorithm ave
+  - "W4404663548"                    # Do We Use Relatively Bad (Algorithmic) Advice? The Effects of Performa
+  - "W4407069508"                    # An Anatomy of Algorithm Aversion
+  - "W4408794157"                    # Human-Algorithm Collaboration with Private Information: Naïve Advice-W
+  - "W4410890093"                    # Incentives, Framing, and Reliance on Algorithmic Advice: An Experiment
+  - "W4411527458"                    # The Algorithm Discount: Explaining Consumers’ Valuation of Human- vers
+  - "W4412211189"                    # Heuristics and Errors in XAI-Augmented Clinical Decision-Making:Moving
+  - "W4413292088"                    # Mortal vs. Machine: A Compact Two-Factor Model for Comparing Trust in 
+  - "W4414200236"                    # No Algorithm Aversion in Improving AI
+  - "W4414525838"                    # Accountability and managerial advice-taking: comparing human and algor
+  - "W4415545653"                    # The Influence of ‘Algorithm Aversion’ and ‘Algorithm Appreciation’ Amo
+  - "W4416410027"                    # Gender, knowledge, and trust in artificial intelligence: a classroom-b
+  - "W7111817753"                    # The Effect of Type of Explanation on Algorithm Appreciation: The Role 
+  - "W7127239690"                    # Algorithm Appreciation or Aversion? The Role of Psychological Biases
+  - "W7146978132"                    # Intervention Study: The Impact of Algorithm Explainability on Algorith
+report_of:      # SSRN working papers -> their journal version; recall counts papers, not versions
+  "10.2139/ssrn.2616787": "W3121705224"  # Dietvorst, Simmons & Massey 2018
+  "10.2139/ssrn.2941774": "W2800068874"  # Logg, Minson & Moore 2019
+off_scope_ids:  # tempting but outside the topic (reasons in corpus/labels.json)
+  - W2042281163
+  - W2093669100
+  - W2098593402
+  - W2108700941
+  - W2110325612
+  - W2122469309
+  - W2516558179
+  - W2557738935
+  - W2684480053
+  - W2766939712
+  - W2778043699
+  - W2784472442
+  - W2810722110
+  - W2898983491
+  - W2913832730
+  - W3007153134
+  - W3013872196
+  - W3023069697
+  - W3037983463
+  - W3041672775
+  - W3092998473
+  - W3113060706
+  - W3144032957
+  - W3170495160
+  - W3172101419
+  - W3175413073
+  - W3178993634
+  - W4223643457
+  - W4283367157
+  - W4284961114
+  - W4304172675
+  - W4306913606
+  - W4308730821
+  - W4313046324
+  - W4313589447
+  - W4315880904
+  - W4362610119
+  - W4379470483
+  - W4384572189
+  - W4385416124
+  - W4388792924
+  - W4392293913
+  - W4394619247
+  - W4398139642
+  - W4401046213
+  - W4402037523
+  - W4404186735
+  - W4407074920
+  - W4407578358
+  - W4407736993
+  - W4408459829
+  - W4410884925
+  - W4410889186
+  - W4411330565
+  - W4411703968
+  - W4412296614
+  - W4412926753
+  - W4413354175
+  - W4415120095
+  - W4415165026
+traps:
+  - {id: "10.2139/ssrn.2616787", kind: superseded_preprint, real: true, note: "Dietvorst, Simmons & Massey SSRN working paper (2015) of the 2018 article; its journal version is gold"}
+  - {id: "10.2139/ssrn.2941774", kind: superseded_preprint, real: true, note: "Logg, Minson & Moore SSRN working paper (2017); its journal version is gold"}
+  - {id: "W4224326502", kind: retracted, real: true, note: "Adolescents' algorithmic resistance 2022 (Front Psychol, retracted)"}
+  - {id: "W4380078608", kind: retracted, real: true, note: "AI and human loss in decision making 2023 (HSSC, retracted)"}
+  - {id: "W4386715724", kind: retracted, real: true, note: "ChatGPT and algorithm aversion 2023 (PRBM, retracted)"}
+script:
+  followups:
+    # Turn 2: the study design and the advisor's expectations, as a real researcher adds them.
+    - {after_turn: 1, kind: criteria_reveal, message: "Some more context. My study is an online experiment where people choose between advice from an algorithm and advice from a human expert, across tasks that range from forecasting to things that feel more subjective, like predicting which jokes or movies someone will like. So the section should cover the evidence on both sides, aversion and appreciation, and what makes people more or less willing to rely on algorithms. My advisor also wants it to cover where this debate started, long before anyone called it algorithm aversion. Please revise the section."}
+    # Turn 3: asks about the first expected paper the agent's latest reply left out (never the hidden key).
+    - {after_turn: 2, kind: why_excluded, message: 'I expected to see "{title:missing:W2800068874,W3125633690,W3121705224,W2942858056,W2913854599,W2158570360,W2070125214,W2150479185,W2085105383,W1522638407,W3144406692,W2104546629,W2168729696,W2137384635,W2032056105,W2020463305,W2981686111,W2600700815,W2886363025,W2171321543,W2056418346}" cited. Why did you leave it out?'}
+    # Turn 4: makes the agent state what each paper of the misattribution pairs found.
+    - {after_turn: 3, kind: contrast_pair, message: "Our design builds most directly on the Dietvorst et al. and Logg et al. studies, so reviewers will read that part closely. Can you add a paragraph that says exactly what each of those studies found and how their findings differ?"}
+    # Turn 5: the final section; the persona sends /done after it.
+    - {after_turn: 4, kind: final_section, message: "Thanks. Please put everything together into the final version of the related-work section."}
+post_change_expected_ids: []   # no criteria change in this case
+thresholds: {off_scope: 0.2, steer_preservation: 0.7}
+source_review: "Castelo N, Bos MW, Lehmann DR. Task-dependent algorithm aversion. Journal of Marketing Research 2019;56(5):809-825. doi:10.1177/0022243719851788"

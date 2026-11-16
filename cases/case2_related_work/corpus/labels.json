@@ -1,0 +1,1798 @@
+{
+  "key_ids": [
+    "W2012218966",
+    "W3125633690",
+    "W2800068874"
+  ],
+  "pairs": [
+    [
+      "W3125633690",
+      "W2800068874"
+    ],
+    [
+      "W3125633690",
+      "W3121705224"
+    ],
+    [
+      "W3125633690",
+      "W2974452734"
+    ]
+  ],
+  "gold_ids": [
+    "W1522638407",
+    "W2012218966",
+    "W2020463305",
+    "W2032056105",
+    "W2070125214",
+    "W2085105383",
+    "W2104546629",
+    "W2137384635",
+    "W2150479185",
+    "W2158570360",
+    "W2168729696",
+    "W2800068874",
+    "W2913854599",
+    "W2942858056",
+    "W3121705224",
+    "W3125633690",
+    "W3144406692"
+  ],
+  "relevant_ids": [
+    "W1522638407",
+    "W1987352340",
+    "W2010158189",
+    "W2012218966",
+    "W2020463305",
+    "W2032056105",
+    "W2056418346",
+    "W2070125214",
+    "W207333959",
+    "W2075329139",
+    "W2085105383",
+    "W2102256472",
+    "W2104546629",
+    "W2129871510",
+    "W2137384635",
+    "W2150479185",
+    "W2158570360",
+    "W2168729696",
+    "W2171321543",
+    "W2536062718",
+    "W2551317447",
+    "W2555250062",
+    "W2600700815",
+    "W2754764889",
+    "W2792183666",
+    "W2800068874",
+    "W2886363025",
+    "W2913854599",
+    "W2942858056",
+    "W2974452734",
+    "W2981686111",
+    "W2983137008",
+    "W2985126436",
+    "W3013998503",
+    "W3024435124",
+    "W3036668652",
+    "W3042034256",
+    "W3042817621",
+    "W3046553882",
+    "W3081297476",
+    "W3087513280",
+    "W3103422570",
+    "W3110817755",
+    "W3120272807",
+    "W3121705224",
+    "W3125633690",
+    "W3128351871",
+    "W3130446240",
+    "W3144406692",
+    "W3152500611",
+    "W3167050492",
+    "W3177900756",
+    "W3181173654",
+    "W3189444386",
+    "W3193926864",
+    "W3199747482",
+    "W3201716397",
+    "W3206874785",
+    "W3210797883",
+    "W4200010586",
+    "W4200546216",
+    "W4206941179",
+    "W4210390504",
+    "W4211002924",
+    "W4220795885",
+    "W4221104095",
+    "W4225105901",
+    "W4225986817",
+    "W4229044793",
+    "W4248125493",
+    "W4281822284",
+    "W4283162852",
+    "W4283643667",
+    "W4283823343",
+    "W4287092540",
+    "W4288174961",
+    "W4291014911",
+    "W4293090552",
+    "W4294865113",
+    "W4309634305",
+    "W4321440879",
+    "W4360621268",
+    "W4366547314",
+    "W4366599035",
+    "W4377042687",
+    "W4377292562",
+    "W4383104799",
+    "W4385223878",
+    "W4385299043",
+    "W4386218671",
+    "W4386914147",
+    "W4387306298",
+    "W4387639604",
+    "W4389396390",
+    "W4390512254",
+    "W4390951142",
+    "W4391114267",
+    "W4391749788",
+    "W4391904381",
+    "W4399491432",
+    "W4400445208",
+    "W4400803056",
+    "W4403205285",
+    "W4403540152",
+    "W4403688812",
+    "W4404139911",
+    "W4404528809",
+    "W4404663548",
+    "W4407069508",
+    "W4408794157",
+    "W4410890093",
+    "W4411527458",
+    "W4412211189",
+    "W4413292088",
+    "W4414200236",
+    "W4414525838",
+    "W4415545653",
+    "W4416410027",
+    "W7111817753",
+    "W7127239690",
+    "W7146978132"
+  ],
+  "off_scope_ids": [
+    "W2042281163",
+    "W2093669100",
+    "W2098593402",
+    "W2108700941",
+    "W2110325612",
+    "W2122469309",
+    "W2516558179",
+    "W2557738935",
+    "W2684480053",
+    "W2766939712",
+    "W2778043699",
+    "W2784472442",
+    "W2810722110",
+    "W2898983491",
+    "W2913832730",
+    "W3007153134",
+    "W3013872196",
+    "W3023069697",
+    "W3037983463",
+    "W3041672775",
+    "W3092998473",
+    "W3113060706",
+    "W3144032957",
+    "W3170495160",
+    "W3172101419",
+    "W3175413073",
+    "W3178993634",
+    "W4223643457",
+    "W4283367157",
+    "W4284961114",
+    "W4304172675",
+    "W4306913606",
+    "W4308730821",
+    "W4313046324",
+    "W4313589447",
+    "W4315880904",
+    "W4362610119",
+    "W4379470483",
+    "W4384572189",
+    "W4385416124",
+    "W4388792924",
+    "W4392293913",
+    "W4394619247",
+    "W4398139642",
+    "W4401046213",
+    "W4402037523",
+    "W4404186735",
+    "W4407074920",
+    "W4407578358",
+    "W4407736993",
+    "W4408459829",
+    "W4410884925",
+    "W4410889186",
+    "W4411330565",
+    "W4411703968",
+    "W4412296614",
+    "W4412926753",
+    "W4413354175",
+    "W4415120095",
+    "W4415165026"
+  ],
+  "trap_ids": [
+    "10.2139/ssrn.2616787",
+    "10.2139/ssrn.2941774",
+    "W4224326502",
+    "W4380078608",
+    "W4386715724"
+  ],
+  "report_of": {
+    "10.2139/ssrn.2616787": "W3121705224",
+    "10.2139/ssrn.2941774": "W2800068874"
+  },
+  "unlabelled": [],
+  "unsure": [
+    "W1987352340",
+    "W2010158189",
+    "W2020463305",
+    "W2032056105",
+    "W2129871510",
+    "W3120272807",
+    "W3130446240",
+    "W3144406692",
+    "W3153711671",
+    "W3154760526",
+    "W3205077746",
+    "W4220880629",
+    "W4243342770",
+    "W4292356785",
+    "W4310071238",
+    "W4377042687",
+    "W4386914147",
+    "W4389396390",
+    "W4412451403",
+    "W4413292088",
+    "W4416410027"
+  ],
+  "papers": {
+    "10.1057/s41599-026-06602-8": {
+      "label": "neutral",
+      "why": "retraction notice for W4380078608",
+      "unsure": false,
+      "title": "Retraction Note: Impact of artificial intelligence on human loss in decision making, laziness and safety in education"
+    },
+    "10.2139/ssrn.2616787": {
+      "label": "trap_superseded_preprint",
+      "why": "Dietvorst, Simmons & Massey SSRN working paper (2015) of the 2018 article; its journal version is gold",
+      "unsure": false,
+      "title": "Overcoming Algorithm Aversion: People Will Use Imperfect Algorithms If They Can (Even Slightly) Modify Them"
+    },
+    "10.2139/ssrn.2941774": {
+      "label": "trap_superseded_preprint",
+      "why": "Logg, Minson & Moore SSRN working paper (2017); its journal version is gold",
+      "unsure": false,
+      "title": "Algorithm Appreciation: People Prefer Algorithmic To Human Judgment"
+    },
+    "10.2147/prbm.s477151": {
+      "label": "neutral",
+      "why": "retraction notice for W4386715724",
+      "unsure": false,
+      "title": "A Cogitation on the ChatGPT Craze from the Perspective of Psychological Algorithm Aversion and Appreciation [Retraction]"
+    },
+    "10.3389/fpsyg.2025.1675601": {
+      "label": "neutral",
+      "why": "retraction notice for W4224326502",
+      "unsure": false,
+      "title": "Retraction: Adolescents' algorithmic resistance to short video APP's recommendation: the dual mediating role of resistan"
+    },
+    "W1001721205": {
+      "label": "neutral",
+      "why": "applied clinical-vs-statistical accuracy comparison in one domain (youth treatment failure)",
+      "unsure": false,
+      "title": "Predicting Youth Treatment Failure: An Investigation of Clinical Versus Actuarial Judgment"
+    },
+    "W1522638407": {
+      "label": "gold",
+      "why": "cited by Castelo et al. 2019: Diab et al. 2011, lay perceptions of selection decision aids",
+      "unsure": false,
+      "title": "Lay Perceptions of Selection Decision Aids in US and Non-US Samples"
+    },
+    "W1964596829": {
+      "label": "neutral",
+      "why": "memory and search engines; not about relying on algorithmic judgment",
+      "unsure": false,
+      "title": "Google Effects on Memory: Cognitive Consequences of Having Information at Our Fingertips"
+    },
+    "W1987352340": {
+      "label": "relevant",
+      "why": "essay on Meehl's clinical-vs-actuarial evidence and resistance to it (origins)",
+      "unsure": true,
+      "title": "The ethical implications of Paul Meehl's work on comparing clinical versus actuarial prediction methods"
+    },
+    "W1987876819": {
+      "label": "neutral",
+      "why": "models content-sharing preferences; not about relying on algorithms",
+      "unsure": false,
+      "title": "Studying and Modeling the Connection between People's Preferences and Content Sharing"
+    },
+    "W2006758438": {
+      "label": "neutral",
+      "why": "applied clinical-vs-statistical accuracy comparison in one domain (jaundice diagnosis)",
+      "unsure": false,
+      "title": "Looking for \"Indicants\" in the Differential Diagnosis of Jaundice"
+    },
+    "W2010158189": {
+      "label": "relevant",
+      "why": "reliance on an automated decision aid after seeing it err (title-only record)",
+      "unsure": true,
+      "title": "The role of trust in automation reliance"
+    },
+    "W2012218966": {
+      "label": "gold",
+      "why": "cited by Castelo et al. 2019: Dawes, Faust & Meehl 1989, origin of the debate: actuarial methods beat clinical judgment",
+      "unsure": false,
+      "title": "Clinical Versus Actuarial Judgment"
+    },
+    "W2020239630": {
+      "label": "neutral",
+      "why": "applied clinical-vs-statistical accuracy comparison in one domain (violence prediction)",
+      "unsure": false,
+      "title": "Clinical versus actuarial predictions of violence in patients with mental illnesses."
+    },
+    "W2020463305": {
+      "label": "gold",
+      "why": "cited by Castelo et al. 2019: Sniezek & Buckley 1995, judge-advisor paradigm used to measure reliance; title-only record",
+      "unsure": true,
+      "title": "Cueing and Cognitive Conflict in Judge-Advisor Decision Making"
+    },
+    "W2022480405": {
+      "label": "neutral",
+      "why": "statistics textbook",
+      "unsure": false,
+      "title": "Applied Regression Analysis (2nd ed)."
+    },
+    "W2024981255": {
+      "label": "neutral",
+      "why": "trust in new information systems in general; cited by the source (title-only record)",
+      "unsure": false,
+      "title": "Why do we trust new technology? A study of initial trust formation with organizational information systems"
+    },
+    "W2026514799": {
+      "label": "neutral",
+      "why": "applied clinical-vs-statistical accuracy comparison in one domain (MMPI diagnosis); a classic, but borderline",
+      "unsure": false,
+      "title": "THE SEARCH FOR CONFIGURAL RELATIONSHIPS IN PERSONALITY ASSESSMENT: THE DIAGNOSIS OF PSYCHOSIS vs. NEUROSIS FROM THE MMPI"
+    },
+    "W2032056105": {
+      "label": "gold",
+      "why": "cited by Castelo et al. 2019: Soll & Larrick 2009, how people weight advice (reliance paradigm); human-advisor advice taking is otherwise neutral",
+      "unsure": true,
+      "title": "Strategies for revising judgment: How (and how well) people use others’ opinions."
+    },
+    "W2033943395": {
+      "label": "neutral",
+      "why": "technology acceptance in general, not algorithms vs human judgment; cited by the source",
+      "unsure": false,
+      "title": "User Acceptance of Computer Technology: A Comparison of Two Theoretical Models"
+    },
+    "W2042281163": {
+      "label": "off_scope",
+      "why": "recommender algorithm (technical); no question about people relying on it",
+      "unsure": false,
+      "title": "Item-based collaborative filtering recommendation algorithms"
+    },
+    "W2056418346": {
+      "label": "relevant",
+      "why": "origin of the debate: improper linear models beat expert judgment",
+      "unsure": false,
+      "title": "The robust beauty of improper linear models in decision making."
+    },
+    "W2060144485": {
+      "label": "neutral",
+      "why": "trust in automation (human-factors literature); adjacent",
+      "unsure": false,
+      "title": "The Effect of Automation Reliability on User Automation Trust and Reliance in a Search-and-Rescue Scenario"
+    },
+    "W2067533265": {
+      "label": "neutral",
+      "why": "applied clinical-vs-statistical accuracy comparison in one domain (dangerousness)",
+      "unsure": false,
+      "title": "Actuarial versus clinical assessments of dangerousness."
+    },
+    "W2070125214": {
+      "label": "gold",
+      "why": "cited by Castelo et al. 2019: Promberger & Baron 2006, patients trust physicians over computers",
+      "unsure": false,
+      "title": "Do patients trust computers?"
+    },
+    "W207333959": {
+      "label": "relevant",
+      "why": "review of the clinical-vs-actuarial prediction evidence (origins)",
+      "unsure": false,
+      "title": "Clinical versus actuarial prediction: a review of the literature."
+    },
+    "W2075329139": {
+      "label": "relevant",
+      "why": "compares human and recommender-system predictions of people's tastes",
+      "unsure": false,
+      "title": "Who predicts better? results from an online study comparing humans and an online recommender system"
+    },
+    "W2082409438": {
+      "label": "neutral",
+      "why": "applied clinical-vs-statistical accuracy comparison in one domain (jaundice)",
+      "unsure": false,
+      "title": "Physicians' Diagnoses Compared with Aiaorithmic Differentiation of Causes of Jaundice"
+    },
+    "W2085105383": {
+      "label": "gold",
+      "why": "cited by Castelo et al. 2019: Shaffer et al. 2013, physicians who use a diagnostic aid are derogated",
+      "unsure": false,
+      "title": "Why Do Patients Derogate Physicians Who Use a Computer-Based Diagnostic Support System?"
+    },
+    "W2088194274": {
+      "label": "neutral",
+      "why": "applied clinical-vs-statistical accuracy comparison in one domain (pharyngitis)",
+      "unsure": false,
+      "title": "The Comparative Cost-effectiveness of Statistical Decision Rules and Experienced Physicians in Pharyngitis Management"
+    },
+    "W2093669100": {
+      "label": "off_scope",
+      "why": "'algorithm' is a surgical treatment protocol; patient outcomes, not reliance on judgment",
+      "unsure": false,
+      "title": "Treatment of Surgical Emergencies With and Without an Algorithm"
+    },
+    "W2098593402": {
+      "label": "off_scope",
+      "why": "recommender-algorithm stability (technical)",
+      "unsure": false,
+      "title": "On the stability of recommendation algorithms"
+    },
+    "W2102256472": {
+      "label": "relevant",
+      "why": "Grove & Meehl 1996: classic review of the clinical-statistical controversy (origins)",
+      "unsure": false,
+      "title": "Comparative efficiency of informal (subjective, impressionistic) and formal (mechanical, algorithmic) prediction procedu"
+    },
+    "W2104546629": {
+      "label": "gold",
+      "why": "cited by Castelo et al. 2019: Blattberg & Hoch 1990, combining models with managerial intuition",
+      "unsure": false,
+      "title": "Database Models and Managerial Intuition: 50% Model + 50% Manager"
+    },
+    "W2108700941": {
+      "label": "off_scope",
+      "why": "IBM Watson's game strategy; no question about people relying on it",
+      "unsure": false,
+      "title": "Analysis of Watson's Strategies for Playing Jeopardy!"
+    },
+    "W2110325612": {
+      "label": "off_scope",
+      "why": "collaborative-filtering algorithms (technical)",
+      "unsure": false,
+      "title": "Empirical Analysis of Predictive Algorithms for Collaborative Filtering"
+    },
+    "W2115281393": {
+      "label": "neutral",
+      "why": "book on fast-and-frugal heuristics; background on judgment",
+      "unsure": false,
+      "title": "Simple Heuristics That Make Us Smart"
+    },
+    "W2122469309": {
+      "label": "off_scope",
+      "why": "'actuarial' means survival statistics vs risk models; not human vs algorithmic judgment",
+      "unsure": false,
+      "title": "Long‐Term Post‐CABG Survival: Performance of Clinical Risk Models Versus Actuarial Predictions"
+    },
+    "W2129871510": {
+      "label": "relevant",
+      "why": "review of actuarial vs clinical prediction in psychopathology (origins)",
+      "unsure": true,
+      "title": "Actuarial versus Clinical Prediction in Psychopathology"
+    },
+    "W2131472525": {
+      "label": "neutral",
+      "why": "training human forecasters; no algorithm comparison",
+      "unsure": false,
+      "title": "Psychological Strategies for Winning a Geopolitical Forecasting Tournament"
+    },
+    "W2137384635": {
+      "label": "gold",
+      "why": "cited by Castelo et al. 2019: Armstrong 1980, experts vs simple methods in forecasting",
+      "unsure": false,
+      "title": "The Seer-Sucker Theory: The Value of Experts in Forecasting"
+    },
+    "W2142135351": {
+      "label": "neutral",
+      "why": "trust in automation (human-factors literature); adjacent",
+      "unsure": false,
+      "title": "Type of Automation Failure: The Effects on Trust and Reliance in Automation"
+    },
+    "W2150479185": {
+      "label": "gold",
+      "why": "cited by Castelo et al. 2019: Eastwood, Snook & Luther 2012, lay preference for clinical over actuarial decision strategies",
+      "unsure": false,
+      "title": "What People Want From Their Professionals: Attitudes Toward Decision‐making Strategies"
+    },
+    "W2158570360": {
+      "label": "gold",
+      "why": "cited by Castelo et al. 2019: Onkal et al. 2009, advice from statistical methods discounted vs human experts",
+      "unsure": false,
+      "title": "The relative influence of advice from human experts and statistical methods on forecast adjustments"
+    },
+    "W2159071801": {
+      "label": "neutral",
+      "why": "fast-and-frugal heuristics; background on judgment",
+      "unsure": false,
+      "title": "Reasoning the fast and frugal way: Models of bounded rationality."
+    },
+    "W2166605778": {
+      "label": "neutral",
+      "why": "applied clinical-vs-statistical accuracy comparison in one domain (review of violence prediction)",
+      "unsure": false,
+      "title": "Sixty-Six Years of Research on the Clinical Versus Actuarial Prediction of Violence"
+    },
+    "W2168729696": {
+      "label": "gold",
+      "why": "cited by Castelo et al. 2019: Grove et al. 2000, meta-analysis: mechanical beats clinical prediction",
+      "unsure": false,
+      "title": "Clinical versus mechanical prediction: A meta-analysis."
+    },
+    "W2171321543": {
+      "label": "relevant",
+      "why": "resistance to statistical decision aids in hiring",
+      "unsure": false,
+      "title": "Stubborn Reliance on Intuition and Subjectivity in Employee Selection"
+    },
+    "W2239750798": {
+      "label": "neutral",
+      "why": "advice taking with human advisors only",
+      "unsure": false,
+      "title": "The effectiveness of imperfect weighting in advice taking"
+    },
+    "W2330414371": {
+      "label": "neutral",
+      "why": "methods paper on rule-based prediction; not about people relying on algorithms",
+      "unsure": false,
+      "title": "Connecting clinical and actuarial prediction with rule-based methods."
+    },
+    "W2359880483": {
+      "label": "neutral",
+      "why": "advice taking with human advisors only",
+      "unsure": false,
+      "title": "Advice Taking and Judgment in Decision Making"
+    },
+    "W2372682446": {
+      "label": "neutral",
+      "why": "advice taking with human advisors only",
+      "unsure": false,
+      "title": "Advice Taking in Decision-making Process"
+    },
+    "W2516558179": {
+      "label": "off_scope",
+      "why": "recommender-system method (technical)",
+      "unsure": false,
+      "title": "Identifying Core Users Based on Trust Relationships and Interest Similarity in Recommender System"
+    },
+    "W2536062718": {
+      "label": "relevant",
+      "why": "Logg's dissertation on when people rely on algorithms (precursor of Logg et al. 2019)",
+      "unsure": false,
+      "title": "When do people rely on algorithms"
+    },
+    "W2551317447": {
+      "label": "relevant",
+      "why": "judges' decisions vs machine predictions: algorithms outperform human judgment",
+      "unsure": false,
+      "title": "Human Decisions and Machine Predictions"
+    },
+    "W2555250062": {
+      "label": "relevant",
+      "why": "reliance on a decision aid in personnel selection",
+      "unsure": false,
+      "title": "Examining Factors Influencing Use of a Decision Aid in Personnel Selection"
+    },
+    "W2557738935": {
+      "label": "off_scope",
+      "why": "deep-learning diagnostic accuracy validation; no question about reliance",
+      "unsure": false,
+      "title": "Development and Validation of a Deep Learning Algorithm for Detection of Diabetic Retinopathy in Retinal Fundus Photogra"
+    },
+    "W2592141406": {
+      "label": "neutral",
+      "why": "user trust in movie recommender systems; borderline",
+      "unsure": false,
+      "title": "How to Recommend? User Trust Factors in Movie Recommender Systems"
+    },
+    "W2600700815": {
+      "label": "relevant",
+      "why": "advice from automation discounted after errors",
+      "unsure": false,
+      "title": "Understanding algorithm aversion: When is advice from automation discounted?"
+    },
+    "W2667569599": {
+      "label": "neutral",
+      "why": "advice taking with human advisors only (anchoring)",
+      "unsure": false,
+      "title": "On the Inability to Ignore Useless Advice: A Case for Anchoring in the Judge-Advisor-System"
+    },
+    "W2684480053": {
+      "label": "off_scope",
+      "why": "algorithmic fairness methods",
+      "unsure": false,
+      "title": "Fair Algorithms for Machine Learning"
+    },
+    "W2737666587": {
+      "label": "neutral",
+      "why": "advice taking with human advisors only",
+      "unsure": false,
+      "title": "The Consequences of Disregarding Advice in Judge-Advisor Systems"
+    },
+    "W2754764889": {
+      "label": "relevant",
+      "why": "beliefs about algorithmic vs human work (authenticity)",
+      "unsure": false,
+      "title": "Algorithms and Authenticity"
+    },
+    "W2757799378": {
+      "label": "neutral",
+      "why": "trust in automation (human-factors literature); adjacent",
+      "unsure": false,
+      "title": "Quantifying Compliance and Reliance Trust Behaviors to Influence Trust in Human-Automation Teams"
+    },
+    "W2766939712": {
+      "label": "off_scope",
+      "why": "algorithmic fairness methods",
+      "unsure": false,
+      "title": "Two-stage Algorithm for Fairness-aware Machine Learning"
+    },
+    "W2778043699": {
+      "label": "off_scope",
+      "why": "literary criticism ('an algorithmic appreciation' of a novelist), not algorithm appreciation",
+      "unsure": false,
+      "title": "Christine Brooke-Rose: an algorithmic appreciation"
+    },
+    "W2784472442": {
+      "label": "off_scope",
+      "why": "trust-aware recommender algorithm (technical)",
+      "unsure": false,
+      "title": "Trust aware recommender system with distrust in different views of trusted users"
+    },
+    "W2792183666": {
+      "label": "relevant",
+      "why": "perceptions of algorithmic vs human managerial decisions (fairness, trust)",
+      "unsure": false,
+      "title": "Understanding perception of algorithmic decisions: Fairness, trust, and emotion in response to algorithmic management"
+    },
+    "W2800068874": {
+      "label": "gold",
+      "why": "cited by Castelo et al. 2019: Logg, Minson & Moore 2019, algorithm appreciation: people prefer algorithmic advice",
+      "unsure": false,
+      "title": "Algorithm appreciation: People prefer algorithmic to human judgment"
+    },
+    "W2806853752": {
+      "label": "neutral",
+      "why": "AI vs dermatologists' accuracy in one domain; no question about reliance",
+      "unsure": false,
+      "title": "Man against machine: diagnostic performance of a deep learning convolutional neural network for dermoscopic melanoma rec"
+    },
+    "W2810722110": {
+      "label": "off_scope",
+      "why": "legal essay on AI in banking",
+      "unsure": false,
+      "title": "Artificial intelligence and augmented intelligence collaboration: regaining trust and confidence in the financial sector"
+    },
+    "W2886363025": {
+      "label": "relevant",
+      "why": "aversion to machines making moral decisions",
+      "unsure": false,
+      "title": "People are averse to machines making moral decisions"
+    },
+    "W2898983491": {
+      "label": "off_scope",
+      "why": "conceptual overview of trust in healthcare AI; no evidence on reliance",
+      "unsure": false,
+      "title": "Trusting Artificial Intelligence in Healthcare"
+    },
+    "W2909340128": {
+      "label": "neutral",
+      "why": "conceptual paper on human-AI trust and automation allocation",
+      "unsure": false,
+      "title": "Social Integration of Artificial Intelligence: Functions, Automation Allocation Logic and Human-Autonomy Trust"
+    },
+    "W2913832730": {
+      "label": "off_scope",
+      "why": "industry overview of robo-advisors",
+      "unsure": false,
+      "title": "The Emergence of the Robo-Advisor"
+    },
+    "W2913854599": {
+      "label": "gold",
+      "why": "cited by Castelo et al. 2019: Yeomans et al. 2019, recommender systems vs people for jokes; people prefer humans",
+      "unsure": false,
+      "title": "Making sense of recommendations"
+    },
+    "W2942858056": {
+      "label": "gold",
+      "why": "cited by Castelo et al. 2019: Longoni, Bonezzi & Morewedge 2019, resistance to medical AI",
+      "unsure": false,
+      "title": "Resistance to Medical Artificial Intelligence"
+    },
+    "W2949300685": {
+      "label": "neutral",
+      "why": "advice taking with human advisors only (advisor gender)",
+      "unsure": false,
+      "title": "Advisor gender and advice justification in advice taking"
+    },
+    "W2974452734": {
+      "label": "relevant",
+      "why": "people reject algorithms in uncertain domains (diminishing sensitivity to error); added in v2 as a third Dietvorst paper; postdates the source, so not gold",
+      "unsure": false,
+      "title": "People Reject Algorithms in Uncertain Decision Domains Because They Have Diminishing Sensitivity to Forecasting Error"
+    },
+    "W2981686111": {
+      "label": "relevant",
+      "why": "systematic review of algorithm aversion",
+      "unsure": false,
+      "title": "A systematic review of algorithm aversion in augmented decision making"
+    },
+    "W2983137008": {
+      "label": "relevant",
+      "why": "users' assessments of an algorithm's accuracy",
+      "unsure": false,
+      "title": "A Slow Algorithm Improves Users' Assessments of the Algorithm's Accuracy"
+    },
+    "W2985126436": {
+      "label": "relevant",
+      "why": "use of advice from robo-advisors",
+      "unsure": false,
+      "title": "Following the Robot? Investigating Users’ Utilization of Advice from Robo-Advisors"
+    },
+    "W3007153134": {
+      "label": "off_scope",
+      "why": "algorithmic management of platform workers",
+      "unsure": false,
+      "title": "Digital labour platforms and new forms of flexible work in developing countries: Algorithmic management of work and work"
+    },
+    "W3013872196": {
+      "label": "off_scope",
+      "why": "philosophical essay on trust in medical AI",
+      "unsure": false,
+      "title": "Limits of trust in medical AI"
+    },
+    "W3013998503": {
+      "label": "relevant",
+      "why": "review of empirical research on human trust in AI",
+      "unsure": false,
+      "title": "Human Trust in Artificial Intelligence: Review of Empirical Research"
+    },
+    "W3023069697": {
+      "label": "off_scope",
+      "why": "ethics of algorithmic fairness in health care",
+      "unsure": false,
+      "title": "Ethical limitations of algorithmic fairness solutions in health care machine learning"
+    },
+    "W3024435124": {
+      "label": "relevant",
+      "why": "literature review of algorithm aversion",
+      "unsure": false,
+      "title": "Why are we averse towards Algorithms? A comprehensive literature Review on Algorithm aversion"
+    },
+    "W3029022080": {
+      "label": "neutral",
+      "why": "perceived fairness of algorithmic decisions; adjacent",
+      "unsure": false,
+      "title": "Factors Influencing Perceived Fairness in Algorithmic Decision-Making: Algorithm Outcomes, Development Procedures, and I"
+    },
+    "W3034107461": {
+      "label": "neutral",
+      "why": "essay on robo-advisors vs human advisors; borderline",
+      "unsure": false,
+      "title": "Robo-Advice and the Future of Delegated Investment"
+    },
+    "W3036668652": {
+      "label": "relevant",
+      "why": "field experiment: workers following an algorithm's recommendations (title-only record)",
+      "unsure": false,
+      "title": "When Will Workers Follow an Algorithm? A Field Experiment with a Retail Business"
+    },
+    "W3037983463": {
+      "label": "off_scope",
+      "why": "commentary on trusting AI",
+      "unsure": false,
+      "title": "Commentary: Artificial intelligence for everything: Can we trust it?"
+    },
+    "W3041672775": {
+      "label": "off_scope",
+      "why": "essay on AI and medical humanities",
+      "unsure": false,
+      "title": "Artificial Intelligence and Medical Humanities"
+    },
+    "W3042034256": {
+      "label": "relevant",
+      "why": "algorithm appreciation across task difficulty",
+      "unsure": false,
+      "title": "Algorithmic Appreciation Across Task Difficulty."
+    },
+    "W3042817621": {
+      "label": "relevant",
+      "why": "systematic review of algorithm aversion and appreciation",
+      "unsure": false,
+      "title": "Reactions on algorithms: a systematic literature review of algorithm aversion and algorithm appreciation"
+    },
+    "W3046553882": {
+      "label": "relevant",
+      "why": "algorithm appreciation in creative tasks",
+      "unsure": false,
+      "title": "Algorithmic Appreciation in Creative Tasks"
+    },
+    "W3081297476": {
+      "label": "relevant",
+      "why": "personality and trust in humans vs AI",
+      "unsure": false,
+      "title": "The effects of personality and locus of control on trust in humans versus artificial intelligence"
+    },
+    "W3086839219": {
+      "label": "neutral",
+      "why": "business angels vs machine learning returns; accuracy comparison in one domain",
+      "unsure": false,
+      "title": "It’s a Peoples Game, Isn’t It?! A Comparison Between the Investment Returns of Business Angels and Machine Learning Algo"
+    },
+    "W3087513280": {
+      "label": "relevant",
+      "why": "robo-investment aversion: preference for human vs algorithmic fund managers",
+      "unsure": false,
+      "title": "Robo-investment aversion"
+    },
+    "W3092998473": {
+      "label": "off_scope",
+      "why": "algorithmic fairness methods",
+      "unsure": false,
+      "title": "Bridging Machine Learning and Mechanism Design towards Algorithmic Fairness"
+    },
+    "W3094877022": {
+      "label": "neutral",
+      "why": "sociological essay on predictive algorithms replacing judgment",
+      "unsure": false,
+      "title": "Predicting the Future: Art and Algorithms"
+    },
+    "W3103422570": {
+      "label": "relevant",
+      "why": "algorithm appreciation: performance, development process, interaction",
+      "unsure": false,
+      "title": "Algorithm Appreciation: Algorithmic Performance, Developmental Processes, and User Interactions"
+    },
+    "W3110817755": {
+      "label": "relevant",
+      "why": "algorithm aversion and an algorithm's demonstrated ability to learn",
+      "unsure": false,
+      "title": "Watch Me Improve—Algorithm Aversion and Demonstrating the Ability to Learn"
+    },
+    "W3113060706": {
+      "label": "off_scope",
+      "why": "algorithmic management of platform workers",
+      "unsure": false,
+      "title": "When food‐delivery platform workers consent to algorithmic management: a Foucauldian perspective"
+    },
+    "W3120272807": {
+      "label": "relevant",
+      "why": "human judgment as input to prediction algorithms",
+      "unsure": true,
+      "title": "Eliciting Human Judgment for Prediction Algorithms"
+    },
+    "W3121705224": {
+      "label": "gold",
+      "why": "cited by Castelo et al. 2019: Dietvorst, Simmons & Massey 2018, people use imperfect algorithms if they can modify them",
+      "unsure": false,
+      "title": "Overcoming Algorithm Aversion: People Will Use Imperfect Algorithms If They Can (Even Slightly) Modify Them"
+    },
+    "W3123555980": {
+      "label": "neutral",
+      "why": "explanations for algorithmic transparency (XAI); adjacent",
+      "unsure": false,
+      "title": "Good Explanation for Algorithmic Transparency"
+    },
+    "W3125633690": {
+      "label": "gold",
+      "why": "cited by Castelo et al. 2019: Dietvorst, Simmons & Massey 2015, algorithm aversion after seeing algorithms err",
+      "unsure": false,
+      "title": "Algorithm Aversion: People Erroneously Avoid Algorithms after Seeing Them Err"
+    },
+    "W3127461705": {
+      "label": "neutral",
+      "why": "broad review of stakeholder trust in AI; borderline",
+      "unsure": false,
+      "title": "A Review of Trust in Artificial Intelligence: Challenges, Vulnerabilities and Future Directions"
+    },
+    "W3128351871": {
+      "label": "relevant",
+      "why": "consumer responses to algorithm vs human errors",
+      "unsure": false,
+      "title": "When Algorithms Fail: Consumers’ Responses to Brand Harm Crises Caused by Algorithm Errors"
+    },
+    "W3130446240": {
+      "label": "relevant",
+      "why": "survey of human judgment and quantitative forecasting methods",
+      "unsure": true,
+      "title": "A survey of human judgement and quantitative forecasting methods"
+    },
+    "W3144032957": {
+      "label": "off_scope",
+      "why": "scale for awareness of algorithmic media curation, not reliance on algorithmic judgment",
+      "unsure": false,
+      "title": "Is this recommended by an algorithm? The development and validation of the algorithmic media content awareness scale (AM"
+    },
+    "W3144406692": {
+      "label": "gold",
+      "why": "cited by Castelo et al. 2019: Komiak & Benbasat 2006, trust in recommendation agents; recommender trust is otherwise neutral",
+      "unsure": true,
+      "title": "The Effects of Personalization and Familiarity on Trust and Adoption of Recommendation Agents1"
+    },
+    "W3152500611": {
+      "label": "relevant",
+      "why": "reliance on algorithms vs social influence as tasks get harder",
+      "unsure": false,
+      "title": "Humans rely more on algorithms than social influence as a task becomes more difficult"
+    },
+    "W3153711671": {
+      "label": "neutral",
+      "why": "German-language working paper on algorithm aversion; on topic, unlikely in an English related-work section",
+      "unsure": true,
+      "title": "Die Tragik der Algorithm Aversion"
+    },
+    "W3154760526": {
+      "label": "neutral",
+      "why": "German-language working paper on algorithm aversion; on topic, unlikely in an English related-work section",
+      "unsure": true,
+      "title": "Reduzierung der Algorithm Aversion durch Erfahrung"
+    },
+    "W3164041257": {
+      "label": "neutral",
+      "why": "trust in automation (human-factors literature); adjacent",
+      "unsure": false,
+      "title": "Adaptive Cognitive Mechanisms to Maintain Calibrated Trust and Reliance in Automation"
+    },
+    "W3167050492": {
+      "label": "relevant",
+      "why": "reactions to erring algorithms",
+      "unsure": false,
+      "title": "To err is human, not algorithmic – Robust reactions to erring algorithms"
+    },
+    "W3170495160": {
+      "label": "off_scope",
+      "why": "philosophical defence of trust in medical AI",
+      "unsure": false,
+      "title": "Intentional machines: A defence of trust in medical artificial intelligence"
+    },
+    "W3172101419": {
+      "label": "off_scope",
+      "why": "review of algorithmic systems in government (accountability, privacy)",
+      "unsure": false,
+      "title": "Algorithms and Decision-Making in the Public Sector"
+    },
+    "W3175413073": {
+      "label": "off_scope",
+      "why": "expert disagreement about deep learning",
+      "unsure": false,
+      "title": "Deep limitations? Examining expert disagreement over deep learning"
+    },
+    "W3177900756": {
+      "label": "relevant",
+      "why": "consumer reactions to decisions by algorithms vs humans",
+      "unsure": false,
+      "title": "Thumbs Up or Down: Consumer Reactions to Decisions by Algorithms Versus Humans"
+    },
+    "W3178993634": {
+      "label": "off_scope",
+      "why": "algorithmic management at work",
+      "unsure": false,
+      "title": "Algorithmic management in a work context"
+    },
+    "W3181173654": {
+      "label": "relevant",
+      "why": "Dietvorst & Bartels: objections to algorithms making moral tradeoffs",
+      "unsure": false,
+      "title": "Consumers Object to Algorithms Making Morally Relevant Tradeoffs Because of Algorithms’ Consequentialist Decision Strate"
+    },
+    "W3189444386": {
+      "label": "relevant",
+      "why": "algorithm transparency and use of algorithmic advice",
+      "unsure": false,
+      "title": "The risk of algorithm transparency: How algorithm complexity drives the effects on the use of advice"
+    },
+    "W3193926864": {
+      "label": "relevant",
+      "why": "lay beliefs about AI and adoption of algorithmic advice",
+      "unsure": false,
+      "title": "The impact of lay beliefs about AI on adoption of algorithmic advice"
+    },
+    "W3199747482": {
+      "label": "relevant",
+      "why": "confidence in AI and acceptance of AI suggestions",
+      "unsure": false,
+      "title": "Human confidence in artificial intelligence and in themselves: The evolution and impact of confidence on adoption of AI "
+    },
+    "W3201716397": {
+      "label": "relevant",
+      "why": "mitigating algorithm aversion in forecasting",
+      "unsure": false,
+      "title": "Towards a better understanding on mitigating algorithm aversion in forecasting: an experimental study"
+    },
+    "W3205077746": {
+      "label": "neutral",
+      "why": "German-language working paper on algorithm aversion; on topic, unlikely in an English related-work section",
+      "unsure": true,
+      "title": "Gestaltungswille und Algorithm Aversion – Die Auswirkungen der Einflussnahme im Prozess der algorithmischen Entscheidung"
+    },
+    "W3206874785": {
+      "label": "relevant",
+      "why": "reconciling algorithm aversion and appreciation",
+      "unsure": false,
+      "title": "Who is the Expert? Reconciling Algorithm Aversion and Algorithm Appreciation in AI-Supported Decision Making"
+    },
+    "W3210797883": {
+      "label": "relevant",
+      "why": "past algorithm performance and acceptance of algorithmic advice",
+      "unsure": false,
+      "title": "The Effect of past Algorithmic Performance and Decision Significance on Algorithmic Advice Acceptance"
+    },
+    "W4200010586": {
+      "label": "relevant",
+      "why": "political conservatism and aversion to AI",
+      "unsure": false,
+      "title": "Conservatism predicts aversion to consequential Artificial Intelligence"
+    },
+    "W4200546216": {
+      "label": "relevant",
+      "why": "systematic review of algorithm aversion",
+      "unsure": false,
+      "title": "What influences algorithmic decision-making? A systematic literature review on algorithm aversion"
+    },
+    "W4206578055": {
+      "label": "neutral",
+      "why": "applied clinical-vs-statistical accuracy comparison in one domain (housing program exits)",
+      "unsure": false,
+      "title": "Actuarial prediction versus clinical prediction of exits from a national supported housing program."
+    },
+    "W4206941179": {
+      "label": "relevant",
+      "why": "algorithm use over time",
+      "unsure": false,
+      "title": "A longitudinal approach for understanding algorithm use"
+    },
+    "W4210390504": {
+      "label": "relevant",
+      "why": "preference for moral discretion over algorithms",
+      "unsure": false,
+      "title": "People Prefer Moral Discretion to Algorithms: Algorithm Aversion Beyond Intransparency"
+    },
+    "W4211002924": {
+      "label": "relevant",
+      "why": "public officials' adherence to algorithmic advice",
+      "unsure": false,
+      "title": "Human–AI Interactions in Public Sector Decision Making: “Automation Bias” and “Selective Adherence” to Algorithmic Advic"
+    },
+    "W4213426744": {
+      "label": "neutral",
+      "why": "perspective on transparency and trust in human-AI teams",
+      "unsure": false,
+      "title": "How transparency modulates trust in artificial intelligence"
+    },
+    "W4220795885": {
+      "label": "relevant",
+      "why": "motivation model of algorithm aversion",
+      "unsure": false,
+      "title": "A three-dimensional motivation model of algorithm aversion"
+    },
+    "W4220880629": {
+      "label": "neutral",
+      "why": "Korean-language study of patient compliance with medical AI; on topic, abstract not in English",
+      "unsure": true,
+      "title": "A Study on Patient Compliance with Medical Artificial Intelligence: The Moderating Role of Physical Risks with Trust as "
+    },
+    "W4220936192": {
+      "label": "neutral",
+      "why": "user trust in conversational recommender systems; borderline",
+      "unsure": false,
+      "title": "Impacts of Personal Characteristics on User Trust in Conversational Recommender Systems"
+    },
+    "W4221104095": {
+      "label": "relevant",
+      "why": "algorithm aversion and counter-normative decision procedures",
+      "unsure": false,
+      "title": "Algorithm Aversion and the Aversion to Counter-Normative Decision Procedures"
+    },
+    "W4223643457": {
+      "label": "off_scope",
+      "why": "algorithmic bias and fairness overview",
+      "unsure": false,
+      "title": "Bias, Fairness and Accountability with Artificial Intelligence and Machine Learning Algorithms"
+    },
+    "W4224326502": {
+      "label": "trap_retracted",
+      "why": "Adolescents' algorithmic resistance 2022 (Front Psychol, retracted)",
+      "unsure": false,
+      "title": "Adolescents’ Algorithmic Resistance to Short Video APP’s Recommendation: The Dual Mediating Role of Resistance Willingne"
+    },
+    "W4225105901": {
+      "label": "relevant",
+      "why": "terminology (computer program, algorithm, AI) and human perceptions",
+      "unsure": false,
+      "title": "“Look! It’s a Computer Program! It’s an Algorithm! It’s AI!”: Does Terminology Affect Human Perceptions and Evaluations "
+    },
+    "W4225986817": {
+      "label": "relevant",
+      "why": "perceptions of algorithmic vs human judges",
+      "unsure": false,
+      "title": "Perceptions of Justice By Algorithms"
+    },
+    "W4229044793": {
+      "label": "relevant",
+      "why": "advice accuracy and trust in algorithmic advice",
+      "unsure": false,
+      "title": "Algorithm aversion? On the influence of advice accuracy on trust in algorithmic advice"
+    },
+    "W4243342770": {
+      "label": "neutral",
+      "why": "trust in automation (human-factors literature); adjacent",
+      "unsure": true,
+      "title": "Trust in Automation: Designing for Appropriate Reliance"
+    },
+    "W4248125493": {
+      "label": "relevant",
+      "why": "consumers' over-reliance on algorithmic recommendations",
+      "unsure": false,
+      "title": "Algorithm Overdependence: How the Use of Algorithmic Recommendation Systems Can Increase Risks to Consumer Well-Being"
+    },
+    "W4281822284": {
+      "label": "relevant",
+      "why": "algorithmic vs human advice and performance information",
+      "unsure": false,
+      "title": "Algorithmic versus Human Advice: Does Presenting Prediction Performance Matter for Algorithm Appreciation?"
+    },
+    "W4283162852": {
+      "label": "relevant",
+      "why": "overcoming algorithm aversion by learning from mistakes",
+      "unsure": false,
+      "title": "How to overcome algorithm aversion: Learning from mistakes"
+    },
+    "W4283367157": {
+      "label": "off_scope",
+      "why": "bioethics essay on algorithmic advice in clinical care",
+      "unsure": false,
+      "title": "Ethical Algorithmic Advice: Some Reasons to Pause and Think Twice"
+    },
+    "W4283643667": {
+      "label": "relevant",
+      "why": "trust processes for human vs automated trustees",
+      "unsure": false,
+      "title": "Trust in Artificial Intelligence: Comparing Trust Processes Between Human and Automated Trustees in Light of Unfair Bias"
+    },
+    "W4283823343": {
+      "label": "relevant",
+      "why": "overcoming algorithm aversion: task-procedure fit",
+      "unsure": false,
+      "title": "Overcoming Algorithm Aversion: The Power of Task-Procedure-Fit"
+    },
+    "W4284961114": {
+      "label": "off_scope",
+      "why": "algorithmic management of platform workers",
+      "unsure": false,
+      "title": "Platform scams: Brazilian workers’ experiences of dishonest and uncertain algorithmic management"
+    },
+    "W4287092540": {
+      "label": "relevant",
+      "why": "trust in algorithmic advice for fake-news detection",
+      "unsure": false,
+      "title": "Humans and Algorithms Detecting Fake News: Effects of Individual and Contextual Confidence on Trust in Algorithmic Advic"
+    },
+    "W4288174961": {
+      "label": "relevant",
+      "why": "algorithm-based advice taking in clinical judgment",
+      "unsure": false,
+      "title": "Algorithm-based advice taking and clinical judgement: impact of advice distance and algorithm information"
+    },
+    "W4291014911": {
+      "label": "relevant",
+      "why": "algorithm aversion and robo-advisors",
+      "unsure": false,
+      "title": "Algorithm Aversion as an Obstacle in the Establishment of Robo Advisors"
+    },
+    "W4292356785": {
+      "label": "neutral",
+      "why": "meta-analysis of advice taking (mostly human advisors); borderline",
+      "unsure": true,
+      "title": "A meta-analysis of the weight of advice in decision-making"
+    },
+    "W4293090552": {
+      "label": "relevant",
+      "why": "preferences for algorithmic advice in a word-association task",
+      "unsure": false,
+      "title": "Human preferences toward algorithmic advice in a word association task"
+    },
+    "W4294865113": {
+      "label": "relevant",
+      "why": "algorithm aversion and self-driving cars",
+      "unsure": false,
+      "title": "Algorithm Aversion and Self-driving Cars"
+    },
+    "W4294963575": {
+      "label": "neutral",
+      "why": "negative user feelings toward recommender systems; adjacent",
+      "unsure": false,
+      "title": "Recommender Systems and Algorithmic Hate"
+    },
+    "W4296978576": {
+      "label": "neutral",
+      "why": "perceptions of justice in algorithmic decisions; adjacent",
+      "unsure": false,
+      "title": "'It's Reducing a Human Being to a Percentage': Perceptions of Justice in Algorithmic Decisions"
+    },
+    "W4304172675": {
+      "label": "off_scope",
+      "why": "investment preferences of robo-advisor clients",
+      "unsure": false,
+      "title": "Sustainable Investment Preferences among Robo-Advisor Clients"
+    },
+    "W4306913606": {
+      "label": "off_scope",
+      "why": "essay on trust in medical AI",
+      "unsure": false,
+      "title": "Misplaced Trust and Distrust: How Not to Engage with Medical Artificial Intelligence"
+    },
+    "W4308730821": {
+      "label": "off_scope",
+      "why": "needs assessment for AI in medical education",
+      "unsure": false,
+      "title": "Artificial intelligence in medical education: a cross-sectional needs assessment"
+    },
+    "W4309634305": {
+      "label": "relevant",
+      "why": "algorithm aversion in delegated investing",
+      "unsure": false,
+      "title": "Algorithm aversion in delegated investing"
+    },
+    "W4310071238": {
+      "label": "neutral",
+      "why": "German-language dissertation that includes algorithm-aversion studies",
+      "unsure": true,
+      "title": "Algorithm Aversion and Other Causes of Bias in Decision Behavior: Studies on Algorithm Aversion, Capital Market Forecast"
+    },
+    "W4313046324": {
+      "label": "off_scope",
+      "why": "essay on the credibility of medical AI (black box)",
+      "unsure": false,
+      "title": "On Credibility of Medical Artificial Intelligence Technologies based on Physician-Patient Trust"
+    },
+    "W4313589447": {
+      "label": "off_scope",
+      "why": "algorithmic management of platform workers",
+      "unsure": false,
+      "title": "Algorithm Sensemaking: How Platform Workers Make Sense of Algorithmic Management"
+    },
+    "W4315880904": {
+      "label": "off_scope",
+      "why": "ethics and governance of medical AI",
+      "unsure": false,
+      "title": "Ethics and governance of trustworthy medical artificial intelligence"
+    },
+    "W4321440879": {
+      "label": "relevant",
+      "why": "algorithm aversion under varying decision gravity",
+      "unsure": false,
+      "title": "The extent of algorithm aversion in decision-making situations with varying gravity"
+    },
+    "W4360621268": {
+      "label": "relevant",
+      "why": "user control and implicit attitudes toward algorithms",
+      "unsure": false,
+      "title": "You’re Not the Boss of me, Algorithm: Increased User Control and Positive Implicit Attitudes Are Related to Greater Adhe"
+    },
+    "W4362610119": {
+      "label": "off_scope",
+      "why": "trust in AI in farming (adoption overview)",
+      "unsure": false,
+      "title": "Artificial intelligence in farming: Challenges and opportunities for building trust"
+    },
+    "W4366547314": {
+      "label": "relevant",
+      "why": "overcoming algorithm aversion: process vs outcome control",
+      "unsure": false,
+      "title": "Overcoming Algorithm Aversion: A Comparison between Process and Outcome Control"
+    },
+    "W4366599035": {
+      "label": "relevant",
+      "why": "algorithm appreciation or aversion under uncertainty",
+      "unsure": false,
+      "title": "Algorithmic appreciation or aversion? The moderating effects of uncertainty on algorithmic decision making"
+    },
+    "W4377042687": {
+      "label": "relevant",
+      "why": "book chapter titled 'Algorithm Aversion': public approval of news algorithms",
+      "unsure": true,
+      "title": "Algorithm Aversion"
+    },
+    "W4377292562": {
+      "label": "relevant",
+      "why": "introducing algorithmic advice to service customers",
+      "unsure": false,
+      "title": "Should service firms introduce algorithmic advice to their existing customers? The moderating effect of service relation"
+    },
+    "W4377563917": {
+      "label": "neutral",
+      "why": "clinicians' views on trust in AI decision support (medical-law article); borderline",
+      "unsure": false,
+      "title": "Artificial intelligence and clinical decision support: clinicians’ perspectives on trust, trustworthiness, and liability"
+    },
+    "W4379470483": {
+      "label": "off_scope",
+      "why": "review of AI in healthcare",
+      "unsure": false,
+      "title": "A Review of the Role of Artificial Intelligence in Healthcare"
+    },
+    "W4380078608": {
+      "label": "trap_retracted",
+      "why": "AI and human loss in decision making 2023 (HSSC, retracted)",
+      "unsure": false,
+      "title": "Impact of artificial intelligence on human loss in decision making, laziness and safety in education"
+    },
+    "W4383104799": {
+      "label": "relevant",
+      "why": "perceived corruption reduces algorithm aversion",
+      "unsure": false,
+      "title": "Perceived corruption reduces algorithm aversion"
+    },
+    "W4384572189": {
+      "label": "off_scope",
+      "why": "algorithmic fairness and bias overview",
+      "unsure": false,
+      "title": "Algorithmic Fairness and Bias in Machine Learning Systems"
+    },
+    "W4385223878": {
+      "label": "relevant",
+      "why": "social and moral dimensions of algorithm aversion",
+      "unsure": false,
+      "title": "The Social and Moral Dimensions of Algorithm Aversion"
+    },
+    "W4385299043": {
+      "label": "relevant",
+      "why": "review of task-specific acceptance of algorithmic advice",
+      "unsure": false,
+      "title": "Task-specific algorithm advice acceptance: A review and directions for future research"
+    },
+    "W4385416124": {
+      "label": "off_scope",
+      "why": "algorithmic fairness methods (clinical ML)",
+      "unsure": false,
+      "title": "Algorithmic fairness and bias mitigation for clinical machine learning with deep reinforcement learning"
+    },
+    "W4386218671": {
+      "label": "relevant",
+      "why": "educators' use of algorithmic advice",
+      "unsure": false,
+      "title": "The Impact of Algorithmic Literacy and Purpose on Educator Use and Confidence in Algorithmic Advice"
+    },
+    "W4386715724": {
+      "label": "trap_retracted",
+      "why": "ChatGPT and algorithm aversion 2023 (PRBM, retracted)",
+      "unsure": false,
+      "title": "A Cogitation on the ChatGPT Craze from the Perspective of Psychological Algorithm Aversion and Appreciation"
+    },
+    "W4386914147": {
+      "label": "relevant",
+      "why": "terminology and responses to system failures",
+      "unsure": true,
+      "title": "How Terminology Affects Users’ Responses to System Failures"
+    },
+    "W4387306298": {
+      "label": "relevant",
+      "why": "algorithm aversion among ridesharing drivers",
+      "unsure": false,
+      "title": "Algorithm Aversion: Evidence from Ridesharing Drivers"
+    },
+    "W4387639604": {
+      "label": "relevant",
+      "why": "cooperation and trust with algorithms vs humans in trust games",
+      "unsure": false,
+      "title": "The effects of social presence on cooperative trust with algorithms"
+    },
+    "W4388792924": {
+      "label": "off_scope",
+      "why": "normative trust criteria for health AI",
+      "unsure": false,
+      "title": "Trust criteria for artificial intelligence in health: normative and epistemic considerations"
+    },
+    "W4389396390": {
+      "label": "relevant",
+      "why": "decision authority and the returns to algorithms (human overrides)",
+      "unsure": true,
+      "title": "Decision authority and the returns to algorithms"
+    },
+    "W4390512254": {
+      "label": "relevant",
+      "why": "familiarity and algorithm appreciation",
+      "unsure": false,
+      "title": "Decoding algorithm appreciation: Unveiling the impact of familiarity with algorithms, tasks, and algorithm performance"
+    },
+    "W4390916974": {
+      "label": "neutral",
+      "why": "perceived fairness of algorithmic recruiting; adjacent",
+      "unsure": false,
+      "title": "Perceived algorithmic fairness: An empirical study of transparency and anthropomorphism in algorithmic recruiting"
+    },
+    "W4390951142": {
+      "label": "relevant",
+      "why": "perceived opacity and algorithm aversion at work",
+      "unsure": false,
+      "title": "Perceived opacity leads to algorithm aversion in the workplace"
+    },
+    "W4391114267": {
+      "label": "relevant",
+      "why": "implicit associations and algorithm aversion",
+      "unsure": false,
+      "title": "Prejudiced against the Machine? Implicit Associations and the Transience of Algorithm Aversion"
+    },
+    "W4391749788": {
+      "label": "relevant",
+      "why": "algorithms in selection decisions are effective but unappreciated",
+      "unsure": false,
+      "title": "Algorithms in selection decisions: Effective, but unappreciated"
+    },
+    "W4391904381": {
+      "label": "relevant",
+      "why": "recovery from algorithm aversion over time",
+      "unsure": false,
+      "title": "Do People Recover from Algorithm Aversion? An Experimental Study of Algorithm Aversion over Time"
+    },
+    "W4392293913": {
+      "label": "off_scope",
+      "why": "algorithmic management of platform workers",
+      "unsure": false,
+      "title": "Dark side of algorithmic management on platform worker behaviors: A mixed‐method study"
+    },
+    "W4393165031": {
+      "label": "neutral",
+      "why": "theory of perceived AI agency and trust",
+      "unsure": false,
+      "title": "Artificial Intelligence, Trust, and Perceptions of Agency"
+    },
+    "W4394619247": {
+      "label": "off_scope",
+      "why": "scoping review of AI in career development",
+      "unsure": false,
+      "title": "Artificial intelligence in career development: a scoping review"
+    },
+    "W4398139642": {
+      "label": "off_scope",
+      "why": "teachers' trust in AI and digital competence (adoption)",
+      "unsure": false,
+      "title": "The interplay between teachers’ trust in artificial intelligence and digital competence"
+    },
+    "W4399170818": {
+      "label": "neutral",
+      "why": "trust in AI management of workers; adjacent to algorithmic management",
+      "unsure": false,
+      "title": "How perceived lack of benevolence harms trust of artificial intelligence management."
+    },
+    "W4399491432": {
+      "label": "relevant",
+      "why": "trust in AI-supported decision-making",
+      "unsure": false,
+      "title": "Intermediate Judgments and Trust in Artificial Intelligence-Supported Decision-Making"
+    },
+    "W4400106250": {
+      "label": "neutral",
+      "why": "trust and serendipity in recommender systems; borderline",
+      "unsure": false,
+      "title": "Navigating Serendipity - An Experimental User Study On The Interplay of Trust and Serendipity In Recommender Systems"
+    },
+    "W4400445208": {
+      "label": "relevant",
+      "why": "evaluative algorithmic advice (field experiment)",
+      "unsure": false,
+      "title": "The Promise of Evaluative Algorithmic Advice: A Field Experiment on Writing Improvement"
+    },
+    "W4400803056": {
+      "label": "relevant",
+      "why": "integrative perspective on algorithm aversion and appreciation",
+      "unsure": false,
+      "title": "An Integrative Perspective on Algorithm Aversion and Appreciation in Decision-Making"
+    },
+    "W4401046213": {
+      "label": "off_scope",
+      "why": "medical students' perceptions of AI in education",
+      "unsure": false,
+      "title": "Artificial intelligence in medical education - perception among medical students"
+    },
+    "W4402037523": {
+      "label": "off_scope",
+      "why": "essay on AI and dehumanized patient care",
+      "unsure": false,
+      "title": "Artificial Intelligence and the Dehumanization of Patient Care"
+    },
+    "W4403205285": {
+      "label": "relevant",
+      "why": "dynamics of reliance on algorithmic advice",
+      "unsure": false,
+      "title": "Dynamics of Reliance on Algorithmic Advice"
+    },
+    "W4403540152": {
+      "label": "relevant",
+      "why": "algorithm aversion in inventory decisions",
+      "unsure": false,
+      "title": "Algorithm aversion during disruptions: The case of safety stock"
+    },
+    "W4403688812": {
+      "label": "relevant",
+      "why": "algorithm aversion toward performance feedback",
+      "unsure": false,
+      "title": "Negative performance feedback from algorithms or humans? effect of medical researchers’ algorithm aversion on scientific"
+    },
+    "W4404139911": {
+      "label": "relevant",
+      "why": "psychological distance and algorithm aversion",
+      "unsure": false,
+      "title": "Psychological Distance and Algorithm Aversion: Congruency and Advisor Confidence"
+    },
+    "W4404186735": {
+      "label": "off_scope",
+      "why": "review of algorithmic media use and literacy",
+      "unsure": false,
+      "title": "Algorithmic media use and algorithm literacy: An integrative literature review"
+    },
+    "W4404528809": {
+      "label": "relevant",
+      "why": "scale development for algorithm aversion",
+      "unsure": false,
+      "title": "A dimensional exploration and scale development study of algorithm aversion"
+    },
+    "W4404663548": {
+      "label": "relevant",
+      "why": "use of algorithmic advice and performance feedback",
+      "unsure": false,
+      "title": "Do We Use Relatively Bad (Algorithmic) Advice? The Effects of Performance Feedback and Advice Representation on Advice U"
+    },
+    "W4407069508": {
+      "label": "relevant",
+      "why": "anatomy of algorithm aversion",
+      "unsure": false,
+      "title": "An Anatomy of Algorithm Aversion"
+    },
+    "W4407074920": {
+      "label": "off_scope",
+      "why": "algorithmic management of platform workers",
+      "unsure": false,
+      "title": "Fairness in Algorithmic Management: Bringing Platform-Workers into the Fold"
+    },
+    "W4407578358": {
+      "label": "off_scope",
+      "why": "survey of trust in health systems' use of AI; not reliance on algorithmic judgment",
+      "unsure": false,
+      "title": "Patients’ Trust in Health Systems to Use Artificial Intelligence"
+    },
+    "W4407736993": {
+      "label": "off_scope",
+      "why": "robo-advisors in mutual funds (industry)",
+      "unsure": false,
+      "title": "Robo Advisors Revolution: Transforming Landscape of Mutual Fund Investments"
+    },
+    "W4408459829": {
+      "label": "off_scope",
+      "why": "interviews on accepting AI in medical history taking (technology acceptance)",
+      "unsure": false,
+      "title": "Balancing innovation and trust: Assessing artificial intelligence’s role in medical history taking and physician perspec"
+    },
+    "W4408794157": {
+      "label": "relevant",
+      "why": "advice weighting in human-algorithm collaboration",
+      "unsure": false,
+      "title": "Human-Algorithm Collaboration with Private Information: Naïve Advice-Weighting Behavior and Mitigation"
+    },
+    "W4409676962": {
+      "label": "neutral",
+      "why": "trust in automation (human-factors literature); adjacent",
+      "unsure": false,
+      "title": "Introduction Matters: Manipulating Trust in Automation and Reliance in Automated Driving"
+    },
+    "W4410884925": {
+      "label": "off_scope",
+      "why": "economics essay on algorithms",
+      "unsure": false,
+      "title": "Economics in the Age of Algorithms"
+    },
+    "W4410889186": {
+      "label": "off_scope",
+      "why": "algorithmic pricing",
+      "unsure": false,
+      "title": "Algorithmic pricing: Implications for marketing strategy and regulation"
+    },
+    "W4410890093": {
+      "label": "relevant",
+      "why": "reliance on algorithmic advice (incentives, framing)",
+      "unsure": false,
+      "title": "Incentives, Framing, and Reliance on Algorithmic Advice: An Experimental Study"
+    },
+    "W4411330565": {
+      "label": "off_scope",
+      "why": "philosophy of trust and transparency in AI",
+      "unsure": false,
+      "title": "Trust and Transparency in Artificial Intelligence"
+    },
+    "W4411527458": {
+      "label": "relevant",
+      "why": "valuation of human- vs algorithm-created products",
+      "unsure": false,
+      "title": "The Algorithm Discount: Explaining Consumers’ Valuation of Human- versus Algorithm-Created Digital Products"
+    },
+    "W4411703968": {
+      "label": "off_scope",
+      "why": "robo-advisors and behavioural biases (finance)",
+      "unsure": false,
+      "title": "The Role of AI & Robo-Advisors in Reducing Behavioural Biases"
+    },
+    "W4412114008": {
+      "label": "neutral",
+      "why": "advice taking with human advisors only (judge-advisor learning)",
+      "unsure": false,
+      "title": "Learning Processes in the Judge–Advisor System: A Neglected Advantage of Advice Taking"
+    },
+    "W4412211189": {
+      "label": "relevant",
+      "why": "algorithm appreciation and aversion in XAI-augmented clinical decisions",
+      "unsure": false,
+      "title": "Heuristics and Errors in XAI-Augmented Clinical Decision-Making:Moving Beyond Algorithmic Appreciation and Aversion Movi"
+    },
+    "W4412296614": {
+      "label": "off_scope",
+      "why": "algorithmic management of platform workers",
+      "unsure": false,
+      "title": "Algorithmic Unfairness on Digital Labor Platforms: How Algorithmic Management Practices Disadvantage Workers"
+    },
+    "W4412451403": {
+      "label": "neutral",
+      "why": "Spanish-language thesis on algorithm aversion and appreciation",
+      "unsure": true,
+      "title": "Algorithm aversion or appreciation?"
+    },
+    "W4412926753": {
+      "label": "off_scope",
+      "why": "algorithmic management of platform workers",
+      "unsure": false,
+      "title": "The Dual Effects of Algorithmic Management on Platform Workers: An Attribution Perspective"
+    },
+    "W4413292088": {
+      "label": "relevant",
+      "why": "model comparing trust in humans and robots",
+      "unsure": true,
+      "title": "Mortal vs. Machine: A Compact Two-Factor Model for Comparing Trust in Humans and Robots"
+    },
+    "W4413354175": {
+      "label": "off_scope",
+      "why": "robo-advisors and investment behaviour (finance)",
+      "unsure": false,
+      "title": "Robo-Advisors and Investment Behavior: A Comparative Analysis"
+    },
+    "W4414200236": {
+      "label": "relevant",
+      "why": "algorithm aversion toward improving AI",
+      "unsure": false,
+      "title": "No Algorithm Aversion in Improving AI"
+    },
+    "W4414525838": {
+      "label": "relevant",
+      "why": "managerial advice taking from human vs algorithmic advisers",
+      "unsure": false,
+      "title": "Accountability and managerial advice-taking: comparing human and algorithmic advisers"
+    },
+    "W4415120095": {
+      "label": "off_scope",
+      "why": "robo-advisors and bias mitigation (finance)",
+      "unsure": false,
+      "title": "Robo-Advisors and Behavioral Bias Mitigation in Investment Decisions"
+    },
+    "W4415165026": {
+      "label": "off_scope",
+      "why": "robo-advisors in behavioural finance",
+      "unsure": false,
+      "title": "The role of robo-advisors in behavioural finance, shaping investment decisions"
+    },
+    "W4415545653": {
+      "label": "relevant",
+      "why": "algorithm aversion and appreciation in unstructured tasks",
+      "unsure": false,
+      "title": "The Influence of ‘Algorithm Aversion’ and ‘Algorithm Appreciation’ Among Consumers in Unstructured Tasks"
+    },
+    "W4416410027": {
+      "label": "relevant",
+      "why": "trust in AI recommendations (classroom experiment)",
+      "unsure": true,
+      "title": "Gender, knowledge, and trust in artificial intelligence: a classroom-based randomized experiment"
+    },
+    "W7105648595": {
+      "label": "neutral",
+      "why": "advice taking with human advisors only (point vs interval advice)",
+      "unsure": false,
+      "title": "Point versus Interval Advice: Differences in Advice Taking"
+    },
+    "W7110905761": {
+      "label": "neutral",
+      "why": "OSF study record with a one-line description, not a paper",
+      "unsure": false,
+      "title": "Algorithmic Advice as a Strategic Signal on Competitive Markets"
+    },
+    "W7111817753": {
+      "label": "relevant",
+      "why": "explanation type and algorithm appreciation in healthcare",
+      "unsure": false,
+      "title": "The Effect of Type of Explanation on Algorithm Appreciation: The Role of Risk Perceptions in Healthcare Decision-Making"
+    },
+    "W7112351145": {
+      "label": "neutral",
+      "why": "OSF project (materials and data) for a 2024 paper, not a paper",
+      "unsure": false,
+      "title": "Algorithm Aversion and Psychological Distance"
+    },
+    "W7113586290": {
+      "label": "neutral",
+      "why": "trust in automation (human-factors literature); adjacent",
+      "unsure": false,
+      "title": "THE EFFECT OF INTERMEDIATE TRUST RATINGS ON AUTOMATION RELIANCE"
+    },
+    "W7117683374": {
+      "label": "neutral",
+      "why": "OSF study record (preregistration or data), not a paper",
+      "unsure": false,
+      "title": "Perception of decision-makers based on their reliance on algorithmic advice (study 3a)"
+    },
+    "W7117691885": {
+      "label": "neutral",
+      "why": "OSF study record (preregistration or data), not a paper",
+      "unsure": false,
+      "title": "Perception of decision-makers based on their reliance on algorithmic advice (study 3b)"
+    },
+    "W7117760103": {
+      "label": "neutral",
+      "why": "OSF study record (preregistration or data), not a paper",
+      "unsure": false,
+      "title": "Perception of decision-makers based on their reliance on algorithmic advice (study 2a)"
+    },
+    "W7117779892": {
+      "label": "neutral",
+      "why": "OSF study record (preregistration or data), not a paper",
+      "unsure": false,
+      "title": "Perception of decision-makers based on their reliance on algorithmic advice (study 2b)"
+    },
+    "W7117893969": {
+      "label": "neutral",
+      "why": "OSF study record (preregistration or data), not a paper",
+      "unsure": false,
+      "title": "Perception of decision-makers based on their reliance on algorithmic advice"
+    },
+    "W7127239690": {
+      "label": "relevant",
+      "why": "psychological biases in algorithm appreciation or aversion",
+      "unsure": false,
+      "title": "Algorithm Appreciation or Aversion? The Role of Psychological Biases"
+    },
+    "W7127637853": {
+      "label": "neutral",
+      "why": "OSF study record (preregistration or data), not a paper",
+      "unsure": false,
+      "title": "Algorithmic Advice Taking Study 3"
+    },
+    "W7146978132": {
+      "label": "relevant",
+      "why": "algorithm explainability and algorithm aversion",
+      "unsure": false,
+      "title": "Intervention Study: The Impact of Algorithm Explainability on Algorithm Aversion"
+    },
+    "W7211931508": {
+      "label": "neutral",
+      "why": "OSF preregistration of a replication of Dietvorst et al. 2018 (same short title), not a paper",
+      "unsure": false,
+      "title": "Overcoming algorithm aversion"
+    }
+  }
+}
