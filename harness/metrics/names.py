@@ -10,6 +10,7 @@ QUALITY_METRICS = [
     "off_scope_rate",
     "claim_support_rate",
     "trap_flag_rate",
+    "near_miss_exclusion_rate",
     "exclusion_explained",
     "steer_preservation",
 ]

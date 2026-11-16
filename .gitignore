@@ -9,3 +9,5 @@ venv/
 .pytest_cache/
 CLAUDE.md
 AGENTS.md
+runs/_pilots/
+corpus_tools/.cache/

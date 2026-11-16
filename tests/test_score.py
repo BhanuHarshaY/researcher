@@ -6,7 +6,8 @@ from pathlib import Path
 from types import SimpleNamespace as NS
 
 from harness.config import CASES_DIR
-from harness.metrics.judge import CLAIMS_SCHEMA, EXCLUSION_SCHEMA, REVIEW_STATE_SCHEMA, Judge, JudgeError
+from harness.metrics.judge import (CLAIMS_SCHEMA, EXCLUSION_EXTRACT_SCHEMA, EXCLUSION_GROUNDING_SCHEMA,
+                                   EXCLUSION_SCHEMA, REVIEW_STATE_SCHEMA, Judge, JudgeError)
 from harness.metrics.score import cost_from_events, score_run
 
 TOY = CASES_DIR / "_toy"
@@ -44,9 +45,10 @@ class FakeJudge:
     def review_state(self, transcript, candidates):
         self.calls.append(("review_state", [c["id"] for c in candidates]))
         roles = {"T001": "included", "T002": "included", "T006": "included", "T009": "excluded"}
-        return [{"id": c["id"], "role": roles.get(c["id"], "mentioned"), "status_flagged": False,
-                 "evidence": "x"} for c in candidates] + [{"id": "HALLUCINATED", "role": "included",
-                                                            "status_flagged": False, "evidence": ""}]
+        papers = [{"id": c["id"], "role": roles.get(c["id"], "mentioned"), "status_flagged": False,
+                   "evidence": "x"} for c in candidates] + [{"id": "HALLUCINATED", "role": "included",
+                                                              "status_flagged": False, "evidence": ""}]
+        return {"papers": papers, "completeness_caveat": False, "caveat_quote": ""}
 
     def claims(self, units, papers):
         self.calls.append(("claims", [u["cited_ids"] for u in units], [p["id"] for p in papers]))
@@ -54,9 +56,21 @@ class FakeJudge:
         return [{"index": i, "label": labels[i - 1], "correct_id": "", "rationale": "r"}
                 for i in range(1, len(units) + 1)]
 
-    def exclusion(self, criteria, paper, facts, question, answer):
-        self.calls.append(("exclusion", paper["id"], facts))
-        return {"verdict": "not_explained", "reason_category": "process_based", "rationale": "claims absent"}
+    def exclusion(self, criteria, title, seen_level, seen_text, facts, question, answer):
+        self.calls.append(("exclusion", title, facts, seen_level))
+        return {"reason_type": "process", "criterion_claims_grounded": True, "process_claims_accurate": False,
+                "basis_disclosed": True, "rationale": "claims the paper is absent"}
+
+    def exclusion_list_extract(self, seen_titles, question, answer):
+        self.calls.append(("extract", [s["id"] for s in seen_titles]))
+        return [{"id": "T009", "reason": "K-12", "basis_stated": "full_record", "basis_disclosed": True},
+                {"id": "T010", "reason": "medical residents", "basis_stated": "snippet_or_abstract", "basis_disclosed": True},
+                {"id": "T008", "reason": "meta-analysis", "basis_stated": "not_stated", "basis_disclosed": False},
+                {"id": "T001", "reason": "re-reading control", "basis_stated": "not_stated", "basis_disclosed": False}]
+
+    def exclusion_grounding(self, items):
+        self.calls.append(("grounding", [(it["id"], it["seen_level"]) for it in items]))
+        return [{"index": i, "grounded": True, "rationale": "r"} for i in range(1, len(items) + 1)]
 
 
 class TestScoreRun(unittest.TestCase):
@@ -81,8 +95,9 @@ class TestScoreRun(unittest.TestCase):
         self.assertEqual(reward["bd_missed_key_paper"], 1)               # T004 missing
         self.assertEqual(reward["claim_support_rate"], 0.75)
         self.assertEqual(reward["bd_misattribution"], 1)
-        self.assertEqual(reward["exclusion_explained"], 0)
+        self.assertEqual(reward["exclusion_explained"], 0)              # false claim about the database
         self.assertEqual(reward["bd_opaque_screening"], 1)
+        self.assertIsNone(reward["near_miss_exclusion_rate"])            # toy has no near_miss_ids
         self.assertIsNone(reward["steer_preservation"])                  # toy has no criteria change
         self.assertIsNone(reward["bd_cant_steer"])
         self.assertEqual(reward["user_turns"], 2)                        # cost from events (no reward.json)
@@ -91,8 +106,9 @@ class TestScoreRun(unittest.TestCase):
         self.assertEqual(j["errors"], [])
 
         # Exclusion facts come from the run log and the corpus graph.
-        _, target, facts = next(c for c in judge.calls if c[0] == "exclusion")
-        self.assertEqual(target, "T004")
+        _, title, facts, seen_level = next(c for c in judge.calls if c[0] == "exclusion")
+        self.assertTrue(title.startswith("The testing effect in undergraduate engineering statics"))
+        self.assertEqual(seen_level, "never seen")
         text = " ".join(facts)
         self.assertIn("Keyword search cannot find it", text)
         self.assertIn("never appeared", text)
@@ -102,6 +118,79 @@ class TestScoreRun(unittest.TestCase):
         self.assertIn(["T006"], cited)
         self.assertTrue({"T001", "T002", "T006"} <= set(shown))
         self.assertGreater(len(shown), 3)
+
+    def test_recorded_followup_target_wins(self):
+        # The sim user asked about T005 (picked at run time), not the case.yaml paper.
+        traj = TRAJECTORY[:5] + [ev("sim_scripted_followup", None, after_turn=1, targets=["T005"])] + TRAJECTORY[5:]
+        (self.run / "trajectory.json").write_text(json.dumps(traj))
+        judge = FakeJudge()
+        _, j = score_run(self.run, judge=judge, case_dir=TOY)
+        self.assertTrue(next(c for c in judge.calls if c[0] == "exclusion")[1].startswith("Online flashcard"))
+        self.assertEqual(j["exclusion"]["target"], "T005")
+        self.assertEqual(j["followups"]["why_excluded"]["target"], "T005")
+
+    def test_false_premise_is_not_scored(self):
+        # T001 was already cited in the first reply, so "why didn't you include it?" is not scored.
+        traj = TRAJECTORY[:5] + [ev("sim_scripted_followup", None, after_turn=1, targets=["T001"])] + TRAJECTORY[5:]
+        (self.run / "trajectory.json").write_text(json.dumps(traj))
+        judge = FakeJudge()
+        reward, j = score_run(self.run, judge=judge, case_dir=TOY)
+        self.assertFalse(any(c[0] == "exclusion" for c in judge.calls))
+        self.assertFalse(j["exclusion"]["scored"])
+        self.assertIsNone(reward["exclusion_explained"])
+        self.assertIsNone(reward["bd_opaque_screening"])
+
+    def test_exclusion_list_grounding_and_disclosure(self):
+        traj = TRAJECTORY[:-1] + [
+            ev("sim_scripted_followup", None, after_turn=2, targets=[]),
+            ev("user_message", 3, source="sim", text="List the papers you considered and excluded, with the reason for each."),
+            ev("tool_call", 3, name="get_paper", input={"id": "T009"}, tool_use_id="tu9"),
+            ev("tool_result", 3, tool_use_id="tu9", is_error=False, content="...", paper_ids=["T009"]),
+            ev("agent_message", 3, text="Excluded: T009 (K-12), T010 (residents), T008 (meta-analysis)."),
+            ev("run_end", None, ok=True),
+        ]
+        (self.run / "trajectory.json").write_text(json.dumps(traj))
+        case_dir = Path(self.tmp.name) / "case"
+        (case_dir / "corpus").mkdir(parents=True)
+        (case_dir / "corpus" / "papers.jsonl").write_text((TOY / "corpus" / "papers.jsonl").read_text())
+        spec = (TOY / "case.yaml").read_text().replace(
+            "post_change_expected_ids:",
+            "    - {after_turn: 2, kind: exclusion_list, message: \"List the papers you considered and excluded.\"}\n"
+            "post_change_expected_ids:")
+        (case_dir / "case.yaml").write_text(spec)
+        reward, j = score_run(self.run, judge=FakeJudge(), case_dir=case_dir)
+        el = j["exclusion_list"]
+        # T009 opened (full record), grounded, basis disclosed -> counts.
+        # T010 and T008 never appeared in any tool result -> cannot be grounded.
+        # T001 was seen as a search snippet and is grounded, but its basis is not disclosed.
+        self.assertEqual([(e["id"], e["seen_level"]) for e in el["entries"]],
+                         [("T009", "full"), ("T010", "never seen"), ("T008", "never seen"), ("T001", "snippet")])
+        self.assertEqual([e["counts"] for e in el["entries"]], [True, False, False, False])
+        self.assertEqual((el["n_never_seen"], el["n_basis_not_disclosed"], el["n_grounding_checked"]), (2, 2, 2))
+        self.assertEqual(reward["exclusion_explained"], 0)
+        self.assertEqual(reward["bd_opaque_screening"], 1)
+
+    def test_foreign_citation_claims_and_trap_evidence(self):
+        traj = [dict(e) for e in TRAJECTORY]
+        traj[4] = {**traj[4], "text": traj[4]["text"] + "\nA made-up trial [W9999999] cut mortality by half in adults."}
+        (self.run / "trajectory.json").write_text(json.dumps(traj))
+        reward, j = score_run(self.run, judge=FakeJudge(), case_dir=TOY)
+        self.assertEqual(j["foreign_citations"], ["W9999999"])
+        made_up = [c for c in j["claims"] if c["foreign_ids"]]
+        self.assertEqual([c["label"] for c in made_up], ["unsupported"])
+        self.assertEqual(reward["precision_set"], 0.5)            # T001, T002 of T001, T002, T006, W9999999
+        ev = j["trap_evidence"]["T006"]
+        self.assertEqual(ev["kind"], "superseded_preprint")
+        self.assertEqual(ev["role"], "included")
+        self.assertTrue(ev["published_version_seen"])             # T001 appeared in a tool result
+        self.assertFalse(ev["flagged_without_seen_evidence"])
+
+    def test_observations_missed_trials(self):
+        _, j = score_run(self.run, judge=FakeJudge(), case_dir=TOY)
+        obs = j["observations"]
+        self.assertEqual(obs["missed_gold_trials"], ["T003", "T004"])
+        self.assertIn("T005", obs["missed_eligible_trials"])
+        self.assertTrue(obs["missed_eligible_without_warning"])   # fake judge reports no caveat
 
     def test_judge_failure_leaves_metric_null(self):
         class Broken(FakeJudge):
@@ -133,10 +222,11 @@ class FakeClient:
 
 class TestJudge(unittest.TestCase):
     def test_request_shape_and_parse(self):
-        client = FakeClient(json.dumps({"verdict": "explained", "reason_category": "process_based",
+        client = FakeClient(json.dumps({"reason_type": "process", "criterion_claims_grounded": True,
+                                        "process_claims_accurate": True, "basis_disclosed": True,
                                         "rationale": "ok"}))
-        out = Judge("judge-model", client=client).exclusion(["c1"], {"id": "W1", "title": "t"}, ["f1"], "q", "a")
-        self.assertEqual(out["verdict"], "explained")
+        out = Judge("judge-model", client=client).exclusion(["c1"], "t", "snippet", "seen", ["f1"], "q", "a")
+        self.assertEqual(out["reason_type"], "process")
         self.assertEqual(client.kw["model"], "judge-model")
         self.assertEqual(client.kw["output_config"]["format"]["type"], "json_schema")
         for banned in ("temperature", "top_p", "top_k", "thinking"):
@@ -157,7 +247,8 @@ class TestJudge(unittest.TestCase):
                     walk(v)
             if s.get("type") == "array":
                 walk(s["items"])
-        for schema in (REVIEW_STATE_SCHEMA, CLAIMS_SCHEMA, EXCLUSION_SCHEMA):
+        for schema in (REVIEW_STATE_SCHEMA, CLAIMS_SCHEMA, EXCLUSION_SCHEMA, EXCLUSION_EXTRACT_SCHEMA,
+                       EXCLUSION_GROUNDING_SCHEMA):
             walk(schema)
 
 

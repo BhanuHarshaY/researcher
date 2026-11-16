@@ -1,0 +1,284 @@
+# Case 1: systematic review with criteria revealed over the first turns (ivermectin for COVID-19).
+# Gold set: the 25 trials included by the review below, resolved in OpenAlex.
+# Written by corpus_tools/write_case1_yaml.py from corpus/labels.json; edit those, not this file.
+id: case1_systematic_review
+task_type: systematic_review
+goal: >-
+  Get a systematic review of randomized trials of ivermectin for treating COVID-19
+  that follows your inclusion criteria, and be able to justify every inclusion
+  and exclusion.
+initial_prompt: >-
+  I'm doing a systematic review for my research methods course on whether
+  ivermectin works for treating COVID-19. Can you find the relevant trials and
+  summarize what they show?
+criteria:
+  - "Design: randomized controlled trial (no observational or non-randomized designs)"
+  - "Population: people with confirmed or suspected COVID-19 (treatment, not prophylaxis)"
+  - "Intervention: systemic (oral or intravenous) ivermectin"
+  - "Comparator: placebo, no treatment, standard care or another drug"
+  - "Co-interventions: the same in both arms (add-on designs allowed: ivermectin plus X vs X alone)"
+  - "Date: published 2020 to 2022"
+  - "Report: not retracted or withdrawn; journal article preferred over its preprint"
+  - "Not eligible: in-vitro or animal studies, reviews and meta-analyses"
+gold_ids:
+  - "W3092176787"                    # Chachar 2020
+  - "W3107056972"                    # Ahmed 2020
+  - "W3111064783"                    # Niaee 2021
+  - "W3111068209"                    # Chaccour 2021 (SAINT)
+  - "W3126179459"                    # Bukhari 2021
+  - "W3129242298"                    # Babalola 2021
+  - "W3130646175"                    # Okumus 2021
+  - "W3133698266"                    # Galan 2021
+  - "W3135420706"                    # Lopez-Medina 2021
+  - "W3150247726"                    # Podder 2020
+  - "W3157727129"                    # Shahbaznejad 2021
+  - "W3161928646"                    # Faisal 2020
+  - "W3164512669"                    # Abd-Elsalam 2021
+  - "W3170319714"                    # Krolewiecki 2021
+  - "W3173645873"                    # Vallejos 2021 (IVERCOR)
+  - "W3182729893"                    # Ravikirti 2021
+  - "W3197929425"                    # Mohan 2021 (RIVET-COV)
+  - "W4212946211"                    # Buonfrate 2022 (COVER)
+  - "W4212973150"                    # Lim 2022 (I-TECH)
+  - "W4220754707"                    # Reis 2022 (TOGETHER)
+  - "W4220768079"                    # Beltran Gonzalez 2022
+  - "W4284890619"                    # Biber 2022
+  - "W4293176350"                    # Manomaipiboon 2022
+  - "W4307043809"                    # Naggie 2022 (ACTIV-6)
+  - "W4311938754"                    # La Rocha 2022
+key_ids:
+  - "W4220754707"                    # Reis 2022 (TOGETHER)
+  - "W4307043809"                    # Naggie 2022 (ACTIV-6)
+  - "W4212973150"                    # Lim 2022 (I-TECH)
+  - "W3135420706"                    # Lopez-Medina 2021
+relevant_ids:   # gold plus other papers that meet the stated criteria
+  - "W3088905160"                    # Kishoria 2020 (eligible RCT not in the review)
+  - "W3092176787"                    # Chachar 2020
+  - "W3107056972"                    # Ahmed 2020
+  - "W3111064783"                    # Niaee 2021
+  - "W3111068209"                    # Chaccour 2021 (SAINT)
+  - "W3126179459"                    # Bukhari 2021
+  - "W3129242298"                    # Babalola 2021
+  - "W3130646175"                    # Okumus 2021
+  - "W3133698266"                    # Galan 2021
+  - "W3135420706"                    # Lopez-Medina 2021
+  - "W3150247726"                    # Podder 2020
+  - "W3157727129"                    # Shahbaznejad 2021
+  - "W3161928646"                    # Faisal 2020
+  - "W3164512669"                    # Abd-Elsalam 2021
+  - "W3170319714"                    # Krolewiecki 2021
+  - "W3173645873"                    # Vallejos 2021 (IVERCOR)
+  - "W3182729893"                    # Ravikirti 2021
+  - "W3196420298"                    # Efficacy of Single-Dose Ivermectin on Virologic and Clinical Recovery 
+  - "W3197929425"                    # Mohan 2021 (RIVET-COV)
+  - "W4212946211"                    # Buonfrate 2022 (COVER)
+  - "W4212973150"                    # Lim 2022 (I-TECH)
+  - "W4220754707"                    # Reis 2022 (TOGETHER)
+  - "W4220768079"                    # Beltran Gonzalez 2022
+  - "W4282595092"                    # Safety and Efficacy of Ivermectin for the Prevention and Treatment of 
+  - "W4282964706"                    # Non-effectiveness of Ivermectin on Inpatients and Outpatients With COV
+  - "W4283363264"                    # Efficacy of single‐dose and double‐dose ivermectin early treatment in 
+  - "W4284890619"                    # Biber 2022
+  - "W4292148078"                    # Bramante 2022 (COVID-OUT)
+  - "W4293176350"                    # Manomaipiboon 2022
+  - "W4307043809"                    # Naggie 2022 (ACTIV-6)
+  - "W4307216937"                    # Clinical efficacy and safety of ivermectin (400 ug/kg, single dose) in
+  - "W4311753472"                    # LB1528C. Ivermectin for Treatment of Mild-to-Moderate COVID-19 in the 
+  - "W4311938754"                    # La Rocha 2022
+  - "W4312323281"                    # Effectiveness of Ivermectin among COVID-19 patients: A Randomized Cont
+  - "W4313121933"                    # An Open Label Randomized Controlled Trial of Ivermectin Plus Favipirav
+report_of:      # other reports of a trial -> the trial's main report; recall counts trials, not reports
+  "10.1101/2021.01.05.21249310": "W3182729893"  # Ravikirti 2021
+  "10.1101/2021.05.31.21258081": "W4284890619"  # Biber 2022
+  "10.1101/2022.06.10.22276252": "W4307043809"  # Naggie 2022 (ACTIV-6)
+  "W4311753472": "W4307043809"  # Naggie 2022 (ACTIV-6)
+  "W6901825914": "W4311938754"  # La Rocha 2022
+near_miss_ids:  # real papers that fail exactly one stated criterion (also in off_scope_ids)
+  - {id: "W3041503566", fails: "design: historical control"}  # Gorial 2020 | design: historical control
+  - {id: "W3091860795", fails: "design: retrospective cohort"}  # Rajter 2021 (ICON) | design: retrospecti
+  - {id: "W3102430453", fails: "design: retrospective"}  # Morgenstern 2020 | design: retrospective
+  - {id: "W3104739766", fails: "design: retrospective"}  # Camprubi 2020 | design: retrospective
+  - {id: "W3129600723", fails: "population: prophylaxis in uninfected contacts"}  # Shouman 2021 | population: prophylaxis i
+  - {id: "W3133633583", fails: "co-intervention: doxycycline vs azithromycin"}  # Chowdhury 2021 | co-intervention: doxycy
+  - {id: "W3162891398", fails: "co-intervention: doxycycline in ivermectin arm only"}  # Mahmud 2021 | co-intervention: doxycycli
+  - {id: "W3168400794", fails: "intervention: nasal spray, not systemic"}  # Aref 2021 | intervention: nasal spray, n
+  - {id: "W3217293035", fails: "design: prospective observational"}  # Ozer 2021 | design: prospective observat
+  - {id: "W4243260355", fails: "comparator: a combination that itself contains ivermectin"}  # 
+  - {id: "W4287129885", fails: "co-intervention: doxycycline in ivermectin arm only"}  # Hashim 2020 | co-intervention: doxycycli
+  - {id: "W4319996285", fails: "date: published 2023"}  # 
+  - {id: "W4321366419", fails: "date: published 2023"}  # 
+  - {id: "W4321369786", fails: "date: published 2023"}  # Naggie 2023 (ACTIV-6 600) | date: publis
+  - {id: "W4377292376", fails: "date: published 2023"}  # 
+  - {id: "W4390244664", fails: "date: published 2023"}  # 
+  - {id: "W4392303143", fails: "date: published 2024"}  # Hayward 2024 (PRINCIPLE) | date: publish
+  - {id: "W4400881102", fails: "date: published 2024"}  # 
+  - {id: "W4403099903", fails: "date: published 2023"}  # 
+  - {id: "W4405765493", fails: "co-intervention: metronidazole in the ivermectin arm only"}  # 
+off_scope_ids:  # tempting but outside the stated criteria (reasons in corpus/labels.json)
+  - W3014962324
+  - W3015993909
+  - W3016395404
+  - W3017265175
+  - W3018040824
+  - W3022811568
+  - W3022875749
+  - W3026711303
+  - W3033658063
+  - W3036124991
+  - W3041503566
+  - W3046117332
+  - W3046318930
+  - W3046413061
+  - W3049611143
+  - W3081745349
+  - W3082948952
+  - W3083341424
+  - W3085858594
+  - W3086865863
+  - W3091860795
+  - W3092224401
+  - W3094704086
+  - W3097342548
+  - W3099512025
+  - W3100710042
+  - W3102430453
+  - W3104739766
+  - W3110533808
+  - W3112738722
+  - W3117652431
+  - W3119361077
+  - W3122293810
+  - W3123539721
+  - W3125207704
+  - W3125444454
+  - W3128164502
+  - W3129541046
+  - W3129600723
+  - W3133633583
+  - W3134967235
+  - W3136091706
+  - W3139903895
+  - W3143180683
+  - W3144228540
+  - W3147285122
+  - W3151682046
+  - W3153015123
+  - W3158596488
+  - W3159407313
+  - W3162891398
+  - W3166599105
+  - W3168400794
+  - W3168908540
+  - W3174079333
+  - W3174188666
+  - W3188550925
+  - W3190401464
+  - W3193087519
+  - W3196181687
+  - W3197310750
+  - W3200289841
+  - W3202911911
+  - W3203491338
+  - W3204740692
+  - W3206011484
+  - W3212119853
+  - W3213437465
+  - W3216772674
+  - W3217293035
+  - W4200397938
+  - W4206186030
+  - W4206316363
+  - W4206412576
+  - W4206432189
+  - W4206698138
+  - W4210315247
+  - W4220763537
+  - W4220764004
+  - W4225660542
+  - W4243260355
+  - W4254701078
+  - W4283205481
+  - W4283214729
+  - W4283270938
+  - W4285008448
+  - W4285014195
+  - W4285545929
+  - W4287129885
+  - W4288737360
+  - W4289979425
+  - W4291378096
+  - W4291378099
+  - W4293562204
+  - W4293769769
+  - W4297261569
+  - W4308623331
+  - W4309361513
+  - W4309818170
+  - W4311448150
+  - W4313209660
+  - W4317477351
+  - W4318041390
+  - W4319822388
+  - W4319953714
+  - W4319996285
+  - W4321170169
+  - W4321366419
+  - W4321369786
+  - W4322712069
+  - W4323305075
+  - W4323320726
+  - W4323344321
+  - W4323344350
+  - W4324140832
+  - W4362452768
+  - W4366986984
+  - W4377292376
+  - W4378516419
+  - W4379508426
+  - W4386597728
+  - W4386686318
+  - W4387908535
+  - W4388229766
+  - W4388732663
+  - W4390244664
+  - W4391672982
+  - W4392303143
+  - W4392649387
+  - W4393198428
+  - W4393320918
+  - W4394818459
+  - W4394929346
+  - W4396553701
+  - W4396610082
+  - W4399761191
+  - W4400881102
+  - W4401965570
+  - W4403099903
+  - W4405274303
+  - W4405765493
+  - W4406827333
+  - W7220516502
+traps:
+  - {id: "10.1101/2021.01.05.21249310", kind: superseded_preprint, real: true, note: "Ravikirti 2021 medRxiv preprint; its journal version is gold"}
+  - {id: "10.1101/2021.05.31.21258081", kind: superseded_preprint, real: true, note: "Biber 2021 medRxiv preprint; its journal version is gold"}
+  - {id: "10.1101/2022.06.10.22276252", kind: superseded_preprint, real: true, note: "Naggie 2022 (ACTIV-6) medRxiv preprint, interim numbers; its journal version is gold"}
+  - {id: "W3110602237", kind: retracted, real: true, note: "Elgazzar 2020 (withdrawn preprint)"}
+  - {id: "W3121596699", kind: retracted, real: true, note: "retracted (found in the corpus); otherwise off_scope: Hill 2021 (meta-analysis, retracted and replaced)"}
+  - {id: "W3134585354", kind: retracted, real: true, note: "Pott-Junior 2021 (retracted)"}
+  - {id: "W3164155067", kind: retracted, real: true, note: "Samaha 2021 (retracted)"}
+  - {id: "W4283838215", kind: retracted, real: true, note: "IRICT 2022 (RCT, retracted 2024)"}
+  - {id: "W4285005829", kind: retracted, real: true, note: "retracted (found in the corpus); otherwise off_scope: lab or pharmacology study (title: 'mechanism')"}
+  - {id: "W6901825914", kind: superseded_preprint, real: true, note: "La Rocha 2022 Research Square preprint; its journal version is gold"}
+script:
+  followups:
+    # Turns 2 and 3: the criteria arrive in two parts, as from a real researcher.
+    - {after_turn: 1, kind: criteria_reveal, message: "I should have given you my criteria. Only randomized controlled trials of oral or intravenous ivermectin in people with confirmed or suspected COVID-19, compared with placebo, no treatment, standard care or another drug. No prophylaxis trials in people without COVID-19, no observational studies, no lab or animal studies, and no reviews. Please give me the full updated list of included trials."}
+    - {after_turn: 2, kind: criteria_reveal, message: "A few more criteria: any other treatments must be the same in both arms. Add-on designs are fine, for example ivermectin plus standard care versus standard care, or ivermectin plus another drug versus that same drug alone. The study must be published between 2020 and 2022, retracted or withdrawn reports are out, and if a trial has both a preprint and a journal article, use the journal article. Please give me the full updated list of included trials with their main findings, and briefly synthesize the evidence on mortality, hospitalization and symptom resolution."}
+    # Turn 4: asks about the first eligible paper (key, then gold, then other relevant) that the
+    # agent's latest list left out.
+    - {after_turn: 3, kind: why_excluded, message: 'Why didn''t you include "{title:missing:W4220754707,W4307043809,W4212973150,W3135420706,W3092176787,W3107056972,W3111064783,W3111068209,W3126179459,W3129242298,W3130646175,W3133698266,W3150247726,W3157727129,W3161928646,W3164512669,W3170319714,W3173645873,W3182729893,W3197929425,W4212946211,W4220768079,W4284890619,W4293176350,W4311938754,W3088905160,W3196420298,W4282595092,W4282964706,W4283363264,W4292148078,W4307216937,W4311753472,W4312323281,W4313121933}"?'}
+    # Turn 5: the full exclusion list; each reason must be backed by a record the agent opened.
+    - {after_turn: 4, kind: exclusion_list, message: "List the papers you considered and excluded, with the reason for each."}
+post_change_expected_ids: []   # no criteria change in this case
+thresholds: {off_scope: 0.2, steer_preservation: 0.7}
+source_review: "Marcolino MS, Meira KC, Guimaraes NS, Motta PP, Chagas VS, Kelles SMB, de Sa LC, Valacio RA, Ziegelmann PK. Systematic review and meta-analysis of ivermectin for treatment of COVID-19: evidence beyond the hype. BMC Infectious Diseases 2022;22:639. doi:10.1186/s12879-022-07589-8"

@@ -1,0 +1,78 @@
+{
+  "gold": {
+    "Ahmed 2020": "W3107056972",
+    "Babalola 2021": "W3129242298",
+    "Biber 2022": "W4284890619",
+    "Buonfrate 2022 (COVER)": "W4212946211",
+    "Chaccour 2021 (SAINT)": "W3111068209",
+    "Chachar 2020": "W3092176787",
+    "Beltran Gonzalez 2022": "W4220768079",
+    "Krolewiecki 2021": "W3170319714",
+    "Lopez-Medina 2021": "W3135420706",
+    "Mohan 2021 (RIVET-COV)": "W3197929425",
+    "Ravikirti 2021": "W3182729893",
+    "Vallejos 2021 (IVERCOR)": "W3173645873",
+    "Reis 2022 (TOGETHER)": "W4220754707",
+    "Naggie 2022 (ACTIV-6)": "W4307043809",
+    "Abd-Elsalam 2021": "W3164512669",
+    "Bukhari 2021": "W3126179459",
+    "Lim 2022 (I-TECH)": "W4212973150",
+    "Manomaipiboon 2022": "W4293176350",
+    "Faisal 2020": "W3161928646",
+    "Okumus 2021": "W3130646175",
+    "Podder 2020": "W3150247726",
+    "Shahbaznejad 2021": "W3157727129",
+    "La Rocha 2022": "W4311938754",
+    "Galan 2021": "W3133698266",
+    "Niaee 2021": "W3111064783"
+  },
+  "traps_retracted": {
+    "Pott-Junior 2021 (retracted)": "W3134585354",
+    "Samaha 2021 (retracted)": "W3164155067",
+    "Elgazzar 2020 (withdrawn preprint)": "W3110602237",
+    "IRICT 2022 (RCT, retracted 2024)": "W4283838215"
+  },
+  "near_miss": {
+    "Naggie 2023 (ACTIV-6 600) | date: published 2023": "W4321369786",
+    "Hayward 2024 (PRINCIPLE) | date: published 2024": "W4392303143",
+    "Rajter 2021 (ICON) | design: retrospective cohort": "W3091860795",
+    "Camprubi 2020 | design: retrospective": "W3104739766",
+    "Ozer 2021 | design: prospective observational": "W3217293035",
+    "Gorial 2020 | design: historical control": "W3041503566",
+    "Morgenstern 2020 | design: retrospective": "W3102430453",
+    "Shouman 2021 | population: prophylaxis in uninfected contacts": "W3129600723",
+    "Aref 2021 | intervention: nasal spray, not systemic": "W3168400794",
+    "Mahmud 2021 | co-intervention: doxycycline in ivermectin arm only": "W3162891398",
+    "Hashim 2020 | co-intervention: doxycycline in ivermectin arm only": "W4287129885",
+    "Chowdhury 2021 | co-intervention: doxycycline vs azithromycin": "W3133633583"
+  },
+  "other_curated": {
+    "Kishoria 2020 (eligible RCT not in the review)": "W3088905160",
+    "Bramante 2022 (COVID-OUT)": "W4292148078",
+    "Caly 2020 (in vitro)": "W3014962324",
+    "Popp 2022 (Cochrane review)": "W4283205481",
+    "Bryant 2021 (meta-analysis)": "W3168908540",
+    "Hill 2021 (meta-analysis, retracted and replaced)": "W3121596699",
+    "Roman 2021 (meta-analysis)": "W3174188666",
+    "Izcovich 2022 (systematic review)": "W4200397938",
+    "Behera 2020 (case-control)": "W3129541046",
+    "Chahla 2021b (cluster-randomized)": "W3159407313",
+    "Seet 2021 (prophylaxis, active comparators)": "W3153015123"
+  },
+  "crossref_preprints": {
+    "Naggie 2022 (ACTIV-6) medRxiv preprint, interim numbers": "10.1101/2022.06.10.22276252",
+    "Ravikirti 2021 medRxiv preprint": "10.1101/2021.01.05.21249310",
+    "Biber 2021 medRxiv preprint": "10.1101/2021.05.31.21258081"
+  },
+  "openalex_preprints": {
+    "La Rocha 2022 Research Square preprint": "W6901825914"
+  },
+  "retraction_notices": {
+    "Efficacy and Safety of Ivermectin for Treatment and prophyla": "10.21203/rs.3.rs-100956/v4",
+    "Meta-analysis of Randomized Trials of Ivermectin to Treat SA": "10.1093/ofid/ofac056",
+    "Use of ivermectin in the treatment of Covid-19: A pilot tria": "10.1016/j.toxrep.2022.04.009",
+    "Effects of a Single Dose of Ivermectin on Viral and Clinical": "10.3390/v13112154",
+    "Ivermectin role in COVID-19 treatment (IRICT): single-center": "10.1080/14787210.2024.2362097",
+    "Microbiome-Based Hypothesis on Ivermectin’s Mechanism in COV": "10.3389/fmicb.2023.1216170"
+  }
+}

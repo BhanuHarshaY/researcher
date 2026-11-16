@@ -1,0 +1,2003 @@
+{
+  "key_ids": [
+    "W4220754707",
+    "W4307043809",
+    "W4212973150",
+    "W3135420706"
+  ],
+  "gold_ids": [
+    "W3092176787",
+    "W3107056972",
+    "W3111064783",
+    "W3111068209",
+    "W3126179459",
+    "W3129242298",
+    "W3130646175",
+    "W3133698266",
+    "W3135420706",
+    "W3150247726",
+    "W3157727129",
+    "W3161928646",
+    "W3164512669",
+    "W3170319714",
+    "W3173645873",
+    "W3182729893",
+    "W3197929425",
+    "W4212946211",
+    "W4212973150",
+    "W4220754707",
+    "W4220768079",
+    "W4284890619",
+    "W4293176350",
+    "W4307043809",
+    "W4311938754"
+  ],
+  "relevant_ids": [
+    "W3088905160",
+    "W3092176787",
+    "W3107056972",
+    "W3111064783",
+    "W3111068209",
+    "W3126179459",
+    "W3129242298",
+    "W3130646175",
+    "W3133698266",
+    "W3135420706",
+    "W3150247726",
+    "W3157727129",
+    "W3161928646",
+    "W3164512669",
+    "W3170319714",
+    "W3173645873",
+    "W3182729893",
+    "W3196420298",
+    "W3197929425",
+    "W4212946211",
+    "W4212973150",
+    "W4220754707",
+    "W4220768079",
+    "W4282595092",
+    "W4282964706",
+    "W4283363264",
+    "W4284890619",
+    "W4292148078",
+    "W4293176350",
+    "W4307043809",
+    "W4307216937",
+    "W4311753472",
+    "W4311938754",
+    "W4312323281",
+    "W4313121933"
+  ],
+  "near_miss": [
+    {
+      "id": "W3041503566",
+      "fails": "design: historical control"
+    },
+    {
+      "id": "W3091860795",
+      "fails": "design: retrospective cohort"
+    },
+    {
+      "id": "W3102430453",
+      "fails": "design: retrospective"
+    },
+    {
+      "id": "W3104739766",
+      "fails": "design: retrospective"
+    },
+    {
+      "id": "W3129600723",
+      "fails": "population: prophylaxis in uninfected contacts"
+    },
+    {
+      "id": "W3133633583",
+      "fails": "co-intervention: doxycycline vs azithromycin"
+    },
+    {
+      "id": "W3162891398",
+      "fails": "co-intervention: doxycycline in ivermectin arm only"
+    },
+    {
+      "id": "W3168400794",
+      "fails": "intervention: nasal spray, not systemic"
+    },
+    {
+      "id": "W3217293035",
+      "fails": "design: prospective observational"
+    },
+    {
+      "id": "W4243260355",
+      "fails": "comparator: a combination that itself contains ivermectin"
+    },
+    {
+      "id": "W4287129885",
+      "fails": "co-intervention: doxycycline in ivermectin arm only"
+    },
+    {
+      "id": "W4319996285",
+      "fails": "date: published 2023"
+    },
+    {
+      "id": "W4321366419",
+      "fails": "date: published 2023"
+    },
+    {
+      "id": "W4321369786",
+      "fails": "date: published 2023"
+    },
+    {
+      "id": "W4377292376",
+      "fails": "date: published 2023"
+    },
+    {
+      "id": "W4390244664",
+      "fails": "date: published 2023"
+    },
+    {
+      "id": "W4392303143",
+      "fails": "date: published 2024"
+    },
+    {
+      "id": "W4400881102",
+      "fails": "date: published 2024"
+    },
+    {
+      "id": "W4403099903",
+      "fails": "date: published 2023"
+    },
+    {
+      "id": "W4405765493",
+      "fails": "co-intervention: metronidazole in the ivermectin arm only"
+    }
+  ],
+  "off_scope_ids": [
+    "W3014962324",
+    "W3015993909",
+    "W3016395404",
+    "W3017265175",
+    "W3018040824",
+    "W3022811568",
+    "W3022875749",
+    "W3026711303",
+    "W3033658063",
+    "W3036124991",
+    "W3041503566",
+    "W3046117332",
+    "W3046318930",
+    "W3046413061",
+    "W3049611143",
+    "W3081745349",
+    "W3082948952",
+    "W3083341424",
+    "W3085858594",
+    "W3086865863",
+    "W3091860795",
+    "W3092224401",
+    "W3094704086",
+    "W3097342548",
+    "W3099512025",
+    "W3100710042",
+    "W3102430453",
+    "W3104739766",
+    "W3110533808",
+    "W3112738722",
+    "W3117652431",
+    "W3119361077",
+    "W3122293810",
+    "W3123539721",
+    "W3125207704",
+    "W3125444454",
+    "W3128164502",
+    "W3129541046",
+    "W3129600723",
+    "W3133633583",
+    "W3134967235",
+    "W3136091706",
+    "W3139903895",
+    "W3143180683",
+    "W3144228540",
+    "W3147285122",
+    "W3151682046",
+    "W3153015123",
+    "W3158596488",
+    "W3159407313",
+    "W3162891398",
+    "W3166599105",
+    "W3168400794",
+    "W3168908540",
+    "W3174079333",
+    "W3174188666",
+    "W3188550925",
+    "W3190401464",
+    "W3193087519",
+    "W3196181687",
+    "W3197310750",
+    "W3200289841",
+    "W3202911911",
+    "W3203491338",
+    "W3204740692",
+    "W3206011484",
+    "W3212119853",
+    "W3213437465",
+    "W3216772674",
+    "W3217293035",
+    "W4200397938",
+    "W4206186030",
+    "W4206316363",
+    "W4206412576",
+    "W4206432189",
+    "W4206698138",
+    "W4210315247",
+    "W4220763537",
+    "W4220764004",
+    "W4225660542",
+    "W4243260355",
+    "W4254701078",
+    "W4283205481",
+    "W4283214729",
+    "W4283270938",
+    "W4285008448",
+    "W4285014195",
+    "W4285545929",
+    "W4287129885",
+    "W4288737360",
+    "W4289979425",
+    "W4291378096",
+    "W4291378099",
+    "W4293562204",
+    "W4293769769",
+    "W4297261569",
+    "W4308623331",
+    "W4309361513",
+    "W4309818170",
+    "W4311448150",
+    "W4313209660",
+    "W4317477351",
+    "W4318041390",
+    "W4319822388",
+    "W4319953714",
+    "W4319996285",
+    "W4321170169",
+    "W4321366419",
+    "W4321369786",
+    "W4322712069",
+    "W4323305075",
+    "W4323320726",
+    "W4323344321",
+    "W4323344350",
+    "W4324140832",
+    "W4362452768",
+    "W4366986984",
+    "W4377292376",
+    "W4378516419",
+    "W4379508426",
+    "W4386597728",
+    "W4386686318",
+    "W4387908535",
+    "W4388229766",
+    "W4388732663",
+    "W4390244664",
+    "W4391672982",
+    "W4392303143",
+    "W4392649387",
+    "W4393198428",
+    "W4393320918",
+    "W4394818459",
+    "W4394929346",
+    "W4396553701",
+    "W4396610082",
+    "W4399761191",
+    "W4400881102",
+    "W4401965570",
+    "W4403099903",
+    "W4405274303",
+    "W4405765493",
+    "W4406827333",
+    "W7220516502"
+  ],
+  "trap_ids": [
+    "10.1101/2021.01.05.21249310",
+    "10.1101/2021.05.31.21258081",
+    "10.1101/2022.06.10.22276252",
+    "W3110602237",
+    "W3121596699",
+    "W3134585354",
+    "W3164155067",
+    "W4283838215",
+    "W4285005829",
+    "W6901825914"
+  ],
+  "report_of": {
+    "10.1101/2021.01.05.21249310": "W3182729893",
+    "10.1101/2021.05.31.21258081": "W4284890619",
+    "10.1101/2022.06.10.22276252": "W4307043809",
+    "W4311753472": "W4307043809",
+    "W6901825914": "W4311938754"
+  },
+  "unlabelled": [],
+  "unsure": [
+    "W4321366419"
+  ],
+  "papers": {
+    "10.1016/j.toxrep.2022.04.009": {
+      "label": "neutral",
+      "why": "retraction notice for W3134585354",
+      "unsure": false,
+      "title": "Retraction notice to “Use of ivermectin in the treatment of Covid-19: A pilot trial” [Toxicol. Rep. 8 (2021) 505–510]"
+    },
+    "10.1080/14787210.2024.2362097": {
+      "label": "neutral",
+      "why": "retraction notice for W4283838215",
+      "unsure": false,
+      "title": "Statement of Retraction: Ivermectin role in COVID-19 treatment (IRICT): single-center, adaptive, randomized, double-blin"
+    },
+    "10.1093/ofid/ofac056": {
+      "label": "neutral",
+      "why": "retraction notice for W3121596699",
+      "unsure": false,
+      "title": "Retraction to: Meta-analysis of Randomized Trials of Ivermectin to Treat SARS-CoV-2 Infection"
+    },
+    "10.1101/2021.01.05.21249310": {
+      "label": "trap_superseded_preprint",
+      "why": "Ravikirti 2021 medRxiv preprint; its journal version is gold",
+      "unsure": false,
+      "title": "Ivermectin as a potential treatment for mild to moderate COVID-19 – A double blind randomized placebo-controlled trial"
+    },
+    "10.1101/2021.05.31.21258081": {
+      "label": "trap_superseded_preprint",
+      "why": "Biber 2021 medRxiv preprint; its journal version is gold",
+      "unsure": false,
+      "title": "Favorable outcome on viral load and culture viability using Ivermectin in early treatment of non-hospitalized patients w"
+    },
+    "10.1101/2022.06.10.22276252": {
+      "label": "trap_superseded_preprint",
+      "why": "Naggie 2022 (ACTIV-6) medRxiv preprint, interim numbers; its journal version is gold",
+      "unsure": false,
+      "title": "Ivermectin for Treatment of Mild-to-Moderate COVID-19 in the Outpatient Setting: A Decentralized, Placebo-controlled, Ra"
+    },
+    "10.21203/rs.3.rs-100956/v4": {
+      "label": "neutral",
+      "why": "retraction notice for W3110602237",
+      "unsure": false,
+      "title": "WITHDRAWN: Efficacy and Safety of Ivermectin for Treatment and prophylaxis of COVID-19 Pandemic"
+    },
+    "10.3389/fmicb.2023.1216170": {
+      "label": "neutral",
+      "why": "retraction notice for W4285005829",
+      "unsure": false,
+      "title": "Retraction: Microbiome-based hypothesis on Ivermectin's mechanism in COVID-19: Ivermectin feeds bifidobacteria to boost "
+    },
+    "10.3390/v13112154": {
+      "label": "neutral",
+      "why": "retraction notice for W3164155067",
+      "unsure": false,
+      "title": "RETRACTED: Samaha et al. Effects of a Single Dose of Ivermectin on Viral and Clinical Outcomes in Asymptomatic SARS-CoV-"
+    },
+    "W1965936780": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Ivermectin is a specific inhibitor of importin α/β-mediated nuclear import able to inhibit replication of HIV-1 and deng"
+    },
+    "W1991496259": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Ivermectin, 'Wonder drug' from Japan: the human use perspective"
+    },
+    "W1992203217": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "An AlphaScreen®-Based Assay for High-Throughput Screening for Specific Inhibitors of Nuclear Import"
+    },
+    "W2012188043": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Safety, Tolerability, and Pharmacokinetics of Escalating High Doses of Ivermectin in Healthy Adult Subjects"
+    },
+    "W2028580773": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Comparative in Vivoand in Vitro Metabolism of Ivermectin in Steers, Sheep, Swine, and Rat"
+    },
+    "W2072780759": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Identification of cytochrome P4503A4 as the major enzyme responsible for the metabolism of ivermectin by human liver mic"
+    },
+    "W2078983800": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Ivermectin in Human Medicine, An Overview of the Current Status of Its Clinical Applications"
+    },
+    "W2088425603": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Involvement of P‐glycoprotein on ivermectin kinetic behaviour in sheep: itraconazole‐mediated changes on gastrointestina"
+    },
+    "W2104930292": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "The Pharmacokinetics and Interactions of Ivermectin in Humans—A Mini-review"
+    },
+    "W2127364021": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Modulation of P2X4/P2X7/Pannexin-1 sensitivity to extracellular ATP via Ivermectin induces a non-apoptotic and inflammat"
+    },
+    "W2165157662": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Ivermectin is a potent inhibitor of flavivirus replication specifically targeting NS3 helicase activity: new prospects f"
+    },
+    "W2296096754": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Over 25 Years of Clinical Experience With Ivermectin: An Overview of Safety for an Increasing Number of Indications."
+    },
+    "W2346758217": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Liposomal Systems as Nanocarriers for the Antiviral Agent Ivermectin"
+    },
+    "W2401775943": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Evaluation of cytotoxicity and antiviral activity of ivermectin against Newcastle disease virus"
+    },
+    "W2592651117": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Topical Treatment of Rosacea with Ivermectin Inhibits Gene Expression of Cathelicidin Innate Immune Mediators, LL-37 and"
+    },
+    "W2593557252": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Ivermectin – Old Drug, New Tricks?"
+    },
+    "W2606413115": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Ivermectin to reduce malaria transmission I. Pharmacokinetic and pharmacodynamic considerations regarding efficacy and s"
+    },
+    "W2727371760": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Dual anti‐inflammatory and anti‐parasitic action of topical ivermectin 1% in papulopustular rosacea"
+    },
+    "W2765521280": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Ivermectin and its target molecules: shared and unique modulation mechanisms of ion channels and receptors by ivermectin"
+    },
+    "W2768573928": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Ivermectina como coadyuvante en la epilepsia refractaria"
+    },
+    "W2773588431": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Serious Neurological Adverse Events after Ivermectin—Do They Occur beyond the Indication of Onchocerciasis?"
+    },
+    "W2783142161": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Safety and pharmacokinetic profile of fixed-dose ivermectin with an innovative 18mg tablet in healthy adult volunteers"
+    },
+    "W2885473717": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Detoxification mechanisms involved in ivermectin resistance in the cattle tick, Rhipicephalus (Boophilus) microplus"
+    },
+    "W2888648358": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Pharmacokinetics‐Pharmacodynamics of High‐Dose Ivermectin with Dihydroartemisinin‐Piperaquine on Mosquitocidal Activity "
+    },
+    "W2901778167": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Antivirus effectiveness of ivermectin on dengue virus type 2 in Aedes albopictus"
+    },
+    "W2905465132": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Population pharmacokinetics of oral ivermectin in venous plasma and dried blood spots in healthy volunteers"
+    },
+    "W2967557443": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Current therapeutic applications and pharmacokinetic modulations of ivermectin"
+    },
+    "W2981366800": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "The multitargeted drug ivermectin: from an antiparasitic agent to a repositioned cancer drug."
+    },
+    "W2985554306": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Safety, Pharmacokinetics, and Mosquito‐Lethal Effects of Ivermectin in Combination With Dihydroartemisinin‐Piperaquine a"
+    },
+    "W3001552927": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Safety of high-dose ivermectin: a systematic review and meta-analysis"
+    },
+    "W3014962324": {
+      "label": "off_scope",
+      "why": "Caly 2020 (in vitro)",
+      "unsure": false,
+      "title": "The FDA-approved drug ivermectin inhibits the replication of SARS-CoV-2 in vitro"
+    },
+    "W3015993909": {
+      "label": "off_scope",
+      "why": "review",
+      "unsure": false,
+      "title": "Antiviral treatment of COVID-19"
+    },
+    "W3016395404": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'keeping rigor')",
+      "unsure": false,
+      "title": "Ivermectin and COVID-19: Keeping Rigor in Times of Urgency"
+    },
+    "W3017265175": {
+      "label": "off_scope",
+      "why": "lab or pharmacology study (title: 'molecular')",
+      "unsure": false,
+      "title": "Molecular Docking and Molecular Dynamic Study of Two Viral Proteins Associated with SARS-CoV-2 with Ivermectin"
+    },
+    "W3018040824": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'potential')",
+      "unsure": false,
+      "title": "Potential use of hydroxychloroquine, ivermectin and azithromycin drugs in fighting COVID-19: trends, scope and relevance"
+    },
+    "W3022811568": {
+      "label": "off_scope",
+      "why": "dosing commentary",
+      "unsure": false,
+      "title": "The Approved Dose of Ivermectin Alone is not the Ideal Dose for the Treatment of COVID‐19"
+    },
+    "W3022875749": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'potential')",
+      "unsure": false,
+      "title": "Nsp7 and Spike Glycoprotein of SARS-CoV-2 Are Envisaged as Potential Targets of Vitamin D and Ivermectin"
+    },
+    "W3026711303": {
+      "label": "off_scope",
+      "why": "lab or pharmacology study (title: 'pharmacokinetic')",
+      "unsure": false,
+      "title": "Prioritization of Anti‐SARS‐Cov‐2 Drug Repurposing Opportunities Based on Plasma and Target Site Concentrations Derived "
+    },
+    "W3033658063": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'potential')",
+      "unsure": false,
+      "title": "Ivermectin as a potential COVID-19 treatment from the pharmacokinetic point of view: antiviral levels are not likely att"
+    },
+    "W3033863786": {
+      "label": "neutral",
+      "why": "trial protocol (SAINT)",
+      "unsure": false,
+      "title": "The SARS-CoV-2 Ivermectin Navarra-ISGlobal Trial (SAINT) to Evaluate the Potential of Ivermectin to Reduce COVID-19 Tran"
+    },
+    "W3036124991": {
+      "label": "off_scope",
+      "why": "commentary",
+      "unsure": false,
+      "title": "The Battle against COVID 19 Pandemic: What we Need to Know Before we “Test Fire” Ivermectin"
+    },
+    "W3041503566": {
+      "label": "near_miss",
+      "why": "Gorial 2020",
+      "unsure": false,
+      "fails": "design: historical control",
+      "title": "Effectiveness of Ivermectin as add-on Therapy in COVID-19 Management (Pilot Trial)"
+    },
+    "W3046117332": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'potential')",
+      "unsure": false,
+      "title": "Cellular and Molecular Pathways of COVID-19 and Potential Points of Therapeutic Intervention"
+    },
+    "W3046318930": {
+      "label": "off_scope",
+      "why": "combination or prophylaxis design (title: 'with doxycycline')",
+      "unsure": false,
+      "title": "Comparison of Viral Clearance between Ivermectin with Doxycycline and Hydroxychloroquine with Azithromycin in COVID-19 P"
+    },
+    "W3046413061": {
+      "label": "off_scope",
+      "why": "observational study or case report (title: 'case series')",
+      "unsure": false,
+      "title": "A Case Series of 100 COVID-19 Positive Patients Treated with Combination of Ivermectin and Doxycycline"
+    },
+    "W3049611143": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'review')",
+      "unsure": false,
+      "title": "Antiviral Activity of Ivermectin Against SARS-CoV-2: An Old-Fashioned Dog with a New Trick—A Literature Review"
+    },
+    "W3061335889": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Serious Ivermectin Toxicity and Human ABCB1 Nonsense Mutations"
+    },
+    "W3081745349": {
+      "label": "off_scope",
+      "why": "guideline",
+      "unsure": false,
+      "title": "A living WHO guideline on drugs for covid-19 (2020-2023)"
+    },
+    "W3081792974": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Risk Assessment of Drug‐Induced Long QT Syndrome for Some COVID‐19 Repurposed Drugs"
+    },
+    "W3082948952": {
+      "label": "off_scope",
+      "why": "lab or pharmacology study (title: 'binding')",
+      "unsure": false,
+      "title": "Ivermectin Docks to the SARS-CoV-2 Spike Receptor-binding Domain Attached to ACE2"
+    },
+    "W3083341424": {
+      "label": "off_scope",
+      "why": "hypothesis paper",
+      "unsure": false,
+      "title": "Ivermectin may be a clinically useful anti-inflammatory agent for late-stage COVID-19"
+    },
+    "W3085858594": {
+      "label": "off_scope",
+      "why": "combination or prophylaxis design (title: 'combined')",
+      "unsure": false,
+      "title": "Safety and Efficacy of the combined use of ivermectin, dexamethasone, enoxaparin and aspirin against COVID 19"
+    },
+    "W3086865863": {
+      "label": "off_scope",
+      "why": "review",
+      "unsure": false,
+      "title": "Ivermectin as a Broad-Spectrum Host-Directed Antiviral: The Real Deal?"
+    },
+    "W3088905160": {
+      "label": "relevant",
+      "why": "add-on RCT: ivermectin plus HCQ vs HCQ alone (same co-treatment in both arms)",
+      "unsure": false,
+      "title": "IVERMECTIN AS ADJUVANT TO HYDROXYCHOLOROQUINE IN PATIENTS RESISTANT TO STANDARD TREATMENT FOR SARS-CoV-2: RESULTS OF AN "
+    },
+    "W3091860795": {
+      "label": "near_miss",
+      "why": "Rajter 2021 (ICON)",
+      "unsure": false,
+      "fails": "design: retrospective cohort",
+      "title": "Use of Ivermectin Is Associated With Lower Mortality in Hospitalized Patients With Coronavirus Disease 2019"
+    },
+    "W3092176787": {
+      "label": "gold",
+      "why": "included by the review: Chachar 2020",
+      "unsure": false,
+      "title": "Effectiveness of Ivermectin in SARS-CoV-2/COVID-19 Patients"
+    },
+    "W3092224401": {
+      "label": "off_scope",
+      "why": "rat study (nebulized ivermectin)",
+      "unsure": false,
+      "title": "Nebulized ivermectin for COVID-19 and other respiratory diseases, a proof of concept, dose-ranging study in rats"
+    },
+    "W3094704086": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'potential')",
+      "unsure": false,
+      "title": "An in-silico analysis of ivermectin interaction with potential SARS-CoV-2 targets and host nuclear importin α"
+    },
+    "W3097342548": {
+      "label": "off_scope",
+      "why": "combination or prophylaxis design (title: 'combination')",
+      "unsure": false,
+      "title": "Utility of Ivermectin and Doxycycline combination for the treatment of SARS-CoV-2"
+    },
+    "W3099512025": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'potential')",
+      "unsure": false,
+      "title": "Therapeutic potential of ivermectin for COVID-19"
+    },
+    "W3100710042": {
+      "label": "off_scope",
+      "why": "combination or prophylaxis design (title: 'carrageenan')",
+      "unsure": false,
+      "title": "Study of the Efficacy and Safety of Topical Ivermectin + Iota-Carrageenan in the Prophylaxis against COVID-19 in Health "
+    },
+    "W3102430453": {
+      "label": "near_miss",
+      "why": "Morgenstern 2020",
+      "unsure": false,
+      "fails": "design: retrospective",
+      "title": "The use of compassionate Ivermectin in the management of symptomatic outpatients and hospitalized patients with clinical"
+    },
+    "W3104739766": {
+      "label": "near_miss",
+      "why": "Camprubi 2020",
+      "unsure": false,
+      "fails": "design: retrospective",
+      "title": "Lack of efficacy of standard doses of ivermectin in severe COVID-19 patients"
+    },
+    "W3107056972": {
+      "label": "gold",
+      "why": "included by the review: Ahmed 2020",
+      "unsure": false,
+      "title": "A five-day course of ivermectin for the treatment of COVID-19 may reduce the duration of illness"
+    },
+    "W3109673381": {
+      "label": "neutral",
+      "why": "trial protocol (IVERCOR)",
+      "unsure": false,
+      "title": "Ivermectin to prevent hospitalizations in patients with COVID-19 (IVERCOR-COVID19): a structured summary of a study prot"
+    },
+    "W3110533808": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'potential')",
+      "unsure": false,
+      "title": "Therapeutic potential of ivermectin as add on treatment in COVID 19: A systematic review and meta-analysis"
+    },
+    "W3110602237": {
+      "label": "trap_retracted",
+      "why": "Elgazzar 2020 (withdrawn preprint)",
+      "unsure": false,
+      "title": "Efficacy and Safety of Ivermectin for Treatment and prophylaxis of COVID-19 Pandemic"
+    },
+    "W3111064783": {
+      "label": "gold",
+      "why": "included by the review: Niaee 2021",
+      "unsure": false,
+      "title": "Ivermectin as an adjunct treatment for hospitalized adult COVID-19 patients: A randomized multi-center clinical trial"
+    },
+    "W3111068209": {
+      "label": "gold",
+      "why": "included by the review: Chaccour 2021 (SAINT)",
+      "unsure": false,
+      "title": "The effect of early treatment with ivermectin on viral load, symptoms and humoral response in patients with non-severe C"
+    },
+    "W3112165889": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Population pharmacokinetics of ivermectin for the treatment of scabies in Indigenous Australian children"
+    },
+    "W3112738722": {
+      "label": "off_scope",
+      "why": "observational study or case report (title: 'observational')",
+      "unsure": false,
+      "title": "Ivermectin as Pre-exposure Prophylaxis for COVID-19 among Healthcare Providers in a Selected Tertiary Hospital in Dhaka "
+    },
+    "W3113301094": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Sofosbuvir and daclatasvir for the treatment of COVID-19 outpatients: a double-blind, randomized controlled trial"
+    },
+    "W3117652431": {
+      "label": "off_scope",
+      "why": "network meta-analysis",
+      "unsure": false,
+      "title": "Comparative efficacy and safety of pharmacological interventions for the treatment of COVID-19: A systematic review and "
+    },
+    "W3118321049": {
+      "label": "neutral",
+      "why": "trial protocol",
+      "unsure": false,
+      "title": "The efficacy and safety of Ivermectin in patients with mild and moderate COVID-19: A structured summary of a study proto"
+    },
+    "W3119361077": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'systematic review')",
+      "unsure": false,
+      "title": "A systematic review of experimental evidence for antiviral effects of ivermectin and an in silico analysis of ivermectin"
+    },
+    "W3120766993": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Why onchocerciasis transmission persists after 15 annual ivermectin mass drug administrations in South-West Cameroon"
+    },
+    "W3121596699": {
+      "label": "trap_retracted",
+      "why": "retracted (found in the corpus); otherwise off_scope: Hill 2021 (meta-analysis, retracted and replaced)",
+      "unsure": false,
+      "title": "Meta-analysis of Randomized Trials of Ivermectin to Treat SARS-CoV-2 Infection",
+      "was": "off_scope"
+    },
+    "W3122293810": {
+      "label": "off_scope",
+      "why": "review",
+      "unsure": false,
+      "title": "From hydroxychloroquine to ivermectin: what are the anti-viral properties of anti-parasitic drugs to combat SARS-CoV-2?"
+    },
+    "W3123539721": {
+      "label": "off_scope",
+      "why": "systematic review",
+      "unsure": false,
+      "title": "Outcomes of Ivermectin in the treatment of COVID-19: a systematic review and meta-analysis"
+    },
+    "W3125207704": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'potential')",
+      "unsure": false,
+      "title": "Analysis of Ivermectin as Potential Inhibitor of SARS-CoV-2 Using Resonant Recognition Model"
+    },
+    "W3125444454": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'potential')",
+      "unsure": false,
+      "title": "Molecular Docking Reveals Ivermectin and Remdesivir as Potential Repurposed Drugs Against SARS-CoV-2"
+    },
+    "W3126179459": {
+      "label": "gold",
+      "why": "included by the review: Bukhari 2021",
+      "unsure": false,
+      "title": "Efficacy of Ivermectin in COVID-19 Patients with Mild to Moderate Disease"
+    },
+    "W3128164502": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'ready to be')",
+      "unsure": false,
+      "title": "Is ivermectin ready to be part of a public health policy for COVID-19 prophylaxis?"
+    },
+    "W3129242298": {
+      "label": "gold",
+      "why": "included by the review: Babalola 2021",
+      "unsure": false,
+      "title": "Ivermectin shows clinical benefits in mild to moderate COVID19: a randomized controlled double-blind, dose-response stud"
+    },
+    "W3129541046": {
+      "label": "off_scope",
+      "why": "Behera 2020 (case-control)",
+      "unsure": false,
+      "title": "Role of ivermectin in the prevention of SARS-CoV-2 infection among healthcare workers in India: A matched case-control s"
+    },
+    "W3129600723": {
+      "label": "near_miss",
+      "why": "Shouman 2021",
+      "unsure": false,
+      "fails": "population: prophylaxis in uninfected contacts",
+      "title": "Use of Ivermectin as a Potential Chemoprophylaxis for COVID-19 in Egypt: A Randomised Clinical Trial"
+    },
+    "W3130646175": {
+      "label": "gold",
+      "why": "included by the review: Okumus 2021",
+      "unsure": false,
+      "title": "Evaluation of the effectiveness and safety of adding ivermectin to treatment in severe COVID-19 patients"
+    },
+    "W3133633583": {
+      "label": "near_miss",
+      "why": "Chowdhury 2021",
+      "unsure": false,
+      "fails": "co-intervention: doxycycline vs azithromycin",
+      "title": "A Comparative Study on Ivermectin-Doxycycline and Hydroxychloroquine-Azithromycin Therapy on COVID-19 Patients"
+    },
+    "W3133698266": {
+      "label": "gold",
+      "why": "included by the review: Galan 2021",
+      "unsure": false,
+      "title": "Phase 2 randomized study on chloroquine, hydroxychloroquine or ivermectin in hospitalized patients with severe manifesta"
+    },
+    "W3134585354": {
+      "label": "trap_retracted",
+      "why": "Pott-Junior 2021 (retracted)",
+      "unsure": false,
+      "title": "Use of ivermectin in the treatment of Covid-19: A pilot trial"
+    },
+    "W3134967235": {
+      "label": "off_scope",
+      "why": "lab or pharmacology study (title: 'binding')",
+      "unsure": false,
+      "title": "The binding mechanism of ivermectin and levosalbutamol with spike protein of SARS-CoV-2"
+    },
+    "W3135420706": {
+      "label": "gold",
+      "why": "included by the review: Lopez-Medina 2021",
+      "unsure": false,
+      "title": "Effect of Ivermectin on Time to Resolution of Symptoms Among Adults With Mild COVID-19: A Randomized Clinical Trial"
+    },
+    "W3136091706": {
+      "label": "off_scope",
+      "why": "observational study or case report (title: 'retrospective')",
+      "unsure": false,
+      "title": "Ivermectin as Prophylaxis Against COVID-19 Retrospective Cases Evaluation"
+    },
+    "W3137187469": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Hydroxychloroquine in Nonhospitalized Adults With Early COVID-19"
+    },
+    "W3139118535": {
+      "label": "neutral",
+      "why": "trial protocol (SAINT-Peru)",
+      "unsure": false,
+      "title": "Randomized clinical trial to compare the efficacy of ivermectin versus placebo to negativize nasopharyngeal PCR in patie"
+    },
+    "W3139903895": {
+      "label": "off_scope",
+      "why": "lab or pharmacology study (title: 'binding')",
+      "unsure": false,
+      "title": "Exploring the Binding Efficacy of Ivermectin Against the Key Proteins of SARS-CoV-2 Pathogenesis: an in silico Approach"
+    },
+    "W3143180683": {
+      "label": "off_scope",
+      "why": "prophylaxis trial with iota-carrageenan",
+      "unsure": false,
+      "title": "A RANDOMIZED TRIAL - INTENSIVE TREATMENT BASED IN IVERMECTIN AND IOTA-CARRAGEENAN AS PRE-EXPOSURE PROPHYLAXIS FOR COVID-"
+    },
+    "W3144228540": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'politicis')",
+      "unsure": false,
+      "title": "Covid-19: Ivermectin’s politicisation is a warning sign for doctors"
+    },
+    "W3147285122": {
+      "label": "off_scope",
+      "why": "commentary on another trial",
+      "unsure": false,
+      "title": "Commentary about open-label randomized controlled study of ivermectin in mild to moderate COVID-19"
+    },
+    "W3150247726": {
+      "label": "gold",
+      "why": "included by the review: Podder 2020",
+      "unsure": false,
+      "title": "Outcome of ivermectin treated mild to moderate COVID-19 cases: a single-centre, open-label, randomised controlled study"
+    },
+    "W3151682046": {
+      "label": "off_scope",
+      "why": "mouse study",
+      "unsure": false,
+      "title": "Ivermectin reduces in vivo coronavirus infection in a mouse experimental model"
+    },
+    "W3153015123": {
+      "label": "off_scope",
+      "why": "Seet 2021 (prophylaxis, active comparators)",
+      "unsure": false,
+      "title": "Positive impact of oral hydroxychloroquine and povidone-iodine throat spray for COVID-19 prophylaxis: An open-label rand"
+    },
+    "W3156859932": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Effect of Early Treatment With Hydroxychloroquine or Lopinavir and Ritonavir on Risk of Hospitalization Among Patients W"
+    },
+    "W3157727129": {
+      "label": "gold",
+      "why": "included by the review: Shahbaznejad 2021",
+      "unsure": false,
+      "title": "Effects of Ivermectin in Patients With COVID-19: A Multicenter, Double-blind, Randomized, Controlled Clinical Trial"
+    },
+    "W3158596488": {
+      "label": "off_scope",
+      "why": "narrative review",
+      "unsure": false,
+      "title": "Review of the Emerging Evidence Demonstrating the Efficacy of Ivermectin in the Prophylaxis and Treatment of COVID-19"
+    },
+    "W3159407313": {
+      "label": "off_scope",
+      "why": "Chahla 2021b (cluster-randomized)",
+      "unsure": false,
+      "title": "Cluster Randomised Trials - Ivermectin Repurposing For COVID-19 Treatment Of Outpatients With Mild Disease In Primary He"
+    },
+    "W3161928646": {
+      "label": "gold",
+      "why": "included by the review: Faisal 2020",
+      "unsure": false,
+      "title": "Potential use of azithromycin alone and in combination with ivermectin in fighting against the symptoms of COVID-19."
+    },
+    "W3162891398": {
+      "label": "near_miss",
+      "why": "Mahmud 2021",
+      "unsure": false,
+      "fails": "co-intervention: doxycycline in ivermectin arm only",
+      "title": "Ivermectin in combination with doxycycline for treating COVID-19 symptoms: a randomized trial"
+    },
+    "W3164155067": {
+      "label": "trap_retracted",
+      "why": "Samaha 2021 (retracted)",
+      "unsure": false,
+      "title": "Effects of a Single Dose of Ivermectin on Viral and Clinical Outcomes in Asymptomatic SARS-CoV-2 Infected Subjects: A Pi"
+    },
+    "W3164512669": {
+      "label": "gold",
+      "why": "included by the review: Abd-Elsalam 2021",
+      "unsure": false,
+      "title": "Clinical study evaluating the efficacy of ivermectin in COVID‐19 treatment: A randomized controlled study"
+    },
+    "W3166599105": {
+      "label": "off_scope",
+      "why": "systematic review",
+      "unsure": false,
+      "title": "Ivermectin and outcomes from Covid‐19 pneumonia: A systematic review and meta‐analysis of randomized clinical trial stud"
+    },
+    "W3167819168": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Assessing the efficacy and safety of hydroxychloroquine as outpatient treatment of COVID-19: a randomized controlled tri"
+    },
+    "W3168400794": {
+      "label": "near_miss",
+      "why": "Aref 2021",
+      "unsure": false,
+      "fails": "intervention: nasal spray, not systemic",
+      "title": "Clinical, Biochemical and Molecular Evaluations of Ivermectin Mucoadhesive Nanosuspension Nasal Spray in Reducing Upper "
+    },
+    "W3168908540": {
+      "label": "off_scope",
+      "why": "Bryant 2021 (meta-analysis)",
+      "unsure": false,
+      "title": "Ivermectin for Prevention and Treatment of COVID-19 Infection: A Systematic Review, Meta-analysis, and Trial Sequential "
+    },
+    "W3170319714": {
+      "label": "gold",
+      "why": "included by the review: Krolewiecki 2021",
+      "unsure": false,
+      "title": "Antiviral effect of high-dose ivermectin in adults with COVID-19: A proof-of-concept randomized trial"
+    },
+    "W3173645873": {
+      "label": "gold",
+      "why": "included by the review: Vallejos 2021 (IVERCOR)",
+      "unsure": false,
+      "title": "Ivermectin to prevent hospitalizations in patients with COVID-19 (IVERCOR-COVID19) a randomized, double-blind, placebo-c"
+    },
+    "W3174079333": {
+      "label": "off_scope",
+      "why": "animal study",
+      "unsure": false,
+      "title": "Attenuation of clinical and immunological outcomes during SARS‐CoV‐2 infection by ivermectin"
+    },
+    "W3174188666": {
+      "label": "off_scope",
+      "why": "Roman 2021 (meta-analysis)",
+      "unsure": false,
+      "title": "Ivermectin for the Treatment of Coronavirus Disease 2019: A Systematic Review and Meta-analysis of Randomized Controlled"
+    },
+    "W3182188484": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "A multi-center, adaptive, randomized, platform trial to evaluate the effect of repurposed medicines in outpatients with "
+    },
+    "W3182729893": {
+      "label": "gold",
+      "why": "included by the review: Ravikirti 2021",
+      "unsure": false,
+      "title": "Evaluation of Ivermectin as a Potential Treatment for Mild to Moderate COVID-19: A Double-Blind Randomized Placebo Contr"
+    },
+    "W3186157209": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Broadening the range of use cases for ivermectin – a review of the evidence"
+    },
+    "W3188550925": {
+      "label": "off_scope",
+      "why": "methods review of trial reporting",
+      "unsure": false,
+      "title": "Pitfalls in Reporting Sample Size Calculation Across Randomized Controlled Trials Involving Ivermectin for the treatment"
+    },
+    "W3190401464": {
+      "label": "off_scope",
+      "why": "lab or pharmacology study (title: 'computational')",
+      "unsure": false,
+      "title": "A Computational Study of Ivermectin and Doxycycline Combination Drug Against SARS-CoV-2 Infection"
+    },
+    "W3193087519": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'role of')",
+      "unsure": false,
+      "title": "Role of ivermectin in prophylaxis and treatment of Covid-19 patients: A systematic review"
+    },
+    "W3196181687": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'magic')",
+      "unsure": false,
+      "title": "Meta-analytic magic, ivermectin, and socially responsible reporting"
+    },
+    "W3196420298": {
+      "label": "relevant",
+      "why": "open-label RCT, single-dose ivermectin vs standard care, 2021",
+      "unsure": false,
+      "title": "Efficacy of Single-Dose Ivermectin on Virologic and Clinical Recovery in COVID-19: A Randomized Controlled Trial"
+    },
+    "W3197310750": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'systematic review')",
+      "unsure": false,
+      "title": "Ivermectin for Prophylaxis and Treatment of COVID-19: A Systematic Review and Meta-Analysis"
+    },
+    "W3197929425": {
+      "label": "gold",
+      "why": "included by the review: Mohan 2021 (RIVET-COV)",
+      "unsure": false,
+      "title": "Single-dose oral ivermectin in mild and moderate COVID-19 (RIVET-COV): A single-centre randomized, placebo-controlled tr"
+    },
+    "W3200289841": {
+      "label": "off_scope",
+      "why": "systematic review protocol",
+      "unsure": false,
+      "title": "Effectiveness and safety of ivermectin in the treatment of COVID-19: protocol for a systematic review and meta-analysis"
+    },
+    "W3202911911": {
+      "label": "off_scope",
+      "why": "systematic review",
+      "unsure": false,
+      "title": "Efficacy and safety of ivermectin for the treatment of COVID-19: a systematic review and meta-analysis"
+    },
+    "W3203491338": {
+      "label": "off_scope",
+      "why": "systematic review",
+      "unsure": false,
+      "title": "Effectiveness of Ivermectin/Doxycycline combination in COVID-19: a systematic review and meta-analysis"
+    },
+    "W3204740692": {
+      "label": "off_scope",
+      "why": "lab or pharmacology study (title: 'interactions')",
+      "unsure": false,
+      "title": "Microscopic interactions between ivermectin and key human and viral proteins involved in SARS-CoV-2 infection"
+    },
+    "W3206011484": {
+      "label": "off_scope",
+      "why": "lab or pharmacology study (title: 'inhibit')",
+      "unsure": false,
+      "title": "Moxidectin and Ivermectin Inhibit SARS-CoV-2 Replication in Vero E6 Cells but Not in Human Primary Bronchial Epithelial "
+    },
+    "W3206245448": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Long-term consequences of the misuse of ivermectin data"
+    },
+    "W3208093760": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Safety and efficacy of fluvoxamine in COVID‐19 ICU patients: An open label, prospective cohort trial with matched contro"
+    },
+    "W3208556307": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Effect of early treatment with fluvoxamine on risk of emergency care and hospitalisation among patients with COVID-19: t"
+    },
+    "W3212119853": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'lessons')",
+      "unsure": false,
+      "title": "The Drug Repurposing for COVID-19 Clinical Trials Provide Very Effective Therapeutic Combinations: Lessons Learned From "
+    },
+    "W3213437465": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'role of')",
+      "unsure": false,
+      "title": "ROLE OF IVERMECTIN IN THE TREATMENT OF COVID 19"
+    },
+    "W3216772674": {
+      "label": "off_scope",
+      "why": "mechanism review",
+      "unsure": false,
+      "title": "Prospective mode of action of Ivermectin: SARS-CoV-2"
+    },
+    "W3217293035": {
+      "label": "near_miss",
+      "why": "Ozer 2021",
+      "unsure": false,
+      "fails": "design: prospective observational",
+      "title": "Effectiveness and safety of Ivermectin in COVID‐19 patients: A prospective study at a safety‐net hospital"
+    },
+    "W4200206478": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Early Remdesivir to Prevent Progression to Severe Covid-19 in Outpatients"
+    },
+    "W4200397938": {
+      "label": "off_scope",
+      "why": "Izcovich 2022 (systematic review)",
+      "unsure": false,
+      "title": "Bias as a source of inconsistency in ivermectin trials for COVID-19: A systematic review. Ivermectin's suggested benefit"
+    },
+    "W4200610475": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Ivermectin: a pathway out of the pandemic or another dead end?"
+    },
+    "W4206186030": {
+      "label": "off_scope",
+      "why": "review",
+      "unsure": false,
+      "title": "Ivermectin in COVID-19 Management: What is the Current Evidence?"
+    },
+    "W4206316363": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'spending')",
+      "unsure": false,
+      "title": "US Insurer Spending on Ivermectin Prescriptions for COVID-19"
+    },
+    "W4206412576": {
+      "label": "off_scope",
+      "why": "observational study or case report (title: 'observational')",
+      "unsure": false,
+      "title": "Ivermectin Prophylaxis Used for COVID-19: A Citywide, Prospective, Observational Study of 223,128 Subjects Using Propens"
+    },
+    "W4206432189": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'potential')",
+      "unsure": false,
+      "title": "Ivermectin for COVID-19: Addressing Potential Bias and Medical Fraud"
+    },
+    "W4206698138": {
+      "label": "off_scope",
+      "why": "lab or pharmacology study (title: 'in vitro')",
+      "unsure": false,
+      "title": "Low Selectivity Indices of Ivermectin and Macrocyclic Lactones on SARS-CoV-2 Replication In Vitro"
+    },
+    "W4210315247": {
+      "label": "off_scope",
+      "why": "observational study or case report (title: 'toxic')",
+      "unsure": false,
+      "title": "Repurposing the drug, ivermectin, in COVID-19: toxicological points of view"
+    },
+    "W4212946211": {
+      "label": "gold",
+      "why": "included by the review: Buonfrate 2022 (COVER)",
+      "unsure": false,
+      "title": "High-dose ivermectin for early treatment of COVID-19 (COVER study): a randomised, double-blind, multicentre, phase II, d"
+    },
+    "W4212973150": {
+      "label": "gold",
+      "why": "included by the review: Lim 2022 (I-TECH)",
+      "unsure": false,
+      "title": "Efficacy of Ivermectin Treatment on Disease Progression Among Adults With Mild to Moderate COVID-19 and Comorbidities: T"
+    },
+    "W4220754707": {
+      "label": "gold",
+      "why": "included by the review: Reis 2022 (TOGETHER)",
+      "unsure": false,
+      "title": "Effect of Early Treatment with Ivermectin among Patients with Covid-19"
+    },
+    "W4220763537": {
+      "label": "off_scope",
+      "why": "systematic review",
+      "unsure": false,
+      "title": "Systematic Review and Meta-analysis of Ivermectin for Treatment of COVID-19: Evidence Beyond the Hype"
+    },
+    "W4220764004": {
+      "label": "off_scope",
+      "why": "review",
+      "unsure": false,
+      "title": "Role of Ivermectin in Management of COVID-19"
+    },
+    "W4220768079": {
+      "label": "gold",
+      "why": "included by the review: Beltran Gonzalez 2022",
+      "unsure": false,
+      "title": "Efficacy and Safety of Ivermectin and Hydroxychloroquine in Patients with Severe COVID-19: A Randomized Controlled Trial"
+    },
+    "W4220911787": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Potential Role of the Antidepressants Fluoxetine and Fluvoxamine in the Treatment of COVID-19"
+    },
+    "W4224247989": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "241 Utilizing real-world evidence to increase efficiency of randomized controlled trials with application to repurposed "
+    },
+    "W4225660542": {
+      "label": "off_scope",
+      "why": "lab or pharmacology study (title: 'hamster')",
+      "unsure": false,
+      "title": "Ivermectin Does Not Protect against SARS-CoV-2 Infection in the Syrian Hamster Model"
+    },
+    "W4229055092": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Repurposing fluvoxamine, and other psychiatric medications, for COVID ‐19 and other conditions"
+    },
+    "W4243260355": {
+      "label": "near_miss",
+      "why": "RCT, ivermectin alone vs HCQ plus ivermectin plus azithromycin",
+      "unsure": false,
+      "fails": "comparator: a combination that itself contains ivermectin",
+      "title": "A Randomized Controlled Trial of Ivermectin Monotherapy versus Hydroxychloroquine, Ivermectin, and Azithromycin Combinat"
+    },
+    "W4254701078": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'systematic review')",
+      "unsure": false,
+      "title": "Ivermectin for prevention and treatment of COVID-19 infection: a systematic review and meta-analysis"
+    },
+    "W4282595092": {
+      "label": "relevant",
+      "why": "placebo RCT (Thailand, 2022); its treatment arm (PCR-positive patients) is eligible",
+      "unsure": false,
+      "title": "Safety and Efficacy of Ivermectin for the Prevention and Treatment of COVID-19: A Double-Blinded Randomized Placebo-Cont"
+    },
+    "W4282964706": {
+      "label": "relevant",
+      "why": "two placebo-controlled RCTs (inpatients and outpatients), June 2022",
+      "unsure": false,
+      "title": "Non-effectiveness of Ivermectin on Inpatients and Outpatients With COVID-19; Results of Two Randomized, Double-Blinded, "
+    },
+    "W4283205481": {
+      "label": "off_scope",
+      "why": "Popp 2022 (Cochrane review)",
+      "unsure": false,
+      "title": "Ivermectin for preventing and treating COVID-19"
+    },
+    "W4283214729": {
+      "label": "off_scope",
+      "why": "review",
+      "unsure": false,
+      "title": "Is Ivermectin Effective in Treating COVID-19?"
+    },
+    "W4283270938": {
+      "label": "off_scope",
+      "why": "combination or prophylaxis design (title: 'combined')",
+      "unsure": false,
+      "title": "Effect of combined use of ivermectin and colchicine in COVID-19 patients"
+    },
+    "W4283363264": {
+      "label": "relevant",
+      "why": "multi-arm placebo RCT, PCR-confirmed mild COVID-19, 2022",
+      "unsure": false,
+      "title": "Efficacy of single‐dose and double‐dose ivermectin early treatment in preventing progression to hospitalization in mild "
+    },
+    "W4283385595": {
+      "label": "neutral",
+      "why": "Chahla randomized outpatient trial 2022: design reporting unclear (randomized vs cluster)",
+      "unsure": false,
+      "title": "Randomized trials - Ivermectin repurposing for COVID-19 treatment of outpatients with mild disease in primary health car"
+    },
+    "W4283574286": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Antiparasitic Drugs against SARS-CoV-2: A Comprehensive Literature Survey"
+    },
+    "W4283838215": {
+      "label": "trap_retracted",
+      "why": "IRICT 2022 (RCT, retracted 2024)",
+      "unsure": false,
+      "title": "Ivermectin role in COVID-19 treatment (IRICT): single-center, adaptive, randomized, double-blind, placebo-controlled, cl"
+    },
+    "W4284890619": {
+      "label": "gold",
+      "why": "included by the review: Biber 2022",
+      "unsure": false,
+      "title": "The effect of ivermectin on the viral load and culture viability in early treatment of nonhospitalized patients with mil"
+    },
+    "W4285005829": {
+      "label": "trap_retracted",
+      "why": "retracted (found in the corpus); otherwise off_scope: lab or pharmacology study (title: 'mechanism')",
+      "unsure": false,
+      "title": "Microbiome-Based Hypothesis on Ivermectin’s Mechanism in COVID-19: Ivermectin Feeds Bifidobacteria to Boost Immunity",
+      "was": "off_scope"
+    },
+    "W4285008448": {
+      "label": "off_scope",
+      "why": "formulation (lab) study",
+      "unsure": false,
+      "title": "Manipulation of Spray-Drying Conditions to Develop an Inhalable Ivermectin Dry Powder"
+    },
+    "W4285014195": {
+      "label": "off_scope",
+      "why": "non-randomized cohort comparison (physician preference)",
+      "unsure": false,
+      "title": "A Comparison of Ivermectin and Non Ivermectin Based Regimen for COVID-19 in Abuja: Effects on Virus Clearance, Days-to-d"
+    },
+    "W4285096738": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Perspective Chapter: New Use of the SSRI Fluvoxamine in the Treatment of COVID-19 Symptoms"
+    },
+    "W4285545929": {
+      "label": "off_scope",
+      "why": "meta-analysis",
+      "unsure": false,
+      "title": "The Effectiveness of Ivermectin on the Risk of Mortality in COVID-19 Patients: A Meta Analysis"
+    },
+    "W4287129885": {
+      "label": "near_miss",
+      "why": "Hashim 2020",
+      "unsure": false,
+      "fails": "co-intervention: doxycycline in ivermectin arm only",
+      "title": "Controlled Randomized Clinical Trial on Using Ivermectin with Doxycycline for Treating COVID-19 Patients in Baghdad, Ira"
+    },
+    "W4288492103": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Ivermectin Inhibits the Replication of Usutu Virus In Vitro"
+    },
+    "W4288737360": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'response')",
+      "unsure": false,
+      "title": "Zebrafish behavioral response to ivermectin: insights into potential neurological risk"
+    },
+    "W4289979425": {
+      "label": "off_scope",
+      "why": "commentary",
+      "unsure": false,
+      "title": "Repurposing Drugs for Covid-19 by a Developing Country"
+    },
+    "W4291378096": {
+      "label": "off_scope",
+      "why": "peer reviews of a preprint",
+      "unsure": false,
+      "title": "Reviews of \"Ivermectin for Treatment of Mild-to-Moderate COVID-19 in the Outpatient Setting: A Decentralized, Placebo-co"
+    },
+    "W4291378099": {
+      "label": "off_scope",
+      "why": "peer review of a preprint",
+      "unsure": false,
+      "title": "Review 2: \"Ivermectin for Treatment of Mild-to-Moderate COVID-19 in the Outpatient Setting: A Decentralized, Placebo-con"
+    },
+    "W4292148078": {
+      "label": "relevant",
+      "why": "factorial RCT with a balanced ivermectin vs placebo comparison, 2022",
+      "unsure": false,
+      "title": "Randomized Trial of Metformin, Ivermectin, and Fluvoxamine for Covid-19"
+    },
+    "W4293176350": {
+      "label": "gold",
+      "why": "included by the review: Manomaipiboon 2022",
+      "unsure": false,
+      "title": "Efficacy and safety of ivermectin in the treatment of mild to moderate COVID-19 infection: a randomized, double-blind, p"
+    },
+    "W4293562204": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'perspective')",
+      "unsure": false,
+      "title": "Perspective: repurposed Drugs for COVID-19"
+    },
+    "W4293769769": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'potential')",
+      "unsure": false,
+      "title": "Repurposing Potential of the Antiparasitic Agent Ivermectin for the Treatment and/or Prophylaxis of COVID-19"
+    },
+    "W4296124501": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Ivermectin contributes to attenuating the severity of acute lung injury in mice"
+    },
+    "W4297018354": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Care for adults with COVID ‐19: living guidelines from the National COVID ‐19 Clinical Evidence Taskforce"
+    },
+    "W4297140377": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Ivermectin mass drug administration for onchocerciasis elimination: can it reduce the prevalence of scabies in Ethiopia?"
+    },
+    "W4297261569": {
+      "label": "off_scope",
+      "why": "combination or prophylaxis design (title: 'prevent')",
+      "unsure": false,
+      "title": "Repurposed Drugs Failed to Prevent Severe COVID-19"
+    },
+    "W4306708170": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Fluvoxamine for Outpatient Treatment of COVID-19: A Decentralized, Placebo-controlled, Randomized, Platform Clinical Tri"
+    },
+    "W4307043809": {
+      "label": "gold",
+      "why": "included by the review: Naggie 2022 (ACTIV-6)",
+      "unsure": false,
+      "title": "Effect of Ivermectin vs Placebo on Time to Sustained Recovery in Outpatients With Mild to Moderate COVID-19: A Randomize"
+    },
+    "W4307216937": {
+      "label": "relevant",
+      "why": "placebo-controlled RCT in severe COVID-19, Oct 2022",
+      "unsure": false,
+      "title": "Clinical efficacy and safety of ivermectin (400 ug/kg, single dose) in patients with severe COVID-19: a randomized clini"
+    },
+    "W4307990202": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "COVID-19 Molecular Pathophysiology: Acetylation of Repurposing Drugs"
+    },
+    "W4308623331": {
+      "label": "off_scope",
+      "why": "review update",
+      "unsure": false,
+      "title": "Ivermectin for COVID-19: The 2022 Update"
+    },
+    "W4309163733": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Early Treatment with Fluvoxamine among Patients with COVID-19: A Cost-Consequence Model"
+    },
+    "W4309361513": {
+      "label": "off_scope",
+      "why": "systematic review (prophylaxis)",
+      "unsure": false,
+      "title": "Ivermectin's Role in the Prevention of COVID‐19: A Systematic Review and Meta‐Analysis"
+    },
+    "W4309818170": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'review')",
+      "unsure": false,
+      "title": "Use of Ivermectin and Chlorine Dioxide for COVID-19 Treatment and Prophylaxis in Peru: A Narrative Review"
+    },
+    "W4311448150": {
+      "label": "off_scope",
+      "why": "letter to the editor about TOGETHER",
+      "unsure": false,
+      "title": "Ivermectin Treatment for Covid-19"
+    },
+    "W4311635587": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Ivermectin"
+    },
+    "W4311753472": {
+      "label": "relevant",
+      "why": "conference abstract of ACTIV-6; counts as a report of the gold trial",
+      "unsure": false,
+      "report_of": "W4307043809",
+      "title": "LB1528C. Ivermectin for Treatment of Mild-to-Moderate COVID-19 in the Outpatient Setting A Decentralized, Placebo-contro"
+    },
+    "W4311938754": {
+      "label": "gold",
+      "why": "included by the review: La Rocha 2022",
+      "unsure": false,
+      "title": "Ivermectin compared with placebo in the clinical course in Mexican patients with asymptomatic and mild COVID-19: a rando"
+    },
+    "W4312115096": {
+      "label": "neutral",
+      "why": "preprint (Dec 2022) of ACTIV-6 600, whose journal article (2023) is a near-miss",
+      "unsure": false,
+      "title": "Effect of Ivermectin 600 μg/kg for 6 days vs Placebo on Time to Sustained Recovery in Outpatients with Mild to Moderate "
+    },
+    "W4312214345": {
+      "label": "neutral",
+      "why": "COVID-OUT long-COVID follow-up (medRxiv preprint): secondary report, not the trial's main report",
+      "unsure": false,
+      "title": "Outpatient treatment of Covid-19 with metformin, ivermectin, and fluvoxamine and the development of Long Covid over 10-m"
+    },
+    "W4312323281": {
+      "label": "relevant",
+      "why": "RCT, standard care plus ivermectin vs standard care, PCR-positive patients, 2022",
+      "unsure": false,
+      "title": "Effectiveness of Ivermectin among COVID-19 patients: A Randomized Controlled Trial"
+    },
+    "W4313121933": {
+      "label": "relevant",
+      "why": "RCT, ivermectin plus favipiravir-based care vs the same care, 2022",
+      "unsure": false,
+      "title": "An Open Label Randomized Controlled Trial of Ivermectin Plus Favipiravir-Based Standard of Care versus Favipiravir-Based"
+    },
+    "W4313209660": {
+      "label": "off_scope",
+      "why": "meta-analysis (prophylaxis)",
+      "unsure": false,
+      "title": "Effect of Ivermectin prophylaxis in prevention of COVID 19: Meta-analysis and systematic review"
+    },
+    "W4315752560": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Effect of Fluvoxamine vs Placebo on Time to Sustained Recovery in Outpatients With Mild to Moderate COVID-19: A Randomiz"
+    },
+    "W4316684939": {
+      "label": "neutral",
+      "why": "about epilepsy, not COVID-19 treatment",
+      "unsure": false,
+      "title": "Is the antiparasitic drug ivermectin a suitable candidate for the treatment of epilepsy?"
+    },
+    "W4317477351": {
+      "label": "off_scope",
+      "why": "commentary on a trial protocol",
+      "unsure": false,
+      "title": "A protocol of trial of ivermectin in COVID‐19 treatment critically changed after its completion"
+    },
+    "W4318041390": {
+      "label": "off_scope",
+      "why": "review",
+      "unsure": false,
+      "title": "Ivermectin - an antiviral drug for the COVID-19 pandemic?"
+    },
+    "W4319822388": {
+      "label": "off_scope",
+      "why": "observational study or case report (title: 'associated with')",
+      "unsure": false,
+      "title": "Hepatic disorders associated with the use of Ivermectin for SARS-CoV-2 infection in adults: a pharmacovigilance study in"
+    },
+    "W4319953714": {
+      "label": "off_scope",
+      "why": "commentary on long COVID",
+      "unsure": false,
+      "title": "Ivermectin and the Emergence of Long COVID"
+    },
+    "W4319996285": {
+      "label": "near_miss",
+      "why": "open-label RCT vs standard treatment",
+      "unsure": false,
+      "fails": "date: published 2023",
+      "title": "Efficacy and safety of ivermectin in patients with mild and moderate COVID-19: A randomized controlled trial"
+    },
+    "W4321170169": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'current')",
+      "unsure": false,
+      "title": "Current status of usage of ivermectin in the management of COVID"
+    },
+    "W4321366419": {
+      "label": "near_miss",
+      "why": "randomized platform trial, viral clearance (PLATCOV)",
+      "unsure": true,
+      "fails": "date: published 2023",
+      "title": "Pharmacometrics of high-dose ivermectin in early COVID-19 from an open label, randomized, controlled adaptive platform t"
+    },
+    "W4321369786": {
+      "label": "near_miss",
+      "why": "Naggie 2023 (ACTIV-6 600)",
+      "unsure": false,
+      "fails": "date: published 2023",
+      "title": "Effect of Higher-Dose Ivermectin for 6 Days vs Placebo on Time to Sustained Recovery in Outpatients With COVID-19: A Ran"
+    },
+    "W4322712069": {
+      "label": "off_scope",
+      "why": "meta-analysis",
+      "unsure": false,
+      "title": "Meta-Analysis the Effectiveness of Ivermectin Use on the Length of Stay in Inpatients of COVID-19"
+    },
+    "W4323305075": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'systematic review')",
+      "unsure": false,
+      "title": "Results of a systematic review and meta-analysis of early studies on ivermectin in SARS-CoV-2 infection"
+    },
+    "W4323320726": {
+      "label": "off_scope",
+      "why": "author response to peer review",
+      "unsure": false,
+      "title": "Author response: Pharmacometrics of high-dose ivermectin in early COVID-19 from an open label, randomized, controlled ad"
+    },
+    "W4323344321": {
+      "label": "off_scope",
+      "why": "editor's evaluation of another paper",
+      "unsure": false,
+      "title": "Editor's evaluation: Pharmacometrics of high-dose ivermectin in early COVID-19 from an open label, randomized, controlle"
+    },
+    "W4323344350": {
+      "label": "off_scope",
+      "why": "decision letter",
+      "unsure": false,
+      "title": "Decision letter: Pharmacometrics of high-dose ivermectin in early COVID-19 from an open label, randomized, controlled ad"
+    },
+    "W4324130277": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Drug treatment of COVID-19 infection"
+    },
+    "W4324140816": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Ivermectin Augments the Anti-Cancer Activity of Pitavastatin in Ovarian Cancer Cells"
+    },
+    "W4324140832": {
+      "label": "off_scope",
+      "why": "observational study of atazanavir plus ivermectin",
+      "unsure": false,
+      "title": "EVOLUÇÃO DA GRAVIDADE DOS SINTOMAS DE PACIENTES COM COVID-19 TRATADOS COM ATAZANAVIR E IVERMECTINA: estudo de coorte pro"
+    },
+    "W4362452768": {
+      "label": "off_scope",
+      "why": "scoping review",
+      "unsure": false,
+      "title": "USO DE IVERMECTINA E ATAZANAVIR NO TRATAMENTO DA COVID-19: UMA REVISÃO DE ESCOPO"
+    },
+    "W4366140579": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Oral Fluvoxamine With Inhaled Budesonide for Treatment of Early-Onset COVID-19: A Randomized Platform Trial"
+    },
+    "W4366986984": {
+      "label": "off_scope",
+      "why": "lab or pharmacology study (title: 'hamster')",
+      "unsure": false,
+      "title": "Prophylactic administration of ivermectin attenuates SARS-CoV-2 induced disease in a Syrian Hamster Model"
+    },
+    "W4377292376": {
+      "label": "near_miss",
+      "why": "placebo RCT (CORVETTE-01)",
+      "unsure": false,
+      "fails": "date: published 2023",
+      "title": "Efficacy and safety of single-dose ivermectin in mild-to-moderate COVID-19: the double-blind, randomized, placebo-contro"
+    },
+    "W4378516419": {
+      "label": "off_scope",
+      "why": "observational study or case report (title: 'retrospective')",
+      "unsure": false,
+      "title": "Ivermectin Effect on In-Hospital Mortality and Need for Respiratory Support in COVID-19 Pneumonia: Propensity Score-Matc"
+    },
+    "W4379508426": {
+      "label": "off_scope",
+      "why": "case report (liver injury)",
+      "unsure": false,
+      "title": "Ivermectin drug induced liver injury"
+    },
+    "W4382645750": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Suppression of NLRP3 inflammasome by ivermectin ameliorates bleomycin-induced pulmonary fibrosis"
+    },
+    "W4383568527": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Anticancer Potential of Ivermectin: Mechanisms of Action and Therapeutic Implications"
+    },
+    "W4385407680": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Evidence-based indications for ivermectin in parasitic diseases: An integrated approach to context and challenges in Per"
+    },
+    "W4386424093": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "No secondary impact of ivermectin mass drug administration for onchocerciasis elimination on the prevalence of scabies i"
+    },
+    "W4386597728": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'evidence')",
+      "unsure": false,
+      "title": "In-Hospital Receipt of Ivermectin Is Associated With No Benefit in Mortality, Disease Progression, or Length of Stay for"
+    },
+    "W4386639561": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Ivermectin as an Anti‐Parasitic Agent"
+    },
+    "W4386686318": {
+      "label": "off_scope",
+      "why": "review",
+      "unsure": false,
+      "title": "Ivermectin as a Repurposed Drug for COVID‐19"
+    },
+    "W4386708327": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Effect of Higher-Dose Fluvoxamine vs Placebo on Time to Sustained Recovery in Outpatients with Mild to Moderate COVID-19"
+    },
+    "W4387472786": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Ivermectin as a potential therapeutic strategy for glioma"
+    },
+    "W4387908535": {
+      "label": "off_scope",
+      "why": "lab or pharmacology study (title: 'in vitro')",
+      "unsure": false,
+      "title": "Nonspecific membrane bilayer perturbations by ivermectin underlie SARS-CoV-2 in vitro activity"
+    },
+    "W4388052115": {
+      "label": "neutral",
+      "why": "trial design paper (ACTIV-6 operations)",
+      "unsure": false,
+      "title": "ACTIV-6: Operationalizing a decentralized, outpatient randomized platform trial to evaluate efficacy of repurposed medic"
+    },
+    "W4388229766": {
+      "label": "off_scope",
+      "why": "in vitro study",
+      "unsure": false,
+      "title": "Favipiravir and ivermectin show in vitro synergistic antiviral activity against SARS-CoV-2"
+    },
+    "W4388732663": {
+      "label": "off_scope",
+      "why": "lab or pharmacology study (title: 'in vitro')",
+      "unsure": false,
+      "title": "In Vitro Analysis of SARS-CoV-2 Spike Protein and Ivermectin Interaction"
+    },
+    "W4388775435": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Higher-Dose Fluvoxamine and Time to Sustained Recovery in Outpatients With COVID-19: The ACTIV-6 Randomized Clinical Tri"
+    },
+    "W4389885906": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Outpatient randomized controlled trials to reduce COVID‐19 hospitalization: Systematic review and meta‐analysis"
+    },
+    "W4390244664": {
+      "label": "near_miss",
+      "why": "placebo RCT (Japan and Thailand)",
+      "unsure": false,
+      "fails": "date: published 2023",
+      "title": "Efficacy and safety of ivermectin in patients with mild COVID-19 in Japan and Thailand"
+    },
+    "W4391672982": {
+      "label": "off_scope",
+      "why": "lab or pharmacology study (title: 'binding')",
+      "unsure": false,
+      "title": "Binding behavior of receptor binding domain of the SARS-CoV-2 virus and ivermectin"
+    },
+    "W4392303143": {
+      "label": "near_miss",
+      "why": "Hayward 2024 (PRINCIPLE)",
+      "unsure": false,
+      "fails": "date: published 2024",
+      "title": "Ivermectin for COVID-19 in adults in the community (PRINCIPLE): An open, randomised, controlled, adaptive platform trial"
+    },
+    "W4392649387": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'systematic review')",
+      "unsure": false,
+      "title": "Ivermectin for treatment of COVID-19: A systematic review and meta-analysis"
+    },
+    "W4393198428": {
+      "label": "off_scope",
+      "why": "2024, ivermectin plus colchicine",
+      "unsure": false,
+      "title": "Role of Ivermectin and Colchicine in Treatment of COVID-19: A Randomized Controlled Clinical Trial"
+    },
+    "W4393320918": {
+      "label": "off_scope",
+      "why": "2024, combination therapy",
+      "unsure": false,
+      "title": "A randomized trial to assess the acceleration of viral clearance by the combination Favipiravir/Ivermectin/Niclosamide i"
+    },
+    "W4394818459": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'potential')",
+      "unsure": false,
+      "title": "The Potential of Traditional Medicine in Combating COVID-19: A Systematic Review and Meta-Analysis"
+    },
+    "W4394929346": {
+      "label": "off_scope",
+      "why": "in vitro study",
+      "unsure": false,
+      "title": "The selective effect of Ivermectin on different human coronaviruses; in-vitro study"
+    },
+    "W4396553701": {
+      "label": "off_scope",
+      "why": "review (metformin)",
+      "unsure": false,
+      "title": "Repurposing Revisited: Exploring the Role of Metformin for Treatment of COVID-19"
+    },
+    "W4396610082": {
+      "label": "off_scope",
+      "why": "2024, losartan plus ivermectin",
+      "unsure": false,
+      "title": "USE OF REPOURPOSED DRUGS LOSARTAN AND IVERMECTIN IN PATIENTS WITH CANCER FOR PREVENTION OF COVID-19 SERIOUS EVENTS DURIN"
+    },
+    "W4399761191": {
+      "label": "off_scope",
+      "why": "combination or prophylaxis design (title: 'prophyla')",
+      "unsure": false,
+      "title": "Prophylaxis Against Covid-19: Analysis Of The Supply of Hydroxychloroquine and Ivermectin and Covid-19 Cases and Deaths"
+    },
+    "W4400881102": {
+      "label": "near_miss",
+      "why": "placebo RCT in hospitalized patients",
+      "unsure": false,
+      "fails": "date: published 2024",
+      "title": "Efficacy and safety of oral ivermectin in the treatment of mild to moderate Covid-19 patients: a multi-centre double-bli"
+    },
+    "W4401212363": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "Maximizing the Use of Ivermectin Transethosomal Cream in the Treatment of Scabies"
+    },
+    "W4401965570": {
+      "label": "off_scope",
+      "why": "review or commentary (title: 'review')",
+      "unsure": false,
+      "title": "Reviewing Ivermectin’s Efficacy in Treating COVID-19 Infection"
+    },
+    "W4403099903": {
+      "label": "near_miss",
+      "why": "efficacy study of ivermectin in COVID-19",
+      "unsure": false,
+      "fails": "date: published 2023",
+      "title": "Assessment of Efficacy and Safety of Ivermectin in the Patients of COVID-19"
+    },
+    "W4405274303": {
+      "label": "off_scope",
+      "why": "systematic review",
+      "unsure": false,
+      "title": "The impact of ivermectin on COVID-19 outcomes: a systematic review and meta-analysis"
+    },
+    "W4405765493": {
+      "label": "near_miss",
+      "why": "RCT, ivermectin plus metronidazole vs standard care",
+      "unsure": false,
+      "fails": "co-intervention: metronidazole in the ivermectin arm only",
+      "title": "The Efficacy of Ivermectin and Metronidazole vs. Standard Treatment Protocols on Outcomes of COVID-19 in Hospitalized Pa"
+    },
+    "W4406827333": {
+      "label": "off_scope",
+      "why": "2024, ivermectin plus colchicine",
+      "unsure": false,
+      "title": "Role of ivermectin and colchicine in the treatment of COVID-19: a randomized controlled clinical trial"
+    },
+    "W6901825914": {
+      "label": "trap_superseded_preprint",
+      "why": "La Rocha 2022 Research Square preprint; its journal version is gold",
+      "unsure": false,
+      "title": "Ivermectin compared with placebo in the clinical evolution of Mexican patients with asymptomatic and mild COVID-19: a ra"
+    },
+    "W7219471303": {
+      "label": "neutral",
+      "why": "not about ivermectin for COVID-19",
+      "unsure": false,
+      "title": "การใช้ยา hydroxychloroquine ในการรักษาโรค COVID-19"
+    },
+    "W7220516502": {
+      "label": "off_scope",
+      "why": "observational study or case report (title: 'adverse')",
+      "unsure": false,
+      "title": "Adverse Effects of Ivermectin in Patients with Sars-Cov-2"
+    }
+  }
+}

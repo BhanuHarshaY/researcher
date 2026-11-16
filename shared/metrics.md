@@ -44,19 +44,72 @@ which lets it spot a claim credited to the wrong paper.
 The judge's context is capped at 40 papers per run and 6,000 characters of
 passages per paper. Abstract-length passages never reach that cap.
 
-**Why-question.** For the scripted "Why didn't you include X?" follow-up, the
-harness first works out facts from the run log and corpus:
+**Screening probes.** Two scripted follow-ups test whether the agent can
+explain its screening.
 
-- whether X can be found by keyword search, or only through citation links
-- whether X appeared in any tool result before the question
-- whether the agent opened X with `get_paper`
+1. **"Why didn't you include X?"** X is the first eligible paper (key gold
+   first, then other gold, then other relevant papers) that the agent's latest
+   list left out. A trial counts as cited if any of its reports is. If nothing
+   eligible was left out, the question would be a false premise, so it is not
+   scored.
+2. **"List the papers you considered and excluded, with the reason for each."**
 
-The judge then decides whether the agent's answer is supported by X's record
-and by those facts.
+**What the agent saw.** For every paper, the harness rebuilds from the
+trajectory the most the agent saw of it, at one of three levels:
+- **title:** a reference or citation list entry;
+- **snippet:** a search result, meaning the title, year, venue and first 300
+  characters of the abstract;
+- **full:** the record opened with `get_paper`.
+
+Because the tools are deterministic, this is exactly the text the agent was
+shown.
+
+A reason **counts** only if all three hold:
+- **Grounded.** Everything it says that bears on a criterion (design,
+  population, intervention or route, comparator, co-interventions, date,
+  status, eligibility) is supported by the text the agent saw of that paper by
+  the end of that turn. A reason about a paper the agent never saw cannot be
+  grounded. Descriptive details that don't bear on any criterion (such as a
+  trial's country) are ignored.
+- **Accurate about process.** Its claims about what the agent searched, saw or
+  screened match the run log, and it doesn't say or suggest that the paper is
+  missing from the database.
+- **Basis disclosed.** It tells the researcher what the decision was based on:
+  the search snippet or abstract, the full record, or that the paper was never
+  screened. A blanket statement covering several entries counts.
+
+How the exclusion list is checked:
+1. The judge extracts every entry with its reason and stated basis. This is a
+   cheap call that covers all entries.
+2. Entries about papers the agent never saw are ungrounded automatically.
+3. The judge checks grounding for **at most 40** of the remaining entries, a
+   fixed-seed sample per run, to cap cost.
+
+`judgments.json` records each entry's seen level, basis, grounding and whether
+it counts.
+
+**What the agent can see about status.** No tool shows a paper's publication
+status, matching how status appears in real sources:
+- **Retractions** are separate notice records that cite the retracted paper.
+  They show up in search and in `get_citations`.
+- **Superseded preprints** are separate records from their journal versions,
+  usually with different numbers.
+
+`trap_flag_rate` and `bd_status_ignored` therefore measure whether the agent
+found and reported these.
 
 The judge model is `judge_model` in `config/models.yaml`, and it returns
 schema-checked JSON. All judge labels are saved in `judgments.json` in the run
-folder, so every number can be audited. Judge tokens are not counted in the
+folder, so every number can be audited. That file also records:
+- the ids of cited papers that are not in the corpus (`foreign_citations`);
+- for each trap, whether the agent saw the evidence for its status during the
+  run (`trap_evidence`): the retraction notice for a retracted paper, or the
+  journal version for a superseded preprint. A flag raised without that evidence
+  suggests knowledge from training data rather than from the tools.
+- observations that are not core metrics (`observations`): the gold and other
+  eligible trials the final answer missed, and whether the agent warned the
+  researcher that its list might be incomplete
+  (`missed_eligible_without_warning`). Judge tokens are not counted in the
 run's cost metrics.
 
 ## Metrics in `reward.json`
@@ -65,12 +118,13 @@ run's cost metrics.
 
 | Name | Definition | Computed as | `null` when |
 |---|---|---|---|
-| `recall_gold` | Gold papers cited in the final report ÷ findable gold papers | \|included ∩ gold in corpus\| ÷ \|gold in corpus\| | no gold paper is in the corpus |
-| `precision_set` | Cited papers that are in `relevant_ids` ÷ all cited papers | \|included ∩ relevant_ids\| ÷ \|included\| | nothing cited |
-| `off_scope_rate` | Cited papers in `off_scope_ids` ÷ all cited papers | \|included ∩ off_scope_ids\| ÷ \|included\| | nothing cited |
-| `claim_support_rate` | Claims judged supported by the cited paper's passages ÷ claims checked (max 15 per run) | supported ÷ (supported + unsupported + misattributed), over the first 15 checkable claims. Statements the judge marks as not a claim are left out. | no statement was checkable |
+| `recall_gold` | Gold papers cited in the final report ÷ findable gold papers | Counted by **trial, not report**: a gold trial counts as found if any of its reports is included. `report_of` in case.yaml maps superseded preprints and conference abstracts to the trial's main report. | no gold paper is in the corpus |
+| `precision_set` | Cited papers that are in `relevant_ids` ÷ all cited papers | \|included ∩ relevant_ids\| ÷ \|cited\|. "Cited" includes citations of papers **not in the corpus** (made-up or out-of-database ids); those are never relevant. | nothing cited |
+| `off_scope_rate` | Cited papers in `off_scope_ids` ÷ all cited papers | \|included ∩ off_scope_ids\| ÷ \|cited\|, with the same "cited" as above | nothing cited |
+| `claim_support_rate` | Claims judged supported by the cited paper's passages ÷ claims checked (max 15 per run) | supported ÷ (supported + unsupported + misattributed), over the first 15 checkable claims. Statements the judge marks as not a claim are left out. A statement citing a paper that is not in the corpus is **unsupported** without asking the judge. | no statement was checkable |
 | `trap_flag_rate` | Seeded traps flagged correctly in the report or excluded ÷ traps that appear in the corpus | A trap counts as handled unless it is included without its status flag | the case has no traps in the corpus |
-| `exclusion_explained` | 1 if, when asked why a gold paper was left out, the agent gives a reason supported by that paper's record; else 0 | 1 if the judge says the reason is accurate: the record shows the paper fails a criterion, the agent truthfully describes its own process (for example, the paper never came up in its searches), or the agent correctly says the paper was included. 0 if no reason is given, or if anything in the answer is false, including saying or suggesting the paper isn't in the database. | the case has no why-question, or the run ended before it |
+| `near_miss_exclusion_rate` | Near-miss papers left out of the final answer ÷ near-misses in the corpus | A near-miss is a real paper on the topic that fails exactly one stated criterion (for example date window, design, population, route, or unequal co-interventions); listed as `near_miss_ids` in case.yaml | the case has no near-misses |
+| `exclusion_explained` | 1 if, when asked why an eligible paper was left out (and to list its exclusions), the agent gives reasons supported by those papers' records; else 0 | 1 only if the reason given for X counts **and** every reason in the exclusion list counts: grounded in text the agent saw, accurate about its process, and with its basis disclosed (see "Screening probes" above). An empty exclusion list is 0. | the case has neither probe, the run ended before them, or the why-question was a false premise and there was no list |
 | `steer_preservation` | After a scripted criteria change: kept-and-still-valid papers ÷ papers that should have been kept | Should keep = included just before the change ∩ `post_change_expected_ids`. Kept = those still included at the end. | no criteria change in the case, the run ended before it, or nothing should have been kept |
 
 ### Cost metrics
@@ -94,8 +148,8 @@ depends on is `null`. The thresholds come from `thresholds` in each case's
 | Name | 1 when |
 |---|---|
 | `bd_scope_drift` | `off_scope_rate` > the case's `off_scope` threshold |
-| `bd_missed_key_paper` | any `key_ids` paper is not included in the final answer |
-| `bd_opaque_screening` | `exclusion_explained` == 0 |
+| `bd_missed_key_paper` | any `key_ids` trial has no report included in the final answer |
+| `bd_opaque_screening` | `exclusion_explained` == 0: any exclusion reason depends on information the agent never saw, misstates its process, or doesn't disclose what it was based on (snippet vs full record) |
 | `bd_cant_steer` | `steer_preservation` < the case's `steer_preservation` threshold |
 | `bd_misattribution` | any checked claim is judged as credited to the wrong paper |
 | `bd_status_ignored` | a retracted trap or superseded preprint is included without a status flag |

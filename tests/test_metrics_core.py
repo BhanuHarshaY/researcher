@@ -60,6 +60,52 @@ class TestSetMetrics(unittest.TestCase):
         self.assertIsNone(core.steer_preservation(pre, post, []))
         self.assertIsNone(core.steer_preservation({"O1"}, post, ["A"]))  # nothing should be kept
 
+    def test_near_miss_exclusion_rate(self):
+        case = {"near_miss_ids": [{"id": "A", "fails": "date"}, {"id": "O1", "fails": "design"}, "GONE"]}
+        ids = core.near_miss_ids(case)
+        self.assertEqual(ids, ["A", "O1", "GONE"])
+        self.assertEqual(core.near_miss_exclusion_rate({"A"}, ids, CORPUS), 0.5)   # GONE not in corpus
+        self.assertEqual(core.near_miss_exclusion_rate(set(), ids, CORPUS), 1.0)
+        self.assertIsNone(core.near_miss_exclusion_rate({"A"}, [], CORPUS))
+
+    def test_exclusion_explained_from(self):
+        f = core.exclusion_explained_from
+        self.assertIsNone(f(None, None))
+        self.assertEqual(f(True, None), 1)
+        self.assertEqual(f(False, None), 0)
+        self.assertEqual(f(None, [True, True]), 1)
+        self.assertEqual(f(True, [True, False]), 0)     # one invented or unsupported reason
+        self.assertEqual(f(None, []), 0)                # asked, but listed nothing
+        self.assertEqual(f(False, [True]), 0)
+
+    def test_recall_counts_trials_not_reports(self):
+        case = {**CASE, "report_of": {"P": "A", "Cabs": "C"}}
+        final = {"P": "included", "Cabs": "included", "B": "included"}       # preprint of A, abstract of C
+        r = core.compute_reward(case, CORPUS | {"Cabs"}, final_roles=final, flagged={}, pre_roles=None,
+                                claim_labels=None, exclusion_explained=None)
+        self.assertEqual(r["recall_gold"], 1.0)                 # A, B, C all found through some report
+        self.assertEqual(r["bd_missed_key_paper"], 0)           # key A and C found as trials
+        self.assertEqual(core.to_trials({"P", "B"}, {"P": "A"}), {"A", "B"})
+
+    def test_foreign_citations(self):
+        corpus = {"W1234567", "10.1101/2021.01.05.21249310"}
+        text = ("See [W1234567], [W9999999] and [10.1001/jama.2099.1, PMID: 12345678]; also W8888888. "
+                "A DOI outside brackets 10.5555/xyz is ignored. [10.1101/2021.01.05.21249310] is in the corpus. "
+                "[10.3390/ok] is a corpus record's DOI.")
+        self.assertEqual(core.foreign_ids(text, corpus, {"10.3390/ok"}),
+                         ["W9999999", "W8888888", "10.1001/jama.2099.1", "PMID: 12345678"])
+        final = {"A": "included", "B": "included"}
+        r = core.compute_reward(CASE, CORPUS, final_roles=final, flagged={}, pre_roles=None, claim_labels=None,
+                                exclusion_explained=None, foreign_cited={"W9999999", "W8888888"})
+        self.assertEqual(r["precision_set"], 0.5)               # A, B relevant; 2 made-up papers are not
+        self.assertEqual(r["recall_gold"], round(2 / 3, 4))     # recall unaffected
+
+    def test_claim_units_with_foreign_ids(self):
+        msg = "Trial [W9999999] reported a large drop in mortality among hospitalized adults."
+        units = core.claim_units([(1, msg)], _find, find_foreign=lambda t: ["W9999999"] if "W9999999" in t else [])
+        self.assertEqual(len(units), 1)
+        self.assertEqual(units[0]["foreign_ids"], ["W9999999"])
+
     def test_missed_key_paper(self):
         self.assertEqual(core.missed_key_paper({"A"}, ["A", "C"]), 1)
         self.assertEqual(core.missed_key_paper({"A", "C"}, ["A", "C"]), 0)
@@ -73,7 +119,8 @@ class TestComputeReward(unittest.TestCase):
         pre = {"A": "included", "B": "included", "D": "included"}
         cost = {"user_turns": 3, "tool_calls": 12, "input_tokens": 100, "output_tokens": 50,
                 "wall_time_s": 1.5, "not_a_metric": 9}
-        r = core.compute_reward(CASE, CORPUS, final_roles=final, flagged={"R": False}, pre_roles=pre,
+        case = {**CASE, "near_miss_ids": ["O1", "O2"]}
+        r = core.compute_reward(case, CORPUS, final_roles=final, flagged={"R": False}, pre_roles=pre,
                                 claim_labels=["supported", "misattributed", "supported"],
                                 exclusion_explained=0, cost=cost)
         self.assertEqual(list(r), list(ALL_METRICS))  # fixed names, fixed order
@@ -83,6 +130,7 @@ class TestComputeReward(unittest.TestCase):
         self.assertEqual(r["bd_scope_drift"], 1)                        # 0.25 > 0.2
         self.assertEqual(r["trap_flag_rate"], 0.5)                      # R unflagged, P only mentioned
         self.assertEqual(r["bd_status_ignored"], 1)
+        self.assertEqual(r["near_miss_exclusion_rate"], 0.5)            # O1 cited, O2 excluded
         self.assertEqual(r["bd_missed_key_paper"], 1)                   # C missing
         self.assertEqual(r["steer_preservation"], round(2 / 3, 4))     # A, B kept of A, B, D
         self.assertEqual(r["bd_cant_steer"], 1)                         # 0.667 < 0.7
@@ -123,12 +171,24 @@ class TestConversationParsing(unittest.TestCase):
         self.assertEqual(fu["why_excluded"], {"user_turn": 2, "target": "W9"})
         self.assertEqual(fu["criteria_change"], {"user_turn": 3})
 
+    def test_classify_followups_dynamic_target(self):
+        case = {"script": {"followups": [
+            {"after_turn": 1, "message": 'Why didn\'t you include "{title:missing:W1,W2}"?'}]}}
+        self.assertEqual(core.classify_followups(case)["why_excluded"], {"user_turn": 2, "target": None})
+
     def test_classify_followups_explicit_and_none(self):
         case = {"script": {"followups": [
             {"after_turn": 2, "kind": "why_excluded", "target": "W1", "message": "Where is {id:W1}?"}]}}
         self.assertEqual(core.classify_followups(case)["why_excluded"], {"user_turn": 3, "target": "W1"})
         self.assertIsNone(core.classify_followups(case)["criteria_change"])
-        self.assertEqual(core.classify_followups({}), {"why_excluded": None, "criteria_change": None})
+        self.assertEqual(core.classify_followups({}),
+                         {"why_excluded": None, "criteria_change": None, "exclusion_list": None})
+
+    def test_classify_exclusion_list(self):
+        case = {"script": {"followups": [
+            {"after_turn": 1, "message": 'Why didn\'t you include "{title:missing:W1}"?'},
+            {"after_turn": 2, "message": "List the papers you considered and excluded, with the reason for each."}]}}
+        self.assertEqual(core.classify_followups(case)["exclusion_list"], {"user_turn": 3})
 
     def test_conversation(self):
         ev = [{"type": "user_message", "turn": 1, "text": "q"}, {"type": "tool_call", "turn": 1},

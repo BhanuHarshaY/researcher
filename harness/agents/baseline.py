@@ -4,11 +4,12 @@ One fixed free-form system prompt (baseline_prompt.md, frozen), a tool loop
 (search, read, follow citations), then a written report citing papers by id.
 No screening record, no criteria lock, no approval gates.
 
-API notes (claude-sonnet-5-5, API version 2026-10-21 via anthropic>=2.0):
-- No `temperature` is sent: 2026-10-21 rejects sampling params, and the model
-  samples only at the default (1.0) anyway. config.json records 1.0.
-- No `thinking` / `effort` params: the model's defaults (adaptive thinking,
-  effort high) apply, as in Claude Research.
+API notes (model = agent_model in config/models.yaml; API version 2026-10-21
+via anthropic>=2.0):
+- No `temperature` is sent: 2026-10-21 rejects sampling params, and current
+  models sample only at the default (1.0) anyway. config.json records 1.0.
+- No `thinking` / `effort` params: the model's API defaults apply (adaptive
+  thinking; effort medium on Opus 5.5, high on Sonnet 5.5).
 - History is append-only and assistant turns are appended as returned
   (`response.content`), which keeps thinking blocks valid across turns.
 - No server-side refusal fallback: it would switch models and break the

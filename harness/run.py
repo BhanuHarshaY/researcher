@@ -54,13 +54,32 @@ def progress_printer(ev: dict) -> None:
         print(f"  · {ev['name']}({args})", file=sys.stderr, flush=True)
 
 
+def sim_progress(run_index: int):
+    """Sim mode: one line when each user turn starts and when the agent replies."""
+    state = {"t0": time.monotonic(), "calls": 0}
+
+    def show(ev: dict) -> None:
+        el = time.monotonic() - state["t0"]
+        if ev["type"] == "user_message":
+            state["calls"] = 0
+            print(f"[run {run_index}] turn {ev['turn']}: user message sent ({el:.0f}s)", flush=True)
+        elif ev["type"] == "tool_call":
+            state["calls"] += 1
+        elif ev["type"] == "agent_message":
+            print(f"[run {run_index}] turn {ev['turn']}: agent replied after {state['calls']} tool calls "
+                  f"({el:.0f}s)", flush=True)
+        elif ev["type"] in ("user_done", "max_user_turns_reached", "error"):
+            print(f"[run {run_index}] {ev['type']} ({el:.0f}s)", flush=True)
+    return show
+
+
 def run_one(args, models: dict, case: dict, run_index: int) -> bool:
     started = datetime.now(timezone.utc)
     run_dir = (
         RUNS_DIR / args.case / args.agent / args.mode
         / f"{started.strftime('%Y%m%dT%H%M%SZ')}_{run_index}"
     )
-    recorder = Recorder(run_dir, on_event=progress_printer if args.mode == "human" else None)
+    recorder = Recorder(run_dir, on_event=progress_printer if args.mode == "human" else sim_progress(run_index))
     tools = MockSearch(case["corpus_path"])
 
     # Build the agent before creating the folder: the proposed stub fails here.
@@ -69,7 +88,7 @@ def run_one(args, models: dict, case: dict, run_index: int) -> bool:
     if args.mode == "sim":
         user = SimUser(
             case["spec"], case["persona"], tools.papers, models["sim_user_model"], recorder,
-            max_user_turns=MAX_USER_TURNS,
+            max_user_turns=MAX_USER_TURNS, find_ids=tools.find_ids,
         )
     else:
         user = HumanUser(case["spec"])
@@ -144,6 +163,8 @@ def main(argv=None) -> int:
     p.add_argument("--mode", choices=["sim", "human"], required=True)
     p.add_argument("--agent", choices=sorted(AGENTS), default="baseline")
     p.add_argument("--runs", type=int, default=1)
+    p.add_argument("--start-index", type=int, default=1,
+                   help="run_index of the first run (to add runs to an existing set, or run them in parallel)")
     p.add_argument("--no-score", action="store_true",
                    help="skip the judge; quality metrics stay null (rescore later with harness.metrics.score)")
     args = p.parse_args(argv)
@@ -155,7 +176,7 @@ def main(argv=None) -> int:
     case = load_case(args.case)
 
     failures = 0
-    for i in range(1, args.runs + 1):
+    for i in range(args.start_index, args.start_index + args.runs):
         try:
             ok = run_one(args, models, case, i)
         except NotImplementedError as e:

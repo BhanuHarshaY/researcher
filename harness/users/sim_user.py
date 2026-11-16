@@ -2,8 +2,13 @@
 
 - Turn 1 sends `initial_prompt` verbatim.
 - After the agent's reply to user turn n, a scripted followup with
-  `after_turn: n` is sent (template placeholders {title:ID} / {id:ID} are
-  filled from the corpus by the harness, not by the LLM).
+  `after_turn: n` is sent. Placeholders are filled by the harness, not the LLM:
+    {title:ID} / {id:ID}            a fixed paper
+    {title:missing:ID1,ID2,...}     the first listed paper the agent's latest
+                                    reply does NOT cite (falls back to ID1), so
+                                    a "why didn't you include X?" question is
+                                    about a paper its current answer left out
+  The chosen paper ids are recorded on the sim_scripted_followup event.
 - Otherwise the LLM persona decides whether to continue or send /done.
 - The sim user never sees the gold set, traps or metrics: only the persona,
   the task goal and the conversation transcript.
@@ -38,22 +43,39 @@ SIM_SYSTEM_TEMPLATE = """You are role-playing a researcher who is talking to an 
 """
 
 
-def render_template(template: str, papers: dict) -> str:
+def render_template(template: str, papers: dict, cited: set[str] | frozenset = frozenset()
+                    ) -> tuple[str, list[str]]:
+    """Fill placeholders. Returns (message, ids of the papers that were filled in)."""
+    targets: list[str] = []
+
     def sub(m: re.Match) -> str:
-        kind, pid = m.group(1), m.group(2).strip()
-        if pid not in papers:
-            raise KeyError(f"Script placeholder references unknown paper id {pid!r}")
+        kind, arg = m.group(1), m.group(2).strip()
+        if arg.startswith("missing:"):
+            ids = [x.strip() for x in arg[len("missing:"):].split(",") if x.strip()]
+            if not ids:
+                raise KeyError("Script placeholder {%s:missing:} lists no paper ids" % kind)
+            for i in ids:
+                if i not in papers:
+                    raise KeyError(f"Script placeholder references unknown paper id {i!r}")
+            pid = next((i for i in ids if i not in cited), ids[0])
+        else:
+            pid = arg
+            if pid not in papers:
+                raise KeyError(f"Script placeholder references unknown paper id {pid!r}")
+        targets.append(pid)
         return papers[pid]["title"] if kind == "title" else pid
 
-    return _PLACEHOLDER_RE.sub(sub, template)
+    return _PLACEHOLDER_RE.sub(sub, template), targets
 
 
 class SimUser(User):
     source = "sim"
 
-    def __init__(self, case: dict, persona: str, papers: dict, model: str, recorder, max_user_turns: int):
+    def __init__(self, case: dict, persona: str, papers: dict, model: str, recorder, max_user_turns: int,
+                 find_ids=None):
         self.case = case
         self.papers = papers
+        self.find_ids = find_ids or (lambda text: [])
         self.model = model
         self.recorder = recorder
         self.max_user_turns = max_user_turns
@@ -84,8 +106,12 @@ class SimUser(User):
             return self._send(self.case["initial_prompt"].strip())
 
         if self.turn in self.followups:
-            msg = render_template(self.followups[self.turn], self.papers)
-            self.recorder.event("sim_scripted_followup", after_turn=self.turn)
+            last = next((text for who, text in reversed(self.transcript) if who == "Assistant"), "")
+            cited = set(self.find_ids(last))
+            report_of = self.case.get("report_of") or {}
+            cited |= {report_of[i] for i in cited if i in report_of}   # a trial counts if any report is cited
+            msg, targets = render_template(self.followups[self.turn], self.papers, cited)
+            self.recorder.event("sim_scripted_followup", after_turn=self.turn, targets=targets)
             return self._send(msg)
 
         return self._llm_decide()
@@ -107,6 +133,10 @@ class SimUser(User):
         self.recorder.usage("sim_user", self.model, response, turn=self.turn + 1)
         text = "\n".join(b.text for b in response.content if b.type == "text").strip()
         text = text.strip('"').strip()
+        if response.stop_reason == "max_tokens":
+            # Never let a truncated reply pass silently as /done: fail the run instead.
+            self.recorder.event("sim_user_error", stop_reason="max_tokens", raw=text)
+            raise RuntimeError("sim user hit max_tokens before writing a reply")
         if response.stop_reason == "refusal" or not text or text.lower().startswith(DONE):
             self.recorder.event(
                 "sim_user_decision", decision="done", stop_reason=response.stop_reason, raw=text

@@ -20,7 +20,7 @@ MAX_USER_TURNS = 6
 
 # max_tokens per model call. Non-streaming requests, so stay well under SDK timeouts.
 AGENT_MAX_TOKENS = 16000
-SIM_USER_MAX_TOKENS = 4000
+SIM_USER_MAX_TOKENS = 16000  # includes the sim model's thinking tokens
 
 _REQUIRED_KEYS = ("agent_model", "sim_user_model", "judge_model", "temperature")
 

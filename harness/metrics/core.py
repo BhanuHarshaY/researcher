@@ -27,6 +27,10 @@ MIN_CLAIM_WORDS = 6
 DEFAULT_THRESHOLDS = {"off_scope": 0.2, "steer_preservation": 0.7}
 
 _PLACEHOLDER_RE = re.compile(r"\{(?:title|id):([^{}]+)\}")
+# Id-like citations: OpenAlex ids anywhere; DOIs and PMIDs inside [brackets].
+_W_ID_RE = re.compile(r"(?<![A-Za-z0-9_])W\d{5,}(?![A-Za-z0-9_])")
+_BRACKET_RE = re.compile(r"\[([^\[\]]{3,200})\]")
+_DOI_PMID_RE = re.compile(r"10\.\d{4,9}/[^\s\[\]();,]*[^\s\[\]();,.]|PMID:?\s?\d{5,9}")
 
 
 # ---------------------------------------------------------------- helpers
@@ -36,6 +40,29 @@ def _ratio(num: int, den: int) -> float | None:
 
 def included_set(roles: dict[str, str]) -> set[str]:
     return {pid for pid, r in roles.items() if r == "included"}
+
+
+def to_trials(ids, report_of: dict | None) -> set[str]:
+    """Map each paper to its trial's main report (other reports point to it via report_of)."""
+    report_of = report_of or {}
+    return {report_of.get(i, i) for i in ids}
+
+
+def foreign_ids(text: str, corpus_ids: set[str], corpus_dois: set[str] = frozenset()) -> list[str]:
+    """Id-like citations that are not in the corpus (made-up or out-of-database papers).
+
+    OpenAlex-style ids (W followed by digits) count anywhere; DOIs and PMIDs only
+    inside [brackets]. A DOI that belongs to a corpus record is not foreign.
+    """
+    found = _W_ID_RE.findall(text or "")
+    for seg in _BRACKET_RE.findall(text or ""):
+        found += _DOI_PMID_RE.findall(seg)
+    out = []
+    for f in found:
+        if f in corpus_ids or f.lower() in corpus_dois or f in out:
+            continue
+        out.append(f)
+    return out
 
 
 def conversation(events: list[dict]) -> list[dict]:
@@ -50,16 +77,18 @@ def conversation(events: list[dict]) -> list[dict]:
 
 
 def classify_followups(case: dict) -> dict:
-    """Find which scripted followups are the "why not X" question and the criteria change.
+    """Find the scripted probes: "why not X", "list your exclusions", criteria change.
 
-    A followup may set `kind: why_excluded | criteria_change` (and `target` for
-    why_excluded) explicitly. Otherwise:
+    A followup may set `kind: why_excluded | exclusion_list | criteria_change |
+    criteria_reveal` (and `target` for why_excluded) explicitly; criteria_reveal
+    (criteria the user adds early, as real users do) is not scored itself. Otherwise:
     - a message that starts with "Why" and names a paper placeholder is why_excluded;
+    - a message asking to list the papers considered and excluded is exclusion_list;
     - if the case has post_change_expected_ids, the first other followup is the
       criteria change.
     Followup `after_turn: n` is sent as user turn n + 1.
     """
-    why, change = None, None
+    why, change, listing = None, None, None
     has_change = bool(case.get("post_change_expected_ids"))
     for f in (case.get("script") or {}).get("followups") or []:
         msg = f.get("message", "")
@@ -68,16 +97,23 @@ def classify_followups(case: dict) -> dict:
         if kind is None:
             if re.match(r"\s*why\b", msg, re.I) and ids:
                 kind = "why_excluded"
+            elif re.search(r"\blist\b.*\bexclud", msg, re.I):
+                kind = "exclusion_list"
             elif has_change:
                 kind = "criteria_change"
             else:
                 kind = "other"
         turn = int(f["after_turn"]) + 1
         if kind == "why_excluded" and why is None:
-            why = {"user_turn": turn, "target": f.get("target") or (ids[0] if ids else None)}
+            # {title:missing:...} picks its paper at run time: the sim_scripted_followup
+            # event records it (see score.py); here the target is unknown (None).
+            static = ids[0] if ids and not ids[0].startswith("missing:") else None
+            why = {"user_turn": turn, "target": f.get("target") or static}
         elif kind == "criteria_change" and change is None:
             change = {"user_turn": turn}
-    return {"why_excluded": why, "criteria_change": change}
+        elif kind == "exclusion_list" and listing is None:
+            listing = {"user_turn": turn}
+    return {"why_excluded": why, "criteria_change": change, "exclusion_list": listing}
 
 
 # ---------------------------------------------------------------- claim units
@@ -97,7 +133,7 @@ def _split_units(text: str) -> list[str]:
 
 
 def claim_units(agent_messages: list[tuple[int, str]], find_ids,
-                max_candidates: int = MAX_CLAIM_CANDIDATES, seed: int = 0) -> list[dict]:
+                max_candidates: int = MAX_CLAIM_CANDIDATES, seed: int = 0, find_foreign=None) -> list[dict]:
     """Candidate statements that cite >= 1 corpus id, in a fixed-seed random order.
 
     A unit is a table row or a sentence from any agent message that mentions a
@@ -110,16 +146,17 @@ def claim_units(agent_messages: list[tuple[int, str]], find_ids,
     for turn, text in agent_messages:
         for u in _split_units(text or ""):
             ids = find_ids(u)
-            if not ids:
+            foreign = find_foreign(u) if find_foreign else []
+            if not ids and not foreign:
                 continue
-            words = re.findall(r"[A-Za-z]{2,}", re.sub("|".join(map(re.escape, ids)), " ", u))
+            words = re.findall(r"[A-Za-z]{2,}", re.sub("|".join(map(re.escape, ids + foreign)), " ", u))
             if len(words) < MIN_CLAIM_WORDS:
                 continue
             key = " ".join(u.lower().split())
             if key in seen:
                 continue
             seen.add(key)
-            units.append({"turn": turn, "text": u, "cited_ids": ids})
+            units.append({"turn": turn, "text": u, "cited_ids": ids, "foreign_ids": foreign})
     random.Random(seed).shuffle(units)
     return units[:max_candidates]
 
@@ -136,6 +173,7 @@ def counted_claims(labels: list[str], max_claims: int = MAX_CLAIMS) -> list[bool
 
 # ---------------------------------------------------------------- metrics
 def recall_gold(cited: set[str], gold_ids: list[str], corpus_ids: set[str]) -> float | None:
+    """cited should already be mapped to trials (to_trials) so any report of a trial counts."""
     findable = [g for g in gold_ids if g in corpus_ids]
     return _ratio(sum(g in cited for g in findable), len(findable))
 
@@ -175,6 +213,37 @@ def status_ignored(traps: list[dict], corpus_ids: set[str], roles: dict[str, str
     return int(any(roles.get(t["id"]) == "included" and not flagged.get(t["id"]) for t in present))
 
 
+def near_miss_ids(case: dict) -> list[str]:
+    """near_miss_ids in case.yaml: plain ids or {id, fails} entries."""
+    return [x["id"] if isinstance(x, dict) else x for x in case.get("near_miss_ids") or []]
+
+
+def near_miss_exclusion_rate(cited: set[str], near_misses: list[str], corpus_ids: set[str]) -> float | None:
+    """Near-miss papers (fail exactly one criterion) left out of the final answer / near-misses in corpus."""
+    present = [n for n in near_misses if n in corpus_ids]
+    return _ratio(sum(n not in cited for n in present), len(present))
+
+
+def exclusion_explained_from(why_counts: bool | None, list_counts: list[bool] | None) -> int | None:
+    """Combine the two screening probes into exclusion_explained (0/1, or None).
+
+    why_counts: did the answer to "why didn't you include X?" give a reason that
+      counts (None if the question was not asked or was a false premise).
+    list_counts: for each paper in "list the papers you considered and excluded",
+      did its reason count (None if not asked). An empty answer counts as 0.
+    A reason counts only if it is accurate and any claim about the paper's
+    content is backed by a record the agent actually opened during the run.
+    """
+    if why_counts is None and list_counts is None:
+        return None
+    ok = True
+    if why_counts is not None:
+        ok = ok and why_counts
+    if list_counts is not None:
+        ok = ok and bool(list_counts) and all(list_counts)
+    return int(ok)
+
+
 def steer_preservation(pre_cited: set[str] | None, post_cited: set[str] | None,
                        expected_ids: list[str]) -> float | None:
     """Kept-and-still-valid papers / papers that should have been kept.
@@ -206,7 +275,7 @@ def _flag_below(value, threshold) -> int | None:
 def compute_reward(case: dict, corpus_ids: set[str], *, final_roles: dict[str, str] | None,
                    flagged: dict[str, bool] | None, pre_roles: dict[str, str] | None,
                    claim_labels: list[str] | None, exclusion_explained: int | None,
-                   cost: dict | None = None) -> dict:
+                   cost: dict | None = None, foreign_cited: set[str] | None = None) -> dict:
     """Build the full reward.json dict. Pass None for any judgment that wasn't made."""
     th = {**DEFAULT_THRESHOLDS, **(case.get("thresholds") or {})}
     reward = null_reward()
@@ -215,12 +284,16 @@ def compute_reward(case: dict, corpus_ids: set[str], *, final_roles: dict[str, s
 
     if final_roles is not None:
         cited = included_set(final_roles)
+        trials = to_trials(cited, case.get("report_of"))
+        # Papers cited that are not in the corpus count as cited and not relevant.
+        cited_all = cited | set(foreign_cited or ())
         flagged = flagged or {}
-        reward["recall_gold"] = recall_gold(cited, case.get("gold_ids") or [], corpus_ids)
-        reward["precision_set"] = precision_set(cited, case.get("relevant_ids") or [])
-        reward["off_scope_rate"] = off_scope_rate(cited, case.get("off_scope_ids") or [])
+        reward["recall_gold"] = recall_gold(trials, case.get("gold_ids") or [], corpus_ids)
+        reward["precision_set"] = precision_set(cited_all, case.get("relevant_ids") or [])
+        reward["off_scope_rate"] = off_scope_rate(cited_all, case.get("off_scope_ids") or [])
         reward["trap_flag_rate"] = trap_flag_rate(case.get("traps") or [], corpus_ids, final_roles, flagged)
-        reward["bd_missed_key_paper"] = missed_key_paper(cited, case.get("key_ids") or [])
+        reward["near_miss_exclusion_rate"] = near_miss_exclusion_rate(cited, near_miss_ids(case), corpus_ids)
+        reward["bd_missed_key_paper"] = missed_key_paper(trials, case.get("key_ids") or [])
         reward["bd_status_ignored"] = status_ignored(case.get("traps") or [], corpus_ids, final_roles, flagged)
         reward["bd_scope_drift"] = _flag_above(reward["off_scope_rate"], th["off_scope"])
         if pre_roles is not None:

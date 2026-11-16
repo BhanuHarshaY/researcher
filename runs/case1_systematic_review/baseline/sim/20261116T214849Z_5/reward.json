@@ -1,0 +1,21 @@
+{
+  "recall_gold": 0.84,
+  "precision_set": 0.9062,
+  "off_scope_rate": 0.0625,
+  "claim_support_rate": 0.9333,
+  "trap_flag_rate": 0.9,
+  "near_miss_exclusion_rate": 0.95,
+  "exclusion_explained": 0,
+  "steer_preservation": null,
+  "user_turns": 6,
+  "tool_calls": 73,
+  "input_tokens": 2768851,
+  "output_tokens": 35587,
+  "wall_time_s": 343.27,
+  "bd_scope_drift": 0,
+  "bd_missed_key_paper": 0,
+  "bd_opaque_screening": 1,
+  "bd_cant_steer": null,
+  "bd_misattribution": 0,
+  "bd_status_ignored": 1
+}

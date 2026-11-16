@@ -1,0 +1,145 @@
+{
+  "case": "case1_systematic_review",
+  "source_review": "Marcolino MS, Meira KC, Guimaraes NS, et al. Systematic review and meta-analysis of ivermectin for treatment of COVID-19: evidence beyond the hype. BMC Infect Dis 2022;22:639. doi:10.1186/s12879-022-07589-8",
+  "date_from": "2020-01-01",
+  "date_to": "2024-12-31",
+  "max_papers": 300,
+  "strip_title_prefixes": [
+    "RETRACTED:",
+    "RETRACTED ARTICLE:",
+    "WITHDRAWN:"
+  ],
+  "exclude_doi_prefixes": [
+    "10.1186/s12879-022-07589-8"
+  ],
+  "groups": {
+    "gold": {
+      "Ahmed 2020": "10.1016/j.ijid.2020.11.191",
+      "Babalola 2021": "10.1093/qjmed/hcab035",
+      "Biber 2022": "10.1016/j.ijid.2022.07.003",
+      "Buonfrate 2022 (COVER)": "10.1016/j.ijantimicag.2021.106516",
+      "Chaccour 2021 (SAINT)": "10.1016/j.eclinm.2020.100720",
+      "Chachar 2020": "10.18483/ijSci.2378",
+      "Beltran Gonzalez 2022": "10.3390/idr14020020",
+      "Krolewiecki 2021": "10.1016/j.eclinm.2021.100959",
+      "Lopez-Medina 2021": "10.1001/jama.2021.3071",
+      "Mohan 2021 (RIVET-COV)": "10.1016/j.jiac.2021.08.021",
+      "Ravikirti 2021": "10.18433/jpps32105",
+      "Vallejos 2021 (IVERCOR)": "10.1186/s12879-021-06348-5",
+      "Reis 2022 (TOGETHER)": "10.1056/NEJMoa2115869",
+      "Naggie 2022 (ACTIV-6)": "10.1001/jama.2022.18590",
+      "Abd-Elsalam 2021": "10.1002/jmv.27122",
+      "Bukhari 2021": "10.1101/2021.02.02.21250840",
+      "Lim 2022 (I-TECH)": "10.1001/jamainternmed.2022.0189",
+      "Manomaipiboon 2022": "10.1186/s13063-022-06649-3",
+      "Faisal 2020": "10.29309/TPMJ/2021.28.05.5867",
+      "Okumus 2021": "10.1186/s12879-021-06104-9",
+      "Podder 2020": "10.3329/imcjms.v14i2.52826",
+      "Shahbaznejad 2021": "10.1016/j.clinthera.2021.04.007",
+      "La Rocha 2022": "10.1186/s12879-022-07890-6",
+      "Galan 2021": "10.1080/20477724.2021.1890887",
+      "Niaee 2021": "10.4103/1995-7645.318304"
+    },
+    "traps_retracted": {
+      "Pott-Junior 2021 (retracted)": "10.1016/j.toxrep.2021.03.003",
+      "Samaha 2021 (retracted)": "10.3390/v13060989",
+      "Elgazzar 2020 (withdrawn preprint)": "10.21203/rs.3.rs-100956/v1",
+      "IRICT 2022 (RCT, retracted 2024)": "10.1080/14787210.2022.2098113"
+    },
+    "near_miss": {
+      "Naggie 2023 (ACTIV-6 600) | date: published 2023": "10.1001/jama.2023.1650",
+      "Hayward 2024 (PRINCIPLE) | date: published 2024": "10.1016/j.jinf.2024.106130",
+      "Rajter 2021 (ICON) | design: retrospective cohort": "10.1016/j.chest.2020.10.009",
+      "Camprubi 2020 | design: retrospective": "10.1371/journal.pone.0242184",
+      "Ozer 2021 | design: prospective observational": "10.1002/jmv.27469",
+      "Gorial 2020 | design: historical control": "10.1101/2020.07.07.20145979",
+      "Morgenstern 2020 | design: retrospective": "10.1101/2020.10.29.20222505",
+      "Shouman 2021 | population: prophylaxis in uninfected contacts": "10.7860/JCDR/2021/46795.14529",
+      "Aref 2021 | intervention: nasal spray, not systemic": "10.2147/IJN.S313093",
+      "Mahmud 2021 | co-intervention: doxycycline in ivermectin arm only": "10.1177/03000605211013550",
+      "Hashim 2020 | co-intervention: doxycycline in ivermectin arm only": "10.1101/2020.10.26.20219345",
+      "Chowdhury 2021 | co-intervention: doxycycline vs azithromycin": "10.14744/ejmo.2021.16263"
+    },
+    "other_curated": {
+      "Kishoria 2020 (eligible RCT not in the review)": "10.36106/paripex/4801859",
+      "Bramante 2022 (COVID-OUT)": "10.1056/NEJMoa2201662",
+      "Caly 2020 (in vitro)": "10.1016/j.antiviral.2020.104787",
+      "Popp 2022 (Cochrane review)": "10.1002/14651858.CD015017.pub3",
+      "Bryant 2021 (meta-analysis)": "10.1097/MJT.0000000000001402",
+      "Hill 2021 (meta-analysis, retracted and replaced)": "10.1093/ofid/ofab358",
+      "Roman 2021 (meta-analysis)": "10.1093/cid/ciab591",
+      "Izcovich 2022 (systematic review)": "10.1016/j.jclinepi.2021.12.018",
+      "Behera 2020 (case-control)": "10.1101/2020.10.29.20222661",
+      "Chahla 2021b (cluster-randomized)": "10.21203/rs.3.rs-495945/v1",
+      "Seet 2021 (prophylaxis, active comparators)": "10.1016/j.ijid.2021.04.035"
+    }
+  },
+  "crossref_preprints": [
+    {
+      "label": "Naggie 2022 (ACTIV-6) medRxiv preprint, interim numbers",
+      "doi": "10.1101/2022.06.10.22276252",
+      "published_label": "Naggie 2022 (ACTIV-6)"
+    },
+    {
+      "label": "Ravikirti 2021 medRxiv preprint",
+      "doi": "10.1101/2021.01.05.21249310",
+      "published_label": "Ravikirti 2021"
+    },
+    {
+      "label": "Biber 2021 medRxiv preprint",
+      "doi": "10.1101/2021.05.31.21258081",
+      "published_label": "Biber 2022"
+    }
+  ],
+  "seed_queries": [
+    {
+      "query": "ivermectin COVID-19 randomized",
+      "n": 70
+    },
+    {
+      "query": "ivermectin SARS-CoV-2",
+      "n": 40
+    },
+    {
+      "query": "ivermectin COVID-19 treatment trial",
+      "n": 30
+    },
+    {
+      "query": "ivermectin prophylaxis COVID-19",
+      "n": 20
+    },
+    {
+      "query": "ivermectin COVID-19 meta-analysis",
+      "n": 20
+    },
+    {
+      "query": "ivermectin COVID-19 observational cohort",
+      "n": 15
+    },
+    {
+      "query": "repurposed drugs COVID-19 randomized trial outpatients",
+      "n": 25
+    },
+    {
+      "query": "fluvoxamine hydroxychloroquine COVID-19 randomized",
+      "n": 15
+    },
+    {
+      "query": "ivermectin scabies onchocerciasis",
+      "n": 10
+    }
+  ],
+  "one_hop": {
+    "keyword": "ivermectin",
+    "refs_per_gold": 10,
+    "citers_per_gold": 10
+  },
+  "target_papers": 250,
+  "openalex_preprint_links": [
+    {
+      "label": "La Rocha 2022 Research Square preprint",
+      "doi": "10.21203/rs.3.rs-1640339/v1",
+      "published_label": "La Rocha 2022"
+    }
+  ]
+}

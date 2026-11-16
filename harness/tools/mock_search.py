@@ -2,8 +2,14 @@
 
 Tools exposed to agents (identical for baseline and proposed agents):
   search_papers(query, year_from=None, limit=20)  deterministic BM25 over title+abstract
-  get_paper(id)                                    full record incl. status and passages
+  get_paper(id)                                    metadata, abstract and passages
   get_references(id) / get_citations(id)           id+title lists (reach hidden papers)
+
+Publication status is NOT shown by any tool, matching how status appears in
+real sources: a retraction is a separate notice record (it cites the retracted
+paper, so it shows up in search and in get_citations), and a superseded
+preprint is a separate record from its journal version. The corpus keeps
+`status` and `published_version_id` for the metrics only.
 
 No live search happens at run time. Any run-to-run variation comes from the
 agent's choices, not from this database.
@@ -23,7 +29,7 @@ BM25_K1 = 1.5
 BM25_B = 0.75
 
 # Fields that exist for the harness/metrics only and must never reach the agent.
-INTERNAL_FIELDS = {"synthetic", "hidden_from_search"}
+INTERNAL_FIELDS = {"synthetic", "hidden_from_search", "status", "published_version_id", "notice_for"}
 
 _STOPWORDS = frozenset(
     """a an and are as at be by for from has have in is it its of on or that the
@@ -63,7 +69,7 @@ TOOL_DEFS = [
     {
         "name": "get_paper",
         "description": (
-            "Get the full record of a paper by id: metadata, publication status, "
+            "Get the full record of a paper by id: metadata (authors, venue, date, DOI), "
             "abstract and available text passages."
         ),
         "input_schema": {
@@ -203,7 +209,7 @@ class MockSearch:
             p = self.papers[pid]
             abstract = p.get("abstract", "") or ""
             snippet = abstract[:SNIPPET_CHARS] + ("..." if len(abstract) > SNIPPET_CHARS else "")
-            # NOTE: status is deliberately NOT returned here (visible only via get_paper).
+            # NOTE: status is never returned by any tool (see module docstring).
             results.append(
                 {
                     "id": pid,

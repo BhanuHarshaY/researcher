@@ -32,19 +32,33 @@ class TestMockSearch(unittest.TestCase):
         cites = json.loads(self.s.execute("get_citations", {"id": "T008"})[0])["cited_by"]
         self.assertIn("T004", [r["id"] for r in cites])
 
-    def test_status_visible_only_in_get_paper(self):
+    def test_status_never_visible(self):
         for r in self.search(query="retrieval practice"):
             self.assertNotIn("status", r)
-        p = json.loads(self.s.execute("get_paper", {"id": "T007"})[0])
-        self.assertEqual(p["status"], "retracted")
-        self.assertNotIn("synthetic", p)
-        self.assertNotIn("hidden_from_search", p)
+        for pid in ("T007", "T006"):
+            p = json.loads(self.s.execute("get_paper", {"id": pid})[0])
+            for hidden in ("status", "published_version_id", "synthetic", "hidden_from_search"):
+                self.assertNotIn(hidden, p)
+        self.assertEqual(self.s.papers["T007"]["status"], "retracted")    # still there for metrics
 
     def test_year_filter_and_errors(self):
         self.assertTrue(all(r["year"] >= 2021 for r in self.search(query="retrieval practice", year_from=2021)))
         self.assertTrue(self.s.execute("get_paper", {"id": "NOPE"})[1])
         self.assertTrue(self.s.execute("nope", {})[1])
         self.assertTrue(self.s.execute("search_papers", {"query": ""})[1])
+
+    def test_find_ids_doi_style(self):
+        import tempfile, os
+        recs = [{"id": "W123", "title": "a", "abstract": "x"},
+                {"id": "10.1101/2021.01.05.21249310", "title": "b", "abstract": "y"}]
+        with tempfile.NamedTemporaryFile("w", suffix=".jsonl", delete=False) as f:
+            f.write("\n".join(json.dumps(r) for r in recs))
+        try:
+            s = MockSearch(f.name)
+            self.assertEqual(s.find_ids("see [10.1101/2021.01.05.21249310]. And W123, not W1234."),
+                             ["10.1101/2021.01.05.21249310", "W123"])
+        finally:
+            os.unlink(f.name)
 
     def test_find_ids(self):
         self.assertEqual(self.s.find_ids("See [T001], T002; T005–T010 and T0011 or XT003. [T004] T001"),
