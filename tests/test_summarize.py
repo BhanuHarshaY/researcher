@@ -52,6 +52,23 @@ class TestSummarize(unittest.TestCase):
             self.assertIn("| `bd_missed_key_paper` | 2 of 3 |", text)
             self.assertIn("| `bd_misattribution` | n/a |", text)
             self.assertIn("rerun_overlap", text)
+            self.assertNotIn("case_metrics", s)
+            self.assertNotIn("Case-specific", text)
+
+    def test_case_metrics(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            md = Path(tmp)
+            for n, (v, f) in enumerate([(0.5, 1), (0.8, 0), (None, None)], 1):
+                make_run(md, f"20261116T10000{n}Z_{n}", ["A"],
+                         case_metrics={"post_change_recall": v, "bd_steer_incomplete": f})
+            runs = summarize.load_runs(md)
+            s = summarize.summarize(runs)
+            self.assertEqual(s["case_metrics"]["post_change_recall"]["mean"], 0.65)
+            self.assertEqual(s["case_metrics"]["post_change_recall"]["n"], 2)
+            self.assertEqual(s["case_breakdowns"]["bd_steer_incomplete"], {"runs_flagged": 1, "n": 2})
+            text = summarize.to_markdown("c", "baseline", "sim", s, runs)
+            self.assertIn("| `bd_steer_incomplete` | 1 of 2 |", text)
+            self.assertIn("`post_change_recall` |", text)
 
 
 if __name__ == "__main__":

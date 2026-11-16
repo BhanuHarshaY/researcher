@@ -1,0 +1,2268 @@
+{
+  "key_ids": [
+    "W2732925385",
+    "W1488883230",
+    "W2074069593",
+    "W1807810766"
+  ],
+  "gold_ids": [
+    "W1488883230",
+    "W1510372641",
+    "W1558982838",
+    "W1801949096",
+    "W1807810766",
+    "W1945345301",
+    "W1972564462",
+    "W1979427169",
+    "W1988578580",
+    "W2011941393",
+    "W2034762802",
+    "W2074069593",
+    "W2132164645",
+    "W2294144074",
+    "W2294211165",
+    "W2317990020",
+    "W2402706188",
+    "W2519261326",
+    "W2549860918",
+    "W2564685734",
+    "W2717439789",
+    "W2732925385",
+    "W2757061426",
+    "W2811507747",
+    "W2894885829",
+    "W2898061611",
+    "W2915888239",
+    "W2939831007",
+    "W2944083468",
+    "W2955051104",
+    "W2975531399",
+    "W2985514812",
+    "W2994761079"
+  ],
+  "relevant_ids": [
+    "W1178530349",
+    "W1488883230",
+    "W1505024467",
+    "W1510372641",
+    "W1558982838",
+    "W1801949096",
+    "W1807810766",
+    "W1883246670",
+    "W1945345301",
+    "W1967507142",
+    "W1972564462",
+    "W1973340331",
+    "W1979427169",
+    "W1982844896",
+    "W1986000980",
+    "W1988578580",
+    "W1994379356",
+    "W2003566851",
+    "W2011941393",
+    "W2019161055",
+    "W2025048472",
+    "W2033159471",
+    "W2034762802",
+    "W2039822570",
+    "W2040979576",
+    "W2043587319",
+    "W2043711811",
+    "W2046365492",
+    "W2065178260",
+    "W2072387963",
+    "W2074069593",
+    "W2080233792",
+    "W2080923542",
+    "W2102035712",
+    "W2104286239",
+    "W2107521387",
+    "W2112421347",
+    "W2132164645",
+    "W2148142846",
+    "W2159536297",
+    "W2282485379",
+    "W2294144074",
+    "W2294211165",
+    "W2317990020",
+    "W2322289952",
+    "W2402706188",
+    "W2519261326",
+    "W2521240520",
+    "W2549860918",
+    "W2564685734",
+    "W2585556435",
+    "W2592905630",
+    "W2689483015",
+    "W2717439789",
+    "W2731113721",
+    "W2732925385",
+    "W2757061426",
+    "W2766970278",
+    "W2771925981",
+    "W2778691880",
+    "W2782359998",
+    "W2784295971",
+    "W2811507747",
+    "W2883046174",
+    "W2894885829",
+    "W2898061611",
+    "W2915888239",
+    "W2924547041",
+    "W2939831007",
+    "W2943699887",
+    "W2944083468",
+    "W2946005838",
+    "W2948448861",
+    "W2953482672",
+    "W2955051104",
+    "W2958364445",
+    "W297025115",
+    "W2975531399",
+    "W2976777638",
+    "W2980174560",
+    "W2985514812",
+    "W2994761079",
+    "W2995685337",
+    "W2997199906",
+    "W3001702224",
+    "W3015009700",
+    "W3015603533",
+    "W3033476063",
+    "W3034490183",
+    "W3042720668",
+    "W3088196398",
+    "W3089483243",
+    "W3092218325",
+    "W3102212853",
+    "W3105249390",
+    "W3111679151",
+    "W3113108394",
+    "W3137166629",
+    "W3198896322",
+    "W382502046",
+    "W4243437205",
+    "W4251569456",
+    "W4407738599",
+    "W759765632"
+  ],
+  "off_scope_ids": [
+    "W1488087939",
+    "W1517879342",
+    "W1671410324",
+    "W1974454998",
+    "W1974991864",
+    "W1985714991",
+    "W2009944334",
+    "W2022807833",
+    "W2028991393",
+    "W2034181225",
+    "W2035934412",
+    "W204011437",
+    "W2060018350",
+    "W2076748073",
+    "W2086024263",
+    "W2102699948",
+    "W2112759888",
+    "W2117656142",
+    "W2124956564",
+    "W2127217719",
+    "W2139886304",
+    "W2165098668",
+    "W2239552100",
+    "W2259814160",
+    "W2260485892",
+    "W2325870664",
+    "W2394797369",
+    "W2470287269",
+    "W2487825662",
+    "W2498987434",
+    "W2592259105",
+    "W2593419711",
+    "W2603377555",
+    "W2611830581",
+    "W2614174016",
+    "W2743226003",
+    "W2745042350",
+    "W2751864896",
+    "W2765275233",
+    "W2766415670",
+    "W2772424378",
+    "W2772507957",
+    "W2789318008",
+    "W2792096061",
+    "W2797766904",
+    "W2806801289",
+    "W2884360641",
+    "W2885663668",
+    "W2913301016",
+    "W2937179707",
+    "W2944344930",
+    "W2956372536",
+    "W2958708644",
+    "W2966294143",
+    "W2980053516",
+    "W2988906799",
+    "W3003995186",
+    "W3008819372",
+    "W3012841673",
+    "W3012955272",
+    "W3025216431",
+    "W3081595027",
+    "W3091269016",
+    "W3092076996",
+    "W3111501599",
+    "W3131631768",
+    "W4292416098"
+  ],
+  "post_change_expected_ids": [
+    "W1178530349",
+    "W1488883230",
+    "W1505024467",
+    "W1801949096",
+    "W1807810766",
+    "W1972564462",
+    "W1979427169",
+    "W1994379356",
+    "W2011941393",
+    "W2040979576",
+    "W2074069593",
+    "W2080233792",
+    "W2159536297",
+    "W2317990020",
+    "W2519261326",
+    "W2521240520",
+    "W2564685734",
+    "W2592905630",
+    "W2689483015",
+    "W2732925385",
+    "W2771925981",
+    "W2778691880",
+    "W2894885829",
+    "W2944083468",
+    "W2955051104",
+    "W2975531399",
+    "W2985514812",
+    "W2995685337",
+    "W3015009700",
+    "W3033476063",
+    "W3034490183",
+    "W3088196398",
+    "W3092218325",
+    "W3102212853",
+    "W3105249390",
+    "W3111679151",
+    "W3113108394",
+    "W3198896322",
+    "W4243437205",
+    "W4251569456",
+    "W4407738599",
+    "W759765632"
+  ],
+  "unlabelled": [],
+  "unsure": [],
+  "papers": {
+    "W105479526": {
+      "label": "neutral",
+      "why": "ethics framework",
+      "unsure": false,
+      "dementia": false,
+      "title": "A roboethics framework for the development and introduction of social assistive robots in elderly care"
+    },
+    "W1178530349": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": true,
+      "title": "Use of Robotic Pets in Providing Stimulation for Nursing Home Residents with Dementia"
+    },
+    "W1488087939": {
+      "label": "off_scope",
+      "why": "smart home without a robot",
+      "unsure": false,
+      "dementia": false,
+      "title": "Towards a monitoring smart home for the elderly: One experience in retrofitting a sensor network into an existing home"
+    },
+    "W1488883230": {
+      "label": "gold",
+      "why": "included by the review: ref35 (dementia) Exploring the effect of companion robots on emotional expres",
+      "unsure": false,
+      "dementia": true,
+      "title": "Exploring the Effect of Companion Robots on Emotional Expression in Older Adults with Dementia: A Pilot Randomized Contr"
+    },
+    "W1505024467": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": true,
+      "title": "Comparison of Verbal and Emotional Responses of Elderly People with Mild/Moderate Dementia and Those with Severe Dementi"
+    },
+    "W1510372641": {
+      "label": "gold",
+      "why": "included by the review: ref40 Robot-assisted therapy for improving social interactions and",
+      "unsure": false,
+      "dementia": false,
+      "title": "Robot‐assisted therapy for improving social interactions and activity participation among institutionalized older adults"
+    },
+    "W1517879342": {
+      "label": "off_scope",
+      "why": "smart home without a robot",
+      "unsure": false,
+      "dementia": false,
+      "title": "The Elderly’s Independent Living in Smart Homes: A Characterization of Activities and Sensing Infrastructure Survey to F"
+    },
+    "W1558982838": {
+      "label": "gold",
+      "why": "included by the review: ref47 Robots in older people’s homes to improve medication adheren",
+      "unsure": false,
+      "dementia": false,
+      "title": "Robots in Older People’s Homes to Improve Medication Adherence and Quality of Life: A Randomised Cross-Over Trial"
+    },
+    "W1561893471": {
+      "label": "neutral",
+      "why": "conference proceedings",
+      "unsure": false,
+      "dementia": false,
+      "title": "Proceedings of the 5th ACM/IEEE international conference on Human-robot interaction"
+    },
+    "W1575107006": {
+      "label": "neutral",
+      "why": "attitudes without robot use",
+      "unsure": false,
+      "dementia": false,
+      "title": "“Are we ready for robots that care for us?” Attitudes and opinions of older adults toward socially assistive robots"
+    },
+    "W1671410324": {
+      "label": "off_scope",
+      "why": "no robot involved",
+      "unsure": false,
+      "dementia": false,
+      "title": "Monitoring behavior in home using a smart fall sensor and position sensors"
+    },
+    "W1747498325": {
+      "label": "neutral",
+      "why": "book chapter",
+      "unsure": false,
+      "dementia": false,
+      "title": "Old Adults and Robots"
+    },
+    "W1801949096": {
+      "label": "gold",
+      "why": "included by the review: ref27 (dementia) Field-based development of an information support robot for ",
+      "unsure": false,
+      "dementia": true,
+      "title": "Field-based development of an information support robot for persons with dementia"
+    },
+    "W1807810766": {
+      "label": "gold",
+      "why": "included by the review: ref43 (dementia) Social robots in advanced dementia",
+      "unsure": false,
+      "dementia": true,
+      "title": "Social robots in advanced dementia"
+    },
+    "W1883246670": {
+      "label": "relevant",
+      "why": "RCT: nursing-home residents visited by a dog, PARO or a toy cat",
+      "unsure": false,
+      "dementia": false,
+      "title": "Therapeutic effects of dog visits in nursing homes for the elderly"
+    },
+    "W1899217968": {
+      "label": "neutral",
+      "why": "robot grasping, not older adults",
+      "unsure": false,
+      "dementia": false,
+      "title": "Learning grasps with topographic features"
+    },
+    "W1945345301": {
+      "label": "gold",
+      "why": "included by the review: ref21 Benefits and problems of health-care robots in aged care set",
+      "unsure": false,
+      "dementia": false,
+      "title": "Benefits and problems of health‐care robots in aged care settings: A comparison trial"
+    },
+    "W1948807083": {
+      "label": "neutral",
+      "why": "attitude survey and focus groups, no robot use",
+      "unsure": false,
+      "dementia": false,
+      "title": "Attitudes towards health‐care robots in a retirement village"
+    },
+    "W1967149046": {
+      "label": "neutral",
+      "why": "survey of willingness, no interaction",
+      "unsure": false,
+      "dementia": false,
+      "title": "More than a Servant: Self-Reported Willingness of Younger and Older Adults to having a Robot perform Interactive and Cri"
+    },
+    "W1967507142": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": false,
+      "title": "A Socially Assistive Robot Exercise Coach for the Elderly"
+    },
+    "W1972564462": {
+      "label": "gold",
+      "why": "included by the review: ref32 (dementia) Comparison of the effect of human interaction, animal-assist",
+      "unsure": false,
+      "dementia": true,
+      "title": "Comparison of the Effect of Human Interaction, Animal-Assisted Therapy, and AIBO-Assisted Therapy on Long-Term Care Resi"
+    },
+    "W1973340331": {
+      "label": "relevant",
+      "why": "older adults used a robotic interface for photo albums",
+      "unsure": false,
+      "dementia": false,
+      "title": "Social networking sites photos and robots: a pilot research on facebook photo albums and robotics interfaces for older a"
+    },
+    "W1973812759": {
+      "label": "neutral",
+      "why": "field study for robot design, no robot used",
+      "unsure": false,
+      "dementia": false,
+      "title": "Exploring Taiwanese nursing homes as product ecologies for assistive robots"
+    },
+    "W1974454998": {
+      "label": "off_scope",
+      "why": "social robots for children or autism (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Autonomous robot-mediated imitation learning for children with autism"
+    },
+    "W1974991864": {
+      "label": "off_scope",
+      "why": "rehabilitation, assistive or surgical robot (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Correct Motion Advice on Rehabilitation Instruction Robot by Superimposing Instructor CG Model"
+    },
+    "W1978404823": {
+      "label": "neutral",
+      "why": "system architecture paper",
+      "unsure": false,
+      "dementia": false,
+      "title": "An autonomous assistive robot for planning, scheduling and facilitating multi-user activities"
+    },
+    "W1979427169": {
+      "label": "gold",
+      "why": "included by the review: ref44 (dementia) Robot assisted activity at a health service facility for the",
+      "unsure": false,
+      "dementia": true,
+      "title": "Robot assisted activity at a health service facility for the aged for ten weeks: An interim report of a long-term experi"
+    },
+    "W1982844896": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Design, implementation and field tests of a socially assistive robot for the elderly: HealthBot version 2"
+    },
+    "W1985714991": {
+      "label": "off_scope",
+      "why": "telepresence robot (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Assessing affective response of older users to a telepresence robot using a combination of psychophysiological measures"
+    },
+    "W1986000980": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Enhancing Emotional Well Being of Elderly Using Assistive Social Robots in Australia"
+    },
+    "W1987900808": {
+      "label": "neutral",
+      "why": "attitude measurement, not older adults",
+      "unsure": false,
+      "dementia": false,
+      "title": "Measurement of negative attitudes toward robots"
+    },
+    "W1988055626": {
+      "label": "neutral",
+      "why": "review (title)",
+      "unsure": false,
+      "dementia": true,
+      "title": "The effectiveness of seal-like robot therapy on mood and social interactions of older adults: a systematic review protoc"
+    },
+    "W1988401879": {
+      "label": "neutral",
+      "why": "requirements and design paper",
+      "unsure": false,
+      "dementia": false,
+      "title": "Functional requirements and design issues for a socially assistive robot for elderly people with mild cognitive impairme"
+    },
+    "W1988578580": {
+      "label": "gold",
+      "why": "included by the review: ref45 Social and physiological influences of robot therapy in a ca",
+      "unsure": false,
+      "dementia": false,
+      "title": "Social and physiological influences of robot therapy in a care house"
+    },
+    "W1994379356": {
+      "label": "relevant",
+      "why": "Matilda deployed in homes of people with dementia for six months",
+      "unsure": false,
+      "dementia": true,
+      "title": "Assistive Robot Enabled Service Architecture to Support Home-Based Dementia Care"
+    },
+    "W2000476293": {
+      "label": "neutral",
+      "why": "review (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Socially Assistive Robots in Elderly Care: A Mixed-Method Systematic Literature Review"
+    },
+    "W2000986314": {
+      "label": "neutral",
+      "why": "older adults observed a robot demonstration only",
+      "unsure": false,
+      "dementia": false,
+      "title": "“Commanding Your Robot” Older Adults’ Preferences for Methods of Robot Control"
+    },
+    "W2003566851": {
+      "label": "relevant",
+      "why": "HRI study: residents played a memory game with Brian 2.1",
+      "unsure": false,
+      "dementia": false,
+      "title": "Playing a memory game with a socially assistive robot: A case study at a long-term care facility"
+    },
+    "W2009944334": {
+      "label": "off_scope",
+      "why": "rehabilitation, assistive or surgical robot (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Mobile Robotic Rehabilitation Assistant for walking and orientation training of Stroke Patients: A report on work in pro"
+    },
+    "W2011941393": {
+      "label": "gold",
+      "why": "included by the review: ref23 (dementia) Development of a socially believable multi-robot solution fr",
+      "unsure": false,
+      "dementia": true,
+      "title": "Development of a Socially Believable Multi-Robot Solution from Town to Home"
+    },
+    "W2016497637": {
+      "label": "neutral",
+      "why": "essay",
+      "unsure": false,
+      "dementia": false,
+      "title": "The Eldercare Factory"
+    },
+    "W2019161055": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Influence of Social Presence on Acceptance of an Assistive Social Robot and Screen Agent by Elderly Users"
+    },
+    "W2022807833": {
+      "label": "off_scope",
+      "why": "telepresence robot (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "A qualitative study of in-home robotic telepresence for home care of community-living elderly subjects"
+    },
+    "W2024647503": {
+      "label": "neutral",
+      "why": "system paper",
+      "unsure": false,
+      "dementia": false,
+      "title": "Brian 2.1: A socially assistive robot for the elderly and cognitively impaired"
+    },
+    "W2024895316": {
+      "label": "neutral",
+      "why": "overview covering children and older adults",
+      "unsure": false,
+      "dementia": false,
+      "title": "Children, the Elderly, and Interactive Robots"
+    },
+    "W2025048472": {
+      "label": "relevant",
+      "why": "proof-of-concept testing of a trainer robot with older adults",
+      "unsure": false,
+      "dementia": false,
+      "title": "Toward Monitoring and Increasing Exercise Adherence in Older Adults by Robotic Intervention: A Proof of Concept Study"
+    },
+    "W2028991393": {
+      "label": "off_scope",
+      "why": "social robots for children or autism (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Robotic animals might aid in the social development of children with autism"
+    },
+    "W2033159471": {
+      "label": "relevant",
+      "why": "experimental study: elderly participants exercised with a robot coach",
+      "unsure": false,
+      "dementia": false,
+      "title": "Robot exercise instructor: A socially assistive robot system to monitor and encourage physical exercise for the elderly"
+    },
+    "W2034181225": {
+      "label": "off_scope",
+      "why": "smart home without a robot",
+      "unsure": false,
+      "dementia": false,
+      "title": "Wireless sensor network based smart home: Sensor selection, deployment and monitoring"
+    },
+    "W2034762802": {
+      "label": "gold",
+      "why": "included by the review: ref46 Evaluation of a small socially-assistive humanoid robot in i",
+      "unsure": false,
+      "dementia": false,
+      "title": "Evaluation of a Small Socially-Assistive Humanoid Robot in Intelligent Homes for the Care of the Elderly"
+    },
+    "W2035934412": {
+      "label": "off_scope",
+      "why": "sensor network without a robot",
+      "unsure": false,
+      "dementia": false,
+      "title": "Smart sensor network for continuous monitoring at home of elderly population with chronic diseases"
+    },
+    "W2036445299": {
+      "label": "neutral",
+      "why": "ethics essay",
+      "unsure": false,
+      "dementia": false,
+      "title": "Robot carers, ethics, and older people"
+    },
+    "W2037270833": {
+      "label": "neutral",
+      "why": "ethnographic study, no robot used",
+      "unsure": false,
+      "dementia": false,
+      "title": "Assistive Robotics and an Ecology of Elders Living Independently in Their Homes"
+    },
+    "W2039822570": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Observational study of naturalistic interactions with the socially assistive robot PARO in a nursing home"
+    },
+    "W204011437": {
+      "label": "off_scope",
+      "why": "rehabilitation, assistive or surgical robot (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "A robotically-augmented walker for older adults"
+    },
+    "W2040979576": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": true,
+      "title": "PARO robot affects diverse interaction modalities in group sensory therapy for older adults with dementia"
+    },
+    "W2043587319": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Interaction Expands Function: Social Shaping of the Therapeutic Robot PARO in a Nursing Home"
+    },
+    "W2043711811": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Living With Seal Robots—Its Sociopsychological and Physiological Influences on the Elderly at a Care House"
+    },
+    "W2045063968": {
+      "label": "neutral",
+      "why": "systematic review",
+      "unsure": false,
+      "dementia": false,
+      "title": "Robotics to Enable Older Adults to Remain Living at Home"
+    },
+    "W2046365492": {
+      "label": "relevant",
+      "why": "acceptance study: older adults interacted with Brian 2.1",
+      "unsure": false,
+      "dementia": false,
+      "title": "Acceptance and Attitudes Toward a Human-like Socially Assistive Robot by Older Adults"
+    },
+    "W2047271476": {
+      "label": "neutral",
+      "why": "design paper",
+      "unsure": false,
+      "dementia": false,
+      "title": "Intelligent Interaction for Human-Friendly Service Robot in Smart House Environment"
+    },
+    "W2049072188": {
+      "label": "neutral",
+      "why": "survey of preferences",
+      "unsure": false,
+      "dementia": false,
+      "title": "Older Adults’ Preferences for and Acceptance of Robot Assistance for Everyday Living Tasks"
+    },
+    "W2049800038": {
+      "label": "neutral",
+      "why": "overview",
+      "unsure": false,
+      "dementia": false,
+      "title": "Aging society and gerontechnology: A solution for an independent living?"
+    },
+    "W2060018350": {
+      "label": "off_scope",
+      "why": "telepresence robot development",
+      "unsure": false,
+      "dementia": false,
+      "title": "Creation of a ‘Caricature Robot’ for social inclusion of older adults"
+    },
+    "W2060479977": {
+      "label": "neutral",
+      "why": "overview",
+      "unsure": false,
+      "dementia": false,
+      "title": "The Use of Socially Assistive Robots for Dementia Care"
+    },
+    "W2060981264": {
+      "label": "neutral",
+      "why": "robots in public, not older adults",
+      "unsure": false,
+      "dementia": false,
+      "title": "Robots in the wild: observing human-robot social interaction outside the lab"
+    },
+    "W2061309618": {
+      "label": "neutral",
+      "why": "museum robots",
+      "unsure": false,
+      "dementia": false,
+      "title": "Interactive humanoid robots for a science museum"
+    },
+    "W2065178260": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Using Socially Assistive Human–Robot Interaction to Motivate Physical Exercise for Older Adults"
+    },
+    "W2068000469": {
+      "label": "neutral",
+      "why": "survey without interaction",
+      "unsure": false,
+      "dementia": false,
+      "title": "Population Ageing and Socially Assistive Robots for Elderly Persons: The Importance of Sociodemographic Factors for User"
+    },
+    "W2068679643": {
+      "label": "neutral",
+      "why": "manual development, preliminary use with one caregiver and two patients",
+      "unsure": false,
+      "dementia": false,
+      "title": "Development and preliminary evaluation of a caregiver's manual for robot therapy using the therapeutic seal robot Paro"
+    },
+    "W2068857685": {
+      "label": "neutral",
+      "why": "focus groups and interviews, no robot use described",
+      "unsure": false,
+      "dementia": false,
+      "title": "The Attitudes and Perceptions of Older Adults With Mild Cognitive Impairment Toward an Assistive Robot"
+    },
+    "W2072387963": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Attitudes and Reactions to a Healthcare Robot"
+    },
+    "W2074069593": {
+      "label": "gold",
+      "why": "included by the review: ref34 (dementia) Therapeutic robocat for nursing home residents with dementia",
+      "unsure": false,
+      "dementia": true,
+      "title": "Therapeutic robocat for nursing home residents with dementia: Preliminary inquiry"
+    },
+    "W2076748073": {
+      "label": "off_scope",
+      "why": "telepresence robot (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "A Review of Mobile Robotic Telepresence"
+    },
+    "W2080233792": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": true,
+      "title": "Feasibility and effect of a therapeutic robot PARO on moods and social interaction in older adults with declining cognit"
+    },
+    "W2080394568": {
+      "label": "neutral",
+      "why": "system development paper",
+      "unsure": false,
+      "dementia": false,
+      "title": "A Socially Assistive Robot That Can Monitor Affect of the Elderly During Mealtime Assistance1"
+    },
+    "W2080923542": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Therapeutic robots for older adults: investigating the potential of paro"
+    },
+    "W2086024263": {
+      "label": "off_scope",
+      "why": "rehabilitation, assistive or surgical robot (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Human-Robot Communication in Rehabilitation Devices"
+    },
+    "W2094053894": {
+      "label": "neutral",
+      "why": "demo paper",
+      "unsure": false,
+      "dementia": false,
+      "title": "Robot Companions and Smartpens for Improved Social Communication of Dementia Patients"
+    },
+    "W2102035712": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Psychological and social effects of robot assisted activity to elderly people who stay at a health service facility for "
+    },
+    "W2102699948": {
+      "label": "off_scope",
+      "why": "fall detection without a robot",
+      "unsure": false,
+      "dementia": false,
+      "title": "An enhanced fall detection system for elderly person monitoring using consumer home networks"
+    },
+    "W2104286239": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Psychological, physiological and social effects to elderly people by robot assisted activity at a health service facilit"
+    },
+    "W2107521387": {
+      "label": "relevant",
+      "why": "30 older adults interacted with PARO",
+      "unsure": false,
+      "dementia": false,
+      "title": "Understanding Older Adults’ Perceptions of Usefulness for the Paro Robot"
+    },
+    "W2109135966": {
+      "label": "neutral",
+      "why": "conceptual framework",
+      "unsure": false,
+      "dementia": false,
+      "title": "Toward a Framework for Levels of Robot Autonomy in Human-Robot Interaction"
+    },
+    "W2112421347": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Meal-Time with a Socially Assistive Robot and Older Adults at a Long-term Care Facility"
+    },
+    "W2112759888": {
+      "label": "off_scope",
+      "why": "smart home without a robot",
+      "unsure": false,
+      "dementia": false,
+      "title": "Integration of Smart Home Technologies in a Health Monitoring System for the Elderly"
+    },
+    "W2113295453": {
+      "label": "neutral",
+      "why": "design guidelines",
+      "unsure": false,
+      "dementia": false,
+      "title": "The domesticated robot: design guidelines for assisting older adults to age in place"
+    },
+    "W2113951489": {
+      "label": "neutral",
+      "why": "interface design study",
+      "unsure": false,
+      "dementia": false,
+      "title": "Assessing design features of a graphical user interface for a social assistive robot for older adults with cognitive imp"
+    },
+    "W2117656142": {
+      "label": "off_scope",
+      "why": "rehabilitation, assistive or surgical robot (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "EMG patterns during assisted walking in the exoskeleton"
+    },
+    "W2120142058": {
+      "label": "neutral",
+      "why": "field study for robot design, no robot used",
+      "unsure": false,
+      "dementia": false,
+      "title": "Potential use of robots in Taiwanese nursing homes"
+    },
+    "W2124956564": {
+      "label": "off_scope",
+      "why": "social robots for children or autism (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Robots as social mediators for children with Autism - A preliminary analysis comparing two different robotic platforms"
+    },
+    "W2127217719": {
+      "label": "off_scope",
+      "why": "smart-home technologies overview (adjacent cluster)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Smart-Home Technologies to Assist Older People to Live Well at Home"
+    },
+    "W2130723705": {
+      "label": "neutral",
+      "why": "demo paper",
+      "unsure": false,
+      "dementia": false,
+      "title": "A Robotic Companion for Social Support of Isolated Older Adults"
+    },
+    "W2132164645": {
+      "label": "gold",
+      "why": "included by the review: ref17 Animal-assisted therapy and loneliness in nursing homes: use",
+      "unsure": false,
+      "dementia": false,
+      "title": "Animal-Assisted Therapy and Loneliness in Nursing Homes: Use of Robotic versus Living Dogs"
+    },
+    "W2133071626": {
+      "label": "neutral",
+      "why": "survey to inform design",
+      "unsure": false,
+      "dementia": false,
+      "title": "Which activities threaten independent living of elderly when becoming problematic: inspiration for meaningful service ro"
+    },
+    "W2139886304": {
+      "label": "off_scope",
+      "why": "smart home without a robot",
+      "unsure": false,
+      "dementia": false,
+      "title": "Trial & experimentation of a smart home monitoring system for elderly"
+    },
+    "W2148142846": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Psychological and Social Effects of One Year Robot Assisted Activity on Elderly People at a Health Service Facility for "
+    },
+    "W2151645026": {
+      "label": "neutral",
+      "why": "online forum analysis",
+      "unsure": false,
+      "dementia": false,
+      "title": "Hardware companions? what online AIBO discussion forums reveal about the human-robotic relationship"
+    },
+    "W2154543439": {
+      "label": "neutral",
+      "why": "review (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Assistive social robots in elderly care: a review"
+    },
+    "W2159536297": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": true,
+      "title": "Preliminary experiments on the acceptability of animaloid companion robots by older people with early dementia"
+    },
+    "W2165098668": {
+      "label": "off_scope",
+      "why": "social robots for children or autism (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Robots as dogs? children's interactions with the robotic dog AIBO and a live australian shepherd"
+    },
+    "W2172131195": {
+      "label": "neutral",
+      "why": "project progress overview",
+      "unsure": false,
+      "dementia": false,
+      "title": "Progress in developing a socially assistive mobile home robot companion for the elderly with mild cognitive impairment"
+    },
+    "W2186444104": {
+      "label": "neutral",
+      "why": "ethics essay",
+      "unsure": false,
+      "dementia": false,
+      "title": "Ethical Implications of Using the Paro Robot"
+    },
+    "W2227803205": {
+      "label": "neutral",
+      "why": "framework from focus groups",
+      "unsure": false,
+      "dementia": false,
+      "title": "Social Robots for Older Adults: Framework of Activities for Aging in Place with Robots"
+    },
+    "W2239552100": {
+      "label": "off_scope",
+      "why": "rehabilitation, assistive or surgical robot (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "A Rehabilitation First—Tournament Between Teams of Nursing Home Residents with Chronic Stroke"
+    },
+    "W2255700634": {
+      "label": "neutral",
+      "why": "questionnaire on PARO, general public",
+      "unsure": false,
+      "dementia": false,
+      "title": "Subjective Evaluation of Seal Robot: Paro -Tabulation and Analysis of Questionnaire Results"
+    },
+    "W2259814160": {
+      "label": "off_scope",
+      "why": "telepresence robot (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Long-Term Evaluation of a Telepresence Robot for the Elderly: Methodology and Ecological Case Study"
+    },
+    "W2260485892": {
+      "label": "off_scope",
+      "why": "telepresence robot (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "TRiCmini^+ -A Telepresence Robot for Interpersonal Communication for Older Adults"
+    },
+    "W2282485379": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": false,
+      "title": "The influence of social presence on acceptance of a companion robot by older people"
+    },
+    "W2294144074": {
+      "label": "gold",
+      "why": "included by the review: ref25 Hobbit, a care robot supporting independent living at home: ",
+      "unsure": false,
+      "dementia": false,
+      "title": "Hobbit, a care robot supporting independent living at home: First prototype and lessons learned"
+    },
+    "W2294211165": {
+      "label": "gold",
+      "why": "included by the review: ref41 Behavioral responses of nursing home residents to visits fro",
+      "unsure": false,
+      "dementia": false,
+      "title": "Behavioral Responses of Nursing Home Residents to Visits From a Person with a Dog,a Robot Seal or aToy Cat"
+    },
+    "W2300792968": {
+      "label": "neutral",
+      "why": "methods paper",
+      "unsure": false,
+      "dementia": false,
+      "title": "Socially assistive and service robotics for older adults: methodologies for motivating exercise and following spatial la"
+    },
+    "W2317990020": {
+      "label": "gold",
+      "why": "included by the review: ref24 (dementia) Service innovation through social robot engagement to improv",
+      "unsure": false,
+      "dementia": true,
+      "title": "Service innovation through social robot engagement to improve dementia care quality"
+    },
+    "W2322289952": {
+      "label": "relevant",
+      "why": "humanoid robot tested with residents in three nursing homes",
+      "unsure": false,
+      "dementia": false,
+      "title": "Remote monitoring of nursing home residents using a humanoid robot"
+    },
+    "W2325870664": {
+      "label": "off_scope",
+      "why": "robotic device (exoskeleton or assistive device), not a social robot",
+      "unsure": false,
+      "dementia": false,
+      "title": "DESIGN AND CONTROL OF EXOSKELETON FOR ELDERLY MOBILITY"
+    },
+    "W2394797369": {
+      "label": "off_scope",
+      "why": "telepresence robot (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "ADDRESSING THE LONG-TERM EVALUATION OF A TELEPRESENCE ROBOT FOR THE ELDERLY"
+    },
+    "W2402706188": {
+      "label": "gold",
+      "why": "included by the review: ref37 Social service robots to support independent living : Experi",
+      "unsure": false,
+      "dementia": false,
+      "title": "Social service robots to support independent living: Experiences from a field trial"
+    },
+    "W2467392379": {
+      "label": "neutral",
+      "why": "sociological analysis",
+      "unsure": false,
+      "dementia": false,
+      "title": "Do Elders Dream of Electric Seals? : A SCOT analysis of the mental commitment robot PARO in elderly care"
+    },
+    "W2470287269": {
+      "label": "off_scope",
+      "why": "PARO with healthy young adults, not older adults",
+      "unsure": false,
+      "dementia": false,
+      "title": "The paro robot seal as a social mediator for healthy users"
+    },
+    "W2484033910": {
+      "label": "neutral",
+      "why": "perceptions without robot use",
+      "unsure": false,
+      "dementia": false,
+      "title": "The perceptions of people with dementia on robot companions and their potential to reduce loneliness and isolation"
+    },
+    "W2487825662": {
+      "label": "off_scope",
+      "why": "social robots for children or autism (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Analysis of the use of a robot to improve social skills in children with autism spectrum disorder"
+    },
+    "W2498987434": {
+      "label": "off_scope",
+      "why": "robotic device (exoskeleton or assistive device), not a social robot",
+      "unsure": false,
+      "dementia": false,
+      "title": "Fuzzy PID control of lower limb exoskeleton for elderly mobility"
+    },
+    "W2519261326": {
+      "label": "gold",
+      "why": "included by the review: ref11 (dementia) A robotic coach architecture for elder care (ROCARE) based o",
+      "unsure": false,
+      "dementia": true,
+      "title": "A Robotic Coach Architecture for Elder Care (ROCARE) Based on Multi-User Engagement Models"
+    },
+    "W2521240520": {
+      "label": "relevant",
+      "why": "older adults with Alzheimer's prompted by a robot through daily activities",
+      "unsure": false,
+      "dementia": true,
+      "title": "Robots to assist daily activities: views of older adults with Alzheimer's disease and their caregivers"
+    },
+    "W2540268778": {
+      "label": "neutral",
+      "why": "thesis: robot development",
+      "unsure": false,
+      "dementia": false,
+      "title": "Design and Development of the eBear: A Socially Assistive Robot for Elderly People with Depression"
+    },
+    "W2549860918": {
+      "label": "gold",
+      "why": "included by the review: ref20 Robotic seals as therapeutic tools in an aged care facility:",
+      "unsure": false,
+      "dementia": false,
+      "title": "Robotic Seals as Therapeutic Tools in an Aged Care Facility: A Qualitative Study"
+    },
+    "W2550865791": {
+      "label": "neutral",
+      "why": "stakeholder opinions",
+      "unsure": false,
+      "dementia": false,
+      "title": "Ethical values and social care robots for older people: an international qualitative study"
+    },
+    "W2553308560": {
+      "label": "neutral",
+      "why": "essay",
+      "unsure": false,
+      "dementia": false,
+      "title": "Living with the animals: animal or robotic companions for the elderly in smart homes?"
+    },
+    "W2560709470": {
+      "label": "neutral",
+      "why": "system paper",
+      "unsure": false,
+      "dementia": false,
+      "title": "Internet of Robotic Things: Context-Aware and Personalized Interventions of Assistive Social Robots (Short Paper)"
+    },
+    "W2564685734": {
+      "label": "gold",
+      "why": "included by the review: ref30 (dementia) Human robot engagement and acceptability in residential aged",
+      "unsure": false,
+      "dementia": true,
+      "title": "Human Robot Engagement and Acceptability in Residential Aged Care"
+    },
+    "W2585556435": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Assessing the Use of Communication Robots for Recreational Activities at Nursing Homes"
+    },
+    "W2586081748": {
+      "label": "neutral",
+      "why": "review (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "How do older adults experience and perceive socially assistive robots in aged care: a systematic review of qualitative e"
+    },
+    "W2592259105": {
+      "label": "off_scope",
+      "why": "telepresence robot (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "An Evaluation of a Telepresence Robot: User Testing among Older Adults with Mobility Impairment"
+    },
+    "W2592905630": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": true,
+      "title": "Patterns of Use: How Older Adults with Progressed Dementia Interact with a Robot"
+    },
+    "W2593419711": {
+      "label": "off_scope",
+      "why": "telepresence robot (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Understanding Attitudes of Adults Aging with Mobility Impairments toward Telepresence Robots"
+    },
+    "W2594575328": {
+      "label": "neutral",
+      "why": "participatory design",
+      "unsure": false,
+      "dementia": false,
+      "title": "Steps Toward Participatory Design of Social Robots: Mutual Learning with Older Adults with Depression"
+    },
+    "W2602852930": {
+      "label": "neutral",
+      "why": "thesis: behaviour development",
+      "unsure": false,
+      "dementia": false,
+      "title": "Development and Implementation of Behaviours for a Socially Assistive Robot for the Elderly"
+    },
+    "W2603377555": {
+      "label": "off_scope",
+      "why": "social robots for children or autism (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Robot-Assisted Therapy for Learning and Social Interaction of Children with Autism Spectrum Disorder"
+    },
+    "W2611830581": {
+      "label": "off_scope",
+      "why": "social robots for children or autism (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Social skills training for children with autism spectrum disorder using a robotic behavioral intervention system"
+    },
+    "W2614174016": {
+      "label": "off_scope",
+      "why": "PARO with adults with intellectual disability, not older adults",
+      "unsure": false,
+      "dementia": false,
+      "title": "Advances in Mental Health Care: Five N = 1 Studies on the Effects of the Robot Seal Paro in Adults With Severe Intellect"
+    },
+    "W2615550593": {
+      "label": "neutral",
+      "why": "conference abstract",
+      "unsure": false,
+      "dementia": false,
+      "title": "52USE OF SOCIALLY ASSISTIVE ROBOT TECHNOLOGY IN ELDERLY CARE"
+    },
+    "W2689483015": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": true,
+      "title": "An Exploration of the Benefits of an Animallike Robot Companion with More Advanced Touch Interaction Capabilities for De"
+    },
+    "W2717439789": {
+      "label": "gold",
+      "why": "included by the review: ref42 Evaluation of a companion robot based on field tests with si",
+      "unsure": false,
+      "dementia": false,
+      "title": "Evaluation of a companion robot based on field tests with single older adults in their homes"
+    },
+    "W2731113721": {
+      "label": "relevant",
+      "why": "feasibility study: humanoid robot guided elderly people while walking",
+      "unsure": false,
+      "dementia": false,
+      "title": "Feasibility Study of a Socially Assistive Humanoid Robot for Guiding Elderly Individuals during Walking"
+    },
+    "W2732925385": {
+      "label": "gold",
+      "why": "included by the review: ref33 (dementia) A pilot randomized trial of a companion robot for people wit",
+      "unsure": false,
+      "dementia": true,
+      "title": "A Pilot Randomized Trial of a Companion Robot for People With Dementia Living in the Community"
+    },
+    "W2734517545": {
+      "label": "neutral",
+      "why": "survey development",
+      "unsure": false,
+      "dementia": false,
+      "title": "Socially Assistive Robots: Measuring Older Adults' Perceptions"
+    },
+    "W2743226003": {
+      "label": "off_scope",
+      "why": "telepresence robot (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "ROBIN, a Telepresence Robot to Support Older Users Monitoring and Social Inclusion: Development and Evaluation"
+    },
+    "W2745042350": {
+      "label": "off_scope",
+      "why": "robotic device (exoskeleton or assistive device), not a social robot",
+      "unsure": false,
+      "dementia": false,
+      "title": "Autonomous hip exoskeleton saves metabolic cost of walking uphill"
+    },
+    "W2751864896": {
+      "label": "off_scope",
+      "why": "telepresence robot (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Potential of telepresence robots to enhance social connectedness in older adults with dementia: an integrative review of"
+    },
+    "W2755397109": {
+      "label": "neutral",
+      "why": "review",
+      "unsure": false,
+      "dementia": false,
+      "title": "The effectiveness of various robotic technologies in assisting older adults"
+    },
+    "W2757061426": {
+      "label": "gold",
+      "why": "included by the review: ref19 Older users' acceptance of an assistive robot: attitudinal c",
+      "unsure": false,
+      "dementia": false,
+      "title": "Older users’ acceptance of an assistive robot: Attitudinal changes following brief exposure"
+    },
+    "W2760294871": {
+      "label": "neutral",
+      "why": "design paper",
+      "unsure": false,
+      "dementia": false,
+      "title": "Knowledge-Driven Support For Reminiscence On Companion Robots"
+    },
+    "W2761596890": {
+      "label": "neutral",
+      "why": "therapists' opinions",
+      "unsure": false,
+      "dementia": false,
+      "title": "Companionship with a robot? Therapists’ perspectives on socially assistive robots as therapeutic interventions in commun"
+    },
+    "W2765275233": {
+      "label": "off_scope",
+      "why": "smart home review, no robot",
+      "unsure": false,
+      "dementia": false,
+      "title": "Smart Homes for Elderly Healthcare—Recent Advances and Research Challenges"
+    },
+    "W2766415670": {
+      "label": "off_scope",
+      "why": "social robots for children or autism (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Social robotics to help children with autism in their interactions through imitation"
+    },
+    "W2766970278": {
+      "label": "relevant",
+      "why": "16 older adults partner-danced with a robot",
+      "unsure": false,
+      "dementia": false,
+      "title": "Older adults’ acceptance of a robot for partner dance-based exercise"
+    },
+    "W2771925981": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": true,
+      "title": "A pilot study on using an intelligent life-like robot as a companion for elderly individuals with dementia and depressio"
+    },
+    "W2772256242": {
+      "label": "neutral",
+      "why": "questionnaire study",
+      "unsure": false,
+      "dementia": false,
+      "title": "A pre-investigation for social robotics for older adults based on user expectations"
+    },
+    "W2772424378": {
+      "label": "off_scope",
+      "why": "robotic device (hip exoskeleton), not a social robot",
+      "unsure": false,
+      "dementia": false,
+      "title": "A flexible exoskeleton for hip assistance"
+    },
+    "W2772507957": {
+      "label": "off_scope",
+      "why": "social robots for children or autism (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Teaching Music to Children with Autism: A Social Robotics Challenge"
+    },
+    "W2774827160": {
+      "label": "neutral",
+      "why": "project abstract, nothing to decide from",
+      "unsure": false,
+      "dementia": false,
+      "title": "Designing an acceptable and useful companion robot for people with dementia and carers in Ireland: The MARIO project."
+    },
+    "W2778691880": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": true,
+      "title": "Using a therapeutic companion robot for dementia symptoms in long-term care: reflections from a cluster-RCT"
+    },
+    "W2782359998": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": false,
+      "title": "User Experience Results of Setting Free a Service Robot for Older Adults at Home"
+    },
+    "W2784295971": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": false,
+      "title": "A pilot study on the eBear socially assistive robot: Implication for interacting with elderly people with moderate depre"
+    },
+    "W2789318008": {
+      "label": "off_scope",
+      "why": "social robots for children or autism (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Robot Enhanced Therapy for Children with Autism (DREAM): A Social Model of Autism"
+    },
+    "W2789445850": {
+      "label": "neutral",
+      "why": "review (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Scoping review on the use of socially assistive robot technology in elderly care"
+    },
+    "W2790313491": {
+      "label": "neutral",
+      "why": "system paper",
+      "unsure": false,
+      "dementia": false,
+      "title": "Cognitive orientation assessment for older adults using social robots"
+    },
+    "W2791822482": {
+      "label": "neutral",
+      "why": "symposium summary",
+      "unsure": false,
+      "dementia": false,
+      "title": "Can robots improve the quality of life in people with dementia?"
+    },
+    "W2792096061": {
+      "label": "off_scope",
+      "why": "smart home or sensing without a robot (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Development of a low-cost smart home system using wireless environmental monitoring sensors for functionally independent"
+    },
+    "W2793187533": {
+      "label": "neutral",
+      "why": "system paper",
+      "unsure": false,
+      "dementia": false,
+      "title": "Socially Assistive Robotics: Robot Exercise Trainer for Older Adults"
+    },
+    "W2794445509": {
+      "label": "neutral",
+      "why": "perceptions study, no robot use described",
+      "unsure": false,
+      "dementia": false,
+      "title": "Older Adults’ Perceptions of Supporting Factors of Trust in a Robot Care Provider"
+    },
+    "W2797766904": {
+      "label": "off_scope",
+      "why": "rehabilitation, assistive or surgical robot (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Walking with a plantar flexion assisting ankle-foot exoskeleton in an older population"
+    },
+    "W2802487094": {
+      "label": "neutral",
+      "why": "healthcare providers, not older adults",
+      "unsure": false,
+      "dementia": false,
+      "title": "Understanding healthcare providers’ perceptions of a personal assistant robot"
+    },
+    "W2803451925": {
+      "label": "neutral",
+      "why": "learning framework, user simulation",
+      "unsure": false,
+      "dementia": false,
+      "title": "Task Engagement as Personalization Feedback for Socially-Assistive Robots and Cognitive Training"
+    },
+    "W2806801289": {
+      "label": "off_scope",
+      "why": "rehabilitation, assistive or surgical robot (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Rehabilitation robots for the treatment of sensorimotor deficits: a neurophysiological perspective"
+    },
+    "W2808281222": {
+      "label": "neutral",
+      "why": "review (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "The Effectiveness of Social Robots for Older Adults: A Systematic Review and Meta-Analysis of Randomized Controlled Stud"
+    },
+    "W2811507747": {
+      "label": "gold",
+      "why": "included by the review: ref22 Robotic services acceptance in smart environments with older",
+      "unsure": false,
+      "dementia": false,
+      "title": "Robotic Services Acceptance in Smart Environments With Older Adults: User Satisfaction and Acceptability Study"
+    },
+    "W2883046174": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Behavioral Responses of Nursing Home Residents to a Robotic Pet Dog with a Customizable Interactive Kit"
+    },
+    "W2884360641": {
+      "label": "off_scope",
+      "why": "smart home sensors, no robot",
+      "unsure": false,
+      "dementia": false,
+      "title": "Sensors in Smart Homes for Independent Living of the Elderly"
+    },
+    "W2885663668": {
+      "label": "off_scope",
+      "why": "rehabilitation, assistive or surgical robot (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "The economic cost of robotic rehabilitation for adult stroke patients: a systematic review"
+    },
+    "W2888482633": {
+      "label": "neutral",
+      "why": "review (title)",
+      "unsure": false,
+      "dementia": true,
+      "title": "Social Robots for People with Aging and Dementia: A Systematic Review of Literature"
+    },
+    "W2889731820": {
+      "label": "neutral",
+      "why": "conference abstract",
+      "unsure": false,
+      "dementia": false,
+      "title": "67The Impact of a Companion Robot in Combatting Loneliness in People with Dementia Living in Residential Care. The MARIO"
+    },
+    "W2889960145": {
+      "label": "neutral",
+      "why": "review (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Social Robots for Depression in Older Adults: A Systematic Review"
+    },
+    "W2892152415": {
+      "label": "neutral",
+      "why": "essay",
+      "unsure": false,
+      "dementia": false,
+      "title": "The PARO seal: weighing up"
+    },
+    "W2893050413": {
+      "label": "neutral",
+      "why": "review (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Robotics in Nursing: A Scoping Review"
+    },
+    "W2893222310": {
+      "label": "neutral",
+      "why": "survey without interaction",
+      "unsure": false,
+      "dementia": false,
+      "title": "Older Adult Preferences for Robot Care Providers"
+    },
+    "W2894885829": {
+      "label": "gold",
+      "why": "included by the review: ref31 (dementia) Effects of intervention using PARO on the cognition, emotion",
+      "unsure": false,
+      "dementia": true,
+      "title": "Effects of Intervention Using PARO on the Cognition, Emotion, Problem Behavior, and Social Interaction of Elderly People"
+    },
+    "W2895915058": {
+      "label": "neutral",
+      "why": "conference abstract",
+      "unsure": false,
+      "dementia": false,
+      "title": "F1‐05‐04: A PERSONALIZED, ANIMAL‐LIKE ROBOT COMPANION TO SUPPORT PEOPLE WITH DEMENTIA"
+    },
+    "W2896071495": {
+      "label": "neutral",
+      "why": "conference abstract",
+      "unsure": false,
+      "dementia": false,
+      "title": "TD‐P‐003: EMPLOYING COMPANION ROBOTS TO ENHANCE SOCIAL ENGAGEMENT FOR PEOPLE WITH DEMENTIA"
+    },
+    "W2896242380": {
+      "label": "neutral",
+      "why": "system framework",
+      "unsure": false,
+      "dementia": false,
+      "title": "Towards Socially Assistive Robots for Elderly: An End-to-end Object Search Framework"
+    },
+    "W2898061611": {
+      "label": "gold",
+      "why": "included by the review: ref36 Enhancing older people’s activity and participation with soc",
+      "unsure": false,
+      "dementia": false,
+      "title": "Enhancing older people’s activity and participation with socially assistive robots: a multicentre quasi-experimental stu"
+    },
+    "W2899915867": {
+      "label": "neutral",
+      "why": "conference abstract",
+      "unsure": false,
+      "dementia": false,
+      "title": "SHALL I COMPARE THEE TO A...ROBOT?’ THE USE OF CREATIVE ARTS AND SOCIAL ROBOTICS WITH OLDER ADULTS"
+    },
+    "W2899969406": {
+      "label": "neutral",
+      "why": "design and system validation",
+      "unsure": false,
+      "dementia": false,
+      "title": "Design and System Validation of Rassle: A Novel Active Socially Assistive Robot for Elderly with Dementia"
+    },
+    "W2900350517": {
+      "label": "neutral",
+      "why": "conference abstract",
+      "unsure": false,
+      "dementia": false,
+      "title": "OLDER ADULTS’ VIEWPOINTS ON SOCIALLY ASSISTIVE ROBOTS DESIGNED TO PROMOTE ENGAGEMENT"
+    },
+    "W2913301016": {
+      "label": "off_scope",
+      "why": "telepresence robot",
+      "unsure": false,
+      "dementia": false,
+      "title": "A Telemedicine Robot System for Assisted and Independent Living"
+    },
+    "W2915888239": {
+      "label": "gold",
+      "why": "included by the review: ref26 Two-year use of care robot Zora in Dutch nursing homes: an e",
+      "unsure": false,
+      "dementia": false,
+      "title": "Two-Year Use of Care Robot Zora in Dutch Nursing Homes: An Evaluation Study"
+    },
+    "W2924547041": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Reliability and acceptability of using a social robot to carry out cognitive tests for community‐dwelling older adults"
+    },
+    "W2931420217": {
+      "label": "neutral",
+      "why": "design research with caregivers",
+      "unsure": false,
+      "dementia": false,
+      "title": "Robots for Joy, Robots for Sorrow: Community Based Robot Design for Dementia Caregivers"
+    },
+    "W2937179707": {
+      "label": "off_scope",
+      "why": "social robots for children or autism (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Could social robots facilitate children with autism spectrum disorders in learning distrust and deception?"
+    },
+    "W2939831007": {
+      "label": "gold",
+      "why": "included by the review: ref28 Using socially assistive robots for monitoring and preventin",
+      "unsure": false,
+      "dementia": false,
+      "title": "Using socially assistive robots for monitoring and preventing frailty among older adults: a study on usability and user "
+    },
+    "W2943699887": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Older Adults Living With Social Robots: Promoting Social Connectedness in Long-Term Communities"
+    },
+    "W2944083468": {
+      "label": "gold",
+      "why": "included by the review: ref29 (dementia) Engagement and experience of older people with socially assi",
+      "unsure": false,
+      "dementia": true,
+      "title": "Engagement and experience of older people with socially assistive robots in home care"
+    },
+    "W2944344930": {
+      "label": "off_scope",
+      "why": "rehabilitation, assistive or surgical robot (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Gait training using a robotic hip exoskeleton improves metabolic gait efficiency in the elderly"
+    },
+    "W2946005838": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": false,
+      "title": "A Feasibility Study of a Social Robot Collecting Patient Reported Outcome Measurements from Older Adults"
+    },
+    "W2946010724": {
+      "label": "neutral",
+      "why": "review (title)",
+      "unsure": false,
+      "dementia": true,
+      "title": "Animal-Assisted Interventions With Dogs and Robotic Animals for Residents With Dementia in Nursing Homes: A Systematic R"
+    },
+    "W2946313803": {
+      "label": "neutral",
+      "why": "literature, interviews and survey of directors",
+      "unsure": false,
+      "dementia": false,
+      "title": "Socially Assistive Robots (SAR) in In-Patient Care for the Elderly"
+    },
+    "W2947353480": {
+      "label": "neutral",
+      "why": "focus groups on ethics",
+      "unsure": false,
+      "dementia": false,
+      "title": "The Ethics of Socially Assistive Robots in Aged Care. A Focus Group Study With Older Adults in Flanders, Belgium"
+    },
+    "W2948083338": {
+      "label": "neutral",
+      "why": "system paper",
+      "unsure": false,
+      "dementia": false,
+      "title": "A Socially Assistive Robot for Elderly Exercise Promotion"
+    },
+    "W2948448861": {
+      "label": "relevant",
+      "why": "older adults interacted with an assistive robot (attitudes before/after)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Age Difference in Perceived Ease of Use, Curiosity, and Implicit Negative Attitude toward Robots"
+    },
+    "W2953482672": {
+      "label": "relevant",
+      "why": "PARO placed in homes of 10 older adults with depression for a month",
+      "unsure": false,
+      "dementia": false,
+      "title": "More than just friends: in-home use and design recommendations for sensing socially assistive robots (SARs) by older adu"
+    },
+    "W2955051104": {
+      "label": "gold",
+      "why": "included by the review: ref18 (dementia) Evaluation of a companion robot for individuals with dementi",
+      "unsure": false,
+      "dementia": true,
+      "title": "Evaluation of a Companion Robot for Individuals With Dementia: Quantitative Findings of the MARIO Project in an Irish Re"
+    },
+    "W2956372536": {
+      "label": "off_scope",
+      "why": "rehabilitation, assistive or surgical robot (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "State of the Art Lower Limb Robotic Exoskeletons for Elderly Assistance"
+    },
+    "W2958364445": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Robotic Versus Human Coaches for Active Aging: An Automated Social Presence Perspective"
+    },
+    "W2958708644": {
+      "label": "off_scope",
+      "why": "social robots for children or autism (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Theory of Robot Mind: False Belief Attribution to Social Robots in Children With and Without Autism"
+    },
+    "W2963704405": {
+      "label": "neutral",
+      "why": "needs study, no robot used",
+      "unsure": false,
+      "dementia": false,
+      "title": "Assistive robots to improve the independent living of older persons: results from a needs study"
+    },
+    "W2963921568": {
+      "label": "neutral",
+      "why": "overview covering children and older adults",
+      "unsure": false,
+      "dementia": false,
+      "title": "Robot companions for children and older people"
+    },
+    "W2966294143": {
+      "label": "off_scope",
+      "why": "rehabilitation, assistive or surgical robot (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Home rehabilitation supported by a wearable soft-robotic device for improving hand function in older adults: A pilot ran"
+    },
+    "W297025115": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Psychological and Social Effects of Robot-assisted Activity in the Elderly Robot-assisted at Health Service Facilities"
+    },
+    "W2972564100": {
+      "label": "neutral",
+      "why": "interviews with professionals",
+      "unsure": false,
+      "dementia": false,
+      "title": "Socially assistive robots in the elderly care : The attitudes of healthcare professionals towards the use of socially as"
+    },
+    "W2975531399": {
+      "label": "gold",
+      "why": "included by the review: ref39 (dementia) Effects of a humanoid socially assistive robot versus tablet",
+      "unsure": false,
+      "dementia": true,
+      "title": "Effects of a Humanoid Socially Assistive Robot Versus Tablet Training on Psychosocial and Physical Outcomes of Persons W"
+    },
+    "W2976777638": {
+      "label": "relevant",
+      "why": "older people interacted with eight companion robots, then focus groups",
+      "unsure": false,
+      "dementia": false,
+      "title": "Companion robots for older people: importance of user-centred design demonstrated through observations and focus groups "
+    },
+    "W2980053516": {
+      "label": "off_scope",
+      "why": "social robots for children or autism (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Social robot in diagnosis of autism among preschool children"
+    },
+    "W2980174560": {
+      "label": "relevant",
+      "why": "23 older participants exercised with a robot coach",
+      "unsure": false,
+      "dementia": false,
+      "title": "The Influence of Feedback Type in Robot-Assisted Training"
+    },
+    "W2982896790": {
+      "label": "neutral",
+      "why": "conference abstract",
+      "unsure": false,
+      "dementia": false,
+      "title": "NAO TAKES A BOW: USING SOCIAL ROBOTS TO ENHANCE THE MOOD OF OLDER ADULTS LIVING IN RESIDENTIAL CARE SETTINGS"
+    },
+    "W2985514812": {
+      "label": "gold",
+      "why": "included by the review: ref38 (dementia) How people with dementia perceive a therapeutic robot called",
+      "unsure": false,
+      "dementia": true,
+      "title": "How people with dementia perceive a therapeutic robot called PARO in relation to their pain and mood: A qualitative stud"
+    },
+    "W2985997560": {
+      "label": "neutral",
+      "why": "essay",
+      "unsure": false,
+      "dementia": false,
+      "title": "Social Assistive Robots for Elderly Care: The New Efficiency in the Context of Triple Bottom Line and Digitization"
+    },
+    "W2988906799": {
+      "label": "off_scope",
+      "why": "social robots for children or autism (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Long-Term Personalization of an In-Home Socially Assistive Robot for Children With Autism Spectrum Disorders"
+    },
+    "W2990491951": {
+      "label": "neutral",
+      "why": "review (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Innovative Assisted Living Tools, Remote Monitoring Technologies, Artificial Intelligence-Driven Solutions, and Robotic "
+    },
+    "W2992521171": {
+      "label": "neutral",
+      "why": "attitude survey",
+      "unsure": false,
+      "dementia": false,
+      "title": "Elderly People's Attitude and Acceptance Towards Socially Assistive Robot"
+    },
+    "W2994761079": {
+      "label": "gold",
+      "why": "included by the review: ref16 Results of field trials with a mobile service robot for olde",
+      "unsure": false,
+      "dementia": false,
+      "title": "Results of Field Trials with a Mobile Service Robot for Older Adults in 16 Private Households"
+    },
+    "W2995685337": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": true,
+      "title": "The effects of a companion robot for people with dementia and their caregivers"
+    },
+    "W2997199906": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Health Care in the Older Adult by Means of a Bioloid Robot as a Social Assistive to Motivate Physical Exercise"
+    },
+    "W2999297198": {
+      "label": "neutral",
+      "why": "review (title)",
+      "unsure": false,
+      "dementia": true,
+      "title": "Enablers and barriers to the implementation of socially assistive humanoid robots in health and social care: a systemati"
+    },
+    "W3001674704": {
+      "label": "neutral",
+      "why": "textbook",
+      "unsure": false,
+      "dementia": false,
+      "title": "Integrative Social Robotics Hands-on"
+    },
+    "W3001702224": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Designing Ethical Social Robots—A Longitudinal Field Study With Older Adults"
+    },
+    "W3002535960": {
+      "label": "neutral",
+      "why": "reflection paper",
+      "unsure": false,
+      "dementia": false,
+      "title": "Shaping technologies for older adults with and without dementia: Reflections on ethics and preferences"
+    },
+    "W3003995186": {
+      "label": "off_scope",
+      "why": "robotic device (exoskeletons), not a social robot",
+      "unsure": false,
+      "dementia": false,
+      "title": "Towards realising wearable exoskeletons for elderly people"
+    },
+    "W3004202241": {
+      "label": "neutral",
+      "why": "review (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "A Systematic Review of Robotics Research in Support of In-Home Care for Older Adults"
+    },
+    "W3008512828": {
+      "label": "neutral",
+      "why": "overview covering older adults and autism",
+      "unsure": false,
+      "dementia": false,
+      "title": "Socially Assistive Robots for Older Adults and People with Autism: An Overview"
+    },
+    "W3008819372": {
+      "label": "off_scope",
+      "why": "no robot involved",
+      "unsure": false,
+      "dementia": false,
+      "title": "Fostering the Resilience of People With Dementia: A Narrative Literature Review"
+    },
+    "W3012841673": {
+      "label": "off_scope",
+      "why": "robotic device (exoskeleton review), not a social robot",
+      "unsure": false,
+      "dementia": false,
+      "title": "The exoskeleton expansion: improving walking and running economy"
+    },
+    "W3012955272": {
+      "label": "off_scope",
+      "why": "rehabilitation, assistive or surgical robot (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Feasibility of robot-assisted surgery in elderly patients with rectal cancer"
+    },
+    "W3015009700": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": true,
+      "title": "Longitudinal Diary Data: Six Months Real-world Implementation of Affordable Companion Robots for Older People in Support"
+    },
+    "W3015603533": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": false,
+      "title": "A social robot intervention on depression, loneliness, and quality of life for Taiwanese older adults in long-term care"
+    },
+    "W3025216431": {
+      "label": "off_scope",
+      "why": "rehabilitation, assistive or surgical robot (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Rehabilitation of older people with Parkinson’s disease: an innovative protocol for RCT study to evaluate the potential "
+    },
+    "W3033476063": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": true,
+      "title": "A Conversational Robot for Older Adults with Alzheimer’s Disease"
+    },
+    "W3034490183": {
+      "label": "relevant",
+      "why": "robot cats used at home by people with dementia (qualitative study)",
+      "unsure": false,
+      "dementia": true,
+      "title": "Robot companion cats for people at home with dementia: A qualitative case study on companotics"
+    },
+    "W3036971864": {
+      "label": "neutral",
+      "why": "design paper (dialogue modelling)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Modelling Multimodal Dialogues for Social Robots Using Communicative Acts"
+    },
+    "W3041860695": {
+      "label": "neutral",
+      "why": "letter to the editor; the record does not show robot use",
+      "unsure": false,
+      "dementia": false,
+      "title": "Adapting ‘Sunshine,’ A Socially Assistive Chat Robot for Older Adults with Cognitive Impairment: A Pilot Study"
+    },
+    "W3042224163": {
+      "label": "neutral",
+      "why": "survey of ethical perceptions",
+      "unsure": false,
+      "dementia": false,
+      "title": "Ethical perceptions towards real-world use of companion robots with older people and people with dementia: survey opinio"
+    },
+    "W3042720668": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Feasibility and effectiveness of social robots in acquiring patient reported outcomes from older adults"
+    },
+    "W3081435517": {
+      "label": "neutral",
+      "why": "hygiene of robots, not use with people",
+      "unsure": false,
+      "dementia": false,
+      "title": "Microbial contamination and efficacy of disinfection procedures of companion robots in care homes"
+    },
+    "W3081595027": {
+      "label": "off_scope",
+      "why": "robotic medication dispenser, not a social robot",
+      "unsure": false,
+      "dementia": false,
+      "title": "Domestication of a Robotic Medication-Dispensing Service Among Older People in Finnish Lapland"
+    },
+    "W3088196398": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": true,
+      "title": "Effects on sleep from group activity with a robotic seal for nursing home residents with dementia: a cluster randomized "
+    },
+    "W3089483243": {
+      "label": "relevant",
+      "why": "32 older adults exercised with Nao or Poppy coaches",
+      "unsure": false,
+      "dementia": false,
+      "title": "Robotic System for Physical Training of Older Adults"
+    },
+    "W3091269016": {
+      "label": "off_scope",
+      "why": "rehabilitation, assistive or surgical robot (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Technology acceptance and perceptions of robotic assistive devices by older adults – implications for exoskeleton design"
+    },
+    "W3092076996": {
+      "label": "off_scope",
+      "why": "no robot involved",
+      "unsure": false,
+      "dementia": false,
+      "title": "The Psychological Consequences of the COVID-19 on Residents and Staff in Nursing Homes"
+    },
+    "W3092218325": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": true,
+      "title": "The effects of MARIO, a social robot, on the resilience of people with dementia: A multiple case study"
+    },
+    "W3093570108": {
+      "label": "neutral",
+      "why": "panel saw a demonstration only",
+      "unsure": false,
+      "dementia": false,
+      "title": "Older Adults’ Opinion on Social Robot as Companion"
+    },
+    "W3093665998": {
+      "label": "neutral",
+      "why": "methods paper on field-study challenges",
+      "unsure": false,
+      "dementia": false,
+      "title": "Studying Drink-Serving Service Robots in the Real World"
+    },
+    "W3094103867": {
+      "label": "neutral",
+      "why": "conference index entry, nothing to decide from",
+      "unsure": false,
+      "dementia": false,
+      "title": "Improving Quality of Life with a Narrative Robot Companion: II – Creating Group Cohesion via Shared Narrative Experience"
+    },
+    "W3094898599": {
+      "label": "neutral",
+      "why": "concept paper",
+      "unsure": false,
+      "dementia": false,
+      "title": "Social assistive robots in elderly care: Exploring the role of empathy"
+    },
+    "W3097289914": {
+      "label": "neutral",
+      "why": "conference abstract",
+      "unsure": false,
+      "dementia": false,
+      "title": "468 - Can a Robotic Seal Called PARO Manage Chronic Pain in People with Dementia Living in Nursing Homes?"
+    },
+    "W3102212853": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": true,
+      "title": "Emotional robots as health promotion in dementia care : group activity with a seal robot in nursing homes"
+    },
+    "W3105249390": {
+      "label": "relevant",
+      "why": "MARIO used with older people living with dementia (qualitative study)",
+      "unsure": false,
+      "dementia": true,
+      "title": "The Perceptions of People with Dementia and Key Stakeholders Regarding the Use and Impact of the Social Robot MARIO"
+    },
+    "W3110858436": {
+      "label": "neutral",
+      "why": "concept paper",
+      "unsure": false,
+      "dementia": false,
+      "title": "Potential of Socially Assistive Robotics for an Application within the Field of Active and Assisted Living"
+    },
+    "W3111501599": {
+      "label": "off_scope",
+      "why": "telepresence robot (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Usable and Privacy-Enhanced Telepresence Robots for Older Adults Aging in Place"
+    },
+    "W3111679151": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": true,
+      "title": "Companion robot for elderly residents with dementia: A cognitive behavioral analysis for neuropsychiatric symptoms"
+    },
+    "W3113108394": {
+      "label": "relevant",
+      "why": "pilot in two LTC sites: residents (10 MCI, 1 AD) engaged with a robot; the review counts cognitive impairment with dementia (ref11)",
+      "unsure": false,
+      "dementia": true,
+      "title": "Can Robots Encourage Social Engagement Among Older Adults?"
+    },
+    "W3124540728": {
+      "label": "neutral",
+      "why": "thesis",
+      "unsure": false,
+      "dementia": false,
+      "title": "Human-centered Robot Interaction: Emotional Engagement Factors in Anthropomorphic Social Robots for Finnish Older Adults"
+    },
+    "W3126403216": {
+      "label": "neutral",
+      "why": "philosophy paper",
+      "unsure": false,
+      "dementia": false,
+      "title": "Phenomenology of Engineering Devices"
+    },
+    "W3131631768": {
+      "label": "off_scope",
+      "why": "telepresence robot (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Usability Testing for the Operation of a Mobile Robotic Telepresence System by Older Adults"
+    },
+    "W3137166629": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Results of a real world trial with a mobile social service robot for older adults"
+    },
+    "W3147388967": {
+      "label": "neutral",
+      "why": "doctoral thesis",
+      "unsure": false,
+      "dementia": false,
+      "title": "Exploring the potential of social robots to support resilience in dementia"
+    },
+    "W3198896322": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": true,
+      "title": "Use of robotic animal companions in dementia care : a qualitative study of the immediate and long-term effects to enhanc"
+    },
+    "W380842714": {
+      "label": "neutral",
+      "why": "review of PARO research",
+      "unsure": false,
+      "dementia": false,
+      "title": "Trends of Robot Therapy with Neurological Therapeutic Seal Robot, PARO"
+    },
+    "W382502046": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Maintenance and Improvement of Quality of Life among Elderly Patients Using a Pet-Type Robot."
+    },
+    "W4243437205": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": true,
+      "title": "Use of seal-like robot PARO in sensory group therapy for older adults with dementia"
+    },
+    "W4251569456": {
+      "label": "relevant",
+      "why": "robot walking-group assistant used with older adults with advanced dementia",
+      "unsure": false,
+      "dementia": true,
+      "title": "Lessons learned from the deployment of a long-term autonomous robot as companion in physical therapy for older adults wi"
+    },
+    "W4253064634": {
+      "label": "neutral",
+      "why": "review",
+      "unsure": false,
+      "dementia": false,
+      "title": "A Taxonomy in Robot-Assisted Training: Current Trends, Needs and Challenges"
+    },
+    "W4292416098": {
+      "label": "off_scope",
+      "why": "social robots for children or autism (title)",
+      "unsure": false,
+      "dementia": false,
+      "title": "Children with autism social engagement in interaction with Nao, an imitative robot: A series of single case experiments"
+    },
+    "W4407738599": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": true,
+      "title": "Turning off or Turning on?: Two Different Ways to Use a Baby Seal Shaped Robot Paro in Occupational Therapy for Patients"
+    },
+    "W7220496817": {
+      "label": "neutral",
+      "why": "ethics framework",
+      "unsure": false,
+      "dementia": false,
+      "title": "SOCIAL ASSISTIVE ROBOTS: A ROBOETHICS FRAMEWORK FOR HUMAN ROBOTICS INTERACTION IN ELDERLY CARE"
+    },
+    "W759765632": {
+      "label": "relevant",
+      "why": "empirical study: social robot used with older adults (checked)",
+      "unsure": false,
+      "dementia": true,
+      "title": "Socially Assistive Robotic Music Therapist for Maintaining Attention of Older Adults with Cognitive Impairments"
+    },
+    "W791115014": {
+      "label": "neutral",
+      "why": "social robots at home, not older adults",
+      "unsure": false,
+      "dementia": false,
+      "title": "Living with robots : investigating the user acceptance of social robots in domestic environments"
+    },
+    "W968184718": {
+      "label": "neutral",
+      "why": "design paper",
+      "unsure": false,
+      "dementia": false,
+      "title": "Designing a robotic assistant for healthcare applications"
+    }
+  }
+}

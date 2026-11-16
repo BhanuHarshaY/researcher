@@ -1,0 +1,109 @@
+{
+  "case": "case3_field_map",
+  "source_review": "Mahmoudi Asl A, Molinari Ulate M, Franco Martin M, van der Roest H. Methodologies Used to Study the Feasibility, Usability, Efficacy, and Effectiveness of Social Robots For Elderly Adults: Scoping Review. J Med Internet Res 2022;24(8):e37434. doi:10.2196/37434",
+  "date_from": "2000-01-01",
+  "date_to": "2020-12-31",
+  "target_papers": 250,
+  "max_papers": 300,
+  "strip_title_prefixes": [
+    "RETRACTED:",
+    "RETRACTED ARTICLE:",
+    "WITHDRAWN:"
+  ],
+  "exclude_doi_prefixes": [
+    "10.2196/37434"
+  ],
+  "groups": {
+    "gold": {
+      "ref11 (dementia) A robotic coach architecture for elder care (ROCARE) based o": "10.1109/tnsre.2016.2608791",
+      "ref16 Results of field trials with a mobile service robot for olde": "10.1145/3368554",
+      "ref17 Animal-assisted therapy and loneliness in nursing homes: use": "10.1016/j.jamda.2007.11.007",
+      "ref18 (dementia) Evaluation of a companion robot for individuals with dementi": "10.3928/00989134-20190531-01",
+      "ref19 Older users' acceptance of an assistive robot: attitudinal c": "10.4017/gt.2017.16.1.003.00",
+      "ref20 Robotic seals as therapeutic tools in an aged care facility:": "10.1155/2016/8569602",
+      "ref21 Benefits and problems of health-care robots in aged care set": "10.1111/ajag.12190",
+      "ref22 Robotic services acceptance in smart environments with older": "10.2196/jmir.9460",
+      "ref23 (dementia) Development of a socially believable multi-robot solution fr": "10.1007/s12559-014-9290-z",
+      "ref24 (dementia) Service innovation through social robot engagement to improv": "10.1080/10400435.2016.1171807",
+      "ref25 Hobbit, a care robot supporting independent living at home: ": "10.1016/j.robot.2014.09.029",
+      "ref26 Two-year use of care robot Zora in Dutch nursing homes: an e": "10.3390/healthcare7010031",
+      "ref27 (dementia) Field-based development of an information support robot for ": "10.3233/TAD-120357",
+      "ref28 Using socially assistive robots for monitoring and preventin": "10.1007/s12553-019-00320-9",
+      "ref29 (dementia) Engagement and experience of older people with socially assi": "10.1080/10400435.2019.1588805",
+      "ref30 (dementia) Human robot engagement and acceptability in residential aged": "10.1080/10447318.2016.1275435",
+      "ref31 (dementia) Effects of intervention using PARO on the cognition, emotion": "10.12799/jkachn.2018.29.3.300",
+      "ref32 (dementia) Comparison of the effect of human interaction, animal-assist": "10.2752/175303708x390464",
+      "ref33 (dementia) A pilot randomized trial of a companion robot for people wit": "10.1016/j.jamda.2017.05.019",
+      "ref34 (dementia) Therapeutic robocat for nursing home residents with dementia": "10.1177/153331750401900209",
+      "ref35 (dementia) Exploring the effect of companion robots on emotional expres": "10.3928/00989134-20130313-03",
+      "ref36 Enhancing older people’s activity and participation with soc": "10.1080/01691864.2018.1528176",
+      "ref37 Social service robots to support independent living : Experi": "10.1007/s00391-016-1067-4",
+      "ref38 (dementia) How people with dementia perceive a therapeutic robot called": "10.1111/jocn.15104",
+      "ref39 (dementia) Effects of a humanoid socially assistive robot versus tablet": "10.2196/14927",
+      "ref40 Robot-assisted therapy for improving social interactions and": "10.1111/appy.12131",
+      "ref41 Behavioral responses of nursing home residents to visits fro": "10.1080/08927936.2015.1089011",
+      "ref42 Evaluation of a companion robot based on field tests with si": "10.1080/10400435.2017.1322158",
+      "ref43 (dementia) Social robots in advanced dementia": "10.3389/fnagi.2015.00133",
+      "ref44 (dementia) Robot assisted activity at a health service facility for the": "10.1243/09596518jsce159",
+      "ref45 Social and physiological influences of robot therapy in a ca": "10.1075/is.9.2.06wad",
+      "ref46 Evaluation of a small socially-assistive humanoid robot in i": "10.1007/s10846-013-0019-0",
+      "ref47 Robots in older people’s homes to improve medication adheren": "10.1007/978-3-319-11973-1_7"
+    }
+  },
+  "crossref_preprints": [],
+  "seed_queries": [
+    {
+      "query": "social robot older adults",
+      "n": 60
+    },
+    {
+      "query": "companion robot dementia",
+      "n": 40
+    },
+    {
+      "query": "PARO robot seal",
+      "n": 25
+    },
+    {
+      "query": "socially assistive robot elderly",
+      "n": 40
+    },
+    {
+      "query": "robot nursing home residents",
+      "n": 30
+    },
+    {
+      "query": "service robot independent living older people home",
+      "n": 25
+    },
+    {
+      "query": "rehabilitation robot older adults",
+      "n": 20
+    },
+    {
+      "query": "exoskeleton elderly walking",
+      "n": 12
+    },
+    {
+      "query": "telepresence robot older adults",
+      "n": 15
+    },
+    {
+      "query": "social robot children autism",
+      "n": 20
+    },
+    {
+      "query": "robot-assisted surgery elderly patients",
+      "n": 8
+    },
+    {
+      "query": "smart home sensors elderly monitoring",
+      "n": 12
+    }
+  ],
+  "one_hop": {
+    "keyword": "robot",
+    "refs_per_gold": 10,
+    "citers_per_gold": 10
+  }
+}

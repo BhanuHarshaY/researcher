@@ -332,6 +332,40 @@ def _flag_below(value, threshold) -> int | None:
     return None if value is None else int(value < threshold)
 
 
+# ---------------------------------------------------------------- case-specific metrics
+# Extra metrics a case opts into with `case_metrics: [...]` in case.yaml. They go under
+# reward.json["case_metrics"], so the core keys stay identical across cases. Each has a
+# breakdown flag that fires when the value is below the case's `thresholds.<metric>`.
+CASE_METRICS = {"post_change_recall": "bd_steer_incomplete"}
+
+
+def post_change_recall(final_cited: set[str] | None, expected_ids: list[str],
+                       report_of: dict | None = None) -> float | None:
+    """Papers still eligible after the criteria change that are in the final answer
+    / all papers eligible after the change (post_change_expected_ids), by trial."""
+    if final_cited is None or not expected_ids:
+        return None
+    expected = to_trials(expected_ids, report_of)
+    return _ratio(len(to_trials(final_cited, report_of) & expected), len(expected))
+
+
+def case_metrics(case: dict, final_roles: dict[str, str] | None, change_reached: bool) -> dict:
+    """The case's extra metrics and their flags; {} if the case has none. Null if the run
+    ended before the scripted criteria change or the final paper set is unknown."""
+    th = case.get("thresholds") or {}
+    out: dict = {}
+    for name in case.get("case_metrics") or []:
+        if name not in CASE_METRICS:
+            raise ValueError(f"unknown case metric {name!r}; known: {sorted(CASE_METRICS)}")
+        value = None
+        if name == "post_change_recall" and change_reached and final_roles is not None:
+            value = post_change_recall(included_set(final_roles), case.get("post_change_expected_ids") or [],
+                                       case.get("report_of"))
+        out[name] = value
+        out[CASE_METRICS[name]] = _flag_below(value, th[name]) if th.get(name) is not None else None
+    return out
+
+
 # ---------------------------------------------------------------- reward
 def compute_reward(case: dict, corpus_ids: set[str], *, final_roles: dict[str, str] | None,
                    flagged: dict[str, bool] | None, pre_roles: dict[str, str] | None,

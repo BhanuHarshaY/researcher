@@ -457,6 +457,10 @@ def score_run(run_dir: str | Path, judge: Judge | None = None, cost: dict | None
         claim_labels=claim_labels, exclusion_explained=explained, cost=cost,
         foreign_cited=set(foreign_cited), pair_claim_labels=pair_labels,
     )
+    # Case-specific extras (case.yaml `case_metrics`), kept apart from the fixed core keys.
+    extra = core.case_metrics(case, final_roles, change_reached=bool(reached))
+    if extra:
+        reward["case_metrics"] = extra
     j["included_ids"] = sorted(core.included_set(final_roles)) if final_roles is not None else None
     j["judge_usage"] = judge.usage
     return reward, j

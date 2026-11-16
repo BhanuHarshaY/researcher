@@ -89,6 +89,15 @@ def validate(case_name: str) -> list[str]:
             if not reach[pid]:
                 errs.append(f"{pid}: hidden from search and referenced by no searchable paper (unreachable)")
 
+    from harness.metrics.core import CASE_METRICS
+    for name in case.get("case_metrics") or []:
+        if name not in CASE_METRICS:
+            errs.append(f"case_metrics: unknown metric {name!r} (known: {sorted(CASE_METRICS)})")
+        elif (case.get("thresholds") or {}).get(name) is None:
+            errs.append(f"case_metrics: {name} needs a threshold in thresholds")
+        if name == "post_change_recall" and not lists["post_change_expected_ids"]:
+            errs.append("case_metrics: post_change_recall needs post_change_expected_ids")
+
     obs_turn = case.get("observe_key_papers_at_turn")
     if obs_turn is not None and (not isinstance(obs_turn, int) or not 1 <= obs_turn <= 6):
         errs.append(f"observe_key_papers_at_turn must be a user turn from 1 to 6, not {obs_turn!r}")

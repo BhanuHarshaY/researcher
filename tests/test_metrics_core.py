@@ -60,6 +60,33 @@ class TestSetMetrics(unittest.TestCase):
         self.assertIsNone(core.steer_preservation(pre, post, []))
         self.assertIsNone(core.steer_preservation({"O1"}, post, ["A"]))  # nothing should be kept
 
+    def test_post_change_recall_and_case_metrics(self):
+        # expected = {A, B, D}; final has A and D (plus off-scope O1, which doesn't matter)
+        self.assertEqual(core.post_change_recall({"A", "D", "O1"}, CASE["post_change_expected_ids"]), round(2 / 3, 4))
+        self.assertIsNone(core.post_change_recall(None, ["A"]))
+        self.assertIsNone(core.post_change_recall({"A"}, []))
+        # A report of trial B counts as B.
+        self.assertEqual(core.post_change_recall({"B2"}, ["B"], {"B2": "B"}), 1.0)
+
+        case = {**CASE, "case_metrics": ["post_change_recall"],
+                "thresholds": {**CASE["thresholds"], "post_change_recall": 0.7}}
+        roles = {"A": "included", "D": "included", "B": "excluded"}
+        self.assertEqual(core.case_metrics(case, roles, change_reached=True),
+                         {"post_change_recall": round(2 / 3, 4), "bd_steer_incomplete": 1})
+        roles["B"] = "included"
+        self.assertEqual(core.case_metrics(case, roles, True)["bd_steer_incomplete"], 0)
+        # Run ended before the criteria change, or no final set: null value and flag.
+        self.assertEqual(core.case_metrics(case, roles, change_reached=False),
+                         {"post_change_recall": None, "bd_steer_incomplete": None})
+        self.assertEqual(core.case_metrics(case, None, True)["post_change_recall"], None)
+        # No threshold: the value is reported, the flag is null.
+        no_th = {**case, "thresholds": {}}
+        self.assertIsNone(core.case_metrics(no_th, roles, True)["bd_steer_incomplete"])
+        # Cases without case_metrics get nothing; unknown names fail loudly.
+        self.assertEqual(core.case_metrics(CASE, roles, True), {})
+        with self.assertRaises(ValueError):
+            core.case_metrics({**CASE, "case_metrics": ["nope"]}, roles, True)
+
     def test_near_miss_exclusion_rate(self):
         case = {"near_miss_ids": [{"id": "A", "fails": "date"}, {"id": "O1", "fails": "design"}, "GONE"]}
         ids = core.near_miss_ids(case)

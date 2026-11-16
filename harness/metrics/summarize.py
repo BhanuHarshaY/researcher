@@ -72,7 +72,19 @@ def summarize(runs: list[dict]) -> dict:
         vals = [r["reward"].get(b) for r in runs if r["reward"].get(b) is not None]
         breakdowns[b] = {"runs_flagged": sum(v == 1 for v in vals), "n": len(vals)}
     sets = [set(r["included_ids"]) for r in runs if r["included_ids"] is not None]
-    return {
+    # Case-specific extras (reward.json "case_metrics"): stats for values, counts for bd_* flags.
+    extra_names: list[str] = []
+    for r in runs:
+        extra_names += [k for k in r["reward"].get("case_metrics") or {} if k not in extra_names]
+    case_metrics, case_breakdowns = {}, {}
+    for k in extra_names:
+        vals = [(r["reward"].get("case_metrics") or {}).get(k) for r in runs]
+        if k.startswith("bd_"):
+            vals = [v for v in vals if v is not None]
+            case_breakdowns[k] = {"runs_flagged": sum(v == 1 for v in vals), "n": len(vals)}
+        else:
+            case_metrics[k] = _stats(vals)
+    out = {
         "n_runs": len(runs),
         "runs": [r["name"] for r in runs],
         "metrics": metrics,
@@ -80,6 +92,10 @@ def summarize(runs: list[dict]) -> dict:
         "rerun_overlap": rerun_overlap(sets),
         "rerun_overlap_n": len(sets),
     }
+    if extra_names:
+        out["case_metrics"] = case_metrics
+        out["case_breakdowns"] = case_breakdowns
+    return out
 
 
 def _fmt(v) -> str:
@@ -101,11 +117,24 @@ def to_markdown(case: str, agent: str, mode: str, s: dict, runs: list[dict]) -> 
     lines += ["", "## Breakdowns", "", "| Breakdown | Runs flagged |", "|---|---|"]
     for b, c in s["breakdowns"].items():
         lines.append(f"| `{b}` | {c['runs_flagged']} of {c['n']} |" if c["n"] else f"| `{b}` | n/a |")
+    extra = list(s.get("case_metrics") or {}) + list(s.get("case_breakdowns") or {})
+    if extra:
+        lines += ["", "## Case-specific metrics", "",
+                  "Extra metrics this case defines in case.yaml (`case_metrics`); not core metrics.", "",
+                  "| Metric | Mean | SD | Min | Max | n |", "|---|---|---|---|---|---|"]
+        for m, st in s["case_metrics"].items():
+            lines.append(f"| `{m}` | {_fmt(st['mean'])} | {_fmt(st['sd'])} | {_fmt(st['min'])} | "
+                         f"{_fmt(st['max'])} | {st['n']} |")
+        lines += ["", "| Breakdown | Runs flagged |", "|---|---|"]
+        for b, c in s["case_breakdowns"].items():
+            lines.append(f"| `{b}` | {c['runs_flagged']} of {c['n']} |" if c["n"] else f"| `{b}` | n/a |")
     cols = QUALITY_METRICS + BREAKDOWN_FLAGS
-    lines += ["", "## Per run", "", "| Run | " + " | ".join(f"`{c}`" for c in cols) + " |",
-              "|---|" + "---|" * len(cols)]
+    lines += ["", "## Per run", "", "| Run | " + " | ".join(f"`{c}`" for c in cols + extra) + " |",
+              "|---|" + "---|" * len(cols + extra)]
     for r in runs:
-        lines.append(f"| {r['name']} | " + " | ".join(_fmt(r["reward"].get(c)) for c in cols) + " |")
+        cm = r["reward"].get("case_metrics") or {}
+        lines.append(f"| {r['name']} | " + " | ".join([_fmt(r["reward"].get(c)) for c in cols]
+                                                      + [_fmt(cm.get(c)) for c in extra]) + " |")
     return "\n".join(lines) + "\n"
 
 

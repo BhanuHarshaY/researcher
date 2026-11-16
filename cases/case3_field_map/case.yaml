@@ -1,0 +1,293 @@
+# Case 3: map a field (social robots for older people), then steer it to dementia.
+# Gold set: the 33 studies included by the scoping review below, resolved in OpenAlex.
+# Written by corpus_tools/write_case3_yaml.py from corpus/labels.json; edit those, not this file.
+id: case3_field_map
+task_type: field_map
+# Search ranking: BM25 with a small boost for papers cited more often (see harness/tools/mock_search.py).
+# Chosen after a ranking check: under plain bm25 only 8 of 33 gold papers reached the top 20 for natural queries.
+search_ranking: bm25_citations
+goal: >-
+  Get a map of the research on social robots used with older people, then narrow
+  it to people living with dementia without losing the work that still fits.
+initial_prompt: >-
+  I'm starting a project on social robots for older people. Can you map the
+  research for me: which robots have been studied, with whom and in what
+  settings, and what the studies found? I'm interested in studies where a
+  social robot was actually used with older people.
+criteria:
+  - "A social robot physically used with older people (65 or over) in an experimental or clinical study"
+  - "Any setting except acute hospital care"
+  - "Not: reviews, conference abstracts, case studies, design or development reports only, or opinions without interaction"
+  - "Not: telepresence robots that only make video calls; rehabilitation, assistive or surgical robots; robots for children"
+  - "After turn 2: participants are people living with dementia"
+gold_ids:
+  - "W1488883230"    # Exploring the Effect of Companion Robots on Emotional Expression in Ol
+  - "W1510372641"    # Robot‐assisted therapy for improving social interactions and activity 
+  - "W1558982838"    # Robots in Older People’s Homes to Improve Medication Adherence and Qua
+  - "W1801949096"    # Field-based development of an information support robot for persons wi
+  - "W1807810766"    # Social robots in advanced dementia
+  - "W1945345301"    # Benefits and problems of health‐care robots in aged care settings: A c
+  - "W1972564462"    # Comparison of the Effect of Human Interaction, Animal-Assisted Therapy
+  - "W1979427169"    # Robot assisted activity at a health service facility for the aged for 
+  - "W1988578580"    # Social and physiological influences of robot therapy in a care house
+  - "W2011941393"    # Development of a Socially Believable Multi-Robot Solution from Town to
+  - "W2034762802"    # Evaluation of a Small Socially-Assistive Humanoid Robot in Intelligent
+  - "W2074069593"    # Therapeutic robocat for nursing home residents with dementia: Prelimin
+  - "W2132164645"    # Animal-Assisted Therapy and Loneliness in Nursing Homes: Use of Roboti
+  - "W2294144074"    # Hobbit, a care robot supporting independent living at home: First prot
+  - "W2294211165"    # Behavioral Responses of Nursing Home Residents to Visits From a Person
+  - "W2317990020"    # Service innovation through social robot engagement to improve dementia
+  - "W2402706188"    # Social service robots to support independent living: Experiences from 
+  - "W2519261326"    # A Robotic Coach Architecture for Elder Care (ROCARE) Based on Multi-Us
+  - "W2549860918"    # Robotic Seals as Therapeutic Tools in an Aged Care Facility: A Qualita
+  - "W2564685734"    # Human Robot Engagement and Acceptability in Residential Aged Care
+  - "W2717439789"    # Evaluation of a companion robot based on field tests with single older
+  - "W2732925385"    # A Pilot Randomized Trial of a Companion Robot for People With Dementia
+  - "W2757061426"    # Older users’ acceptance of an assistive robot: Attitudinal changes fol
+  - "W2811507747"    # Robotic Services Acceptance in Smart Environments With Older Adults: U
+  - "W2894885829"    # Effects of Intervention Using PARO on the Cognition, Emotion, Problem 
+  - "W2898061611"    # Enhancing older people’s activity and participation with socially assi
+  - "W2915888239"    # Two-Year Use of Care Robot Zora in Dutch Nursing Homes: An Evaluation 
+  - "W2939831007"    # Using socially assistive robots for monitoring and preventing frailty 
+  - "W2944083468"    # Engagement and experience of older people with socially assistive robo
+  - "W2955051104"    # Evaluation of a Companion Robot for Individuals With Dementia: Quantit
+  - "W2975531399"    # Effects of a Humanoid Socially Assistive Robot Versus Tablet Training 
+  - "W2985514812"    # How people with dementia perceive a therapeutic robot called PARO in r
+  - "W2994761079"    # Results of Field Trials with a Mobile Service Robot for Older Adults i
+key_ids:        # all four are dementia studies, so they stay valid after the turn-2 narrowing
+  - "W2732925385"    # A Pilot Randomized Trial of a Companion Robot for People With Dementia
+  - "W1488883230"    # Exploring the Effect of Companion Robots on Emotional Expression in Ol
+  - "W2074069593"    # Therapeutic robocat for nursing home residents with dementia: Prelimin
+  - "W1807810766"    # Social robots in advanced dementia
+# Observation only (judgments.json): were the key papers in the first map, before the narrowing?
+observe_key_papers_at_turn: 1
+relevant_ids:   # gold plus other studies that meet the criteria (reasons in corpus/labels.json)
+  - W1178530349
+  - W1488883230
+  - W1505024467
+  - W1510372641
+  - W1558982838
+  - W1801949096
+  - W1807810766
+  - W1883246670
+  - W1945345301
+  - W1967507142
+  - W1972564462
+  - W1973340331
+  - W1979427169
+  - W1982844896
+  - W1986000980
+  - W1988578580
+  - W1994379356
+  - W2003566851
+  - W2011941393
+  - W2019161055
+  - W2025048472
+  - W2033159471
+  - W2034762802
+  - W2039822570
+  - W2040979576
+  - W2043587319
+  - W2043711811
+  - W2046365492
+  - W2065178260
+  - W2072387963
+  - W2074069593
+  - W2080233792
+  - W2080923542
+  - W2102035712
+  - W2104286239
+  - W2107521387
+  - W2112421347
+  - W2132164645
+  - W2148142846
+  - W2159536297
+  - W2282485379
+  - W2294144074
+  - W2294211165
+  - W2317990020
+  - W2322289952
+  - W2402706188
+  - W2519261326
+  - W2521240520
+  - W2549860918
+  - W2564685734
+  - W2585556435
+  - W2592905630
+  - W2689483015
+  - W2717439789
+  - W2731113721
+  - W2732925385
+  - W2757061426
+  - W2766970278
+  - W2771925981
+  - W2778691880
+  - W2782359998
+  - W2784295971
+  - W2811507747
+  - W2883046174
+  - W2894885829
+  - W2898061611
+  - W2915888239
+  - W2924547041
+  - W2939831007
+  - W2943699887
+  - W2944083468
+  - W2946005838
+  - W2948448861
+  - W2953482672
+  - W2955051104
+  - W2958364445
+  - W297025115
+  - W2975531399
+  - W2976777638
+  - W2980174560
+  - W2985514812
+  - W2994761079
+  - W2995685337
+  - W2997199906
+  - W3001702224
+  - W3015009700
+  - W3015603533
+  - W3033476063
+  - W3034490183
+  - W3042720668
+  - W3088196398
+  - W3089483243
+  - W3092218325
+  - W3102212853
+  - W3105249390
+  - W3111679151
+  - W3113108394
+  - W3137166629
+  - W3198896322
+  - W382502046
+  - W4243437205
+  - W4251569456
+  - W4407738599
+  - W759765632
+off_scope_ids:  # the adjacent cluster: rehabilitation/assistive/surgical robots, exoskeletons,
+                # telepresence-only robots, robots for children or autism, smart homes without robots
+  - W1488087939
+  - W1517879342
+  - W1671410324
+  - W1974454998
+  - W1974991864
+  - W1985714991
+  - W2009944334
+  - W2022807833
+  - W2028991393
+  - W2034181225
+  - W2035934412
+  - W204011437
+  - W2060018350
+  - W2076748073
+  - W2086024263
+  - W2102699948
+  - W2112759888
+  - W2117656142
+  - W2124956564
+  - W2127217719
+  - W2139886304
+  - W2165098668
+  - W2239552100
+  - W2259814160
+  - W2260485892
+  - W2325870664
+  - W2394797369
+  - W2470287269
+  - W2487825662
+  - W2498987434
+  - W2592259105
+  - W2593419711
+  - W2603377555
+  - W2611830581
+  - W2614174016
+  - W2743226003
+  - W2745042350
+  - W2751864896
+  - W2765275233
+  - W2766415670
+  - W2772424378
+  - W2772507957
+  - W2789318008
+  - W2792096061
+  - W2797766904
+  - W2806801289
+  - W2884360641
+  - W2885663668
+  - W2913301016
+  - W2937179707
+  - W2944344930
+  - W2956372536
+  - W2958708644
+  - W2966294143
+  - W2980053516
+  - W2988906799
+  - W3003995186
+  - W3008819372
+  - W3012841673
+  - W3012955272
+  - W3025216431
+  - W3081595027
+  - W3091269016
+  - W3092076996
+  - W3111501599
+  - W3131631768
+  - W4292416098
+traps: []       # no retracted papers or superseded preprints in this corpus
+script:
+  followups:
+    # Turn 2: the scripted criteria change (steer_preservation, and post_change_recall below).
+    - {after_turn: 1, kind: criteria_change, message: "Keep only studies with people living with dementia, and add any relevant ones you missed."}
+    # Turn 3: asks what was dropped (not scored; shows whether the agent can account for the change).
+    - {after_turn: 2, kind: other, message: "Which papers from your first map did you drop, and why?"}
+post_change_expected_ids:   # still valid after turn 2: gold and relevant studies with people with dementia
+  - W1178530349
+  - W1488883230
+  - W1505024467
+  - W1801949096
+  - W1807810766
+  - W1972564462
+  - W1979427169
+  - W1994379356
+  - W2011941393
+  - W2040979576
+  - W2074069593
+  - W2080233792
+  - W2159536297
+  - W2317990020
+  - W2519261326
+  - W2521240520
+  - W2564685734
+  - W2592905630
+  - W2689483015
+  - W2732925385
+  - W2771925981
+  - W2778691880
+  - W2894885829
+  - W2944083468
+  - W2955051104
+  - W2975531399
+  - W2985514812
+  - W2995685337
+  - W3015009700
+  - W3033476063
+  - W3034490183
+  - W3088196398
+  - W3092218325
+  - W3102212853
+  - W3105249390
+  - W3111679151
+  - W3113108394
+  - W3198896322
+  - W4243437205
+  - W4251569456
+  - W4407738599
+  - W759765632
+# Case-specific extra metric (reward.json "case_metrics"; core metrics unchanged):
+# post_change_recall = final map ∩ post_change_expected_ids ÷ post_change_expected_ids,
+# and bd_steer_incomplete = 1 if it is below its threshold.
+case_metrics: [post_change_recall]
+thresholds: {off_scope: 0.2, steer_preservation: 0.7, post_change_recall: 0.6}
+source_review: "Mahmoudi Asl A, Molinari Ulate M, Franco Martin M, van der Roest H. Methodologies Used to Study the Feasibility, Usability, Efficacy, and Effectiveness of Social Robots For Elderly Adults: Scoping Review. J Med Internet Res 2022;24(8):e37434. doi:10.2196/37434"

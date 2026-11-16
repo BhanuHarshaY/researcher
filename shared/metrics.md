@@ -206,6 +206,22 @@ depends on is `null`. The thresholds come from `thresholds` in each case's
 | `bd_misattribution` | any checked claim (counted sample claims, plus the case's pair claims) is judged as credited to the wrong paper; crediting another version of the same paper doesn't count |
 | `bd_status_ignored` | a retracted trap or superseded preprint is included without a status flag |
 
+### Case-specific metrics (optional)
+
+A case can add extra metrics with `case_metrics: [...]` in its case.yaml. They
+are written under a separate `case_metrics` key in `reward.json`, so the core
+keys above stay identical across cases. Each extra metric has a flag that fires
+when the value is below `thresholds.<metric>` in case.yaml. The validator
+requires that threshold.
+
+| Name | Definition | Flag (1 when below the threshold) | `null` when |
+|---|---|---|---|
+| `post_change_recall` | Papers in the final answer that are still eligible after the scripted criteria change ÷ all papers in `post_change_expected_ids` (counted by trial) | `bd_steer_incomplete` | the run ended before the criteria change, or the final paper set is unknown |
+
+`steer_preservation` checks that eligible papers already cited survive the
+change. `post_change_recall` also counts the eligible papers the agent should
+have added after it. Only case 3 uses it (threshold 0.6).
+
 ## Summary metrics (`summary.json`, `summary.md`)
 
 `python -m harness.metrics.summarize --case <case> [--agent baseline] [--mode sim] [--last 5]`
@@ -216,6 +232,8 @@ aggregates the runs in `runs/<case>/<agent>/<mode>/`:
   sets across runs. 1 means every run cited the same papers. Two empty sets
   count as identical.
 - **Each `bd_*`:** how many runs showed it, out of the runs where it applies.
+- **Case-specific metrics:** the same statistics and flag counts, in a separate
+  `case_metrics` / `case_breakdowns` block and table.
 
 ## Rescoring
 
