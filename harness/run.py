@@ -4,7 +4,8 @@
   python -m harness.run --case case1_systematic_review --mode human --agent baseline
 
 Each run writes runs/<case>/<agent>/<mode>/<UTC timestamp>_<n>/ containing
-trajectory.json, reward.json and config.json.
+trajectory.json, reward.json, config.json and judgments.json (judge labels
+behind the metrics); in human mode also survey.json and interview_notes.md.
 """
 from __future__ import annotations
 
@@ -22,7 +23,9 @@ from .agents.baseline import BaselineAgent
 from .agents.proposed import ProposedAgent
 from .channel import run_conversation
 from .config import CASES_DIR, MAX_TOOL_CALLS, MAX_USER_TURNS, RUNS_DIR, load_models
+from .metrics.score import score_run, write_scores
 from .recorder import Recorder, git_commit, now_iso, null_reward, sha256_file
+from .survey.survey import run_survey, write_interview_template
 from .tools.mock_search import MockSearch
 from .users.human_user import HumanUser
 from .users.sim_user import SimUser
@@ -72,27 +75,26 @@ def run_one(args, models: dict, case: dict, run_index: int) -> bool:
         user = HumanUser(case["spec"])
 
     recorder.create_dir()
-    recorder.write_config(
-        {
-            "case": args.case,
-            "mode": args.mode,
-            "agent": args.agent,
-            "agent_model": models["agent_model"],
-            "sim_user_model": models["sim_user_model"],
-            "judge_model": models["judge_model"],
-            "temperature": models["temperature"],
-            "temperature_note": "API default; not sent (API version 2026-10-21 rejects sampling params).",
-            "baseline_prompt_sha256": sha256_file(BASELINE_PROMPT_PATH),
-            "corpus_sha256": tools.corpus_sha256,
-            "case_yaml_sha256": sha256_file(case["dir"] / "case.yaml"),
-            "git_commit": git_commit(),
-            "anthropic_sdk_version": version("anthropic"),
-            "max_tool_calls": MAX_TOOL_CALLS,
-            "max_user_turns": MAX_USER_TURNS,
-            "started_at": started.isoformat(timespec="seconds"),
-            "run_index": run_index,
-        }
-    )
+    config = {
+        "case": args.case,
+        "mode": args.mode,
+        "agent": args.agent,
+        "agent_model": models["agent_model"],
+        "sim_user_model": models["sim_user_model"],
+        "judge_model": models["judge_model"],
+        "temperature": models["temperature"],
+        "temperature_note": "API default; not sent (API version 2026-10-21 rejects sampling params).",
+        "baseline_prompt_sha256": sha256_file(BASELINE_PROMPT_PATH),
+        "corpus_sha256": tools.corpus_sha256,
+        "case_yaml_sha256": sha256_file(case["dir"] / "case.yaml"),
+        "git_commit": git_commit(),
+        "anthropic_sdk_version": version("anthropic"),
+        "max_tool_calls": MAX_TOOL_CALLS,
+        "max_user_turns": MAX_USER_TURNS,
+        "started_at": started.isoformat(timespec="seconds"),
+        "run_index": run_index,
+    }
+    recorder.write_config(config)
 
     t0 = time.monotonic()
     ok = True
@@ -108,11 +110,31 @@ def run_one(args, models: dict, case: dict, run_index: int) -> bool:
         print(f"[run {run_index}] ERROR: {type(e).__name__}: {e}", file=sys.stderr)
         ok = False
     finally:
-        reward = null_reward()  # quality metrics + bd_* flags: filled in Phase 2
-        reward.update(recorder.cost_metrics(time.monotonic() - t0))
+        # Written first so the trajectory is on disk even if the survey or scoring fails.
+        cost = recorder.cost_metrics(time.monotonic() - t0)
         recorder.event("run_end", ok=ok, ended_at=now_iso())
-        recorder.finalize(reward)
+        recorder.write_trajectory()
+        reward = null_reward()
+        reward.update(cost)
+        recorder.write_reward(reward)
         print(f"[run {run_index}] {'done' if ok else 'FAILED'}: {recorder.run_dir}", flush=True)
+
+    # Failed runs keep null quality metrics (scoring a broken conversation would mislead).
+    if ok and args.mode == "human":
+        survey = run_survey(recorder.run_dir)
+        write_interview_template(recorder.run_dir, config, survey.get("participant_id"))
+    if ok and not args.no_score:
+        print(f"[run {run_index}] scoring with judge model {models['judge_model']}...", flush=True)
+        try:
+            reward, judgments = score_run(recorder.run_dir, cost=cost, case_dir=case["dir"])
+            write_scores(recorder.run_dir, reward, judgments)
+            for err in judgments["errors"]:
+                print(f"[run {run_index}] judge error in {err['step']}: {err['error']}", file=sys.stderr)
+            flags = [k for k, v in reward.items() if k.startswith("bd_") and v == 1]
+            print(f"[run {run_index}] scored. breakdowns: {', '.join(flags) or 'none'}", flush=True)
+        except Exception as e:
+            print(f"[run {run_index}] SCORING FAILED ({type(e).__name__}: {e}). "
+                  f"Rescore later: python -m harness.metrics.score {recorder.run_dir}", file=sys.stderr)
     return ok
 
 
@@ -122,6 +144,8 @@ def main(argv=None) -> int:
     p.add_argument("--mode", choices=["sim", "human"], required=True)
     p.add_argument("--agent", choices=sorted(AGENTS), default="baseline")
     p.add_argument("--runs", type=int, default=1)
+    p.add_argument("--no-score", action="store_true",
+                   help="skip the judge; quality metrics stay null (rescore later with harness.metrics.score)")
     args = p.parse_args(argv)
 
     if args.mode == "human" and args.runs != 1:

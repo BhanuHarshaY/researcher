@@ -113,7 +113,9 @@ class BaselineAgent(Agent):
                     calls_this_turn += 1
                     self.recorder.tool_call(b.name, b.input, b.id, turn=turn)
                     content, is_error = self.tools.execute(b.name, b.input)
-                    self.recorder.tool_result(b.id, content, is_error, turn=turn)
+                    self.recorder.tool_result(
+                        b.id, content, is_error, turn=turn, paper_ids=self.tools.find_ids(content)
+                    )
                 results.append(
                     {"type": "tool_result", "tool_use_id": b.id, "content": content, "is_error": is_error}
                 )

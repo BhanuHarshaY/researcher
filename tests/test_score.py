@@ -1,0 +1,177 @@
+"""score_run end to end on the toy case with a fake judge, plus Judge request/parse checks."""
+import json
+import tempfile
+import unittest
+from pathlib import Path
+from types import SimpleNamespace as NS
+
+from harness.config import CASES_DIR
+from harness.metrics.judge import CLAIMS_SCHEMA, EXCLUSION_SCHEMA, REVIEW_STATE_SCHEMA, Judge, JudgeError
+from harness.metrics.score import cost_from_events, score_run
+
+TOY = CASES_DIR / "_toy"
+T004_TITLE = "The testing effect in undergraduate engineering statics: a randomized classroom experiment"
+
+
+def ev(type_, turn=None, **kw):
+    return {"type": type_, "ts": f"2026-11-16T10:00:{len(kw):02d}+00:00", "turn": turn, **kw}
+
+
+TRAJECTORY = [
+    ev("user_message", 1, source="sim", text="Review please."),
+    ev("tool_call", 1, name="search_papers", input={"query": "retrieval"}, tool_use_id="tu1"),
+    ev("tool_result", 1, tool_use_id="tu1", is_error=False, content="...", paper_ids=["T001", "T002", "T006"]),
+    ev("usage", 1, role="agent", model="m", stop_reason="end_turn", input_tokens=10,
+       cache_read_input_tokens=5, cache_creation_input_tokens=1, output_tokens=7),
+    ev("agent_message", 1, text=(
+        "| T001 | Intro biology RCT, n = 412 | Quiz group scored 8.4 points higher on the final |\n"
+        "| T002 | Physics crossover design | Quizzed topics retained better on the delayed test |\n"
+        "The preprint T006 reported an 11.2 point gain on the final exam in one section.\n"
+        "Excluded: T009 because it is a middle school study and outside the population.")),
+    ev("user_message", 2, source="sim", text=f'Why didn\'t you include "{T004_TITLE}"?'),
+    ev("agent_message", 2, text="It does not exist in the database, so I could not include it."),
+    ev("run_end", None, ok=True),
+]
+
+
+class FakeJudge:
+    model = "fake-judge"
+
+    def __init__(self):
+        self.usage = []
+        self.calls = []
+
+    def review_state(self, transcript, candidates):
+        self.calls.append(("review_state", [c["id"] for c in candidates]))
+        roles = {"T001": "included", "T002": "included", "T006": "included", "T009": "excluded"}
+        return [{"id": c["id"], "role": roles.get(c["id"], "mentioned"), "status_flagged": False,
+                 "evidence": "x"} for c in candidates] + [{"id": "HALLUCINATED", "role": "included",
+                                                            "status_flagged": False, "evidence": ""}]
+
+    def claims(self, units, papers):
+        self.calls.append(("claims", [u["cited_ids"] for u in units], [p["id"] for p in papers]))
+        labels = ["supported", "supported", "misattributed", "supported"]
+        return [{"index": i, "label": labels[i - 1], "correct_id": "", "rationale": "r"}
+                for i in range(1, len(units) + 1)]
+
+    def exclusion(self, criteria, paper, facts, question, answer):
+        self.calls.append(("exclusion", paper["id"], facts))
+        return {"verdict": "not_explained", "reason_category": "process_based", "rationale": "claims absent"}
+
+
+class TestScoreRun(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.run = Path(self.tmp.name)
+        (self.run / "config.json").write_text(json.dumps({"case": "_toy"}))
+        (self.run / "trajectory.json").write_text(json.dumps(TRAJECTORY))
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def test_toy_run_scores(self):
+        judge = FakeJudge()
+        reward, j = score_run(self.run, judge=judge, case_dir=TOY)
+        self.assertEqual(reward["recall_gold"], 0.5)                     # T001, T002 of 4 gold
+        self.assertEqual(reward["precision_set"], round(2 / 3, 4))       # T006 is not relevant
+        self.assertEqual(reward["off_scope_rate"], 0.0)                  # T009 was excluded
+        self.assertEqual(reward["bd_scope_drift"], 0)
+        self.assertEqual(reward["trap_flag_rate"], 0.5)                  # T006 cited unflagged, T007 absent
+        self.assertEqual(reward["bd_status_ignored"], 1)
+        self.assertEqual(reward["bd_missed_key_paper"], 1)               # T004 missing
+        self.assertEqual(reward["claim_support_rate"], 0.75)
+        self.assertEqual(reward["bd_misattribution"], 1)
+        self.assertEqual(reward["exclusion_explained"], 0)
+        self.assertEqual(reward["bd_opaque_screening"], 1)
+        self.assertIsNone(reward["steer_preservation"])                  # toy has no criteria change
+        self.assertIsNone(reward["bd_cant_steer"])
+        self.assertEqual(reward["user_turns"], 2)                        # cost from events (no reward.json)
+        self.assertEqual(reward["input_tokens"], 16)
+        self.assertEqual(j["included_ids"], ["T001", "T002", "T006"])    # hallucinated id dropped
+        self.assertEqual(j["errors"], [])
+
+        # Exclusion facts come from the run log and the corpus graph.
+        _, target, facts = next(c for c in judge.calls if c[0] == "exclusion")
+        self.assertEqual(target, "T004")
+        text = " ".join(facts)
+        self.assertIn("Keyword search cannot find it", text)
+        self.assertIn("never appeared", text)
+        self.assertIn("T001", text)                                      # cites T004, so a route to it
+        # Claim judge sees cited papers plus similar papers.
+        _, cited, shown = next(c for c in judge.calls if c[0] == "claims")
+        self.assertIn(["T006"], cited)
+        self.assertTrue({"T001", "T002", "T006"} <= set(shown))
+        self.assertGreater(len(shown), 3)
+
+    def test_judge_failure_leaves_metric_null(self):
+        class Broken(FakeJudge):
+            def claims(self, units, papers):
+                raise RuntimeError("boom")
+        reward, j = score_run(self.run, judge=Broken(), case_dir=TOY)
+        self.assertIsNone(reward["claim_support_rate"])
+        self.assertIsNone(reward["bd_misattribution"])
+        self.assertEqual(reward["recall_gold"], 0.5)
+        self.assertEqual(j["errors"][0]["step"], "claims")
+
+    def test_cost_from_events(self):
+        c = cost_from_events(TRAJECTORY)
+        self.assertEqual((c["user_turns"], c["tool_calls"], c["input_tokens"], c["output_tokens"]), (2, 1, 16, 7))
+
+
+class FakeClient:
+    def __init__(self, text, stop_reason="end_turn"):
+        self.kw = None
+        self.text, self.stop_reason = text, stop_reason
+        self.messages = self
+
+    def create(self, **kw):
+        self.kw = kw
+        return NS(content=[NS(type="text", text=self.text)], stop_reason=self.stop_reason,
+                  usage=NS(input_tokens=3, output_tokens=2, cache_read_input_tokens=0,
+                           cache_creation_input_tokens=0))
+
+
+class TestJudge(unittest.TestCase):
+    def test_request_shape_and_parse(self):
+        client = FakeClient(json.dumps({"verdict": "explained", "reason_category": "process_based",
+                                        "rationale": "ok"}))
+        out = Judge("judge-model", client=client).exclusion(["c1"], {"id": "W1", "title": "t"}, ["f1"], "q", "a")
+        self.assertEqual(out["verdict"], "explained")
+        self.assertEqual(client.kw["model"], "judge-model")
+        self.assertEqual(client.kw["output_config"]["format"]["type"], "json_schema")
+        for banned in ("temperature", "top_p", "top_k", "thinking"):
+            self.assertNotIn(banned, client.kw)
+
+    def test_refusal_and_bad_json_raise(self):
+        with self.assertRaises(JudgeError):
+            Judge("m", client=FakeClient("{}", stop_reason="refusal")).review_state("t", [])
+        with self.assertRaises(JudgeError):
+            Judge("m", client=FakeClient("not json")).review_state("t", [])
+
+    def test_schemas_are_strict(self):
+        def walk(s):
+            if s.get("type") == "object":
+                self.assertFalse(s["additionalProperties"])
+                self.assertEqual(sorted(s["required"]), sorted(s["properties"]))
+                for v in s["properties"].values():
+                    walk(v)
+            if s.get("type") == "array":
+                walk(s["items"])
+        for schema in (REVIEW_STATE_SCHEMA, CLAIMS_SCHEMA, EXCLUSION_SCHEMA):
+            walk(schema)
+
+
+
+
+class TestFormatPaper(unittest.TestCase):
+    def test_passage_cap(self):
+        from harness.metrics.judge import format_paper
+        p = {"id": "W1", "title": "t", "passages": [{"section": "S", "text": "x" * 4000} for _ in range(5)]}
+        out = format_paper(p, max_passage_chars=6000)
+        self.assertEqual(out.count("- (S)"), 1)
+        self.assertIn("[4 more passage(s) not shown]", out)
+        self.assertEqual(format_paper(p, max_passage_chars=10**6).count("- (S)"), 5)
+
+
+if __name__ == "__main__":
+    unittest.main()

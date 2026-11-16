@@ -93,6 +93,42 @@ TOOL_DEFS = [
 ]
 
 
+class BM25:
+    """Deterministic Okapi BM25 over {id: text}. Ties sort by id."""
+
+    def __init__(self, docs: dict[str, str], k1: float = BM25_K1, b: float = BM25_B):
+        self.k1, self.b = k1, b
+        self.ids = sorted(docs)
+        self.tf: dict[str, Counter] = {}
+        self.dl: dict[str, int] = {}
+        df: Counter = Counter()
+        for pid in self.ids:
+            toks = tokenize(docs[pid])
+            self.tf[pid] = Counter(toks)
+            self.dl[pid] = len(toks)
+            df.update(self.tf[pid].keys())
+        n = len(self.ids)
+        self.avgdl = (sum(self.dl.values()) / n) if n else 0.0
+        # Lucene-style idf, always positive.
+        self.idf = {t: math.log(1 + (n - d + 0.5) / (d + 0.5)) for t, d in df.items()}
+
+    def score(self, q_tokens: list[str], pid: str) -> float:
+        tf, dl = self.tf[pid], self.dl[pid]
+        s = 0.0
+        for t in q_tokens:
+            f = tf.get(t, 0)
+            if f:
+                denom = f + self.k1 * (1 - self.b + self.b * dl / (self.avgdl or 1))
+                s += self.idf.get(t, 0.0) * f * (self.k1 + 1) / denom
+        return s
+
+    def rank(self, query: str) -> list[tuple[float, str]]:
+        """All docs with score > 0, sorted by score desc then id asc."""
+        q = tokenize(query)
+        scored = [(-round(self.score(q, pid), 9), pid) for pid in self.ids]
+        return [(-ns, pid) for ns, pid in sorted(scored) if ns < 0]
+
+
 class ToolError(Exception):
     """Raised for bad tool input; returned to the agent as an is_error tool_result."""
 
@@ -125,39 +161,22 @@ class MockSearch:
                     cites[pid].add(c)
         self._cites = {pid: sorted(s) for pid, s in cites.items()}
 
-        self._build_bm25()
+        # BM25 index over searchable papers only (hidden papers are never returned).
+        self._index = BM25({
+            pid: f"{p.get('title', '')} {p.get('abstract', '')}"
+            for pid, p in self.papers.items()
+            if not p.get("hidden_from_search", False)
+        })
 
-    # ---------- BM25 index (searchable papers only) ----------
-    def _build_bm25(self) -> None:
-        self._doc_ids = sorted(
-            pid for pid, p in self.papers.items() if not p.get("hidden_from_search", False)
-        )
-        self._doc_tf: dict[str, Counter] = {}
-        self._doc_len: dict[str, int] = {}
-        df: Counter = Counter()
-        for pid in self._doc_ids:
-            p = self.papers[pid]
-            toks = tokenize(f"{p.get('title', '')} {p.get('abstract', '')}")
-            tf = Counter(toks)
-            self._doc_tf[pid] = tf
-            self._doc_len[pid] = len(toks)
-            df.update(tf.keys())
-        n = len(self._doc_ids)
-        self._avgdl = (sum(self._doc_len.values()) / n) if n else 0.0
-        # Lucene-style idf, always positive.
-        self._idf = {t: math.log(1 + (n - d + 0.5) / (d + 0.5)) for t, d in df.items()}
+        # Matches any corpus id as a whole token, e.g. "[W123]", "W123,", "T005-T010".
+        alts = "|".join(re.escape(i) for i in sorted(self.papers, key=len, reverse=True))
+        self._id_re = re.compile(rf"(?<![A-Za-z0-9_])(?:{alts})(?![A-Za-z0-9_])") if alts else None
 
-    def _bm25(self, q_tokens: list[str], pid: str) -> float:
-        tf = self._doc_tf[pid]
-        dl = self._doc_len[pid]
-        score = 0.0
-        for t in q_tokens:
-            f = tf.get(t, 0)
-            if not f:
-                continue
-            denom = f + BM25_K1 * (1 - BM25_B + BM25_B * dl / (self._avgdl or 1))
-            score += self._idf.get(t, 0.0) * f * (BM25_K1 + 1) / denom
-        return score
+    def find_ids(self, text: str) -> list[str]:
+        """Corpus ids mentioned in text, unique, in order of first mention."""
+        if not text or self._id_re is None:
+            return []
+        return list(dict.fromkeys(self._id_re.findall(text)))
 
     # ---------- tools ----------
     def _get(self, pid) -> dict:
@@ -174,19 +193,13 @@ class MockSearch:
             raise ToolError("limit must be a positive integer.")
         limit = min(limit, MAX_LIMIT)
 
-        q_tokens = tokenize(query)
-        scored = []
-        for pid in self._doc_ids:
-            p = self.papers[pid]
-            if year_from is not None and (p.get("year") or 0) < year_from:
-                continue
-            s = self._bm25(q_tokens, pid)
-            if s > 0:
-                scored.append((-round(s, 9), pid))
-        scored.sort()  # score desc, then id asc: fully deterministic
+        ranked = [
+            (score, pid) for score, pid in self._index.rank(query)
+            if year_from is None or (self.papers[pid].get("year") or 0) >= year_from
+        ]
 
         results = []
-        for neg_s, pid in scored[:limit]:
+        for _score, pid in ranked[:limit]:
             p = self.papers[pid]
             abstract = p.get("abstract", "") or ""
             snippet = abstract[:SNIPPET_CHARS] + ("..." if len(abstract) > SNIPPET_CHARS else "")
@@ -200,7 +213,7 @@ class MockSearch:
                     "snippet": snippet,
                 }
             )
-        return {"query": query, "total_matches": len(scored), "results": results}
+        return {"query": query, "total_matches": len(ranked), "results": results}
 
     def get_paper(self, id: str) -> dict:
         p = self._get(id)
