@@ -23,6 +23,12 @@ CLAIM_LABELS = ("supported", "unsupported", "misattributed", "not_a_claim")
 CHECKED_LABELS = ("supported", "unsupported", "misattributed")
 MAX_CLAIMS = 15             # claims counted per run (CLAUDE.md)
 MAX_CLAIM_CANDIDATES = 40   # statements sent to the judge to find up to 15 checkable claims
+REJUDGE_NOTE = (  # sent once when a statement was labelled misattributed without a valid correct_id
+    "Note: an earlier answer labelled these statements \"misattributed\" without giving the id of "
+    "another paper shown above. Use \"misattributed\" only if a paper shown above (other than the "
+    "cited one) supports the statement, and put that paper's id in correct_id; otherwise choose "
+    "another label."
+)
 MIN_CLAIM_WORDS = 6
 DEFAULT_THRESHOLDS = {"off_scope": 0.2, "steer_preservation": 0.7}
 
@@ -81,7 +87,8 @@ def classify_followups(case: dict) -> dict:
 
     A followup may set `kind: why_excluded | exclusion_list | criteria_change |
     criteria_reveal` (and `target` for why_excluded) explicitly; criteria_reveal
-    (criteria the user adds early, as real users do) is not scored itself. Otherwise:
+    (criteria the user adds early, as real users do) is not scored itself, nor is
+    any other explicit kind (for example contrast_pair or final_section). Otherwise:
     - a message that starts with "Why" and names a paper placeholder is why_excluded;
     - a message asking to list the papers considered and excluded is exclusion_list;
     - if the case has post_change_expected_ids, the first other followup is the
@@ -142,6 +149,12 @@ def claim_units(agent_messages: list[tuple[int, str]], find_ids,
     order) and the first max_candidates are returned. The judge labels them;
     counted_claims() then keeps the first MAX_CLAIMS checkable ones.
     """
+    return all_claim_units(agent_messages, find_ids, seed=seed, find_foreign=find_foreign)[:max_candidates]
+
+
+def all_claim_units(agent_messages: list[tuple[int, str]], find_ids, seed: int = 0,
+                    find_foreign=None) -> list[dict]:
+    """Every candidate statement in the fixed-seed order (claim_units is its first max_candidates)."""
     units, seen = [], set()
     for turn, text in agent_messages:
         for u in _split_units(text or ""):
@@ -158,7 +171,55 @@ def claim_units(agent_messages: list[tuple[int, str]], find_ids,
             seen.add(key)
             units.append({"turn": turn, "text": u, "cited_ids": ids, "foreign_ids": foreign})
     random.Random(seed).shuffle(units)
-    return units[:max_candidates]
+    return units
+
+
+def pair_papers(case: dict) -> set[str]:
+    """Papers in the case's misattribution `pairs` (similar papers with different findings)."""
+    return {pid for pair in case.get("pairs") or [] for pid in pair}
+
+
+def pair_claim_units(units: list[dict], pairs: set[str], report_of: dict | None) -> list[dict]:
+    """Every statement citing a pair paper (or another version of one, via report_of), in
+    the given (seeded) order. All are judged, so a misattribution between the papers of a
+    pair cannot be missed by the random sample."""
+    if not pairs:
+        return []
+    return [u for u in units if to_trials(u["cited_ids"], report_of) & pairs]
+
+
+def valid_correct_id(unit: dict, shown_ids: set[str]) -> bool:
+    """A 'misattributed' label needs the id of a paper the judge was shown, other than a cited one."""
+    cid = unit.get("correct_id") or ""
+    return cid in shown_ids and cid not in (unit.get("cited_ids") or [])
+
+
+def title_only(paper: dict) -> bool:
+    """A record with no abstract and no passages: a claim citing it can only be checked
+    against its title and metadata (a weak check)."""
+    return not (paper.get("abstract") or "").strip() and not paper.get("passages")
+
+
+def same_paper(a: str, b: str, report_of: dict | None) -> bool:
+    """True if a and b are versions of one paper (a preprint and its journal article)."""
+    report_of = report_of or {}
+    return report_of.get(a, a) == report_of.get(b, b)
+
+
+def version_not_misattribution(unit: dict, report_of: dict | None) -> bool:
+    """Relabel a 'misattributed' claim whose correct paper is another version of a cited
+    paper as 'supported'. Citing the preprint instead of the journal article is a status
+    problem, scored by trap_flag_rate and bd_status_ignored, not a misattribution.
+    Returns True if the label was changed."""
+    cid = unit.get("correct_id") or ""
+    if unit.get("label") != "misattributed" or not cid:
+        return False
+    if any(c != cid and same_paper(c, cid, report_of) for c in unit.get("cited_ids") or []):
+        unit["label"] = "supported"
+        unit["relabelled_from"] = "misattributed"
+        unit["relabel_reason"] = f"{cid} is another version of the cited paper"
+        return True
+    return False
 
 
 def counted_claims(labels: list[str], max_claims: int = MAX_CLAIMS) -> list[bool]:
@@ -275,8 +336,14 @@ def _flag_below(value, threshold) -> int | None:
 def compute_reward(case: dict, corpus_ids: set[str], *, final_roles: dict[str, str] | None,
                    flagged: dict[str, bool] | None, pre_roles: dict[str, str] | None,
                    claim_labels: list[str] | None, exclusion_explained: int | None,
-                   cost: dict | None = None, foreign_cited: set[str] | None = None) -> dict:
-    """Build the full reward.json dict. Pass None for any judgment that wasn't made."""
+                   cost: dict | None = None, foreign_cited: set[str] | None = None,
+                   pair_claim_labels: list[str] | None = None) -> dict:
+    """Build the full reward.json dict. Pass None for any judgment that wasn't made.
+
+    claim_labels: the counted claims of the random sample (claim_support_rate).
+    pair_claim_labels: labels of the statements citing the case's pair papers; they
+      count toward bd_misattribution only.
+    """
     th = {**DEFAULT_THRESHOLDS, **(case.get("thresholds") or {})}
     reward = null_reward()
     if cost:
@@ -304,8 +371,9 @@ def compute_reward(case: dict, corpus_ids: set[str], *, final_roles: dict[str, s
 
     if claim_labels is not None:
         reward["claim_support_rate"] = claim_support_rate(claim_labels)
-        if any(l in CHECKED_LABELS for l in claim_labels):
-            reward["bd_misattribution"] = int("misattributed" in claim_labels)
+        checked = [l for l in claim_labels + list(pair_claim_labels or []) if l in CHECKED_LABELS]
+        if checked:
+            reward["bd_misattribution"] = int("misattributed" in checked)
 
     if exclusion_explained is not None:
         reward["exclusion_explained"] = int(exclusion_explained)

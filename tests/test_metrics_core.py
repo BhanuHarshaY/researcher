@@ -232,6 +232,11 @@ class TestClaimUnits(unittest.TestCase):
         self.assertEqual(a, b)                                           # fixed seed: same order
         self.assertEqual(len(core.claim_units(msgs, _find)), 20)         # default cap is 40
 
+    def test_claim_units_is_prefix_of_all_claim_units(self):
+        msgs = [(1, f"Paper W{i} reported a large improvement in final exam scores overall.") for i in range(50)]
+        self.assertEqual(core.claim_units(msgs, _find), core.all_claim_units(msgs, _find)[:40])
+        self.assertEqual(len(core.all_claim_units(msgs, _find)), 50)
+
     def test_counted_claims_takes_first_15_checkable(self):
         labels = ["not_a_claim", "supported"] * 20                       # 20 checkable among 40
         mask = core.counted_claims(labels)
@@ -240,6 +245,60 @@ class TestClaimUnits(unittest.TestCase):
         self.assertTrue(mask[1])
         self.assertEqual(mask.index(False, 30), 30)                      # 15th checkable is index 29
         self.assertEqual(sum(core.counted_claims(["supported", "not_a_claim"])), 1)
+
+
+class TestPairsAndVersions(unittest.TestCase):
+    """case.yaml `pairs` (always-judged claims) and preprint/journal versions of one paper."""
+    REPORT_OF = {"P1pre": "P1"}
+
+    def test_pair_claim_units(self):
+        units = [{"text": t, "cited_ids": c} for t, c in
+                 [("a", ["X"]), ("b", ["P1pre"]), ("c", ["P2", "Y"]), ("d", ["P1"]), ("e", ["Y"])]]
+        pairs = core.pair_papers({"pairs": [["P1", "P2"]]})
+        self.assertEqual(pairs, {"P1", "P2"})
+        self.assertEqual([u["text"] for u in core.pair_claim_units(units, pairs, self.REPORT_OF)], ["b", "c", "d"])
+        many = [{"text": str(i), "cited_ids": ["P1"]} for i in range(30)]
+        self.assertEqual(len(core.pair_claim_units(many, pairs, None)), 30)              # no cap
+        self.assertEqual(core.pair_claim_units(units, set(), self.REPORT_OF), [])          # no pairs: nothing
+
+    def test_valid_correct_id_and_title_only(self):
+        shown = {"P1", "P2", "X"}
+        self.assertTrue(core.valid_correct_id({"correct_id": "P2", "cited_ids": ["P1"]}, shown))
+        self.assertFalse(core.valid_correct_id({"correct_id": "", "cited_ids": ["P1"]}, shown))
+        self.assertFalse(core.valid_correct_id({"correct_id": "Q9", "cited_ids": ["P1"]}, shown))   # not shown
+        self.assertFalse(core.valid_correct_id({"correct_id": "P1", "cited_ids": ["P1"]}, shown))   # the cited one
+        self.assertTrue(core.title_only({"title": "t", "abstract": "", "passages": []}))
+        self.assertTrue(core.title_only({"title": "t"}))
+        self.assertFalse(core.title_only({"title": "t", "abstract": "x", "passages": []}))
+        self.assertFalse(core.title_only({"title": "t", "abstract": " ", "passages": [{"text": "p"}]}))
+
+    def test_version_is_not_misattribution(self):
+        u = {"label": "misattributed", "correct_id": "P1pre", "cited_ids": ["P1"]}
+        self.assertTrue(core.same_paper("P1pre", "P1", self.REPORT_OF))
+        self.assertTrue(core.version_not_misattribution(u, self.REPORT_OF))
+        self.assertEqual((u["label"], u["relabelled_from"]), ("supported", "misattributed"))
+        other = {"label": "misattributed", "correct_id": "P2", "cited_ids": ["P1"]}
+        self.assertFalse(core.version_not_misattribution(other, self.REPORT_OF))         # a different paper
+        self.assertEqual(other["label"], "misattributed")
+        self_ref = {"label": "misattributed", "correct_id": "P1", "cited_ids": ["P1"]}
+        self.assertFalse(core.version_not_misattribution(self_ref, self.REPORT_OF))       # not a version issue
+        ok = {"label": "supported", "correct_id": "", "cited_ids": ["P1"]}
+        self.assertFalse(core.version_not_misattribution(ok, self.REPORT_OF))
+        self.assertFalse(core.version_not_misattribution(
+            {"label": "misattributed", "correct_id": "P1pre", "cited_ids": ["P1"]}, None))  # no report_of
+
+    def test_pair_labels_count_for_misattribution_only(self):
+        kw = dict(final_roles=None, flagged=None, pre_roles=None, exclusion_explained=None)
+        r = core.compute_reward({}, set(), claim_labels=["supported", "supported"],
+                                pair_claim_labels=["misattributed", "supported"], **kw)
+        self.assertEqual((r["claim_support_rate"], r["bd_misattribution"]), (1.0, 1))
+        r = core.compute_reward({}, set(), claim_labels=["supported"], pair_claim_labels=None, **kw)
+        self.assertEqual(r["bd_misattribution"], 0)
+        r = core.compute_reward({}, set(), claim_labels=["not_a_claim"], pair_claim_labels=["supported"], **kw)
+        self.assertIsNone(r["claim_support_rate"])
+        self.assertEqual(r["bd_misattribution"], 0)                                       # pair claim was checked
+        r = core.compute_reward({}, set(), claim_labels=None, pair_claim_labels=["misattributed"], **kw)
+        self.assertIsNone(r["bd_misattribution"])                                         # claims judge failed
 
 
 if __name__ == "__main__":

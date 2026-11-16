@@ -50,10 +50,13 @@ class FakeJudge:
                                                               "status_flagged": False, "evidence": ""}]
         return {"papers": papers, "completeness_caveat": False, "caveat_quote": ""}
 
-    def claims(self, units, papers):
+    def claims(self, units, papers, note=None):
         self.calls.append(("claims", [u["cited_ids"] for u in units], [p["id"] for p in papers]))
         labels = ["supported", "supported", "misattributed", "supported"]
-        return [{"index": i, "label": labels[i - 1], "correct_id": "", "rationale": "r"}
+        # A misattribution names another paper the judge was shown (a valid correct_id).
+        other = lambda u: next(p["id"] for p in papers if p["id"] not in u["cited_ids"])
+        return [{"index": i, "label": labels[i - 1],
+                 "correct_id": other(units[i - 1]) if labels[i - 1] == "misattributed" else "", "rationale": "r"}
                 for i in range(1, len(units) + 1)]
 
     def exclusion(self, criteria, title, seen_level, seen_text, facts, question, answer):
@@ -205,6 +208,145 @@ class TestScoreRun(unittest.TestCase):
     def test_cost_from_events(self):
         c = cost_from_events(TRAJECTORY)
         self.assertEqual((c["user_turns"], c["tool_calls"], c["input_tokens"], c["output_tokens"]), (2, 1, 16, 7))
+
+    def test_toy_case_has_no_pair_claims(self):
+        _, j = score_run(self.run, judge=FakeJudge(), case_dir=TOY)
+        self.assertNotIn("pair_claims", j)
+
+
+class PairJudge(FakeJudge):
+    """Labels by marker words: MISATTR -> credited to T002; VERSION -> content is in preprint T006;
+    NOID -> 'misattributed' without an id, twice; FIXED -> without an id first, T002 on the re-judge."""
+
+    def claims(self, units, papers, note=None):
+        self.calls.append(("claims_rejudge" if note else "claims", [u["text"] for u in units], [p["id"] for p in papers]))
+        out = []
+        for i, u in enumerate(units, 1):
+            if "MISATTR" in u["text"]:
+                out.append({"index": i, "label": "misattributed", "correct_id": "T002", "rationale": "r"})
+            elif "VERSION" in u["text"]:
+                out.append({"index": i, "label": "misattributed", "correct_id": "T006", "rationale": "r"})
+            elif "NOID" in u["text"]:
+                out.append({"index": i, "label": "misattributed", "correct_id": "", "rationale": "r"})
+            elif "FIXED" in u["text"]:
+                out.append({"index": i, "label": "misattributed", "correct_id": "T002" if note else "", "rationale": "r"})
+            else:
+                out.append({"index": i, "label": "supported", "correct_id": "", "rationale": "r"})
+        return out
+
+
+class TestPairClaims(unittest.TestCase):
+    """case.yaml `pairs`: statements citing pair papers are always judged; versions are not misattribution."""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        root = Path(self.tmp.name)
+        self.run = root / "run"
+        self.run.mkdir()
+        (self.run / "config.json").write_text(json.dumps({"case": "pairs_case"}))
+        self.case_dir = root / "case"
+        (self.case_dir / "corpus").mkdir(parents=True)
+        (self.case_dir / "corpus" / "papers.jsonl").write_text((TOY / "corpus" / "papers.jsonl").read_text())
+        spec = (TOY / "case.yaml").read_text().replace(
+            "post_change_expected_ids:", "pairs: [[T001, T002]]\nreport_of: {T006: T001}\npost_change_expected_ids:")
+        (self.case_dir / "case.yaml").write_text(spec)
+
+    def tearDown(self):
+        self.tmp.cleanup()
+
+    def write(self, pair_lines):
+        # 45 filler statements about T003 fill the 40-statement random sample, so most pair
+        # statements fall outside it and are judged only because they cite a pair paper.
+        filler = [f"T003 found retrieval practice improved chemistry exam scores in section {k} of the course."
+                  for k in range(45)]
+        traj = [ev("user_message", 1, source="sim", text="Related work please."),
+                ev("agent_message", 1, text="\n".join(filler + pair_lines)),
+                ev("run_end", None, ok=True)]
+        (self.run / "trajectory.json").write_text(json.dumps(traj))
+
+    def test_pair_claims_always_judged(self):
+        pair_lines = [
+            "T001 reported that weekly quizzes raised final exam scores by 8.4 points MISATTR.",
+            "T002 found that quizzed topics were retained better after eight weeks of study.",
+            "T001 reported an interim gain of 11.2 points on the final exam VERSION in one section.",
+        ]
+        many = [f"T002 found quizzed topic number {k} was retained better after eight weeks." for k in range(12)]
+        self.write(pair_lines + many)
+        judge = PairJudge()
+        reward, j = score_run(self.run, judge=judge, case_dir=self.case_dir)
+        pc = {p["text"]: p for p in j["pair_claims"]}
+        self.assertEqual(set(pc), set(pair_lines + many))                # every pair claim, no cap
+        sample_texts = {c["text"] for c in j["claims"]}
+        self.assertEqual(len(j["claims"]), 40)
+        for p in j["pair_claims"]:
+            self.assertEqual(p["in_sample"], p["text"] in sample_texts)
+            self.assertIn("label", p)
+        calls = [c for c in judge.calls if c[0] == "claims"]
+        self.assertEqual(len(calls), 2)                                  # sample, then pair claims outside it
+        self.assertEqual(len(calls[0][1]), 40)
+        self.assertEqual(set(calls[1][1]), {p["text"] for p in j["pair_claims"] if not p["in_sample"]})
+        self.assertEqual(calls[0][2][:2], ["T001", "T002"])              # pair papers pinned first in both contexts
+        self.assertEqual(calls[1][2][:2], ["T001", "T002"])
+        # The MISATTR claim sets the flag even if it is outside the sample...
+        self.assertEqual(pc[pair_lines[0]]["label"], "misattributed")
+        self.assertEqual(reward["bd_misattribution"], 1)
+        # ...while claim_support_rate uses the sample's counted claims only.
+        counted = [c["label"] for c in j["claims"] if c["counted"]]
+        self.assertEqual(reward["claim_support_rate"], round(counted.count("supported") / len(counted), 4))
+        # The VERSION claim credits T001 with content from its own preprint T006: not misattribution.
+        v = pc[pair_lines[2]]
+        self.assertEqual((v["label"], v["relabelled_from"]), ("supported", "misattributed"))
+
+    def test_version_alone_does_not_flag(self):
+        self.write(["T001 reported an interim gain of 11.2 points on the final exam VERSION in one section."])
+        reward, j = score_run(self.run, judge=PairJudge(), case_dir=self.case_dir)
+        self.assertEqual(reward["bd_misattribution"], 0)
+        self.assertEqual(j["pair_claims"][0]["label"], "supported")
+
+    def test_misattributed_without_valid_id_is_rejudged_once(self):
+        lines = ["T001 reported that weekly quizzes raised final exam scores by 8.4 points NOID.",
+                 "T001 reported that weekly quizzes raised final exam scores by 9.9 points FIXED."]
+        self.write(lines)
+        judge = PairJudge()
+        reward, j = score_run(self.run, judge=judge, case_dir=self.case_dir)
+        pc = {p["text"]: p for p in j["pair_claims"]}
+        noid, fixed = pc[lines[0]], pc[lines[1]]
+        self.assertEqual((noid["label"], noid["invalid_misattribution"], noid["rejudged"]), ("unsupported", True, True))
+        self.assertEqual((fixed["label"], fixed["correct_id"], fixed["rejudged"]), ("misattributed", "T002", True))
+        rejudges = [c for c in judge.calls if c[0] == "claims_rejudge"]
+        self.assertTrue(rejudges)
+        self.assertTrue(all(set(c[1]) <= set(lines) for c in rejudges))   # only the invalid ones are re-judged
+        self.assertEqual(reward["bd_misattribution"], 1)                    # FIXED is a real misattribution
+
+    def test_title_only_claims_are_marked(self):
+        papers = [json.loads(l) for l in (self.case_dir / "corpus" / "papers.jsonl").read_text().splitlines() if l]
+        for p in papers:
+            if p["id"] == "T002":
+                p["abstract"], p["passages"] = "", []
+        (self.case_dir / "corpus" / "papers.jsonl").write_text("\n".join(json.dumps(p) for p in papers))
+        self.write(["T002 found that quizzed topics were retained better after eight weeks of study."])
+        _, j = score_run(self.run, judge=PairJudge(), case_dir=self.case_dir)
+        self.assertIn("title-only record, weak check: T002", j["pair_claims"][0]["weak_check"])
+        self.assertTrue(all("weak_check" not in c for c in j["claims"] if "T002" not in c["cited_ids"]))
+
+    def test_key_papers_at_turn_observation(self):
+        spec = (self.case_dir / "case.yaml").read_text() + "\nobserve_key_papers_at_turn: 1\n"
+        (self.case_dir / "case.yaml").write_text(spec)
+        traj = [ev("user_message", 1, source="sim", text="Related work please."),
+                ev("tool_call", 1, name="search_papers", input={"query": "x"}, tool_use_id="tu1"),
+                ev("tool_result", 1, tool_use_id="tu1", is_error=False, content="...", paper_ids=["T001"]),
+                ev("agent_message", 1, text="T001 found weekly quizzes raised final exam scores in biology."),
+                ev("user_message", 2, source="sim", text="More please."),
+                ev("agent_message", 2, text="T004 showed the testing effect in an engineering statics course."),
+                ev("run_end", None, ok=True)]
+        (self.run / "trajectory.json").write_text(json.dumps(traj))
+        reward, j = score_run(self.run, judge=PairJudge(), case_dir=self.case_dir)
+        obs = j["observations"]["key_papers_at_turn"]                    # toy key_ids: T001, T004
+        self.assertEqual(obs["turn"], 1)
+        self.assertEqual(obs["papers"]["T001"], {"included": True, "role": "included", "seen": "snippet"})
+        self.assertEqual(obs["papers"]["T004"], {"included": False, "role": "not mentioned", "seen": "never seen"})
+        self.assertFalse(obs["all_included"])
+        self.assertEqual(reward["bd_missed_key_paper"], 1)                 # unchanged: final report, T004 not included
 
 
 class FakeClient:

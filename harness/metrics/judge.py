@@ -212,13 +212,15 @@ class Judge:
         )
         return self._json_call("review_state", prompt, REVIEW_STATE_SCHEMA)
 
-    def claims(self, units: list[dict], papers: list[dict]) -> list[dict]:
+    def claims(self, units: list[dict], papers: list[dict], note: str | None = None) -> list[dict]:
+        """Label statements. `note` is appended to the task (used once, for a re-judge)."""
         records = "\n\n".join(format_paper(p) for p in papers)
         stmts = "\n".join(
             f'{i}. [cites: {", ".join(u["cited_ids"])}] {u["text"]}' for i, u in enumerate(units, 1)
         )
-        prompt = f"# Paper records\n{records}\n\n# Statements\n{stmts}\n\n# Task\n{CLAIMS_TASK}"
-        return self._json_call("claims", prompt, CLAIMS_SCHEMA)["claims"]
+        task = CLAIMS_TASK + (f"\n\n{note}" if note else "")
+        prompt = f"# Paper records\n{records}\n\n# Statements\n{stmts}\n\n# Task\n{task}"
+        return self._json_call("claims_rejudge" if note else "claims", prompt, CLAIMS_SCHEMA)["claims"]
 
     def exclusion_list_extract(self, seen_titles: list[dict], question: str, answer: str) -> list[dict]:
         seen = "\n".join(f'- {x["id"]}: {x["title"]}' for x in seen_titles)

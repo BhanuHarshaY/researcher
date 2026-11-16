@@ -26,7 +26,7 @@ import anthropic
 
 from ..channel import Agent
 from ..config import AGENT_MAX_TOKENS, MAX_TOOL_CALLS
-from ..tools.mock_search import TOOL_DEFS, MockSearch
+from ..tools.mock_search import MockSearch
 
 PROMPT_PATH = Path(__file__).with_name("baseline_prompt.md")
 
@@ -53,7 +53,7 @@ class BaselineAgent(Agent):
             model=self.model,
             max_tokens=AGENT_MAX_TOKENS,
             system=self.system_prompt,
-            tools=TOOL_DEFS,
+            tools=self.tools.tool_defs,   # same tools for every agent; description follows the case's ranking
             messages=self.messages,
             # Auto prompt caching of the growing history: cost only, no output change.
             cache_control={"type": "ephemeral"},

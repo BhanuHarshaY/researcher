@@ -44,6 +44,7 @@ def load_case(case_name: str) -> dict:
         "spec": case,
         "persona": (case_dir / "persona.md").read_text(),
         "corpus_path": case_dir / "corpus" / "papers.jsonl",
+        "search_ranking": case.get("search_ranking", "bm25"),   # default keeps earlier cases unchanged
     }
 
 
@@ -80,7 +81,7 @@ def run_one(args, models: dict, case: dict, run_index: int) -> bool:
         / f"{started.strftime('%Y%m%dT%H%M%SZ')}_{run_index}"
     )
     recorder = Recorder(run_dir, on_event=progress_printer if args.mode == "human" else sim_progress(run_index))
-    tools = MockSearch(case["corpus_path"])
+    tools = MockSearch(case["corpus_path"], ranking=case["search_ranking"])
 
     # Build the agent before creating the folder: the proposed stub fails here.
     agent = AGENTS[args.agent](models["agent_model"], tools, recorder, max_tool_calls=MAX_TOOL_CALLS)
@@ -105,6 +106,7 @@ def run_one(args, models: dict, case: dict, run_index: int) -> bool:
         "temperature_note": "API default; not sent (API version 2026-10-21 rejects sampling params).",
         "baseline_prompt_sha256": sha256_file(BASELINE_PROMPT_PATH),
         "corpus_sha256": tools.corpus_sha256,
+        "search_ranking": tools.ranking,
         "case_yaml_sha256": sha256_file(case["dir"] / "case.yaml"),
         "git_commit": git_commit(),
         "anthropic_sdk_version": version("anthropic"),

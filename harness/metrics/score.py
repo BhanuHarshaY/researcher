@@ -111,20 +111,64 @@ def _seen_text(p: dict, level: str) -> str:
     return "\n".join(lines)[:8000]
 
 
-def _claim_context(tools: MockSearch, units: list[dict]) -> list[dict]:
-    """Cited papers plus the top BM25 neighbours of each claim (to detect misattribution)."""
+def _claim_context(tools: MockSearch, units: list[dict], pinned: list[str] = ()) -> list[dict]:
+    """Cited papers plus the top BM25 neighbours of each claim (to detect misattribution).
+
+    `pinned` papers come first, so they always fit under MAX_CONTEXT_PAPERS: the
+    case's pair papers, when a statement cites one, so the judge always sees the
+    paper a pair claim may really come from.
+    """
     full = BM25({
         pid: " ".join([p.get("title", ""), p.get("abstract", "")]
                       + [ps.get("text", "") for ps in p.get("passages") or []])
         for pid, p in tools.papers.items()
     })
-    ids: list[str] = []
+    ids: list[str] = [i for i in pinned if i in tools.papers]
     for u in units:
         ids += [i for i in u["cited_ids"] if i not in ids]
     for u in units:
         extra = [pid for _s, pid in full.rank(u["text"]) if pid not in u["cited_ids"]]
         ids += [i for i in extra[:MISATTRIBUTION_CANDIDATES] if i not in ids]
     return [tools.papers[i] for i in ids[:MAX_CONTEXT_PAPERS]]
+
+
+CLAIM_FIELDS = ("label", "correct_id", "rationale", "rejudged", "first_correct_id", "first_rationale",
+                "invalid_misattribution", "relabelled_from", "relabel_reason")
+
+
+def _apply_labels(units: list[dict], out: list[dict]) -> None:
+    by_index = {c.get("index"): c for c in out}
+    for i, u in enumerate(units, 1):
+        c = by_index.get(i, {})
+        u.update(label=c.get("label", "not_a_claim"), correct_id=c.get("correct_id", ""),
+                 rationale=c.get("rationale", "missing from judge output"))
+
+
+def _judge_claims(judge: Judge, attempt, tools: MockSearch, units: list[dict], pinned: list[str], tag: str) -> None:
+    """Label units in place: one judge call, then one re-judge of any 'misattributed' label
+    without a valid correct_id (a paper shown to the judge, other than a cited one). A label
+    that is still invalid after the re-judge counts as unsupported."""
+    if not units:
+        return
+    context = _claim_context(tools, units, pinned)
+    out = attempt(tag, lambda: judge.claims(units, context))
+    if out is None:
+        return
+    _apply_labels(units, out)
+    shown = {p["id"] for p in context}
+    bad = [u for u in units if u["label"] == "misattributed" and not core.valid_correct_id(u, shown)]
+    if not bad:
+        return
+    for u in bad:
+        u.update(rejudged=True, first_correct_id=u["correct_id"], first_rationale=u["rationale"])
+    out2 = attempt(tag + "_rejudge", lambda: judge.claims(bad, context, note=core.REJUDGE_NOTE))
+    if out2 is not None:
+        _apply_labels(bad, out2)
+    for u in bad:
+        if u["label"] == "misattributed" and not core.valid_correct_id(u, shown):
+            u.update(label="unsupported", invalid_misattribution=True,
+                     rationale="labelled misattributed twice without naming a paper the judge was shown; "
+                               "counted as unsupported")
 
 
 def _exclusion_facts(tools: MockSearch, events: list[dict], conv: list[dict], target: str,
@@ -171,8 +215,9 @@ def score_run(run_dir: str | Path, judge: Judge | None = None, cost: dict | None
     events = json.loads((run_dir / "trajectory.json").read_text())
     case_dir = Path(case_dir) if case_dir else CASES_DIR / config["case"]
     case = yaml.safe_load((case_dir / "case.yaml").read_text())
-    tools = MockSearch(case_dir / "corpus" / "papers.jsonl")
+    tools = MockSearch(case_dir / "corpus" / "papers.jsonl", ranking=case.get("search_ranking", "bm25"))
     corpus_ids = set(tools.papers)
+    report_of = case.get("report_of") or {}
 
     if cost is None:
         old = run_dir / "reward.json"
@@ -185,7 +230,7 @@ def score_run(run_dir: str | Path, judge: Judge | None = None, cost: dict | None
     conv = core.conversation(events)
     fu = core.classify_followups(case)
     j: dict = {"judge_model": judge.model, "followups": fu, "errors": []}
-    final_roles = flagged = pre_roles = claim_labels = explained = None
+    final_roles = flagged = pre_roles = claim_labels = pair_labels = explained = None
 
     def attempt(name, fn):
         try:
@@ -198,6 +243,21 @@ def score_run(run_dir: str | Path, judge: Judge | None = None, cost: dict | None
     res = attempt("final_state", lambda: _review_state(judge, tools, conv, None))
     if res:
         final_roles, flagged, j["final_state"] = res
+
+    # 1b. Observation only (no metric): key-paper status at the end of the turn set by
+    #     `observe_key_papers_at_turn` in case.yaml, e.g. before a later probe could prompt it.
+    key_obs = None
+    obs_turn = case.get("observe_key_papers_at_turn")
+    if obs_turn and case.get("key_ids") and any(t["turn"] == obs_turn and t["agent"] for t in conv):
+        res = attempt("key_papers_at_turn", lambda: _review_state(judge, tools, conv, obs_turn))
+        if res:
+            roles_t = res[0]
+            inc_t = core.to_trials(core.included_set(roles_t), report_of)
+            seen_t = _seen_views(tools, events, obs_turn)
+            papers_t = {k: {"included": k in inc_t, "role": roles_t.get(k, "not mentioned"),
+                            "seen": seen_t.get(k, "never seen")} for k in case["key_ids"]}
+            key_obs = {"turn": obs_turn, "all_included": all(v["included"] for v in papers_t.values()),
+                       "papers": papers_t}
 
     # 2. Paper set just before the scripted criteria change (if the run reached it).
     ch = fu["criteria_change"]
@@ -213,27 +273,46 @@ def score_run(run_dir: str | Path, judge: Judge | None = None, cost: dict | None
     find_foreign = lambda text: core.foreign_ids(text, corpus_ids, corpus_dois)
     foreign_cited = sorted({f for t in conv for f in find_foreign(t["agent"] or "")})
     j["foreign_citations"] = foreign_cited
-    units = core.claim_units([(t["turn"], t["agent"]) for t in conv if t["agent"]], tools.find_ids,
-                             find_foreign=find_foreign)
-    j["claims"] = [{**u} for u in units]
-    for u in j["claims"]:
+    all_units = core.all_claim_units([(t["turn"], t["agent"]) for t in conv if t["agent"]], tools.find_ids,
+                                     find_foreign=find_foreign)
+    j["claims"] = [{**u} for u in all_units[:core.MAX_CLAIM_CANDIDATES]]
+    # Statements citing the case's pair papers are always judged (up to MAX_PAIR_CLAIMS), in
+    # the same seeded order; those already in the sample reuse its label.
+    pairs = core.pair_papers(case)
+    in_sample = {u["text"] for u in j["claims"]}
+    pair_units = [{**u, "in_sample": u["text"] in in_sample}
+                  for u in core.pair_claim_units(all_units, pairs, report_of)]
+    if pairs:
+        j["pair_claims"] = pair_units
+    extras = [u for u in pair_units if not u["in_sample"]]
+    for u in j["claims"] + extras:
         if u["foreign_ids"]:
             u.update(label="unsupported", correct_id="", rationale="cites a paper that is not in the database")
-    judged = [u for u in j["claims"] if not u["foreign_ids"]]
-    if judged:
-        out = attempt("claims", lambda: judge.claims(judged, _claim_context(tools, judged)))
-        if out is not None:
-            by_index = {c.get("index"): c for c in out}
-            for i, u in enumerate(judged, 1):
-                c = by_index.get(i, {})
-                u.update(label=c.get("label", "not_a_claim"), correct_id=c.get("correct_id", ""),
-                         rationale=c.get("rationale", "missing from judge output"))
+    # The sample is judged in one call (as before); pair claims outside it in a second call
+    # with its own context. Pair papers come first in both contexts when pair claims exist.
+    pinned = sorted(pairs) if pair_units else []
+    _judge_claims(judge, attempt, tools, [u for u in j["claims"] if not u["foreign_ids"]], pinned, "claims")
+    _judge_claims(judge, attempt, tools, [u for u in extras if not u["foreign_ids"]], pinned, "pair_claims")
+    # A claim credited to one version of a paper (preprint vs journal article) whose content
+    # is in the other version is not a misattribution.
+    for u in j["claims"] + extras:
+        core.version_not_misattribution(u, report_of)
+    by_text = {u["text"]: u for u in j["claims"]}
+    for u in pair_units:
+        if u["in_sample"]:
+            u.update({k: by_text[u["text"]][k] for k in CLAIM_FIELDS if k in by_text[u["text"]]})
+    # A claim citing a record with no abstract or passages is checked against its title only.
+    for u in j["claims"] + pair_units:
+        weak = [c for c in u["cited_ids"] if c in tools.papers and core.title_only(tools.papers[c])]
+        if weak:
+            u["weak_check"] = "title-only record, weak check: " + ", ".join(weak)
     if all("label" in u for u in j["claims"]):
         # Every statement has a label (from the judge, or "unsupported" for papers outside the corpus).
         mask = core.counted_claims([u["label"] for u in j["claims"]])
         for u, use in zip(j["claims"], mask):
             u["counted"] = use
         claim_labels = [u["label"] for u in j["claims"] if u["counted"]]
+        pair_labels = [u["label"] for u in pair_units if "label" in u]
     # Otherwise the claims judge failed: claim_labels stays None and the claim metrics stay null.
 
     # 4. Screening probes. A reason counts only if (a) everything it says that bears on
@@ -349,6 +428,8 @@ def score_run(run_dir: str | Path, judge: Judge | None = None, cost: dict | None
             "caveat_quote": (j.get("final_state") or {}).get("caveat_quote", ""),
             "missed_eligible_without_warning": bool(missed) and not (j.get("final_state") or {}).get("completeness_caveat"),
         }
+    if key_obs:
+        j.setdefault("observations", {})["key_papers_at_turn"] = key_obs
 
     # 5. Trap evidence: did the agent see the evidence for each trap's status? A flag
     #    with no evidence seen suggests knowledge from training data, not from the tools.
@@ -374,7 +455,7 @@ def score_run(run_dir: str | Path, judge: Judge | None = None, cost: dict | None
     reward = core.compute_reward(
         case, corpus_ids, final_roles=final_roles, flagged=flagged, pre_roles=pre_roles,
         claim_labels=claim_labels, exclusion_explained=explained, cost=cost,
-        foreign_cited=set(foreign_cited),
+        foreign_cited=set(foreign_cited), pair_claim_labels=pair_labels,
     )
     j["included_ids"] = sorted(core.included_set(final_roles)) if final_roles is not None else None
     j["judge_usage"] = judge.usage

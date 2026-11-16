@@ -10,6 +10,17 @@ Status is not stored on what the agent sees (see harness/tools/mock_search.py):
 each retracted paper gets its real notice as a separate record that cites it,
 and a superseded preprint is a separate record from its journal version.
 
+Optional spec fields:
+  "hidden_from_search": ["<curated label>", ...]
+      those papers get hidden_from_search: true (reachable only through
+      get_references / get_citations). The build fails if a label does not
+      resolve or no searchable paper references the hidden one.
+  "abstract_fallback": "semanticscholar"
+      curated papers with no abstract in OpenAlex or PubMed (for example
+      Elsevier journal articles) get theirs from one batched Semantic Scholar
+      request. The response is frozen in <corpus>/s2_abstracts.json and reused,
+      so reruns make no request. Truncated snippets ("...") are not used.
+
 Standard library only. Run on the host from the repo root (cases/ is mounted
 read-only inside the container):
 
@@ -34,6 +45,7 @@ from pathlib import Path
 OPENALEX = "https://api.openalex.org"
 EUTILS = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils"
 CROSSREF = "https://api.crossref.org"
+S2_BATCH = "https://api.semanticscholar.org/graph/v1/paper/batch?fields=title,abstract,externalIds"
 UA = "litreview-testcases-snapshot/0.2 (academic test corpus builder)"
 SELECT = ("id,doi,title,publication_year,publication_date,type,is_retracted,primary_location,"
           "authorships,abstract_inverted_index,referenced_works,ids,cited_by_count")
@@ -278,6 +290,40 @@ def crossref_notices(dois: list[str]) -> dict[str, list[dict]]:
                         and all(norm_doi(x["DOI"]) != norm_doi(it["DOI"]) for x in out[target])):
                     out[target].append(it)
     return out
+
+
+def s2_abstracts(dois: list[str], frozen_path: Path) -> dict[str, dict]:
+    """DOI -> {title, abstract} from Semantic Scholar. The frozen file is used first; DOIs
+    not in it are fetched in batched POSTs (500 per request) and added to it. No contact
+    details are sent (Semantic Scholar does not ask for them)."""
+    frozen = json.loads(frozen_path.read_text()) if frozen_path.exists() else {}
+    missing = [d for d in dict.fromkeys(dois) if d not in frozen]
+    for i in range(0, len(missing), 500):
+        chunk = missing[i:i + 500]
+        print(f"Semantic Scholar: 1 batched request for {len(chunk)} DOIs", file=sys.stderr, flush=True)
+        req = urllib.request.Request(S2_BATCH, data=json.dumps({"ids": [f"DOI:{d}" for d in chunk]}).encode(),
+                                     method="POST", headers={"Content-Type": "application/json", "User-Agent": UA})
+        for wait in (5, 10, 20, 30, None):  # the shared unauthenticated pool often answers 429
+            try:
+                with urllib.request.urlopen(req, timeout=60) as r:
+                    out = json.loads(r.read())
+                break
+            except urllib.error.HTTPError as e:
+                if e.code != 429 or wait is None:
+                    raise
+                print(f"  Semantic Scholar rate limit (429); retrying in {wait}s", file=sys.stderr, flush=True)
+                time.sleep(wait)
+        for d, item in zip(chunk, out):
+            frozen[d] = {"title": (item or {}).get("title"), "abstract": (item or {}).get("abstract")}
+        frozen_path.write_text(json.dumps(dict(sorted(frozen.items())), indent=2, ensure_ascii=False) + "\n")
+    return frozen
+
+
+def s2_abstract_text(hit: dict | None) -> str:
+    """Usable abstract text from a Semantic Scholar hit: leading 'Abstract' removed,
+    empty for truncated snippets."""
+    text = re.sub(r"^\s*abstract[:.\s]+", "", ((hit or {}).get("abstract") or "").strip(), flags=re.I)
+    return "" if text.endswith(("...", "…")) else text
 
 
 def strip_jats(s: str) -> str:
@@ -585,7 +631,40 @@ def build(spec_path: Path) -> None:
     for r in records.values():
         r["cited_by"] = sorted(set(r["cited_by"]))
 
-    meta = {k: {"type": r.pop("_type"), "cited_by_count": r.pop("_cited_by_count")} for k, r in records.items()}
+    # 10. Optional: abstract fallback for curated papers, then papers hidden from search.
+    notes: list[str] = []
+    curated = [pid for g in spec["groups"] for pid in (resolved.get(g) or {}).values() if pid in records]
+    if spec.get("abstract_fallback") == "semanticscholar":
+        need = sorted(pid for pid in set(curated) if not records[pid]["abstract"] and records[pid]["doi"])
+        frozen = corpus_dir / "s2_abstracts.json"
+        s2 = s2_abstracts([records[pid]["doi"].lower() for pid in need], frozen) if need else {}
+        for pid in need:
+            r = records[pid]
+            hit = s2.get(r["doi"].lower())
+            text = s2_abstract_text(hit)
+            if not text:
+                why = "only a truncated snippet" if (hit or {}).get("abstract") else "no abstract"
+                notes.append(f"- {pid} ({r['title'][:60]}): {why} in Semantic Scholar; kept without passages")
+                continue
+            r["abstract"] = text
+            r["passages"] = make_passages(pid, None, text)
+            notes.append(f"- {pid} ({r['title'][:60]}): abstract from Semantic Scholar (frozen in {frozen.name})")
+    elif spec.get("abstract_fallback"):
+        sys.exit(f"unknown abstract_fallback {spec['abstract_fallback']!r} (expected 'semanticscholar')")
+    for label in spec.get("hidden_from_search", []):
+        pid = next((g.get(label) for g in resolved.values() if g.get(label)), None)
+        if not pid or pid not in records:
+            sys.exit(f"hidden_from_search: {label!r} is not a resolved curated paper in the corpus")
+        records[pid]["hidden_from_search"] = True
+    for label in spec.get("hidden_from_search", []):
+        pid = next(g.get(label) for g in resolved.values() if g.get(label))
+        reach = sorted(k for k, r in records.items() if pid in r["references"] and not r["hidden_from_search"])
+        if not reach:
+            sys.exit(f"hidden_from_search: {label} ({pid}) is referenced by no searchable paper (unreachable)")
+        notes.append(f"- {pid} ({label}) hidden from keyword search; referenced by {len(reach)} searchable "
+                     f"papers, e.g. {', '.join(reach[:6])}")
+
+    meta ={k: {"type": r.pop("_type"), "cited_by_count": r.pop("_cited_by_count")} for k, r in records.items()}
     out = corpus_dir / "papers.jsonl"
     with open(out, "w") as f:
         for k in sorted(records):
@@ -593,12 +672,12 @@ def build(spec_path: Path) -> None:
     (corpus_dir / "resolved_ids.json").write_text(json.dumps(resolved, indent=2, ensure_ascii=False) + "\n")
     if len(records) > spec.get("max_papers", 400):
         log.append(f"- WARNING: {len(records)} papers exceeds max_papers {spec.get('max_papers')}")
-    write_sources(corpus_dir, spec, records, meta, origin, resolved, seed_counts, hop_added, log)
+    write_sources(corpus_dir, spec, records, meta, origin, resolved, seed_counts, hop_added, log, notes)
     print(f"wrote {out} ({len(records)} papers) after {PROGRESS.n} requests "
           f"({PROGRESS.cached} from cache) in {time.monotonic() - PROGRESS.t0:.0f}s", file=sys.stderr)
 
 
-def write_sources(corpus_dir, spec, records, meta, origin, resolved, seed_counts, hop_added, log):
+def write_sources(corpus_dir, spec, records, meta, origin, resolved, seed_counts, hop_added, log, notes=None):
     by_status = {}
     for r in records.values():
         by_status[r["status"]] = by_status.get(r["status"], 0) + 1
@@ -632,6 +711,11 @@ def write_sources(corpus_dir, spec, records, meta, origin, resolved, seed_counts
             lines.append(f"| {label} | {pid or 'NOT FOUND'} | {r['status'] if r else ''} | "
                          f"{(r['title'][:90] if r else '')} |")
         lines.append("")
+    if notes:
+        lines += ["## Abstract fallback and hidden papers", "",
+                  "Abstracts that OpenAlex and PubMed lack come from Semantic Scholar (spec "
+                  "`abstract_fallback`); papers in spec `hidden_from_search` are reachable only "
+                  "through citation links.", ""] + notes + [""]
     if log:
         lines += ["## Dropped records and problems", ""] + log + [""]
     (corpus_dir / "SOURCES.md").write_text("\n".join(lines))

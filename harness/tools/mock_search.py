@@ -5,6 +5,13 @@ Tools exposed to agents (identical for baseline and proposed agents):
   get_paper(id)                                    metadata, abstract and passages
   get_references(id) / get_citations(id)           id+title lists (reach hidden papers)
 
+Search ranking is set per case (`search_ranking` in case.yaml, recorded in
+config.json):
+  bm25            plain BM25 (default)
+  bm25_citations  BM25 x (1 + CITATION_BOOST * ln(1 + in-corpus citations)): a small
+                  boost for papers cited more often, as real scholarly search engines
+                  apply. The count is the n_citations that get_paper shows.
+
 Publication status is NOT shown by any tool, matching how status appears in
 real sources: a retraction is a separate notice record (it cites the retracted
 paper, so it shows up in search and in get_citations), and a superseded
@@ -16,6 +23,7 @@ agent's choices, not from this database.
 """
 from __future__ import annotations
 
+import copy
 import hashlib
 import json
 import math
@@ -27,6 +35,8 @@ SNIPPET_CHARS = 300
 MAX_LIMIT = 50
 BM25_K1 = 1.5
 BM25_B = 0.75
+RANKINGS = ("bm25", "bm25_citations")
+CITATION_BOOST = 0.1  # bm25_citations: x1.0 at 0 citations, x1.24 at 10, x1.46 at 100
 
 # Fields that exist for the harness/metrics only and must never reach the agent.
 INTERNAL_FIELDS = {"synthetic", "hidden_from_search", "status", "published_version_id", "notice_for"}
@@ -98,6 +108,25 @@ TOOL_DEFS = [
     },
 ]
 
+_SEARCH_DESCRIPTION_CITATIONS = (
+    "Search the literature database by keyword. Ranks papers by relevance of "
+    "title and abstract to the query, with a small boost for papers that are cited "
+    "more often. Returns id, title, year, venue and a short abstract snippet for "
+    "each hit. Use get_paper for the full record."
+)
+
+
+def tool_defs(ranking: str = "bm25") -> list[dict]:
+    """Tool definitions for a ranking. bm25 returns TOOL_DEFS unchanged; the
+    search description says so when citations affect the ranking."""
+    if ranking not in RANKINGS:
+        raise ValueError(f"unknown search_ranking {ranking!r}; expected one of {RANKINGS}")
+    if ranking == "bm25":
+        return TOOL_DEFS
+    defs = copy.deepcopy(TOOL_DEFS)
+    defs[0]["description"] = _SEARCH_DESCRIPTION_CITATIONS
+    return defs
+
 
 class BM25:
     """Deterministic Okapi BM25 over {id: text}. Ties sort by id."""
@@ -140,7 +169,9 @@ class ToolError(Exception):
 
 
 class MockSearch:
-    def __init__(self, corpus_path: str | Path):
+    def __init__(self, corpus_path: str | Path, ranking: str = "bm25"):
+        self.tool_defs = tool_defs(ranking)   # validates the ranking name
+        self.ranking = ranking
         self.corpus_path = Path(corpus_path)
         raw = self.corpus_path.read_bytes()
         self.corpus_sha256 = hashlib.sha256(raw).hexdigest()
@@ -178,6 +209,17 @@ class MockSearch:
         alts = "|".join(re.escape(i) for i in sorted(self.papers, key=len, reverse=True))
         self._id_re = re.compile(rf"(?<![A-Za-z0-9_])(?:{alts})(?![A-Za-z0-9_])") if alts else None
 
+    def rank(self, query: str) -> list[tuple[float, str]]:
+        """Searchable papers matching the query, best first (ties by id)."""
+        ranked = self._index.rank(query)
+        if self.ranking == "bm25_citations":
+            boosted = sorted(
+                (-round(s * (1 + CITATION_BOOST * math.log1p(len(self._cites[pid]))), 9), pid)
+                for s, pid in ranked
+            )
+            ranked = [(-ns, pid) for ns, pid in boosted]
+        return ranked
+
     def find_ids(self, text: str) -> list[str]:
         """Corpus ids mentioned in text, unique, in order of first mention."""
         if not text or self._id_re is None:
@@ -200,7 +242,7 @@ class MockSearch:
         limit = min(limit, MAX_LIMIT)
 
         ranked = [
-            (score, pid) for score, pid in self._index.rank(query)
+            (score, pid) for score, pid in self.rank(query)
             if year_from is None or (self.papers[pid].get("year") or 0) >= year_from
         ]
 

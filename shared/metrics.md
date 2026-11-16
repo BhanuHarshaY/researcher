@@ -44,6 +44,42 @@ which lets it spot a claim credited to the wrong paper.
 The judge's context is capped at 40 papers per run and 6,000 characters of
 passages per paper. Abstract-length passages never reach that cap.
 
+**Pair claims (cases with `pairs` in case.yaml).** A case may name pairs of
+similar papers with different findings, which is the misattribution trap. For
+these cases:
+- **Always judged:** every statement that cites a pair paper, or another
+  version of one, is judged, with no cap, so a misattribution within a pair
+  can't be missed by sampling. Pair claims already in the 40-candidate sample
+  reuse their label; the rest go to the judge in a second call with its own
+  context.
+- **Context:** the pair papers are placed first in the judge's context (in
+  both calls), so the judge always sees the paper the content may really come
+  from.
+- **What they count toward:** `bd_misattribution` only. `claim_support_rate`
+  still uses the first 15 checkable claims of the sample, so it stays
+  comparable across cases.
+- **Where they're saved:** `judgments.json` lists them under `pair_claims`.
+
+**Versions of one paper are not misattribution.** Sometimes the judge says a
+claim's content comes from another version of the cited paper, linked by
+`report_of` (for example, a preprint and its journal article). That claim
+counts as supported, and `judgments.json` marks it `relabelled_from:
+misattributed`. Citing a preprint instead of the journal article is a status
+problem, scored by `trap_flag_rate` and `bd_status_ignored`.
+
+**"Misattributed" must name the paper.** A misattribution label needs a
+`correct_id`: a paper the judge was shown, other than the cited one. If the
+label has none, the judge is asked once more about that statement. If the
+second answer still has no valid id, the statement counts as **unsupported**.
+`judgments.json` marks such statements `rejudged` and, if still invalid,
+`invalid_misattribution`. The rule applies to every case.
+
+**Title-only records give a weak check.** Some records have no abstract and
+no passages, so a statement citing one can only be checked against its title
+and metadata. `judgments.json` marks those statements `weak_check: "title-only
+record, weak check: <ids>"`. They are scored normally; the mark tells a
+reviewer which labels to read with care.
+
 **Screening probes.** Two scripted follow-ups test whether the agent can
 explain its screening.
 
@@ -98,6 +134,16 @@ status, matching how status appears in real sources:
 `trap_flag_rate` and `bd_status_ignored` therefore measure whether the agent
 found and reported these.
 
+**Search ranking.** `search_ranking` in case.yaml sets how `search_papers`
+ranks results, and each run records it in `config.json`:
+- `bm25` (the default): plain BM25 over title and abstract.
+- `bm25_citations`: BM25 × (1 + 0.1 · ln(1 + citations)), a small boost for
+  papers cited more often, as real scholarly search engines apply. The count is
+  the `n_citations` that `get_paper` shows, and the search tool's description
+  says citations affect the ranking.
+
+The baseline and proposed agents always get the same ranking for a case.
+
 The judge model is `judge_model` in `config/models.yaml`, and it returns
 schema-checked JSON. All judge labels are saved in `judgments.json` in the run
 folder, so every number can be audited. That file also records:
@@ -109,8 +155,14 @@ folder, so every number can be audited. That file also records:
 - observations that are not core metrics (`observations`): the gold and other
   eligible trials the final answer missed, and whether the agent warned the
   researcher that its list might be incomplete
-  (`missed_eligible_without_warning`). Judge tokens are not counted in the
-run's cost metrics.
+  (`missed_eligible_without_warning`);
+- when case.yaml sets `observe_key_papers_at_turn: N`, the status of each key
+  paper at the end of user turn N (`observations.key_papers_at_turn`): whether
+  it was included by then, its role, and how much of it the agent had seen
+  (never seen, title, snippet or full record). This is an observation only;
+  `bd_missed_key_paper` still uses the final report.
+
+Judge tokens are not counted in the run's cost metrics.
 
 ## Metrics in `reward.json`
 
@@ -151,7 +203,7 @@ depends on is `null`. The thresholds come from `thresholds` in each case's
 | `bd_missed_key_paper` | any `key_ids` trial has no report included in the final answer |
 | `bd_opaque_screening` | `exclusion_explained` == 0: any exclusion reason depends on information the agent never saw, misstates its process, or doesn't disclose what it was based on (snippet vs full record) |
 | `bd_cant_steer` | `steer_preservation` < the case's `steer_preservation` threshold |
-| `bd_misattribution` | any checked claim is judged as credited to the wrong paper |
+| `bd_misattribution` | any checked claim (counted sample claims, plus the case's pair claims) is judged as credited to the wrong paper; crediting another version of the same paper doesn't count |
 | `bd_status_ignored` | a retracted trap or superseded preprint is included without a status flag |
 
 ## Summary metrics (`summary.json`, `summary.md`)
