@@ -317,3 +317,103 @@ Full log: [REJECTED.md](REJECTED.md).
   still rank below 20 on those broad queries, but each ranks first or second
   for a specific query, such as "companion robot dementia" or "care robot
   independent living home".
+
+## Notes on the final runs
+
+Final runs: `runs/case3_field_map/baseline/sim/`, run indexes 1–5. The agent,
+sim user and judge were all Sonnet 5.5 (`config/models.yaml`). Cases 1 and 2
+were run with an Opus 5.5 agent before the team switched to Sonnet for budget
+reasons. Total cost of the 5 runs: about $4.90, or about $0.98 per run.
+
+### Runs 1 and 2 were the v2 pilots, kept as final runs
+
+Runs 1 and 2 (`20261117T021501Z_1`, `20261117T021502Z_2`) were the v2 pilots.
+- Neither fired a target breakdown, so they failed the pilot pass rule in
+  HANDOFF.md.
+- The team kept the v2 design anyway and did not make a v3, for the same reason
+  case 1 gave (see its REJECTED.md). The remaining levers would be contrived:
+  - a smaller tool budget;
+  - a threshold lowered after seeing the results;
+  - a probe whose only purpose is to make the agent fail.
+- Runs 1 and 2 used exactly the configuration of runs 3–5, which ran in
+  parallel afterwards.
+
+### Target breakdowns did not fire in sim mode
+
+| Target | Measure (`summary.md`) | Mean (min–max) | Fires when | Runs flagged |
+|---|---|---|---|---|
+| Scope drift | `off_scope_rate` | 0.017 (0–0.032) | > 0.2 | 0 of 5 |
+| Can't steer | `steer_preservation` | 0.92 (0.82–1.00) | < 0.7 | 0 of 4 (null in run 4) |
+| Steer incomplete | `post_change_recall` | 0.70 (0.62–0.76) | < 0.6 | 0 of 5 |
+| Not reproducible | `rerun_overlap` | 0.59 | no threshold | see below |
+
+When the narrowing message was clear and came at turn 2, the baseline handled
+it well:
+- it kept the dementia studies from its first map;
+- it found all 4 key papers in every final map;
+- it added most of the missing dementia studies (26 to 32 of 42).
+
+These breakdowns are still expected in user testing:
+- **Can't steer and steer incomplete.** A person may narrow the map in their
+  own words, over several turns, or later than turn 2, rather than in one clear
+  scripted message. They may also accept the narrowed map without checking what
+  was dropped. Run 4 below shows how quickly steering goes wrong once the
+  conversation leaves the script.
+- **Scope drift.** A person who asks broader or vaguer follow-ups may pull the
+  agent into the adjacent cluster.
+
+### Run 4: the first map came back empty
+
+In run 4 (`20261117T023549Z_4`) the agent spent all 40 tool calls in turn 1.
+The harness then asked for a written answer with tool use turned off, and the
+reply contained no text. So the user got no first map.
+- The scripted narrowing still went out at turn 2. The agent wrote a
+  dementia-only map and said in turn 3 that "there was no first map".
+- At turn 4 the sim user asked for the general overview again. The final map
+  therefore mixes general and dementia studies: 63 papers, including 11 gold
+  studies without dementia participants. That is why `recall_gold` (0.61) is
+  above the 0.48 ceiling explained in the notes on labels and interpretation.
+- `steer_preservation` and `bd_cant_steer` are null for this run, because the
+  map before the change was empty.
+- We report the run as recorded and did not rerun it. An empty answer after
+  the tool budget runs out is a real failure mode of the baseline loop. It also
+  leaves the user without control: they cannot steer a map they never received.
+  The other 4 runs used 26 to 39 tool calls in turn 1 and did not hit the
+  budget.
+
+### Observations reported alongside the metrics
+
+- **`recall_gold` is near its ceiling in the normal runs.** The final map
+  comes after the narrowing, so `recall_gold` can reach at most 16/33 = 0.48.
+  Runs 1, 2, 3 and 5 scored 0.36 to 0.39 and included 11 or 12 of the 16
+  dementia gold studies. Runs 1–3 each kept one non-dementia gold study
+  (`W2294211165`) after the narrowing.
+- **The first map covers less than half of the field.** In the 4 runs that
+  produced one, the first map cited:
+  - 32 to 71 papers;
+  - 10 to 17 of the 33 gold studies (30–52%);
+  - 3 or 4 of the 4 key papers.
+
+  This matches the search limits above: broad queries return only their top
+  results, and turn 1 used 26 to 40 tool calls.
+- **The agent disclosed the gap.** In every map it produced, the judge marked
+  a completeness caveat, for example: "Searches were keyword-based, so
+  coverage is broad but not exhaustive."
+- **Reproducibility: first maps differ much more than final maps.**
+  - First maps (4 runs): mean pairwise Jaccard 0.42.
+  - Final maps: 0.72 without run 4, and 0.59 (`rerun_overlap`) with all 5.
+  - First-map size ranged from 32 to 71 papers.
+
+  `rerun_overlap` only compares final maps, so the first-map figure is an
+  observation. v1 showed the same pattern (0.47 for first maps, 0.68 for final
+  maps). It bears on the "not reproducible" target: two researchers asking the
+  same broad question would get quite different starting maps.
+- **Replay check.** `harness.metrics.replay` reproduces all 5 `reward.json`
+  files exactly. For runs 1, 2, 3 and 5 it differs only in the
+  `completeness_caveat` note under `pre_change_state` in `judgments.json`.
+  - The replay tool passes back only the stored paper roles for the
+    pre-change state, not its caveat fields, so the replayed note comes out
+    empty (`false`).
+  - The stored files keep the judge's actual answers. We did not run replay
+    with `--write`.
+  - No metric uses this field.
