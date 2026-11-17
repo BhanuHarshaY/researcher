@@ -161,17 +161,53 @@ for this case.
 
 ## 6. Baseline results
 
-_To fill after the 5 final sim runs (agent `claude-sonnet-5-5`):_
+5 final sim runs, 17 Nov 2026 (UTC), agent, sim user and judge all
+`claude-sonnet-5-5`, about $4.90 in total ($0.98 per run). Folders:
+`runs/case3_field_map/baseline/sim/` (runs `20261117T021501Z_1` …
+`20261117T023551Z_5`); full table in
+[summary.md](../../runs/case3_field_map/baseline/sim/summary.md). Runs 1–2 are
+the v2 pilots, kept with identical configuration (see "Notes on the final
+runs" below).
 
-- the metrics table from
-  [summary.md](../../runs/case3_field_map/baseline/sim/summary.md), including
-  `rerun_overlap` and `post_change_recall` (under `case_metrics`);
-- how many of the 5 runs showed each breakdown: `bd_scope_drift`,
-  `bd_cant_steer`, `bd_steer_incomplete`, `bd_missed_key_paper`;
-- what happened: tool calls after the narrowing, how many of the 42
-  post-change papers each final map held, and the key papers' status at the
-  end of turn 1 (`observations` in `judgments.json`);
-- whether final runs 1–2 are the v2 pilots kept with identical configuration.
+| Metric | Mean | SD | Min | Max |
+|---|---|---|---|---|
+| `recall_gold` (ceiling 0.48, see notes) | 0.424 | 0.103 | 0.364 | 0.606 |
+| `precision_set` | 0.859 | 0.064 | 0.775 | 0.943 |
+| `off_scope_rate` | 0.017 | 0.015 | 0 | 0.032 |
+| `claim_support_rate` | 0.907 | 0.138 | 0.667 | 1 |
+| `steer_preservation` (n = 4) | 0.916 | 0.078 | 0.818 | 1 |
+| `post_change_recall` (case metric) | 0.700 | 0.057 | 0.619 | 0.762 |
+| `rerun_overlap` (final maps) | 0.585 | | | |
+| `tool_calls` | 80 | 7.8 | 73 | 93 |
+| `user_turns` | 3.2 | 0.45 | 3 | 4 |
+
+| Breakdown | Runs flagged |
+|---|---|
+| `bd_scope_drift` | 0 of 5 |
+| `bd_cant_steer` | 0 of 4 (null in run 4) |
+| `bd_steer_incomplete` (case metric) | 0 of 5 |
+| `bd_missed_key_paper` | 0 of 5 |
+| `bd_misattribution` | 0 of 5 |
+| `bd_status_ignored`, `bd_opaque_screening` | n/a (no traps, no why-probe) |
+
+What happened:
+- **No target breakdown fired in sim mode.** When the narrowing came as one
+  clear message at turn 2, the baseline searched again (29 to 40 tool calls in
+  turn 2), kept the dementia studies from its first map, and
+  ended with 26 to 32 of the 42 post-change papers.
+- **Key papers:** all 4 in every final map. At the end of turn 1, all 4 were
+  in 3 of the 4 first maps and 3 of 4 in the other.
+- **Not reproducible, at the first map.** First maps covered 10 to 17 of the
+  33 gold studies (30–52%), ranged from 32 to 71 papers, and overlapped only
+  0.42 on average between runs. Final maps overlapped 0.72 without run 4.
+  `rerun_overlap` has no threshold, so this is reported as evidence, not as a
+  flagged breakdown.
+- **Run 4: the first reply was empty.** The agent spent all 40 tool calls in
+  turn 1 and its forced answer had no text, so the user never got a first map.
+  This makes `steer_preservation` null for that run.
+- The agent warned that its map might be incomplete in every map it produced.
+
+Details and the replay check are in "Notes on the final runs" below.
 
 ### Breakdowns expected only in user testing
 
@@ -231,11 +267,14 @@ Full log: [REJECTED.md](REJECTED.md).
   refiltering was enough. The key papers were also chosen wrongly (Hobbit and
   Banks 2008 are not dementia studies, so `bd_missed_key_paper` fired by
   design).
-- **v2: current.** Turn 2 also asks for relevant studies the agent missed; four
-  dementia studies are the key papers; key-paper status at the end of turn 1
-  is recorded; and the case-specific `post_change_recall` (flag below 0.6) was
-  added. The threshold was set before the v2 runs, after v1 would have scored
-  0.48 and 0.45.
+- **v2: kept as the final design.** Turn 2 also asks for relevant studies the
+  agent missed; four dementia studies are the key papers; key-paper status at
+  the end of turn 1 is recorded; and the case-specific `post_change_recall`
+  (flag below 0.6) was added. The threshold was set before the v2 runs, after
+  v1 would have scored 0.48 and 0.45. The v2 pilots fired no target breakdown,
+  but the team kept the design rather than add contrived levers (REJECTED.md).
+  One extra exploratory run after the 5 final runs showed the same pattern; it
+  is not part of the final set.
 
 ---
 
@@ -353,14 +392,7 @@ it well:
 - it found all 4 key papers in every final map;
 - it added most of the missing dementia studies (26 to 32 of 42).
 
-These breakdowns are still expected in user testing:
-- **Can't steer and steer incomplete.** A person may narrow the map in their
-  own words, over several turns, or later than turn 2, rather than in one clear
-  scripted message. They may also accept the narrowed map without checking what
-  was dropped. Run 4 below shows how quickly steering goes wrong once the
-  conversation leaves the script.
-- **Scope drift.** A person who asks broader or vaguer follow-ups may pull the
-  agent into the adjacent cluster.
+The breakdowns expected in user testing are listed in section 6.
 
 ### Run 4: the first map came back empty
 
