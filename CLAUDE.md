@@ -26,7 +26,7 @@ Deadline: Monday Nov 16, 11:59pm. Prefer simple, working code over clever code.
 ## Models (`config/models.yaml`)
 
 ```yaml
-agent_model: claude-opus-5-5     # baseline and proposed agent, same model
+agent_model: claude-sonnet-5-5   # baseline and proposed agent, same model
 sim_user_model: claude-sonnet-5-5 # simulated user
 judge_model: claude-sonnet-5-5 # claim-support judging in metrics
 temperature: 1.0                 # default; record in config.json
