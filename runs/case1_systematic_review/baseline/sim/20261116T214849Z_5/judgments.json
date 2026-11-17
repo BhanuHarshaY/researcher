@@ -1174,6 +1174,7 @@
       "label": "supported",
       "correct_id": "",
       "rationale": "Retraction notice and original Pott-Junior pilot in Toxicology Reports match.",
+      "weak_check": "title-only record, weak check: 10.1016/j.toxrep.2022.04.009",
       "counted": true
     },
     {

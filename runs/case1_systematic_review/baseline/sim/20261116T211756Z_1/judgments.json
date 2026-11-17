@@ -1593,6 +1593,7 @@
       "label": "unsupported",
       "correct_id": "",
       "rationale": "Only Hill's bias analysis is in the records; the other two ids are not shown, so retraction claim is not supported.",
+      "weak_check": "title-only record, weak check: 10.1093/ofid/ofac056",
       "counted": false
     },
     {
