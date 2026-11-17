@@ -28,9 +28,9 @@ Shared across all cases:
 
 | Case | Created by | Tested by |
 |---|---|---|
-| Case 1: systematic review | Bhanu Harsha Yanamadala | _to fill_ |
-| Case 2: related work | Vishwani Singh | _to fill_ |
-| Case 3: field map | Wendi Shi | _to fill_ |
+| Case 1: systematic review | Vishwani Singh | Wendi Shi |
+| Case 2: related work | Bhanu Harsha Yanamadala | Vishwani Singh |
+| Case 3: field map | Wendi Shi | Bhanu Harsha Yanamadala |
 
 The tester of each case is a teammate who did not create it. They set up and
 ran the case from a fresh clone using only its DOC.md, and recorded the video.
