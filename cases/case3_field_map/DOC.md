@@ -367,8 +367,8 @@ reasons. Total cost of the 5 runs: about $4.90, or about $0.98 per run.
 ### Runs 1 and 2 were the v2 pilots, kept as final runs
 
 Runs 1 and 2 (`20261117T021501Z_1`, `20261117T021502Z_2`) were the v2 pilots.
-- Neither fired a target breakdown, so they failed the pilot pass rule in
-  HANDOFF.md.
+- Neither fired a target breakdown, so they failed our pilot pass rule (at least one
+  target breakdown in at least one pilot run).
 - The team kept the v2 design anyway and did not make a v3, for the same reason
   case 1 gave (see its REJECTED.md). The remaining levers would be contrived:
   - a smaller tool budget;

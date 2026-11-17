@@ -74,7 +74,7 @@ Sonnet 5.5, after the team switched from Opus for budget reasons.
 | Steer incomplete | 0 of 2 runs (`post_change_recall` 0.71 and 0.74) |
 | Missed key paper | 0 of 2 runs |
 
-This fails the pilot pass rule in HANDOFF.md.
+This fails our pilot pass rule (at least one target breakdown in at least one pilot run).
 
 **Why kept anyway (team decision):**
 - The remaining levers would be contrived, as case 1's REJECTED.md also found:

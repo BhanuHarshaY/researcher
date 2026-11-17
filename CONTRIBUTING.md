@@ -126,5 +126,5 @@ data(case1): add 5 final baseline runs and summary
 - [ ] Model names appear only in `config/models.yaml`.
 - [ ] `harness/agents/baseline_prompt.md` is unchanged. It is frozen after the first committed run.
 - [ ] Final runs go in `runs/<case>/`. A pilot that a `REJECTED.md` cites goes in `runs/pilots/<case>/<variant>/` and is committed. Scratch runs go in `runs/_pilots/` (gitignored).
-- [ ] Paid commands (`harness.run`, `harness.metrics.score`) were agreed with the team first (see HANDOFF.md).
+- [ ] Paid commands (`harness.run`, `harness.metrics.score`) were agreed with the team first.
 - [ ] Corpus files under `cases/*/corpus/` change only through `corpus_tools/`, never by hand.
