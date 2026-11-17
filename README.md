@@ -142,6 +142,6 @@ tests/          unit tests
 - [CLAUDE.md](CLAUDE.md): the full spec.
 - [CONTRIBUTING.md](CONTRIBUTING.md): branch and commit conventions.
 - Videos (each recorded by the case's tester from a fresh clone, following only its DOC.md):
-  - Case 1 (tested by Wendi Shi): _link to add_
+  - Case 1 (tested by Wendi Shi): https://drive.google.com/file/d/1l_JUdZYyEgZdZkfq5fv3I0lQcZK9oAdl/view?usp=sharing
   - Case 2 (tested by Vishwani Singh): [video](https://drive.google.com/file/d/1camCryHDdaBF9USi7gsTFIBEzRRYe6lX/view?usp=drive_link)
   - Case 3 (tested by Bhanu Harsha Yanamadala): _link to add_
