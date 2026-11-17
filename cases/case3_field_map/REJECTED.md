@@ -59,3 +59,36 @@
 
 **Where the runs are:** `runs/pilots/case3_field_map/v1/`. Their `reward.json`
 files use the v1 key papers.
+
+### v2 (2 pilot runs, 17 Nov 2026 UTC): kept as the final design
+
+**Setup:** the v2 changes above. The agent, sim user and judge were all
+Sonnet 5.5, after the team switched from Opus for budget reasons.
+
+**Results:** no target breakdown fired in either run.
+
+| Breakdown or metric | Result |
+|---|---|
+| Scope drift | 0 of 2 runs (`off_scope_rate` 0.025 and 0.026) |
+| Can't steer | 0 of 2 runs (`steer_preservation` 1.00 and 0.89) |
+| Steer incomplete | 0 of 2 runs (`post_change_recall` 0.71 and 0.74) |
+| Missed key paper | 0 of 2 runs |
+
+This fails the pilot pass rule in HANDOFF.md.
+
+**Why kept anyway (team decision):**
+- The remaining levers would be contrived, as case 1's REJECTED.md also found:
+  - a smaller tool budget;
+  - a threshold lowered after seeing the results;
+  - a probe whose only purpose is to make the agent fail.
+- The two pilots used exactly the final configuration, so they are final runs
+  1–2. Runs 3–5 followed with the same configuration. Results, the breakdowns
+  expected in user testing and the observations are in DOC.md, "Notes on the
+  final runs".
+
+**One extra exploratory run** (`20261117T025055Z_6`, after the 5 final runs):
+- It was run to check whether the pattern held. It did: no breakdown, first map
+  with 11 of 33 gold studies, final map with 12 of 16 dementia gold studies.
+- It is kept locally in `runs/_pilots/case3_field_map/extra/` (gitignored) and
+  is not part of the final runs or `summary.md`.
+- The 5 final runs were not replaced or reselected.

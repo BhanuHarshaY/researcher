@@ -1,0 +1,25 @@
+{
+  "recall_gold": 0.6061,
+  "precision_set": 0.873,
+  "off_scope_rate": 0.0317,
+  "claim_support_rate": 1.0,
+  "trap_flag_rate": null,
+  "near_miss_exclusion_rate": null,
+  "exclusion_explained": null,
+  "steer_preservation": null,
+  "user_turns": 4,
+  "tool_calls": 93,
+  "input_tokens": 1098312,
+  "output_tokens": 20510,
+  "wall_time_s": 168.41,
+  "bd_scope_drift": 0,
+  "bd_missed_key_paper": 0,
+  "bd_opaque_screening": null,
+  "bd_cant_steer": null,
+  "bd_misattribution": 0,
+  "bd_status_ignored": null,
+  "case_metrics": {
+    "post_change_recall": 0.619,
+    "bd_steer_incomplete": 0
+  }
+}
