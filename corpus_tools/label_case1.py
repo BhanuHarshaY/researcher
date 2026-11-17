@@ -44,6 +44,7 @@ CURATED_OTHER = {  # label for papers in the snapshot's "other_curated" group (d
 
 
 def M(label, why, unsure=False, fails=None):
+    """One label entry: label, one-line reason, unsure flag and, for near-misses, the failed criterion."""
     return {"label": label, "why": why, "unsure": unsure, **({"fails": fails} if fails else {})}
 
 
@@ -166,20 +167,42 @@ TITLE_RULES = [
 ]
 
 
+TRAP_LABELS = ("trap_retracted", "trap_superseded_preprint")
+SPOT_CHECK_SEED = 2026
+SPOT_CHECK_SIZE = 15
+
+
 def about_ivermectin_covid(p: dict) -> bool:
     t = f"{p['title']} {p['abstract']}".lower()
     return "ivermectin" in t and re.search(r"covid|sars-cov-2|coronavirus", t) is not None
 
 
-def main() -> None:
-    papers = {json.loads(l)["id"]: json.loads(l) for l in open(CORPUS / "papers.jsonl")}
+def first_title_rule(title: str):
+    """Return (category, match) for the first TITLE_RULES pattern found in the title, or None."""
+    for category, rx in TITLE_RULES:
+        match = re.search(rx, title)
+        if match:
+            return category, match
+    return None
+
+
+def load_inputs() -> tuple[dict, dict]:
+    """The frozen corpus (id -> paper) and the snapshot's resolved curated ids."""
+    with open(CORPUS / "papers.jsonl") as f:
+        papers = {p["id"]: p for p in map(json.loads, f)}
     res = json.loads((CORPUS / "resolved_ids.json").read_text())
+    return papers, res
+
+
+def assign_labels(papers: dict, res: dict) -> dict[str, dict]:
+    """Label every paper. Earlier steps win: a paper keeps the first label it gets."""
     labels: dict[str, dict] = {}
 
     def put(pid, entry):
         if pid and pid in papers:
             labels[pid] = {**entry, "title": papers[pid]["title"][:120]}
 
+    # 1. Curated groups from the snapshot.
     for name, pid in res["gold"].items():
         put(pid, M("gold", f"included by the review: {name}"))
     for name, pid in res["traps_retracted"].items():
@@ -193,74 +216,101 @@ def main() -> None:
     for name, pid in res["other_curated"].items():
         lab, why, unsure = CURATED_OTHER.get(name, ("off_scope", name, False))
         put(pid, M(lab, why, unsure))
+
+    # 2. Retraction notices, then hand-made labels for papers not curated above.
     for pid, p in papers.items():
         if p.get("notice_for"):
             put(pid, M("neutral", f"retraction notice for {p['notice_for']}"))
     for pid, entry in MANUAL.items():
         if pid not in labels:
             put(pid, entry)
+
+    # 3. Everything else: topic check, then title rules.
     for pid, p in papers.items():
         if pid in labels:
             continue
         if not about_ivermectin_covid(p):
             put(pid, M("neutral", "not about ivermectin for COVID-19"))
             continue
-        title = p["title"].lower()
-        m = next(((c, re.search(rx, title)) for c, rx in TITLE_RULES if re.search(rx, title)), None)
-        if m:
+        rule = first_title_rule(p["title"].lower())
+        if rule:
+            category, match = rule
             text = f"{p['title']} {p['abstract']}".lower()
             # A title rule on a paper that says it is randomized might be hiding an eligible trial.
             unsure = bool(re.search(r"randomi[sz]", text))
-            put(pid, M("off_scope", f"{m[0]} (title: '{m[1].group(0)}')", unsure))
+            put(pid, M("off_scope", f"{category} (title: '{match.group(0)}')", unsure))
         else:
             put(pid, M("UNLABELLED", "needs a manual decision", True))
 
-    # Every retracted or withdrawn paper is a trap, whatever else it is.
+    # 4. Every retracted or withdrawn paper is a trap, whatever else it is.
     for pid, p in papers.items():
         if p.get("status") == "retracted" and labels.get(pid, {}).get("label") != "trap_retracted":
             prev = labels.get(pid, {})
             put(pid, M("trap_retracted", f"retracted (found in the corpus); otherwise {prev.get('label')}: "
                                          f"{prev.get('why')}"))
             labels[pid]["was"] = prev.get("label")
+    return labels
 
-    # Reports of the same trial: recall counts trials, not reports. Superseded preprints and
-    # conference abstracts point to the trial's main (gold or relevant) report.
+
+def collect_report_of(papers: dict, labels: dict) -> dict[str, str]:
+    """Reports of the same trial: recall counts trials, not reports. Superseded preprints and
+    conference abstracts point to the trial's main (gold or relevant) report."""
     report_of = {k: v["report_of"] for k, v in labels.items() if v.get("report_of")}
     for pid, p in papers.items():
         if p.get("published_version_id") and labels.get(pid, {}).get("label") == "trap_superseded_preprint":
             report_of[pid] = p["published_version_id"]
+    return report_of
 
-    unlabelled = [k for k, v in labels.items() if v["label"] == "UNLABELLED"]
-    by = lambda *ls: sorted(k for k, v in labels.items() if v["label"] in ls)
-    out = {
+
+def ids_with_label(labels: dict, *wanted: str) -> list[str]:
+    return sorted(k for k, v in labels.items() if v["label"] in wanted)
+
+
+def build_output(labels: dict, res: dict, report_of: dict) -> dict:
+    """The labels.json structure that write_case1_yaml.py and validate.py read."""
+    return {
         "key_ids": [res["gold"][k] for k in KEY],
-        "gold_ids": by("gold"),
-        "relevant_ids": by("gold", "relevant"),
-        "near_miss": [{"id": k, "fails": labels[k]["fails"]} for k in by("near_miss")],
-        "off_scope_ids": by("off_scope", "near_miss"),
-        "trap_ids": by("trap_retracted", "trap_superseded_preprint"),
+        "gold_ids": ids_with_label(labels, "gold"),
+        "relevant_ids": ids_with_label(labels, "gold", "relevant"),
+        "near_miss": [{"id": k, "fails": labels[k]["fails"]} for k in ids_with_label(labels, "near_miss")],
+        "off_scope_ids": ids_with_label(labels, "off_scope", "near_miss"),
+        "trap_ids": ids_with_label(labels, *TRAP_LABELS),
         "report_of": dict(sorted(report_of.items())),
-        "unlabelled": unlabelled,
+        "unlabelled": [k for k, v in labels.items() if v["label"] == "UNLABELLED"],
         "unsure": sorted(k for k, v in labels.items() if v.get("unsure")),
         "papers": dict(sorted(labels.items())),
     }
-    (CORPUS / "labels.json").write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n")
 
+
+def print_review(papers: dict, labels: dict, out: dict) -> None:
+    """Print label counts, unlabelled and unsure papers, and a fixed-seed spot-check sample."""
     counts: dict[str, int] = {}
     for v in labels.values():
         counts[v["label"]] = counts.get(v["label"], 0) + 1
     print("counts:", counts)
-    for k in unlabelled:
+    for k in out["unlabelled"]:
         print("UNLABELLED:", k, papers[k]["date"], papers[k]["title"][:110])
-    show = lambda k: (f"  {k:14} {labels[k]['label']:10} {(labels[k].get('fails') or labels[k]['why'])[:80]:80} | "
-                      f"{papers[k]['date']} {papers[k]['title'][:70]}")
+
+    def show(k: str) -> str:
+        reason = (labels[k].get("fails") or labels[k]["why"])[:80]
+        return f"  {k:14} {labels[k]['label']:10} {reason:80} | {papers[k]['date']} {papers[k]['title'][:70]}"
+
     print(f"\nUNSURE ({len(out['unsure'])}):")
     for k in out["unsure"]:
         print(show(k))
     pool = [k for k, v in labels.items() if v["label"] in ("relevant", "near_miss", "off_scope") and not v.get("unsure")]
-    print("\nRANDOM 15 FOR SPOT-CHECK (seed 2026, from relevant / near-miss / off-scope, excluding unsure):")
-    for k in sorted(random.Random(2026).sample(pool, 15)):
+    print(f"\nRANDOM {SPOT_CHECK_SIZE} FOR SPOT-CHECK (seed {SPOT_CHECK_SEED}, "
+          "from relevant / near-miss / off-scope, excluding unsure):")
+    for k in sorted(random.Random(SPOT_CHECK_SEED).sample(pool, SPOT_CHECK_SIZE)):
         print(show(k))
+
+
+def main() -> None:
+    papers, res = load_inputs()
+    labels = assign_labels(papers, res)
+    out = build_output(labels, res, collect_report_of(papers, labels))
+    (CORPUS / "labels.json").write_text(json.dumps(out, indent=2, ensure_ascii=False) + "\n")
+    print_review(papers, labels, out)
 
 
 if __name__ == "__main__":

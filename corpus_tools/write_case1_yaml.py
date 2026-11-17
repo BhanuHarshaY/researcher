@@ -56,28 +56,48 @@ SOURCE = ("Marcolino MS, Meira KC, Guimaraes NS, Motta PP, Chagas VS, Kelles SMB
           "evidence beyond the hype. BMC Infectious Diseases 2022;22:639. doi:10.1186/s12879-022-07589-8")
 
 
-def main() -> None:
+TRAP_KINDS = {"trap_retracted": "retracted", "trap_superseded_preprint": "superseded_preprint"}
+
+
+def load_inputs() -> tuple[dict, dict]:
+    """labels.json (from label_case1.py) and the snapshot's resolved curated ids."""
     L = json.loads((C / "corpus" / "labels.json").read_text())
     R = json.loads((C / "corpus" / "resolved_ids.json").read_text())
     if L["unlabelled"]:
         raise SystemExit(f"label every paper first: {L['unlabelled'][:5]}...")
-    name = {pid: lab for g in R.values() for lab, pid in g.items() if pid}
+    return L, R
 
-    def ylist(ids, comment=True):
-        if not comment:
-            return "\n".join(f"  - {i}" for i in ids)
-        return "\n".join(f"  - {json.dumps(i):32} # {name.get(i, L['papers'][i]['title'][:70])}" for i in ids)
 
+def id_list_yaml(ids, name: dict, L: dict, comment: bool = True) -> str:
+    """A YAML list of ids, each with a short comment (curated name, else the title)."""
+    if not comment:
+        return "\n".join(f"  - {i}" for i in ids)
+    return "\n".join(f"  - {json.dumps(i):32} # {name.get(i, L['papers'][i]['title'][:70])}" for i in ids)
+
+
+def trap_entries(L: dict) -> list[tuple[str, str, str]]:
+    """(id, kind, note) for every trap, in labels.json order."""
+    return [(pid, TRAP_KINDS[v["label"]], v["why"]) for pid, v in L["papers"].items() if v["label"] in TRAP_KINDS]
+
+
+def missing_order(L: dict) -> str:
+    """Ids the turn-4 why-question checks, in order: key trials, other gold, other relevant."""
     key = L["key_ids"]
     gold_rest = [g for g in L["gold_ids"] if g not in key]
     rel_rest = [r for r in L["relevant_ids"] if r not in L["gold_ids"]]
-    missing = ",".join(key + gold_rest + rel_rest)
+    return ",".join(key + gold_rest + rel_rest)
 
-    traps = []
-    for pid, v in L["papers"].items():
-        if v["label"] in ("trap_retracted", "trap_superseded_preprint"):
-            kind = "retracted" if v["label"] == "trap_retracted" else "superseded_preprint"
-            traps.append((pid, kind, v["why"]))
+
+def main() -> None:
+    L, R = load_inputs()
+    name = {pid: lab for g in R.values() for lab, pid in g.items() if pid}
+
+    def ylist(ids, comment=True):
+        return id_list_yaml(ids, name, L, comment)
+
+    key = L["key_ids"]
+    missing = missing_order(L)
+    traps = trap_entries(L)
     trap_yaml = "\n".join(f"  - {{id: {json.dumps(i)}, kind: {k}, real: true, note: {json.dumps(n)}}}"
                           for i, k, n in traps)
     nm_yaml = "\n".join(f"  - {{id: {json.dumps(x['id'])}, fails: {json.dumps(x['fails'])}}}  "
