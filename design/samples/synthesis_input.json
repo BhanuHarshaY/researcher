@@ -1,0 +1,21 @@
+{
+  "paper_set_version": 2,
+  "criteria_version": 2,
+  "included": ["T001", "T002", "T003", "T004"],
+  "outline": [
+    {"section_id": "S1", "title": "Randomized and crossover studies", "papers": ["T001", "T002", "T004"]},
+    {"section_id": "S2", "title": "Quasi-experimental studies", "papers": ["T003"]}
+  ],
+  "evidence": {
+    "T001": [{"pid": "T001#p2", "text": "Students in the retrieval practice condition scored 8.4 percentage points higher on the cumulative final exam than students in the re-reading condition (d = 0.52, p < .001)."}],
+    "T002": [{"pid": "T002#p2", "text": "On a delayed test eight weeks later, quizzed topics were answered correctly 61% of the time compared with 52% for review topics. Immediate post-unit scores did not differ."}],
+    "T003": [{"pid": "T003#p2", "text": "Mean final exam score was 72.1% in the spaced retrieval cohort and 67.5% in the massed homework cohort. The DFW rate fell from 19% to 14%."},
+             {"pid": "T003#p3", "text": "Because cohorts were not randomly assigned, differences in student preparation between years cannot be ruled out."}],
+    "T004": [{"pid": "T004#p2", "text": "Retrieval practice improved unit exam performance by 6.1 percentage points and transfer problem performance by 9.3 percentage points relative to open-book study."}]
+  },
+  "confusable": [
+    {"paper_id": "T001", "neighbour_id": "T006",
+     "why": "same first two authors; title token Jaccard 0.64; T006 excluded as superseded by T001",
+     "neighbour_text": [{"pid": "T006#p1", "text": "In this interim analysis of one course section (n = 205), the quiz group scored 11.2 percentage points higher on the final exam than the re-reading group."}]}
+  ]
+}

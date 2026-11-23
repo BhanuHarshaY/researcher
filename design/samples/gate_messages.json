@@ -1,0 +1,551 @@
+{
+  "gates": [
+    {
+      "gate_id": "gplan-t1-r1",
+      "kind": "plan",
+      "turn": 1,
+      "round": 1,
+      "criteria_version": 1,
+      "title": "Approve the plan for turn 1: criteria v1 and 3 searches",
+      "text": "Approve the plan for turn 1: criteria v1 and 3 searches\nOn approve: I run the searches, follow citations from the strongest matches, check status, and screen every result against v1.\nCriteria v1\n 1. [C1] include · population: Undergraduate students in STEM courses\n 2. [C2] include · intervention: Retrieval practice: low-stakes quizzing, practice testing or flashcard retrieval\n 3. [C3] include · outcome: Reports exam or test performance\n 4. [C4] exclude · design: Reviews and meta-analyses\n 5. [C5] exclude · status: Retracted or withdrawn reports; a preprint whose journal version exists\nCategories\n 6. [K1] Undergraduate course study · in scope\n 7. [K2] K-12 study · out of scope\n 8. [K3] Medical or graduate training · out of scope\nSearches\n 9. [Q1] retrieval practice quizzing undergraduate exam · intervention · limit 50\n10. [Q2] testing effect college course randomized · design · limit 50\n11. [Q3] practice testing STEM final exam performance · outcome · limit 50\nPlanned tool calls: 3 searches, 6 citation lists, 5 status checks, up to 8 full records, 4 in reserve (26 of 40).\nReply: approve, or edit (change, add or remove a criterion, a category's scope or a search).",
+      "items": [
+        {
+          "n": 1,
+          "type": "criterion",
+          "id": "C1",
+          "kind": "include",
+          "field": "population",
+          "text": "Undergraduate students in STEM courses",
+          "checkable_at": "snippet"
+        },
+        {
+          "n": 2,
+          "type": "criterion",
+          "id": "C2",
+          "kind": "include",
+          "field": "intervention",
+          "text": "Retrieval practice: low-stakes quizzing, practice testing or flashcard retrieval",
+          "checkable_at": "snippet"
+        },
+        {
+          "n": 3,
+          "type": "criterion",
+          "id": "C3",
+          "kind": "include",
+          "field": "outcome",
+          "text": "Reports exam or test performance",
+          "checkable_at": "snippet"
+        },
+        {
+          "n": 4,
+          "type": "criterion",
+          "id": "C4",
+          "kind": "exclude",
+          "field": "design",
+          "text": "Reviews and meta-analyses",
+          "checkable_at": "snippet"
+        },
+        {
+          "n": 5,
+          "type": "criterion",
+          "id": "C5",
+          "kind": "exclude",
+          "field": "status",
+          "text": "Retracted or withdrawn reports; a preprint whose journal version exists",
+          "checkable_at": "full"
+        },
+        {
+          "n": 6,
+          "type": "category",
+          "id": "K1",
+          "label": "Undergraduate course study",
+          "in_scope": true
+        },
+        {
+          "n": 7,
+          "type": "category",
+          "id": "K2",
+          "label": "K-12 study",
+          "in_scope": false
+        },
+        {
+          "n": 8,
+          "type": "category",
+          "id": "K3",
+          "label": "Medical or graduate training",
+          "in_scope": false
+        },
+        {
+          "n": 9,
+          "type": "query",
+          "id": "Q1",
+          "text": "retrieval practice quizzing undergraduate exam",
+          "year_from": null,
+          "limit": 50,
+          "purpose": "facet:intervention",
+          "proposed_by": "agent"
+        },
+        {
+          "n": 10,
+          "type": "query",
+          "id": "Q2",
+          "text": "testing effect college course randomized",
+          "year_from": null,
+          "limit": 50,
+          "purpose": "facet:design",
+          "proposed_by": "agent"
+        },
+        {
+          "n": 11,
+          "type": "query",
+          "id": "Q3",
+          "text": "practice testing STEM final exam performance",
+          "year_from": null,
+          "limit": 50,
+          "purpose": "facet:outcome",
+          "proposed_by": "agent"
+        }
+      ],
+      "allowed_actions": [
+        "approve",
+        "edit"
+      ],
+      "edit_ops": [
+        "edit_criterion",
+        "add_criterion",
+        "remove_criterion",
+        "set_scope",
+        "edit_query",
+        "add_query",
+        "remove_query"
+      ],
+      "budget": {
+        "cap": 40,
+        "used": 0,
+        "planned": 26,
+        "split": {
+          "search": 3,
+          "chase": 6,
+          "status": 5,
+          "full_record": 8,
+          "reserve": 4
+        }
+      }
+    },
+    {
+      "gate_id": "gpaper_set-t1-r1",
+      "kind": "paper_set",
+      "turn": 1,
+      "round": 1,
+      "criteria_version": 1,
+      "title": "Approve the paper set for criteria v1: 6 included, 4 excluded",
+      "text": "Approve the paper set for criteria v1: 6 included, 4 excluded\nOn approve: I outline and write the review from the 6 included papers only.\nIncluded (6)\n 1. [T001] Retrieval practice quizzes improve exam performance in introductory biology (2019) · full · status: no notice found\n 2. [T002] Low-stakes weekly quizzing and long-term retention in undergraduate physics (2020) · snippet · status: no notice found\n 3. [T003] Spaced retrieval practice in a large-enrollment general chemistry course (2021) · snippet · status: no notice found\n 4. [T004] The testing effect in undergraduate engineering statics (2018) · full · found only in the references of T001, T002, T003 · status: sweep only\n 5. [T005] Online flashcard retrieval practice and final exam scores in undergraduate statistics (2022) · snippet · status: sweep only\n 6. [T007] Daily retrieval practice doubles exam scores in undergraduate calculus (2021) · snippet · status: sweep only\nStatus flags (1)\n 7. [T006] Retrieval practice quizzes and exam performance in introductory biology (2018, EdArXiv) · exclude · C5: journal version is [T001]\nOutside your scope (2)\n 8. [T009] Retrieval practice in middle school science classrooms (2020) · K-12 study · C1 · snippet: \"Seventh- and eighth-grade science students\"\n 9. [T010] Simulation-based retrieval practice for procedural skills in medical residents (2021) · medical training · C1 · snippet: \"Internal medicine residents\"\nExcluded by criterion\n10. C4 review or meta-analysis (1): [T008] The testing effect in college classrooms: a meta-analysis (2017)\nCoverage: 3 searches, none truncated; 10 papers seen (2 full records, 8 snippets); citations followed from 4 papers. Cited by 4 included papers but excluded: [T008] (C4). Status: 3 included papers checked one by one, 3 covered only by the notice sweep.\nReply: approve, or edit (move a paper, name a paper you expected, change a category's scope).",
+      "items": [
+        {
+          "n": 1,
+          "type": "paper",
+          "paper_id": "T001",
+          "title": "Retrieval practice quizzes improve exam performance in introductory biology: a randomized controlled trial",
+          "year": 2019,
+          "group": "included",
+          "verdict": "include",
+          "criterion_id": "C2",
+          "quote": "randomly assigned at the individual level to weekly retrieval practice quizzes",
+          "basis": "full",
+          "category_id": "K1",
+          "status": {
+            "result": "no_notice_found",
+            "method": "get_citations",
+            "evidence_id": null
+          },
+          "votes": {
+            "A": "include",
+            "B": "include",
+            "C": "include"
+          },
+          "decided_by": "combiner",
+          "found_by": [
+            "Q1",
+            "Q2",
+            "Q3"
+          ]
+        },
+        {
+          "n": 2,
+          "type": "paper",
+          "paper_id": "T002",
+          "title": "Low-stakes weekly quizzing and long-term retention in undergraduate physics",
+          "year": 2020,
+          "group": "included",
+          "verdict": "include",
+          "criterion_id": "C2",
+          "quote": "topics practiced with weekly low-stakes quizzes were retained better on a delayed test",
+          "basis": "snippet",
+          "category_id": "K1",
+          "status": {
+            "result": "no_notice_found",
+            "method": "get_citations",
+            "evidence_id": null
+          },
+          "votes": {
+            "A": "include",
+            "B": "include",
+            "C": "include"
+          },
+          "decided_by": "combiner",
+          "found_by": [
+            "Q1",
+            "Q2"
+          ]
+        },
+        {
+          "n": 3,
+          "type": "paper",
+          "paper_id": "T003",
+          "title": "Spaced retrieval practice in a large-enrollment general chemistry course: a quasi-experimental study",
+          "year": 2021,
+          "group": "included",
+          "verdict": "include",
+          "criterion_id": "C2",
+          "quote": "The later cohort completed spaced online retrieval practice assignments",
+          "basis": "snippet",
+          "category_id": "K1",
+          "status": {
+            "result": "no_notice_found",
+            "method": "get_citations",
+            "evidence_id": null
+          },
+          "votes": {
+            "A": "include",
+            "B": "include",
+            "C": "include"
+          },
+          "decided_by": "combiner",
+          "found_by": [
+            "Q1",
+            "Q2",
+            "Q3"
+          ]
+        },
+        {
+          "n": 4,
+          "type": "paper",
+          "paper_id": "T004",
+          "title": "The testing effect in undergraduate engineering statics: a randomized classroom experiment",
+          "year": 2018,
+          "group": "included",
+          "verdict": "include",
+          "criterion_id": "C2",
+          "quote": "randomly assigned to closed-book retrieval practice problem sets",
+          "basis": "full",
+          "category_id": "K1",
+          "status": {
+            "result": "sweep_only",
+            "method": "notice_sweep",
+            "evidence_id": null
+          },
+          "votes": {
+            "A": "unsure",
+            "B": "unsure",
+            "C": "unsure"
+          },
+          "decided_by": "resolver",
+          "found_by": [
+            "references:T001",
+            "references:T002",
+            "references:T003"
+          ]
+        },
+        {
+          "n": 5,
+          "type": "paper",
+          "paper_id": "T005",
+          "title": "Online flashcard retrieval practice and final exam scores in undergraduate statistics",
+          "year": 2022,
+          "group": "included",
+          "verdict": "include",
+          "criterion_id": "C2",
+          "quote": "an online flashcard tool that prompts retrieval of definitions and procedures",
+          "basis": "snippet",
+          "category_id": "K1",
+          "status": {
+            "result": "sweep_only",
+            "method": "notice_sweep",
+            "evidence_id": null
+          },
+          "votes": {
+            "A": "include",
+            "B": "include",
+            "C": "include"
+          },
+          "decided_by": "combiner",
+          "found_by": [
+            "Q1",
+            "Q2",
+            "Q3"
+          ]
+        },
+        {
+          "n": 6,
+          "type": "paper",
+          "paper_id": "T007",
+          "title": "Daily retrieval practice doubles exam scores in undergraduate calculus",
+          "year": 2021,
+          "group": "included",
+          "verdict": "include",
+          "criterion_id": "C2",
+          "quote": "daily retrieval practice was associated with final exam scores",
+          "basis": "snippet",
+          "category_id": "K1",
+          "status": {
+            "result": "sweep_only",
+            "method": "notice_sweep",
+            "evidence_id": null
+          },
+          "votes": {
+            "A": "include",
+            "B": "include",
+            "C": "include"
+          },
+          "decided_by": "combiner",
+          "found_by": [
+            "Q1",
+            "Q3"
+          ]
+        },
+        {
+          "n": 7,
+          "type": "paper",
+          "paper_id": "T006",
+          "title": "Retrieval practice quizzes and exam performance in introductory biology",
+          "year": 2018,
+          "group": "status_flag",
+          "verdict": "exclude",
+          "criterion_id": "C5",
+          "quote": "Preliminary results from an ongoing randomized trial",
+          "basis": "snippet",
+          "category_id": "K1",
+          "status": {
+            "result": "superseded",
+            "method": "title_search",
+            "evidence_id": "T001"
+          },
+          "votes": {
+            "A": "include",
+            "B": "include",
+            "C": "include"
+          },
+          "decided_by": "status",
+          "found_by": [
+            "Q1",
+            "Q2",
+            "Q3"
+          ]
+        },
+        {
+          "n": 8,
+          "type": "paper",
+          "paper_id": "T009",
+          "title": "Retrieval practice in middle school science classrooms",
+          "year": 2020,
+          "group": "out_of_scope",
+          "verdict": "exclude",
+          "criterion_id": "C1",
+          "quote": "Seventh- and eighth-grade science students",
+          "basis": "snippet",
+          "category_id": "K2",
+          "status": {
+            "result": "unchecked",
+            "method": null,
+            "evidence_id": null
+          },
+          "votes": {
+            "A": "exclude",
+            "B": "exclude",
+            "C": "exclude"
+          },
+          "decided_by": "combiner",
+          "found_by": [
+            "Q1",
+            "Q3"
+          ]
+        },
+        {
+          "n": 9,
+          "type": "paper",
+          "paper_id": "T010",
+          "title": "Simulation-based retrieval practice for procedural skills in medical residents",
+          "year": 2021,
+          "group": "out_of_scope",
+          "verdict": "exclude",
+          "criterion_id": "C1",
+          "quote": "Internal medicine residents",
+          "basis": "snippet",
+          "category_id": "K3",
+          "status": {
+            "result": "unchecked",
+            "method": null,
+            "evidence_id": null
+          },
+          "votes": {
+            "A": "exclude",
+            "B": "exclude",
+            "C": "exclude"
+          },
+          "decided_by": "combiner",
+          "found_by": [
+            "Q1",
+            "Q3"
+          ]
+        },
+        {
+          "n": 10,
+          "type": "paper",
+          "paper_id": "T008",
+          "title": "The testing effect in college classrooms: a meta-analysis",
+          "year": 2017,
+          "group": "excluded",
+          "verdict": "exclude",
+          "criterion_id": "C4",
+          "quote": "We meta-analyzed 118 effect sizes",
+          "basis": "snippet",
+          "category_id": "K1",
+          "status": {
+            "result": "unchecked",
+            "method": null,
+            "evidence_id": null
+          },
+          "votes": {
+            "A": "exclude",
+            "B": "exclude",
+            "C": "exclude"
+          },
+          "decided_by": "combiner",
+          "found_by": [
+            "Q1",
+            "Q2",
+            "Q3"
+          ]
+        }
+      ],
+      "coverage": {
+        "queries": [
+          {
+            "id": "Q1",
+            "total_matches": 9,
+            "returned": 9,
+            "truncated": false
+          },
+          {
+            "id": "Q2",
+            "total_matches": 6,
+            "returned": 6,
+            "truncated": false
+          },
+          {
+            "id": "Q3",
+            "total_matches": 8,
+            "returned": 8,
+            "truncated": false
+          }
+        ],
+        "seen": {
+          "full": 2,
+          "snippet": 8,
+          "title": 0
+        },
+        "chase": {
+          "references_of": [
+            "T001",
+            "T002",
+            "T003",
+            "T005"
+          ],
+          "citations_of": [
+            "T001",
+            "T002"
+          ],
+          "new_papers": [
+            "T004"
+          ]
+        },
+        "frequently_cited_not_included": [
+          {
+            "paper_id": "T008",
+            "cited_by_included": 4,
+            "verdict": "exclude",
+            "criterion_id": "C4"
+          }
+        ],
+        "status": {
+          "checked": [
+            "T001",
+            "T002",
+            "T003"
+          ],
+          "sweep_only": [
+            "T004",
+            "T005",
+            "T007"
+          ],
+          "flags": [
+            "T006"
+          ]
+        },
+        "expected_papers": [],
+        "left_undone": [
+          "per-paper status checks for T004, T005, T007"
+        ]
+      },
+      "allowed_actions": [
+        "approve",
+        "edit"
+      ],
+      "edit_ops": [
+        "move",
+        "expect_paper",
+        "set_scope"
+      ],
+      "budget": {
+        "cap": 40,
+        "used": 16,
+        "planned": 26
+      }
+    }
+  ],
+  "responses": [
+    {
+      "gate_id": "gplan-t1-r1",
+      "action": "approve",
+      "edits": [],
+      "note": "",
+      "responder": "sim",
+      "latency_s": null
+    },
+    {
+      "gate_id": "gpaper_set-t1-r1",
+      "action": "approve",
+      "edits": [],
+      "note": "",
+      "responder": "sim",
+      "latency_s": null
+    },
+    {
+      "gate_id": "gpaper_set-t1-r1",
+      "action": "edit",
+      "responder": "human",
+      "latency_s": 41.0,
+      "edits": [
+        {
+          "op": "move",
+          "target": "T005",
+          "value": {
+            "to": "exclude",
+            "criterion_id": "C2"
+          }
+        }
+      ],
+      "note": "Optional flashcard use isn't an assigned intervention."
+    }
+  ]
+}

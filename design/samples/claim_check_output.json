@@ -1,0 +1,20 @@
+{
+  "section_id": "S1",
+  "claims": [
+    {"id": "S1-c1",
+     "sentence": "Weekly quizzing raised cumulative final exam scores by 8.4 percentage points over re-reading [T001].",
+     "cited_ids": ["T001"],
+     "evidence": [{"paper_id": "T001", "pid": "T001#p2"}],
+     "check": {"verdict": "supported", "correct_id": null, "compared_with": ["T006"],
+               "rationale": "Matches T001#p2."},
+     "revision": 0, "outcome": "kept"},
+    {"id": "S1-c2",
+     "sentence": "Quizzed students scored 11.2 percentage points higher on the final exam than re-readers [T001].",
+     "cited_ids": ["T001"],
+     "evidence": [{"paper_id": "T001", "pid": "T001#p2"}],
+     "check": {"verdict": "misattributed", "correct_id": "T006", "compared_with": ["T006"],
+               "rationale": "11.2 is the interim preprint figure (T006#p1); T001 reports 8.4."},
+     "revision": 1, "outcome": "removed",
+     "note": "T006 is excluded, so the claim can't move to it; S1-c1 already states T001's own figure."}
+  ]
+}

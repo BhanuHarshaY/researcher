@@ -1,0 +1,22 @@
+{
+  "batch_id": "t1-b01",
+  "screener": "A",
+  "decisions": [
+    {"paper_id": "T002", "verdict": "include", "criterion_id": "C2",
+     "quote": "topics practiced with weekly low-stakes quizzes were retained better on a delayed test",
+     "basis": "snippet", "category_id": "K1",
+     "rationale": "Undergraduate physics; weekly quizzing vs review; delayed test scores."},
+    {"paper_id": "T009", "verdict": "exclude", "criterion_id": "C1",
+     "quote": "Seventh- and eighth-grade science students",
+     "basis": "snippet", "category_id": "K2",
+     "rationale": "Middle-school sample, not undergraduates."},
+    {"paper_id": "T008", "verdict": "exclude", "criterion_id": "C4",
+     "quote": "We meta-analyzed 118 effect sizes",
+     "basis": "snippet", "category_id": "K1",
+     "rationale": "Meta-analysis; on topic but excluded by design."},
+    {"paper_id": "T004", "verdict": "unsure", "criterion_id": null,
+     "quote": "The testing effect in undergraduate engineering statics",
+     "basis": "title", "category_id": "K1",
+     "rationale": "Title only; needs the record before a verdict."}
+  ]
+}

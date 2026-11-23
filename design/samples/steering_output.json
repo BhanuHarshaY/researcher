@@ -1,0 +1,18 @@
+{
+  "from_version": 1,
+  "to_version": 2,
+  "rescreen_set": ["T001", "T002", "T003", "T004", "T005", "T007"],
+  "rescreen_against": ["C6"],
+  "kept": ["T001", "T002", "T003", "T004"],
+  "dropped": [
+    {"paper_id": "T005", "criterion_id": "C6", "quote": "could optionally use an online flashcard tool", "basis": "snippet"}
+  ],
+  "unsure": [
+    {"paper_id": "T007", "criterion_id": "C6", "quote": "daily retrieval practice was associated with final exam scores", "basis": "snippet",
+     "rationale": "The snippet doesn't say whether practice was assigned; shown at the paper-set gate."}
+  ],
+  "added": [],
+  "carried": ["T006", "T008", "T009", "T010"],
+  "re_search": false,
+  "re_search_reason": "The change only narrows, and the user didn't ask for missed papers."
+}

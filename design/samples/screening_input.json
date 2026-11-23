@@ -1,0 +1,32 @@
+{
+  "batch_id": "t1-b01",
+  "screener": "A",
+  "criteria": {
+    "version": 1,
+    "criteria": [
+      {"id": "C1", "kind": "include", "field": "population", "text": "Undergraduate students in STEM courses", "checkable_at": "snippet"},
+      {"id": "C2", "kind": "include", "field": "intervention", "text": "Retrieval practice: low-stakes quizzing, practice testing or flashcard retrieval", "checkable_at": "snippet"},
+      {"id": "C3", "kind": "include", "field": "outcome", "text": "Reports exam or test performance", "checkable_at": "snippet"},
+      {"id": "C4", "kind": "exclude", "field": "design", "text": "Reviews and meta-analyses", "checkable_at": "snippet"},
+      {"id": "C5", "kind": "exclude", "field": "status", "text": "Retracted or withdrawn reports; a preprint whose journal version exists", "checkable_at": "full"}
+    ],
+    "categories": [
+      {"id": "K1", "label": "Undergraduate course study", "in_scope": true},
+      {"id": "K2", "label": "K-12 study", "in_scope": false},
+      {"id": "K3", "label": "Medical or graduate training", "in_scope": false}
+    ]
+  },
+  "candidates": [
+    {"id": "T002", "seen_level": "snippet", "year": 2020,
+     "title": "Low-stakes weekly quizzing and long-term retention in undergraduate physics",
+     "snippet": "In a crossover design across two sections of an algebra-based physics course (n = 236), topics practiced with weekly low-stakes quizzes were retained better on a delayed test given eight weeks later than topics practiced with worked-example review (61% vs. 52% correct). Immediate post-unit scores di"},
+    {"id": "T009", "seen_level": "snippet", "year": 2020,
+     "title": "Retrieval practice in middle school science classrooms",
+     "snippet": "Seventh- and eighth-grade science students (n = 540) completed clicker-based retrieval practice at the start of each lesson. Unit test scores were 7 percentage points higher for quizzed than for non-quizzed content."},
+    {"id": "T008", "seen_level": "snippet", "year": 2017,
+     "title": "The testing effect in college classrooms: a meta-analysis",
+     "snippet": "We meta-analyzed 118 effect sizes from classroom studies of retrieval practice in higher education. Retrieval practice produced a moderate overall benefit on course assessments (g = 0.47). Effects were larger when feedback was given and when the final test was delayed."},
+    {"id": "T004", "seen_level": "title", "year": 2018,
+     "title": "The testing effect in undergraduate engineering statics: a randomized classroom experiment"}
+  ]
+}

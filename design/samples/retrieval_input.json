@@ -1,0 +1,26 @@
+{
+  "turn": 1,
+  "criteria_version": 1,
+  "budget": {
+    "cap": 40, "used": 0, "reserve": 4,
+    "plan": {"search": 3, "chase": 6, "status": 5, "full_record": 8}
+  },
+  "approved_queries": [
+    {"id": "Q1", "text": "retrieval practice quizzing undergraduate exam", "year_from": null, "limit": 50, "purpose": "facet:intervention", "state": "approved"},
+    {"id": "Q2", "text": "testing effect college course randomized", "year_from": null, "limit": 50, "purpose": "facet:design", "state": "approved"},
+    {"id": "Q3", "text": "practice testing STEM final exam performance", "year_from": null, "limit": 50, "purpose": "facet:outcome", "state": "approved"}
+  ],
+  "chase": {
+    "max_seeds": 4,
+    "seed_rank": ["cited_by_included", "n_citations"],
+    "references": true,
+    "citations_for_top": 2,
+    "expected_paper_min_citers": 2
+  },
+  "status": {
+    "notice_sweep_queries": 1,
+    "notice_terms": ["retraction", "withdrawal", "expression of concern"],
+    "check_preprints": true,
+    "get_citations_for_included": "as_budget_allows"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "participant_id": "3",
+  "completed": true,
+  "completed_at": "2026-11-20T00:55:01+00:00",
+  "nasa_tlx": {
+    "mental_demand": 10,
+    "temporal_demand": 10,
+    "performance": 77,
+    "effort": null,
+    "frustration": null
+  },
+  "nasa_tlx_scale": "0-100; performance: 0 = perfect, 100 = failure; others: 0 = very low, 100 = very high",
+  "likert": [
+    {
+      "item": 1,
+      "construct": "controllability",
+      "statement": "I could steer which papers the agent included.",
+      "reverse_coded": false,
+      "response": null
+    },
+    {
+      "item": 2,
+      "construct": "controllability",
+      "statement": "I could change my criteria without losing the work already done.",
+      "reverse_coded": false,
+      "response": null
+    },
+    {
+      "item": 3,
+      "construct": "controllability",
+      "statement": "I understood why papers were included or left out.",
+      "reverse_coded": false,
+      "response": null
+    },
+    {
+      "item": 4,
+      "construct": "controllability",
+      "statement": "I could check where each claim in the report came from.",
+      "reverse_coded": false,
+      "response": null
+    },
+    {
+      "item": 5,
+      "construct": "trust",
+      "statement": "I trust the paper set the agent produced.",
+      "reverse_coded": false,
+      "response": null
+    },
+    {
+      "item": 6,
+      "construct": "over_reliance",
+      "statement": "I would cite this report's claims without checking them myself.",
+      "reverse_coded": true,
+      "response": null
+    },
+    {
+      "item": 7,
+      "construct": "trust",
+      "statement": "I would be comfortable defending this review to my advisor or a reviewer.",
+      "reverse_coded": false,
+      "response": null
+    },
+    {
+      "item": 8,
+      "construct": "engagement",
+      "statement": "I stayed actively involved in the review rather than just reading the output.",
+      "reverse_coded": false,
+      "response": null
+    }
+  ],
+  "likert_scale": "1 = strongly disagree, 4 = neutral, 7 = strongly agree",
+  "scores": {
+    "raw_tlx": 32.333,
+    "controllability": null,
+    "trust": null,
+    "over_reliance": null,
+    "item6_reversed": null,
+    "engagement": null
+  }
+}

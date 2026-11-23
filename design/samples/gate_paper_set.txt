@@ -1,0 +1,18 @@
+Approve the paper set for criteria v1: 6 included, 4 excluded
+On approve: I outline and write the review from the 6 included papers only.
+Included (6)
+ 1. [T001] Retrieval practice quizzes improve exam performance in introductory biology (2019) · full · status: no notice found
+ 2. [T002] Low-stakes weekly quizzing and long-term retention in undergraduate physics (2020) · snippet · status: no notice found
+ 3. [T003] Spaced retrieval practice in a large-enrollment general chemistry course (2021) · snippet · status: no notice found
+ 4. [T004] The testing effect in undergraduate engineering statics (2018) · full · found only in the references of T001, T002, T003 · status: sweep only
+ 5. [T005] Online flashcard retrieval practice and final exam scores in undergraduate statistics (2022) · snippet · status: sweep only
+ 6. [T007] Daily retrieval practice doubles exam scores in undergraduate calculus (2021) · snippet · status: sweep only
+Status flags (1)
+ 7. [T006] Retrieval practice quizzes and exam performance in introductory biology (2018, EdArXiv) · exclude · C5: journal version is [T001]
+Outside your scope (2)
+ 8. [T009] Retrieval practice in middle school science classrooms (2020) · K-12 study · C1 · snippet: "Seventh- and eighth-grade science students"
+ 9. [T010] Simulation-based retrieval practice for procedural skills in medical residents (2021) · medical training · C1 · snippet: "Internal medicine residents"
+Excluded by criterion
+10. C4 review or meta-analysis (1): [T008] The testing effect in college classrooms: a meta-analysis (2017)
+Coverage: 3 searches, none truncated; 10 papers seen (2 full records, 8 snippets); citations followed from 4 papers. Cited by 4 included papers but excluded: [T008] (C4). Status: 3 included papers checked one by one, 3 covered only by the notice sweep.
+Reply: approve, or edit (move a paper, name a paper you expected, change a category's scope).

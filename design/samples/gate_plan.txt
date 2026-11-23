@@ -1,0 +1,18 @@
+Approve the plan for turn 1: criteria v1 and 3 searches
+On approve: I run the searches, follow citations from the strongest matches, check status, and screen every result against v1.
+Criteria v1
+ 1. [C1] include · population: Undergraduate students in STEM courses
+ 2. [C2] include · intervention: Retrieval practice: low-stakes quizzing, practice testing or flashcard retrieval
+ 3. [C3] include · outcome: Reports exam or test performance
+ 4. [C4] exclude · design: Reviews and meta-analyses
+ 5. [C5] exclude · status: Retracted or withdrawn reports; a preprint whose journal version exists
+Categories
+ 6. [K1] Undergraduate course study · in scope
+ 7. [K2] K-12 study · out of scope
+ 8. [K3] Medical or graduate training · out of scope
+Searches
+ 9. [Q1] retrieval practice quizzing undergraduate exam · intervention · limit 50
+10. [Q2] testing effect college course randomized · design · limit 50
+11. [Q3] practice testing STEM final exam performance · outcome · limit 50
+Planned tool calls: 3 searches, 6 citation lists, 5 status checks, up to 8 full records, 4 in reserve (26 of 40).
+Reply: approve, or edit (change, add or remove a criterion, a category's scope or a search).

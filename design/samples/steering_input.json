@@ -1,0 +1,19 @@
+{
+  "from_version": 1,
+  "to_version": 2,
+  "diff": {
+    "added": [
+      {"id": "C6", "kind": "exclude", "field": "design", "text": "No assigned intervention (correlational or usage-log studies)", "checkable_at": "snippet"}
+    ],
+    "removed": [],
+    "changed": []
+  },
+  "user_asked_for_missed_papers": false,
+  "prior_included": ["T001", "T002", "T003", "T004", "T005", "T007"],
+  "prior_excluded": [
+    {"paper_id": "T006", "criterion_id": "C5"},
+    {"paper_id": "T008", "criterion_id": "C4"},
+    {"paper_id": "T009", "criterion_id": "C1"},
+    {"paper_id": "T010", "criterion_id": "C1"}
+  ]
+}
